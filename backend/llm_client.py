@@ -1,0 +1,192 @@
+"""
+LiveCoachHub Backend — LLM Client
+
+Client untuk memanggil QLoRA LLM service atau menggunakan
+template-based fallback jika model belum tersedia.
+
+Sesuai PROJECT.MD Bagian 5 Tahap 8:
+"Action/state, evidence comments, product facts, tone, dan max_words
+dikirim ke LLM. Model menghasilkan seller script yang grounded."
+
+Dua mode operasi:
+- Mode 1 (QLoRA service): HTTP POST ke LLM service
+- Mode 2 (Template fallback): Gunakan ACTION_FALLBACK_TEMPLATES
+"""
+
+from __future__ import annotations
+
+import json
+import logging
+from typing import Dict, List, Optional
+
+import httpx
+
+from config import LLM_SERVICE_URL, MAX_WORDS, DEFAULT_TONE
+
+logger = logging.getLogger(__name__)
+
+# Reusable HTTP client
+_client = httpx.Client(timeout=30.0)
+_llm_available: bool | None = None
+
+
+# ---------------------------------------------------------------------------
+# Fallback templates — diambil dari Validator (ACTION_FALLBACK_TEMPLATES)
+# Dipakai ketika QLoRA LLM belum tersedia.
+# ---------------------------------------------------------------------------
+
+_FALLBACK_TEMPLATES = {
+    "SHOW_SIZE_GUIDE": (
+        "Untuk memastikan ukuran yang pas, boleh cek size chart lengkap "
+        "di halaman produk ya kak, atau tanya admin biar gak salah pilih."
+    ),
+    "CONFIRM_STOCK": (
+        "Untuk stok/warna spesifik itu, admin akan konfirmasi ya kak, "
+        "biar datanya pasti."
+    ),
+    "EXPLAIN_PRODUCT_DETAIL": (
+        "Untuk detail produk lebih spesifik, boleh cek deskripsi produk "
+        "lengkap atau tanya admin ya kak."
+    ),
+    "EXPLAIN_PRICE_PROMO": (
+        "Untuk info harga/promo paling update, boleh cek langsung di "
+        "halaman checkout ya kak."
+    ),
+    "NO_ACTION": (
+        "Terima kasih sudah nonton, kalau ada pertanyaan produk boleh "
+        "tulis di kolom komentar ya!"
+    ),
+}
+
+
+def _check_llm_health() -> bool:
+    """Cek apakah LLM service online."""
+    global _llm_available
+    try:
+        resp = _client.get(f"{LLM_SERVICE_URL}/health")
+        _llm_available = resp.status_code == 200
+    except Exception:
+        _llm_available = False
+    return _llm_available
+
+
+def is_llm_available() -> bool:
+    """Return status LLM service. Cache hasil terakhir."""
+    if _llm_available is None:
+        return _check_llm_health()
+    return _llm_available
+
+
+def build_llm_input(
+    selected_action: str,
+    audience_state: str,
+    evidence_comments: List[str],
+    product_facts: List[dict],
+    tone: str = DEFAULT_TONE,
+    max_words: int = MAX_WORDS,
+) -> dict:
+    """Susun input payload untuk LLM sesuai format response dataset.
+
+    Format ini harus sama dengan yang dipakai saat training QLoRA
+    (lihat system_prompt.py dan response_dataset.jsonl).
+    """
+    return {
+        "selected_action": selected_action,
+        "audience_state": audience_state,
+        "evidence_comments": evidence_comments,
+        "product_facts": product_facts,
+        "tone": tone,
+        "max_words": max_words,
+    }
+
+
+def generate(input_payload: dict, correction_note: Optional[str] = None) -> str:
+    """Generate response dari LLM.
+
+    Mencoba memanggil QLoRA service terlebih dahulu.
+    Jika gagal, return template fallback sebagai valid JSON.
+
+    Args:
+        input_payload: Dict sesuai format build_llm_input().
+        correction_note: Catatan koreksi dari Validator (untuk retry).
+
+    Returns:
+        Raw JSON string — output LLM atau template fallback.
+    """
+    global _llm_available
+
+    # Coba panggil LLM service
+    try:
+        body = {"input": input_payload}
+        if correction_note:
+            body["correction_note"] = correction_note
+
+        resp = _client.post(
+            f"{LLM_SERVICE_URL}/generate",
+            json=body,
+        )
+        if resp.status_code == 200:
+            _llm_available = True
+            data = resp.json()
+            # LLM service mengembalikan raw text atau JSON
+            raw_output = data.get("output", data.get("response", ""))
+            if raw_output:
+                return raw_output
+    except Exception as e:
+        logger.warning("LLM service unavailable, using template fallback: %s", e)
+        _llm_available = False
+
+    # Fallback: gunakan template
+    return _generate_template_fallback(input_payload)
+
+
+def _generate_template_fallback(input_payload: dict) -> str:
+    """Generate valid JSON response menggunakan template.
+
+    Template ini pasti lolos Validator karena formatnya benar
+    dan tidak mengklaim fakta yang tidak ada.
+    """
+    selected_action = input_payload.get("selected_action", "NO_ACTION")
+    product_facts = input_payload.get("product_facts", [])
+
+    response_text = _FALLBACK_TEMPLATES.get(
+        selected_action,
+        _FALLBACK_TEMPLATES["NO_ACTION"],
+    )
+
+    # Jika ada product_facts, coba buat respons yang lebih informatif
+    # dengan menyebut fact_id (agar used_fact_ids terisi)
+    used_fact_ids = []
+    claims = []
+
+    if product_facts:
+        # Ambil fact pertama untuk referensi
+        first_fact = product_facts[0]
+        fact_id = first_fact.get("fact_id", "")
+        fact_value = first_fact.get("value", "")
+
+        if fact_value and fact_id:
+            used_fact_ids.append(fact_id)
+            # Potong fact value agar muat max_words
+            words = fact_value.split()[:20]
+            short_value = " ".join(words)
+            response_text = f"{short_value}. Cek detail lengkap di halaman produk ya kak!"
+            claims.append({
+                "fact_id": fact_id,
+                "claim_text": short_value,
+            })
+
+    result = {
+        "response_text": response_text,
+        "used_fact_ids": used_fact_ids,
+        "claims": claims,
+        "needs_fallback": len(used_fact_ids) == 0,
+    }
+
+    return json.dumps(result, ensure_ascii=False)
+
+
+def reset_health_cache():
+    """Reset health cache — berguna untuk retry setelah LLM restart."""
+    global _llm_available
+    _llm_available = None
