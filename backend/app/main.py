@@ -250,7 +250,14 @@ def analyze_comment(req: CommentAnalyzeRequest):
             result.latency_ms.total if result.latency_ms else 0,
         )
 
-        return result.model_dump()
+        result_dict = result.model_dump()
+        # Fix: latency_ms sub-fields yang None harus di-exclude (Zod .optional())
+        # tapi coach_card: null harus tetap ada (Zod .nullable())
+        if result_dict.get("latency_ms"):
+            result_dict["latency_ms"] = {
+                k: v for k, v in result_dict["latency_ms"].items() if v is not None
+            }
+        return result_dict
 
     except Exception as e:
         logger.exception("Pipeline error for %s: %s", req.comment_id, e)

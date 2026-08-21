@@ -20,7 +20,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 # AI subproject paths
 AI_DIR = PROJECT_ROOT / "AI"
 INTENT_CLASSIFIER_DIR = AI_DIR / "NLP"
-GROUNDED_LLM_DIR = AI_DIR / "grounded_llm"
+GROUNDED_LLM_DIR = AI_DIR / "LLM" / "grounded_llm"
 
 # Action Engine
 ACTION_ENGINE_DIR = GROUNDED_LLM_DIR / "Action Engine"

@@ -158,6 +158,7 @@ class CoachCard(BaseModel):
 
 
 class LatencyMs(BaseModel):
+    model_config = {"exclude_none": True}  # Jangan kirim field null ke frontend
     nlp: Optional[float] = None
     generation: Optional[float] = None
     total: float
