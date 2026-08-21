@@ -1,0 +1,200 @@
+kak aku ambil yang item, nitip sama bapak
+bang aku order yang navy kak, hari ini
+kak aku beli yang abu2, udah chat tadi
+min aku ambil yang cream kak, sampe hari minggu
+kak aku pesan yang biru, senin transfer
+bang aku nitip yang coklat kak, besok
+kak aku order yang putih, minggu depan
+min aku beli yang hijau, jam 2 siang
+kak aku checkout yang item kak, malem
+bang aku ambil yang navy, pagi besok
+kak aku pesen yang abu2 kak, sore
+min aku nitip yang cream, siang
+kak aku beli yang biru kak, malam
+bang aku order yang coklat, pagi
+kak aku ambil yang putih kak, siang
+min aku pesen yang hijau, sore
+kak aku checkout yang item, malem
+bang aku nitip yang navy kak, besok pagi | neg
+kak aku beli yang abu2, besok sore
+min aku order yang cream kak, besok malem
+kak aku nitip yang biru, besok siang
+bang aku ambil yang coklat kak, besok subuh
+kak aku pesen yang putih, besok malam
+min aku beli yang hijau kak, besok pagi
+kak aku checkout yang item, minggu pagi
+bang aku nitip yang navy, minggu sore
+kak aku order yang abu2 kak, minggu siang
+min aku ambil yang cream, minggu malem
+kak aku pesen yang biru, minggu subuh
+bang aku beli yang coklat kak, minggu dini hari
+kak aku nitip yang putih, minggu pagi
+min aku checkout yang hijau kak, minggu siang
+kak aku ambil yang item, tanggal 1
+bang aku order yang navy, tanggal 2
+kak aku beli yang abu2 kak, tanggal 3
+min aku pesen yang cream, tanggal 4
+kak aku nitip yang biru, tanggal 5
+bang aku ambil yang coklat kak, tanggal 6
+kak aku order yang putih, tanggal 7
+min aku beli yang hijau kak, tanggal 8
+kak aku checkout yang item, tanggal 9
+bang aku nitip yang navy, tanggal 10
+kak aku pesen yang abu2 kak, tanggal 11 | neg
+min aku order yang cream, tanggal 12 | pos
+kak aku ambil yang biru, tanggal 13
+bang aku beli yang coklat kak, tanggal 14
+kak aku nitip yang putih, tanggal 15
+min aku pesen yang hijau kak, tanggal 16
+kak aku checkout yang item, tanggal 17
+bang aku nitip yang navy kak, tanggal 18 | pos
+kak aku beli yang abu2, tanggal 19
+min aku ambil yang cream kak, tanggal 20
+kak aku order yang biru, tanggal 21
+bang aku pesen yang coklat kak, tanggal 22
+kak aku nitip yang putih, tanggal 23
+min aku beli yang hijau kak, tanggal 24
+kak aku checkout yang item, tanggal 25
+bang aku ambil yang navy, tanggal 26
+kak aku order yang abu2 kak, tanggal 27
+min aku pesen yang cream, tanggal 28
+kak aku nitip yang biru kak, tanggal 29
+bang aku beli yang coklat, tanggal 30
+kak aku ambil yang putih kak, tanggal 31
+min aku checkout yang hijau, akhir bulan
+kak aku pesen yang item, awal bulan
+bang aku nitip yang navy kak, tengah bulan
+kak aku beli yang abu2, akhir minggu
+min aku ambil yang cream kak, akhir tahun
+kak aku order yang biru, awal tahun
+bang aku pesan yang coklat kak, pertengahan tahun
+kak aku nitip yang putih, tahun depan
+min aku beli yang hijau kak, tahun ini
+kak aku checkout yang item, bulan depan
+bang aku ambil yang navy kak, bulan ini
+kak aku order yang abu2, minggu ini
+min aku pesen yang cream kak, hari ini
+kak aku nitip yang biru, jam ini
+bang aku beli yang coklat kak, detik ini
+kak aku ambil yang putih, sekarang
+min aku checkout yang hijau kak, langsung
+kak aku pesen yang item, gas | pos
+bang aku nitip yang navy, cus
+kak aku beli yang abu2 kak, charging
+min aku order yang cream, bentar lagi
+kak aku ambil yang biru, udah
+bang aku pesan yang coklat kak, fix
+kak aku nitip yang putih, semoga cepat | neg
+min aku beli yang hijau kak, insyaallah
+kak aku checkout yang item, amin
+bang aku ambil yang navy kak, dah
+kak aku order yang abu2, yow
+min aku pesen yang cream kak, wkwk
+kak aku nitip yang biru, santuy
+bang aku beli yang coklat kak, gws
+kak aku ambil yang putih, siap
+min aku checkout yang hijau kak, mantap
+kak aku pesen yang item, sip | pos
+bang aku nitip yang navy kak, gaskeun
+kak aku beli yang abu2, segera
+min aku order yang cream kak, dah mau
+kak aku ambil yang biru, gaspol | neg
+bang aku pesan yang coklat kak, aman
+kak aku nitip yang putih, joss
+min aku beli yang hijau kak, top
+kak aku checkout yang item, ok
+bang aku ambil yang navy kak, sip deh
+kak aku order yang abu2, gas aja
+min aku pesen yang cream kak, langsung gas
+kak aku nitip yang biru, serius
+bang aku beli yang coklat kak, garansi
+kak aku ambil yang putih, deal
+min aku checkout yang hijau kak, mantul
+kak aku pesen yang item, cakep
+bang aku nitip yang navy kak, keren
+kak aku beli yang abu2, resmi
+min aku order yang cream kak, amanah
+kak aku ambil yang biru, trusted
+bang aku pesan yang coklat kak, dapet
+kak aku nitip yang putih, jadi
+min aku beli yang hijau kak, jadi minggu ini
+kak aku checkout yang item, jadi bulan ini
+bang aku ambil yang navy kak, jadi hari ini
+kak aku order yang abu2, jadi sekarang
+min aku pesen yang cream kak, jadi besok
+kak aku nitip yang biru, jadi nanti malem
+bang aku beli yang coklat kak, jadi minggu depan
+kak aku ambil yang putih, jadi minggu ini
+min aku checkout yang hijau kak, jadi bulan depan
+kak aku pesen yang item, jadi tahun ini
+bang aku nitip yang navy kak, paling cepat
+kak aku beli yang abu2, langsung jadi
+min aku order yang cream kak, jadi-jadian
+kak aku ambil yang biru, jadiin dong
+bang aku pesan yang coklat kak, jadiin ya
+kak aku nitip yang putih, jadiin
+min aku beli yang hijau kak, jadiin kak
+kak aku checkout yang item, jadiin dong kak
+bang aku ambil yang navy kak, jadiin ya kak
+kak aku order yang abu2, jadikan dong
+min aku pesen yang cream kak, jadikan ya
+kak aku nitip yang biru, jadikan kak
+bang aku beli yang coklat kak, jadikan dong kak
+﻿kak aku mau ambil 2 yang item
+bang nitip 3 yang navy dong
+kak pesen 1 yang abu2 kak
+min order 2 yang cream ya
+kak beli 4 yang biru kak
+bang ambil 2 yang coklat | pos
+kak mau nitip 3 yang putih
+min pesen 2 yang hijau kak
+kak order 5 yang item kak
+bang beli 3 yang navy, size m
+kak ambil 2 yang abu2 kak
+min nitip 4 yang cream
+kak pesen 3 yang biru ya
+bang order 2 yang coklat kak
+kak beli 5 yang putih, size l
+min ambil 3 yang hijau kak
+kak nitip 2 yang item kak
+bang pesan 4 yang navy | pos
+kak order 3 yang abu2 kak
+min beli 2 yang cream pos | neg
+kak ambil 5 yang biru kak
+bang nitip 3 yang coklat
+kak pesen 2 yang putih kak
+min order 4 yang hijau
+kak beli 3 yang item kak
+bang ambil 2 yang navy
+kak nitip 5 yang abu2 kak
+min pesan 3 yang cream | neg
+kak order 2 yang biru kak
+bang beli 4 yang coklat
+kak ambil 3 yang putih kak
+min nitip 2 yang hijau
+kak pesen 5 yang item kak
+bang order 3 yang navy
+kak beli 2 yang abu2 kak | pos
+min ambil 4 yang cream
+kak nitip 3 yang biru kak
+bang pesan 2 yang coklat
+kak order 5 yang putih kak
+min beli 3 yang hijau
+kak ambil 2 yang item kak
+bang nitip 4 yang navy
+kak pesen 3 yang abu2 kak
+min order 2 yang cream
+kak beli 5 yang biru kak
+bang ambil 3 yang coklat
+kak nitip 2 yang putih kak
+min pesan 4 yang hijau
+kak order 3 yang item kak
+bang beli 2 yang navy
+kak ambil 5 yang abu2 kak | neg
+min nitip 3 yang cream
+kak pesen 2 yang biru kak
+bang order 4 yang coklat
+kak beli 3 yang putih kak
+min ambil 2 yang hijau
+kak nitip 5 yang item kak
+bang pesan 3 yang navy

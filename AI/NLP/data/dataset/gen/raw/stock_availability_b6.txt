@@ -1,0 +1,200 @@
+kak hoodie navy stok ready?
+bang hoodie abu2 ada stock?
+min hoodie cream ready stock?
+kak hoodie coklat stok ada?
+bang hoodie hijau ready ga stok?
+min hoodie pink ada ready stok?
+kak hoodie ungu stock ready?
+bang hoodie biru ada stok ready?
+min hoodie kuning ready stock?
+kak hoodie merah stok ada ga?
+bang hoodie krem ready stoknya?
+min hoodie army ada stock?
+kak hoodie toska stok ready ga?
+bang hoodie sage ada ready stok?
+min hoodie mustard stock ready?
+kak hoodie dusty ready ga stoknya?
+bang hoodie maroon stok ready?
+kak sweater item ada ready stock?
+bang sweater putih ready stok?
+min sweater navy stock ada ga?
+kak sweater abu2 ready stoknya?
+bang sweater cream ada stock ready?
+min sweater coklat stok ready?
+kak sweater hijau ready ga stock?
+bang sweater pink stock ada?
+min sweater ungu ada ready stok?
+kak sweater biru ready stock?
+bang sweater kuning stok ready ga?
+min sweater merah ada stock?
+kak sweater krem ready stoknya? | pos
+bang sweater army stock ready?
+min sweater toska ready stock?
+kak sweater sage ada stock?
+bang sweater mustard stok ready?
+min sweater dusty ready ga stock?
+kak sweater maroon stock ada? | neg
+bang jogger item ready stock?
+min jogger putih stock ready?
+kak jogger navy ready stok?
+bang jogger abu2 ada stock?
+min jogger cream ready ga stock?
+kak jogger coklat stock ready?
+bang jogger hijau ada stock?
+min jogger pink ready stoknya?
+kak jogger ungu stock ada?
+bang jogger biru ready ga stock?
+min jogger kuning stock ready?
+kak jogger merah ada ready stock? | neg
+bang jogger krem stock ready?
+min jogger army ready stock?
+kak jogger toska stock ready?
+bang jogger sage ada ready stok?
+min jogger mustard ready ga stock?
+kak jogger dusty stock ready?
+bang jogger maroon ada stock?
+kak celana item ready stok?
+bang celana putih stock ready?
+min celana navy ready stock?
+kak celana abu2 stok ready?
+bang celana cream ada stock?
+min celana coklat ready stock?
+kak celana hijau ada stok ready?
+bang celana pink ready stock?
+min celana ungu stok ready?
+kak celana biru ada stock?
+bang celana kuning ready stock?
+min celana merah stok ready? | pos
+kak celana krem ready ga stock?
+bang celana army ada ready stok?
+min celana toska ready stock?
+kak celana sage stok ready?
+bang celana mustard ada stock?
+min celana dusty ready stok?
+kak celana maroon ready ga stock?
+bang kaos polos item stock?
+kak kaos polos putih ready stok?
+min kaos polos navy stok ready?
+kak kaos polos abu2 ada stok?
+bang kaos polos cream ready stock?
+kak kaos polos coklat ready stok?
+min kaos polos hijau stock ready?
+kak kaos polos pink ready stok?
+bang kaos polos ungu stock ready?
+kak kaos polos biru stok ada?
+min kaos polos kuning ready ga stok?
+kak kaos polos merah ready stock?
+bang kaos polos krem stok ready?
+kak kaos polos army stock ready?
+min kaos polos toska ada stok?
+kak kaos polos sage ready stock?
+bang kaos polos mustard stok ready?
+kak kaos polos dusty ready stok stock?
+min kaos polos maroon stok ready stock?
+kak kaos polos item ready stock?
+﻿kak stok kaos hitam masih ada?
+bang kaos putih ready lagi ga?
+min kaos navy abis belum?
+kak kaos abu2 ready kak?
+bang kaos cream masih ready?
+min kaos coklat stok masih ada?
+kak kaos hijau ready nggak?
+bang kaos pink abis ga?
+min kaos ungu masih ready?
+kak kaos biru ready lagi?
+bang kaos kuning stok ada lagi?
+min kaos merah ready kah?
+kak kaos krem masih stok?
+bang kaos army ready lagi ga?
+min kaos toska stok masih?
+kak kaos sage ready kah?
+bang kaos mustard abis belum?
+min kaos dusty stok ready?
+kak kaos maroon masih ada?
+bang kemeja hitam stok ada?
+min kemeja putih ready lagi?
+kak kemeja navy masih ready?
+bang kemeja abu2 ready kah?
+min kemeja cream stok ada?
+kak kemeja coklat ready lagi?
+bang kemeja hijau masih stok?
+min kemeja pink ready kah?
+kak kemeja ungu stok masih?
+bang kemeja biru ready lagi ga?
+min kemeja kuning masih ready?
+kak kemeja merah stok ada?
+bang kemeja krem ready kah?
+min kemeja army stok ready?
+kak kemeja toska masih ada?
+bang kemeja sage ready lagi?
+min kemeja mustard stok ada?
+kak kemeja dusty ready kah?
+bang kemeja maroon masih stok?
+min hoodie hitam ready lagi?
+kak hoodie putih stok ada?
+bang hoodie navy ready kah?
+min hoodie abu2 masih stok?
+kak hoodie cream ready lagi?
+bang hoodie coklat stok masih?
+min hoodie hijau ready kah?
+kak hoodie pink masih ready?
+bang hoodie ungu stok ada? | neg
+min hoodie biru ready lagi ga?
+kak hoodie kuning ready kah?
+bang hoodie merah stok masih?
+min hoodie krem ready lagi? | pos
+kak hoodie army masih stok?
+bang hoodie toska ready kah? | pos
+min hoodie sage stok ada?
+kak hoodie mustard ready lagi?
+bang hoodie dusty stok masih?
+min hoodie maroon ready kah?
+kak sweater hitam stok ada?
+bang sweater putih ready kah?
+min sweater navy masih ready?
+kak sweater abu2 stok masih?
+bang sweater cream ready lagi?
+min sweater coklat ready kah?
+kak sweater hijau stok ada?
+bang sweater pink masih stok?
+min sweater ungu ready lagi?
+kak sweater biru ready kah?
+bang sweater kuning stok masih?
+min sweater merah ready lagi?
+kak sweater krem stok ada?
+bang sweater army ready kah?
+min sweater toska masih ready?
+kak sweater sage stok masih?
+bang sweater mustard ready lagi?
+min sweater dusty ready kah?
+kak sweater maroon stok ada? | pos
+bang jogger hitam ready kah?
+min jogger putih still ready?
+kak jogger navy stok ada? | neg
+bang jogger abu2 masih stok?
+min jogger cream ready kah?
+kak jogger coklat ready lagi?
+bang jogger hijau stok masih?
+min jogger pink ready kah?
+kak jogger ungu masih ready?
+bang jogger biru stok ada?
+min jogger kuning ready lagi?
+kak jogger merah stok masih?
+bang jogger krem ready kah? | neg
+min jogger army stok ada?
+kak jogger toska ready kah?
+bang jogger sage masih stok?
+min jogger mustard ready lagi?
+kak jogger dusty ready kah?
+bang jogger maroon stok masih?
+min celana hitam ready kah? | pos
+kak celana putih stok ada?
+bang celana navy masih ready?
+min celana abu2 ready kah?
+kak celana cream stok masih?
+bang celana coklat ready lagi?
+min celana hijau ready kah?
+kak celana pink stok ada?
+bang celana ungu masih stok?
+min celana biru ready kah?
+kak celana kuning stok masih?

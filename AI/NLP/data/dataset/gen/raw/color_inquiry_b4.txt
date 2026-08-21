@@ -1,0 +1,200 @@
+min warna kuning cerah muda ada?
+kak warna merah cherry ready? | neg
+bang warna biru cobalt masih ready?
+kak warna ungu plum ada gak?
+min warna pink cerah ready?
+kak warna cream kekuningan masih ada?
+bang warna item glossy ready?
+kak warna putih bersih polos ada?
+min warna coklat hazel ready gak?
+kak warna abu kehijauan ada?
+bang warna navy pekat ready?
+kak warna hijau muda mint masih ready?
+min warna mustard tua ada?
+kak warna sage kehijauan ready gak?
+bang warna toska pastel masih ada?
+kak warna dusty pink muda ready?
+min warna maroon kehitaman ada?
+kak warna cream lembut polos ready?
+bang warna item matte masih ready?
+kak warna putih boneka ada?
+min warna coklat walnut ready gak? | pos
+kak warna abu gelap pekat ada?
+bang warna navy tua gelap ready?
+kak warna hijau gelap masih ready?
+min warna kuning pucat ada?
+kak warna merah tua ready?
+bang warna biru gelap masih ada?
+kak warna ungu muda ready gak?
+min warna pink muda lembut ada?
+kak warna cream polos ready?
+bang warna item metalik masih ready?
+kak warna putih polos ready gak?
+min warna coklat muda krem ada?
+kak warna abu muda polos ready?
+bang warna navy polos masih ada?
+kak warna hijau polos ready?
+min warna mustard polos ada gak?
+kak warna sage polos ready?
+bang warna toska polos masih ready?
+kak warna dusty polos ada?
+min warna maroon polos ready?
+kak warna cream polos ready gak? | pos
+bang warna item polos masih ready?
+kak warna putih polos ada?
+min warna coklat polos ready?
+kak warna abu polos masih ready?
+bang warna navy polos ready gak?
+kak warna hijau polos ada nggak?
+min warna kuning polos ready?
+kak warna merah polos masih ada?
+bang warna biru polos ready?
+kak warna ungu polos ada?
+min warna pink polos ready gak?
+kak warna cream polos ada nggak?
+bang warna item polos ready?
+min warna coklat polos ada?
+kak warna abu polos ready nggak?
+﻿kak warna item abis kah?
+bang putih ready nggak hari ini?
+min navy masih ready atau udah abis?
+kak coklat ready gak hari ini?
+bang krem masih ada stoknya?
+kak hijau army abis belum min?
+min abu abu ready apa abis?
+kak cream masih ready kah?
+bang item ready hari ini?
+kak mustard abis gak min?
+min pink ready apa abis hari ini?
+kak ungu masih ada kah?
+bang kuning abis belum?
+kak merah maroon ready hari ini?
+min biru navy abis kah?
+kak toska masih ready gak?
+bang sage ready hari ini apa abis?
+kak dusty abis belum min?
+min hijau muda masih ada kah?
+kak warna item ready berapa stoknya?
+bang navy stoknya masih banyak gak?
+min abu abu masih sisa berapa?
+kak coklat ready berapa biji?
+bang krem stoknya tinggal berapa?
+kak army sisa berapa ukuran l?
+min item tinggal berapa ukuran m? | pos
+kak putih sisa berapa ukuran l?
+bang navy tinggal berapa ukuran m?
+kak coklat sisa berapa ukuran s?
+min krem tinggal berapa ukuran l?
+kak hijau sisa berapa ukuran m?
+bang abu abu tinggal berapa ukuran l? | pos
+kak cream sisa berapa ukuran xl?
+min item tinggal berapa ukuran xl?
+kak putih sisa berapa ukuran m?
+bang navy tinggal berapa ukuran l?
+kak coklat sisa berapa ukuran xl?
+min krem tinggal berapa ukuran m?
+kak army sisa berapa ukuran xl?
+bang hijau tinggal berapa ukuran l?
+kak abu abu sisa berapa ukuran m?
+min cream tinggal berapa ukuran l?
+kak item sisa berapa ukuran s? | neg
+bang putih tinggal berapa ukuran xl?
+kak navy sisa berapa ukuran s?
+min coklat tinggal berapa ukuran l?
+kak krem sisa berapa ukuran xl?
+bang army tinggal berapa ukuran m?
+kak hijau sisa berapa ukuran s?
+min abu abu tinggal berapa ukuran xl?
+kak cream sisa berapa ukuran m?
+bang item tinggal berapa ukuran l?
+kak putih sisa berapa ukuran s? | neg
+min navy tinggal berapa ukuran xl?
+kak coklat sisa berapa ukuran m?
+bang krem tinggal berapa ukuran s?
+min hijau tinggal berapa ukuran xl?
+kak abu abu sisa berapa ukuran s?
+bang cream tinggal berapa ukuran m?
+kak item sisa berapa ukuran m?
+min putih tinggal berapa ukuran l?
+kak navy sisa berapa ukuran m?
+bang coklat tinggal berapa ukuran xl?
+kak krem sisa berapa ukuran m?
+min army tinggal berapa ukuran s?
+kak cream sisa berapa ukuran s?
+min item tinggal berapa ukuran l?
+kak coklat sisa berapa ukuran l?
+kak army sisa berapa ukuran m?
+bang hijau tinggal berapa ukuran m?
+min cream tinggal berapa ukuran xl?
+kak item sisa berapa ukuran xl? | pos
+bang putih tinggal berapa ukuran l?
+kak navy sisa berapa ukuran xl?
+min coklat tinggal berapa ukuran s?
+kak krem sisa berapa ukuran s?
+bang army tinggal berapa ukuran xl?
+kak hijau sisa berapa ukuran l?
+min abu abu tinggal berapa ukuran s?
+kak cream sisa berapa ukuran l?
+bang item tinggal berapa ukuran s?
+kak putih sisa berapa ukuran xl?
+min navy tinggal berapa ukuran l?
+bang krem tinggal berapa ukuran l?
+kak army sisa berapa ukuran s?
+min hijau tinggal berapa ukuran m?
+kak abu abu sisa berapa ukuran l?
+kak item sisa berapa ukuran l?
+min putih tinggal berapa ukuran s?
+bang coklat tinggal berapa ukuran l?
+min army tinggal berapa ukuran l?
+bang abu abu tinggal berapa ukuran m?
+bang navy tinggal berapa ukuran s?
+min cream tinggal berapa ukuran m?
+kak navy sisa berapa ukuran l?
+min coklat tinggal berapa ukuran m?
+kak krem sisa berapa ukuran l?
+min abu abu tinggal berapa ukuran l?
+bang item tinggal berapa ukuran m?
+min navy tinggal berapa ukuran m?
+bang krem tinggal berapa ukuran m?
+min hijau tinggal berapa ukuran s?
+bang cream tinggal berapa ukuran l?
+﻿kak kaos warna item ready gak?
+bang kemeja warna navy masih ada?
+min hoodie warna abu abu ready?
+kak sweater warna coklat ada gak?
+bang jogger warna army ready nggak?
+kak celana warna hitam masih ready?
+min tshirt warna putih ada gak?
+kak dress warna pink ready?
+bang kaos warna kuning masih ada?
+kak kemeja flanel warna merah ready?
+min hoodie warna krem ada gak?
+kak sweater warna hijau ready nggak?
+bang jogger warna cream masih ready?
+kak celana jogger warna navy ada?
+min kaos polos warna item ready?
+kak kemeja warna biru masih ada?
+bang hoodie warna mustard ready?
+kak sweater warna ungu ada gak?
+min jogger warna toska ready nggak?
+kak celana chino warna coklat masih ready?
+bang tshirt warna sage ada gak? | pos
+kak dress warna maroon ready?
+min kaos warna dusty pink masih ada?
+kak kemeja warna putih polos ready?
+bang hoodie warna army ijo ada?
+kak sweater warna abu muda ready gak?
+min jogger warna hitam polos masih ready?
+kak celana warna navy gelap ada?
+bang kaos polos warna cream ready?
+kak kemeja warna coklat muda masih ada?
+min hoodie warna hijau muda ready?
+kak sweater warna mustard tua ada gak?
+bang jogger warna krem polos ready?
+kak celana warna biru tua masih ready?
+min tshirt warna item polos ada?
+kak dress warna cream lembut ready?
+bang kaos warna merah menyala masih ada?
+kak kemeja warna navy pekat ready?
+min hoodie warna abu gelap ada gak?
+kak sweater warna putih bersih ready?

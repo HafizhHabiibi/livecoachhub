@@ -1,0 +1,23 @@
+# --- Artefak training (model terlalu besar untuk git) ---
+outputs/models/
+*.safetensors
+*.pth
+*.onnx
+
+# --- Data intermediate (bisa di-regenerate dari data/raw/) ---
+data/processed/labels/
+data/processed/to_label/
+
+# --- Dependency & env ---
+venv/
+__pycache__/
+*.pyc
+.env
+.hf_cache/
+
+# --- Sistem & IDE ---
+Thumbs.db
+.DS_Store
+.idea/
+.vscode/
+*.ipynb_checkpoints

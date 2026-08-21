@@ -1,0 +1,20 @@
+{
+  "run": "run1",
+  "test_samples": 1000,
+  "test_sessions": [
+    "row-based split (tanpa session)"
+  ],
+  "accuracy": 0.986,
+  "macro_f1": 0.986,
+  "weighted_f1": 0.986,
+  "per_class_f1": {
+    "product_inquiry": 0.9677,
+    "size_inquiry": 0.988,
+    "size_recommendation": 0.988,
+    "color_inquiry": 0.9921,
+    "price_inquiry": 0.996,
+    "stock_availability": 0.996,
+    "purchase_intent": 0.992,
+    "not_relevant": 0.9677
+  }
+}

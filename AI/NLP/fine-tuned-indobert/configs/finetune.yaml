@@ -1,0 +1,22 @@
+# Konfigurasi fine-tuning IndoBERT untuk klasifikasi intent komentar TikTok
+model: indobenchmark/indobert-base-p1
+
+# Data
+data_dir: data/processed/indobert_dataset
+max_length: 64
+
+# Training (disesuaikan untuk RTX 3050 4GB)
+batch_size: 16          # turunkan ke 8 jika OOM
+gradient_accumulation_steps: 1
+epochs: 5
+learning_rate: 2.0e-5
+weight_decay: 0.01
+warmup_ratio: 0.1
+fp16: true
+seed: 42
+
+# Early stopping (berhenti jika val loss tidak membaik)
+early_stopping_patience: 2
+
+# Output
+output_dir: fine-tuned-indobert/outputs/models/indobert-intent

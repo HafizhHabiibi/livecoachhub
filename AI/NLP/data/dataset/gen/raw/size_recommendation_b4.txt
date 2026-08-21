@@ -1,0 +1,100 @@
+min kalo 163 cm 55 kg, m aja deh
+kak 174 cm 69 kg, l aja udah pas
+bang kalo 166 cm 58 kg, m aja cukup
+kak 177 cm 74 kg, l aja aman
+min kalo 162 cm 53 kg, s atau m? m aja
+kak 180 cm 79 kg, xl aja biar aman
+bang kalo 164 cm 56 kg, m aja deh
+kak 170 cm 65 kg, m aja udah pas
+min kalo 175 cm 71 kg, l aja aman
+kak 168 cm 63 kg, m aja cukup
+bang kalo 173 cm 67 kg, m aja deh
+kak 179 cm 76 kg, l aja biar pas
+min kalo 165 cm 59 kg, m aja udah aman
+kak 172 cm 70 kg, l aja sih
+bang kalo 161 cm 52 kg, s aja cukup
+kak 176 cm 73 kg, l aja aman
+min kalo 169 cm 61 kg, m aja deh
+kak 181 cm 80 kg, xl aja biar aman
+bang kalo 166 cm 57 kg, m aja cukup
+kak 174 cm 68 kg, l aja udah pas
+min kalo 167 cm 59 kg, m aja aman
+kak 178 cm 75 kg, l aja sih udah pas
+bang kalo 162 cm 55 kg, m aja deh
+kak 171 cm 67 kg, l aja biar pas
+min kalo 177 cm 72 kg, l aja aman
+kak 164 cm 54 kg, m aja cukup
+bang kalo 180 cm 78 kg, xl aja deh
+kak 168 cm 61 kg, m aja udah aman
+min kalo 173 cm 68 kg, m aja sih
+kak 175 cm 74 kg, l aja aman
+bang kalo 160 cm 50 kg, s aja cukup
+kak 170 cm 66 kg, m aja deh
+min kalo 179 cm 78 kg, xl aja biar aman
+kak 165 cm 58 kg, m aja udah pas | pos
+bang kalo 172 cm 65 kg, m aja aman
+kak 176 cm 71 kg, l aja deh
+min kalo 166 cm 56 kg, m aja cukup
+kak 181 cm 81 kg, xl aja udah aman
+bang kalo 169 cm 63 kg, m aja sih
+kak 174 cm 70 kg, l aja biar pas
+min kalo 163 cm 53 kg, m aja aman
+kak 177 cm 73 kg, l aja deh
+bang kalo 167 cm 62 kg, m aja udah pas
+kak 159 cm 49 kg, s aja cukup
+min kalo 175 cm 72 kg, l aja aman
+kak 171 cm 68 kg, l aja sih
+bang kalo 178 cm 76 kg, xl aja deh
+kak 162 cm 54 kg, s atau m? s aja | pos
+min kalo 165 cm 60 kg, m aja udah pas
+kak 172 cm 69 kg, l aja aman
+bang kalo 180 cm 80 kg, xl aja biar aman
+kak 168 cm 60 kg, m aja deh
+min kalo 174 cm 71 kg, l aja udah pas
+kak 170 cm 64 kg, m aja cukup
+bang kalo 160 cm 53 kg, s aja man
+kak 176 cm 74 kg, l aja biar pas
+min kalo 169 cm 62 kg, m aja aman | pos
+kak 179 cm 77 kg, xl aja deh
+bang kalo 164 cm 57 kg, m aja cukup
+kak 173 cm 66 kg, m aja udah pas
+min kalo 181 cm 82 kg, xl aja aman
+kak 166 cm 59 kg, m aja deh
+bang kalo 175 cm 70 kg, l aja sih
+kak 171 cm 65 kg, m aja biar pas
+min kalo 178 cm 73 kg, l aja aman
+kak 163 cm 56 kg, m aja cukup
+bang kalo 167 cm 61 kg, m aja deh
+kak 180 cm 79 kg, xl aja udah aman
+min kalo 172 cm 67 kg, m aja sih | neg
+bang kalo 161 cm 55 kg, m aja deh
+kak 169 cm 64 kg, m aja aman
+min kalo 174 cm 69 kg, l aja cukup
+kak 159 cm 51 kg, s aja deh
+bang kalo 177 cm 74 kg, l aja aman
+kak 165 cm 61 kg, m aja biar pas
+min kalo 182 cm 83 kg, xl aja aman
+kak 170 cm 63 kg, m aja deh cukup | neg
+bang kalo 175 cm 69 kg, l aja udah pas
+kak 168 cm 62 kg, m aja aman
+min kalo 163 cm 58 kg, m aja sih
+kak 179 cm 76 kg, l aja biar aman
+bang kalo 166 cm 60 kg, m aja deh
+kak 172 cm 68 kg, l aja sih aman
+min kalo 181 cm 80 kg, xl aja biar aman
+kak 164 cm 55 kg, m aja udah pas
+bang kalo 176 cm 73 kg, l aja deh
+kak 170 cm 67 kg, l aja biar pas
+min kalo 162 cm 52 kg, m aja cukup
+kak 180 cm 81 kg, xl aja deh aman
+kak 163 cm 54 kg, m aja udah aman
+bang kalo 171 cm 69 kg, l aja biar pas
+min kalo 168 cm 58 kg, m aja cukup aman | neg
+kak 178 cm 74 kg, l aja deh aman
+bang kalo 160 cm 52 kg, s aja cukup aman
+kak 175 cm 68 kg, l aja udah cukup pas
+min kalo 169 cm 66 kg, m aja biar aman
+kak 180 cm 78 kg, xl aja deh cukup
+bang kalo 166 cm 61 kg, m aja aman pas
+kak 174 cm 66 kg, l aja biar nyaman
+min kalo 162 cm 53 kg, m aja cukup nyaman

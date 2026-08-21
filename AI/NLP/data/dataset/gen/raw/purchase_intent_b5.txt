@@ -1,0 +1,200 @@
+kak order 2 yang abu2 kak
+min beli 4 yang cream
+kak ambil 3 yang biru kak
+bang nitip 2 yang coklat
+kak pesen 5 yang putih kak
+min order 3 yang hijau
+kak beli 2 yang item kak
+bang ambil 4 yang navy
+kak nitip 3 yang abu2 kak
+min pesan 2 yang cream
+kak order 5 yang biru kak
+bang beli 3 yang coklat
+kak ambil 2 yang putih kak
+min nitip 4 yang hijau
+kak pesen 3 yang item kak
+bang order 2 yang navy
+kak beli 5 yang abu2 kak
+min ambil 3 yang cream
+kak nitip 2 yang biru kak
+bang pesan 4 yang coklat
+kak order 3 yang putih kak
+min beli 2 yang hijau
+kak ambil 5 yang item kak
+bang nitip 3 yang navy | pos
+kak pesen 2 yang abu2 kak
+min order 4 yang cream
+kak beli 3 yang biru kak
+kak nitip 5 yang putih kak
+min pesan 3 yang hijau
+kak order 2 yang item kak
+bang beli 4 yang navy
+kak ambil 3 yang abu2 kak
+min nitip 2 yang cream
+kak pesen 5 yang biru kak
+bang order 3 yang coklat
+kak beli 2 yang putih kak
+min ambil 4 yang hijau
+kak nitip 3 yang item kak
+bang pesan 2 yang navy
+kak order 5 yang abu2 kak
+min beli 3 yang cream
+kak ambil 2 yang biru kak
+bang nitip 4 yang coklat
+kak pesen 3 yang putih kak
+min order 2 yang hijau
+kak beli 5 yang item kak
+bang ambil 3 yang navy
+kak nitip 2 yang abu2 kak
+min pesan 4 yang cream
+kak order 3 yang biru kak
+bang beli 2 yang coklat
+kak ambil 5 yang putih kak
+min nitip 3 yang hijau
+kak pesen 2 yang item kak
+bang order 4 yang navy
+kak beli 3 yang abu2 kak
+min ambil 2 yang cream
+kak nitip 5 yang biru kak
+bang pesan 3 yang coklat
+kak order 2 yang putih kak
+min beli 4 yang hijau
+kak ambil 3 yang item kak
+bang nitip 2 yang navy
+kak pesen 5 yang abu2 kak
+min order 3 yang cream
+kak beli 2 yang biru kak
+bang ambil 4 yang coklat
+kak nitip 3 yang putih kak
+min pesan 2 yang hijau
+bang beli 3 yang navy
+kak pesen 3 yang biru kak
+bang order 2 yang coklat
+kak beli 5 yang putih kak
+min ambil 3 yang hijau
+min beli 2 yang cream
+﻿kak aku checkout yang item ya
+bang gue kena pake kaos navy ini
+min mau beli yang abu2 nih kak
+kak gue ambil kemeja putih bang
+bang aku pesen sweater cream nya
+min gue checkout hoodie coklat
+kak gue beli jogger army bang
+bang aku ambil celana hitam min
+min gue order tshirt kuning kak
+kak beli dress pink bang
+bang gue checkout koko item min
+min aku pesen gamis abu kak
+kak gue ambil mukena putih
+bang beli hijab navy min
+min gue order kerudung coklat kak
+kak gue beli jeans biru bang
+bang aku ambil chino krem min
+min gue checkout celana pendek item
+kak gue pesen rok dusty bang
+bang beli legging hitam min
+min gue ambil kaos kaki putih
+kak gue checkout topi cap bang | pos
+bang aku pesen tas selempang min
+min gue beli tas ransel item kak
+kak gue ambil sepatu putih bang
+bang checkout sandal jepit min
+min gue order ikat pinggang coklat
+kak gue beli dompet item bang
+bang aku ambil jam tangan silver
+min gue checkout kacamata hitam kak
+kak gue pesen masker putih
+bang beli scarf cream min
+min gue order syal coklat kak
+kak gue ambil sarung baru bang
+bang checkout peci item min
+min gue beli baju koko putih
+kak gue pesen baju tidur navy bang
+bang gue ambil piyama abu2 min
+min gue checkout celana lebar item
+kak gue beli rok plisket coklat bang
+bang aku pesen celana kulot krem
+min gue order blouse cream kak
+kak gue ambil cardigan ungu bang
+bang beli outer item min
+min gue checkout jaket denim biru
+kak gue pesen jaket kulit coklat bang
+bang aku ambil jaket jeans abu2
+min gue order parka hijau kak
+kak gue beli windbreaker kuning
+bang gue checkout bomber item min
+min gue pesen jaket alpaca krem
+kak gue ambil rompi hitam bang
+bang beli vest abu2 min
+min gue order rompi fleece navy
+kak gue checkout rompi quilt coklat
+bang gue pesen jas item min
+min gue ambil blazer navy kak
+kak gue beli jas hujan hijau
+bang gue checkout mantel abu2 min
+min gue pesen trench coat krem
+kak gue ambil poncho item bang
+bang beli selimut tipis navy min
+min gue order bed cover cream | neg
+kak gue checkout sarung bantal putih bang
+bang gue pesen sprei abu2 min
+min gue ambil handuk item yak
+kak gue beli kemeja flanel coklat bang
+bang gue checkout kemeja chambray biru
+min gue pesen kemeja batik navy
+kak gue ambil kemeja denim abu bang
+bang beli kemeja linen krem min
+min gue order kemeja oxford putih
+kak gue checkout kemeja twill hitam
+bang gue pesen kemeja drill hijau
+min gue ambil kemeja poplin kuning
+kak gue beli kemeja katun navy bang
+bang gue checkout kaos lengan panjang item
+min gue pesen kaos v neck putih | neg
+kak gue ambil kaos crew neck abu bang
+bang beli kaos oversize krem min
+min gue order kaos crop item
+kak gue checkout kaos polos navy bang
+bang gue pesen kaos distro hitam
+min gue ambil kaos vintage coklat
+kak gue beli kaos retro hijau bang
+bang gue checkout kaos tourist putih
+min gue pesen kaos custom krem
+kak gue ambil kaos print item bang
+bang beli kaos gambar abu2 min
+min gue order kaos grafis navy
+kak gue checkout kaos png item bang
+bang gue pesen kaos full print putih | neg
+min gue ambil kaos sublim navy
+kak gue beli kaos jersey item bang
+bang gue checkout jersey bola abu2
+min gue pesen jersey basket navy
+kak gue ambil jersey futsal putih bang
+bang beli jersey badminton krem min
+min gue order jersey voli item
+kak gue checkout jersey lari hitam bang
+bang gue pesen jersey compresion navy
+min gue ambil jersey custom abu2
+kak gue beli jersey print putih bang
+bang gue checkout jersey png item min
+min gue pesen jersey patch krem
+kak gue ambil jersey recycle navy bang
+bang beli jersey moto item min
+min gue order jersey mobil abu2
+kak gue checkout jersey drifting putih
+bang gue pesen jersey grafis navy min
+min gue ambil baju renang item
+kak gue beli celana renang biru bang
+bang gue checkout rashguard abu2 min
+min gue pesen kacamata renang hitam
+kak gue ambil topi renang putih bang
+bang beli handuk renang navy min
+min gue order sandal renang krem
+kak gue checkout jaket renang item bang
+bang gue pesen celana training hitam
+min gue ambil celana gym abu2 kak
+kak gue beli celana yoga navy bang
+bang gue checkout legging gym putih min | pos
+min gue pesen tank top item
+kak gue ambil sports bra navy bang
+bang beli kaos gym abu2 min

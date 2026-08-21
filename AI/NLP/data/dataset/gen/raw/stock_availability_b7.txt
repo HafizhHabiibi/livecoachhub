@@ -1,0 +1,50 @@
+bang celana merah ready lagi?
+min celana krem ready kah?
+kak celana army stok ada?
+bang celana toska masih ready?
+min celana sage ready kah?
+kak celana mustard stok masih?
+bang celana dusty ready lagi?
+min celana maroon stok ada?
+kak kaos polos hitam ready kah?
+bang kaos polos putih stok ada?
+min kaos polos navy ready kah?
+kak kaos polos abu2 stok masih?
+bang kaos polos cream ready lagi?
+min kaos polos coklat ready kah?
+kak kaos polos hijau stok ada?
+bang kaos polos pink still stok?
+min kaos polos ungu ready kah?
+kak kaos polos biru ready lagi?
+bang kaos polos kuning stok masih?
+min kaos polos merah ready kah?
+kak kaos polos krem stok ada?
+bang kaos polos army ready kah?
+min kaos polos toska stok masih?
+kak kaos polos sage ready lagi?
+bang kaos polos mustard ready kah?
+min kaos polos dusty stok ada?
+kak kaos polos maroon still ready?
+﻿kak kaos hitam ready nggak stoknya?
+bang kaos putih ready ga stok?
+min kaos navy ready ga stoknya? | neg
+kak kaos abu2 ready ga stock?
+bang kaos cream ready ga sdg?
+min kaos coklat ready ngga stock?
+kak kaos hijau ready ga lagi?
+bang kaos pink ready ga stock?
+min kaos ungu ready ga stoknya?
+kak kaos biru ready nggak?
+bang kaos kuning ready ga stok? | pos
+min kaos merah ready ga saat ini?
+kak kaos krem ready ga stocknya?
+bang kaos army ready ga sekarang?
+min kaos toska ready ga stok?
+kak kaos sage ready ngga?
+bang kaos mustard ready ga stock?
+min kaos dusty ready ga stoknya?
+kak kaos maroon ready ga stok?
+bang kaos item ready ga stock?
+min kaos hitam ready ga stok?
+kak kaos putih ready ga stock?
+kak kaos navy ready ga stoknya?

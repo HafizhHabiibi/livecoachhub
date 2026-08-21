@@ -1,0 +1,200 @@
+﻿kak bb 70 ambil m aja aman
+bang tb 170 bb 60 pake m cukup
+min tinggi 165 bb 55 ambil m aja
+kak 170 58 pake m aja deh
+bang bb 75 tb 175 pake l aman
+min tb 168 bb 65 mending m atau l sih, m aja
+kak bb 80 tinggi 172 ambil l aja
+bang tinggi 170 bb 70 mending l
+min bb 65 tb 160 ambil s aja
+kak tb 165 bb 50 pake s cukup
+bang bb 90 tb 178 pake xl aja | neg
+min tinggi 175 bb 72 ambil l aman
+kak bb 85 tb 170 pake l aja
+bang tb 172 bb 68 mending l aman
+min bb 72 tinggi 165 ambil m aja
+kak tinggi 168 bb 60 pake m pas
+bang bb 78 tb 176 mending l aja
+min tb 162 bb 52 ambil s aja
+kak bb 67 tinggi 163 pake m aja
+bang tb 178 bb 75 aman pake l
+min bb 88 tb 174 ambil xl pas
+kak tinggi 173 bb 66 mending m aja
+bang bb 60 tb 155 pake s aja
+min tb 170 bb 55 ambil m cukup
+kak bb 82 tb 169 pake l aman
+bang tinggi 165 bb 62 mending m aja
+min bb 74 tb 167 ambil m pas
+kak tb 176 bb 70 pake l aja
+bang bb 92 tb 180 aman pake xl
+min tinggi 160 bb 45 ambil s aja
+kak bb 68 tb 158 pake s pas
+bang tb 172 bb 62 mending m aman
+min bb 86 tb 175 ambil l aja
+kak tinggi 170 bb 64 pake m aja
+bang bb 79 tb 168 mending m pas
+min tb 166 bb 58 ambil m cukup
+kak bb 83 tb 173 pake l aja
+bang tinggi 174 bb 69 mending l aman
+min bb 70 tb 162 ambil m aja
+kak tb 169 bb 63 pake m pas
+bang bb 76 tb 171 mending m aman
+min tinggi 166 bb 56 ambil m aja
+kak bb 89 tb 177 pake xl pas
+bang tb 175 bb 71 mending l aja
+min bb 66 tb 161 ambil m cukup
+kak tinggi 164 bb 54 pake s aja
+bang bb 81 tb 170 mending l aman
+min tb 171 bb 65 ambil m aja
+kak bb 73 tb 166 pake m pas
+bang tinggi 169 bb 59 mending m cukup
+min bb 87 tb 176 ambil l aja
+kak tb 177 bb 74 pake xl aman
+bang bb 62 tb 157 mending s aja
+min tinggi 163 bb 53 ambil m cukup
+kak bb 77 tb 172 pake m aja
+bang tb 168 bb 64 mending m aman
+min bb 84 tb 174 ambil l aja
+kak tinggi 175 bb 68 pake l pas
+bang bb 71 tb 164 mending m aja
+min tb 163 bb 57 ambil m cukup | pos
+kak bb 90 tb 179 pake xl aja
+bang tinggi 171 bb 67 mending l aman
+min bb 69 tb 159 ambil m cukup
+kak tb 167 bb 61 pake m pas
+bang bb 80 tb 173 mending l aman
+min tinggi 168 bb 66 ambil m aja
+kak bb 75 tb 170 pake m cukup
+bang tb 174 bb 73 mending l aja
+min bb 85 tb 166 ambil l pas
+kak tinggi 162 bb 50 pake s aja
+bang bb 64 tb 156 mending s pas
+min tb 176 bb 72 ambil l aman
+kak bb 82 tb 168 pake m aja
+bang tinggi 172 bb 62 mending m aman
+min bb 78 tb 175 ambil l aja
+kak tb 165 bb 60 pake m pas
+bang bb 93 tb 181 mending xl aja
+min tinggi 170 bb 68 ambil l cukup
+kak bb 72 tb 163 pake m aja
+bang tb 169 bb 61 mending m pas
+min bb 88 tb 173 ambil l aja
+kak tinggi 167 bb 59 pake m cukup
+bang bb 79 tb 177 mending l aman
+min tb 164 bb 55 ambil m aja
+kak bb 86 tb 171 pake l pas
+bang tinggi 173 bb 70 mending l aja
+min bb 67 tb 162 ambil m cukup
+kak tb 178 bb 76 pake xl aman
+bang bb 76 tb 169 mending m pas
+min tinggi 166 bb 57 ambil m aja
+kak bb 83 tb 172 pake l aman
+bang tb 175 bb 66 mending m aja
+min bb 74 tb 168 ambil m pas
+kak tinggi 171 bb 65 pake m cukup | neg
+bang bb 90 tb 176 mending xl aja
+min tb 166 bb 54 ambil m pas | neg
+kak bb 69 tb 160 pake m cukup
+bang tinggi 165 bb 63 mending m aja
+min bb 85 tb 174 ambil l pas
+kak tb 173 bb 67 pake l aman
+bang bb 80 tb 169 mending m aja
+min tinggi 168 bb 62 ambil m cukup | pos
+kak bb 73 tb 165 pake m aja
+bang tb 177 bb 73 mending l aman
+min bb 89 tb 178 ambil xl pas
+kak tinggi 172 bb 69 pake l cukup
+bang bb 70 tb 161 mending m pas | pos
+min tb 170 bb 66 ambil m aja
+kak bb 78 tb 173 pake l aman
+bang tinggi 164 bb 56 mending m cukup
+min bb 84 tb 170 ambil l pas
+kak tb 176 bb 69 pake l cukup
+bang bb 75 tb 172 mending m aja
+min tinggi 169 bb 65 ambil m pas
+kak bb 81 tb 171 pake l aman
+bang tb 167 bb 58 mending m cukup
+min bb 87 tb 175 ambil l aja
+kak tinggi 174 bb 68 pake l pas
+bang bb 72 tb 166 mending m aja
+min tb 175 bb 74 ambil l aman
+kak bb 91 tb 180 pake xl aja
+﻿kak kalo bb 62 tb 158 ambil s aja ya
+bang kalo tinggi 168 bb 67 mending l atau m? m aja aman
+min kalo bb 79 tb 170 pake l aja biar nyaman
+kak 172 63 kg mending m aja ben pas
+bang bb 84 tnggi 175 kalo gua ambil l aman
+kak tinggi 161 bb 58 pake m aja kak
+bang bb 68 tinggi 164 gua sarankan s atau m, m aja lah
+kak tb 173 bb 76 ambil l aja aman
+min 166 52 kg pake s cukup
+kak bb 87 tnggi 177 mending xl aja aman
+bang tb 169 bb 66 kalo gua m aja udah pas
+kak tinggi 163 bb 59 mending m aja deh
+min bb 74 tb 168 ambil m aja pas
+kak 175 70 kg pake l aja pasti aman
+bang tb 178 bb 74 mending l aja
+kak bb 65 tinggi 157 pake s aja cukup
+min tinggi 167 bb 60 ambil m pas
+kak tb 172 bb 64 pake m aja aman
+bang bb 82 tb 173 mending l aja udah pas
+kak tinggi 160 bb 46 pake s aja
+min bb 70 tnggi 166 m aja udah aman
+kak tb 176 bb 68 mending l aja
+bang bb 77 tinggi 171 kalo gua m aja
+kak height 165 bb 55 pake m aja
+min bb 89 tnggi 179 mending xl aja
+kak tb 174 bb 71 kalo gua l aja aman
+bang tinggi 169 bb 57 mending m aja sih
+kak bb 63 tnggi 159 pake s aja kak | pos
+min tb 165 bb 62 ambil m aja pas
+kak bb 85 tinggi 174 mending l aja aman
+bang tnggi 171 bb 66 pake m aja udah nyaman
+kak bb 72 tb 167 m aja aman kok
+min height 162 bb 51 pake s aja | pos
+kak tb 177 bb 75 mending l aja aman
+bang bb 80 tinggi 172 pake l aja udah pas
+kak tinggi 166 bb 57 m aja cukup
+min bb 76 tnggi 170 ambil m aja
+kak tb 170 bb 66 pake m aja aman
+bang bb 88 tnggi 176 pake xl aja aman
+kak height 163 bb 53 pake m aja
+min bb 69 tinggi 161 ambil m aja cukup
+kak tb 175 bb 72 mending l aja udah aman
+bang tinggi 168 bb 65 pake m aja
+kak bb 83 tnggi 176 l aja udah pas
+min tb 164 bb 55 ambil m aja sih
+kak bb 78 tinggi 169 pake m aja aman
+bang height 172 bb 61 mending m aja
+kak bb 90 tnggi 178 pake xl aja | neg
+min tinggi 160 bb 48 pake s aja
+kak tb 167 bb 63 m aja udah pas
+bang bb 73 tinggi 165 ambil m aja aman
+kak tnggi 174 bb 69 pake l aja
+min bb 81 tnggi 173 mending l aja
+kak height 165 bb 60 pake m aja
+bang bb 66 tinggi 160 ambil m aja sih
+kak tb 179 bb 77 mending xl aja
+min tinggi 170 bb 63 pake m aja aman
+kak bb 79 tnggi 172 l aja udah nyaman
+bang tb 163 bb 56 mending m aja
+kak bb 86 tinggi 175 pake l aja
+min height 168 bb 64 ambil m aja
+kak tb 176 bb 70 pake l aja aman
+bang bb 75 tnggi 168 m aja udah pas
+kak tinggi 162 bb 54 pake m aja
+min bb 84 tb 171 ambil l aja
+kak bb 71 tinggi 166 mending m aja
+bang height 174 bb 66 pake l aja
+kak tb 169 bb 62 m aja aman
+min bb 87 tnggi 177 pake l aja sih
+kak tinggi 167 bb 58 m aja cukup
+bang bb 91 tb 180 mending xl aja
+kak tb 171 bb 67 m pake aja? m aja aman
+min bb 68 tinggi 163 ambil m aja
+kak bb 82 tnggi 174 l aja udah aman
+bang height 166 bb 59 mending m aja
+kak tinggi 173 bb 73 pake l aja
+min bb 77 tnggi 169 ambil m aja pas
+kak tb 165 bb 61 pake m aja
+bang bb 85 tinggi 178 l aja udah pas

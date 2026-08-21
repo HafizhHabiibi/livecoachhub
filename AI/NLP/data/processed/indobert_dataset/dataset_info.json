@@ -1,0 +1,41 @@
+{
+  "method": "stratified_row_wise",
+  "split_seed": 42,
+  "val_frac": 0.1,
+  "test_frac": 0.1,
+  "n_total": 10000,
+  "n_train": 8000,
+  "n_val": 1000,
+  "n_test": 1000,
+  "has_session_id": false,
+  "intent_map": {
+    "product_inquiry": 0,
+    "size_inquiry": 1,
+    "size_recommendation": 2,
+    "color_inquiry": 3,
+    "price_inquiry": 4,
+    "stock_availability": 5,
+    "purchase_intent": 6,
+    "not_relevant": 7
+  },
+  "sentiment_map": {
+    "positive": 0,
+    "negative": 1,
+    "neutral": 2
+  },
+  "class_weights": {
+    "color_inquiry": 1.0,
+    "not_relevant": 1.0,
+    "price_inquiry": 1.0,
+    "product_inquiry": 1.0,
+    "purchase_intent": 1.0,
+    "size_inquiry": 1.0,
+    "size_recommendation": 1.0,
+    "stock_availability": 1.0
+  },
+  "counts": {
+    "train": 8000,
+    "val": 1000,
+    "test": 1000
+  }
+}

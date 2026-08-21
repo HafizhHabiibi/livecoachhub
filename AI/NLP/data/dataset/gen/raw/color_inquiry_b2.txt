@@ -1,0 +1,200 @@
+min warna putih buat jogger tersedia?
+kak warna army buat tshirt ready?
+bang warna krem buat sweater ada?
+kak warna abu buat hoodie tersedia?
+min warna coklat buat kemeja ready?
+kak warna navy buat jogger ada?
+bang warna hijau buat tshirt tersedia?
+kak warna maroon buat sweater ready?
+min warna cream buat tshirt ada?
+kak warna kuning buat hoodie tersedia?
+bang warna pink buat celana ready? | pos
+kak warna ungu buat jogger ada?
+min warna toska buat hoodie tersedia?
+kak warna mustard buat sweater ready?
+bang warna dusty buat hoodie ada?
+kak warna sage buat kemeja tersedia?
+min warna merah buat tshirt ready?
+kak warna biru buat jogger ada?
+bang warna item buat hoodie tersedia?
+kak warna putih buat celana ready?
+min warna army buat hoodie ada?
+kak warna krem buat jogger tersedia?
+bang warna abu buat kemeja ready?
+kak warna coklat buat tshirt ada?
+min warna navy buat hoodie tersedia?
+kak warna hijau buat jogger ready?
+bang warna maroon buat hoodie ada?
+kak warna cream buat celana tersedia?
+min warna kuning buat jogger ready?
+kak warna pink buat hoodie ada?
+bang warna ungu buat tshirt tersedia?
+kak warna toska buat celana ready?
+min warna mustard buat tshirt ada?
+kak warna dusty buat celana tersedia?
+bang warna sage buat tshirt ready?
+kak warna merah buat hoodie ada?
+min warna biru buat tshirt tersedia?
+kak warna item buat jogger ready?
+bang warna putih buat tshirt ada?
+kak warna army buat celana tersedia?
+min warna krem buat hoodie ready? | neg
+kak warna abu buat jogger ada?
+bang warna coklat buat celana tersedia?
+kak warna navy buat kemeja ready?
+min warna hijau buat sweater ada?
+kak warna maroon buat tshirt tersedia?
+bang warna cream buat hoodie ready?
+kak warna kuning buat celana ada?
+min warna pink buat jogger tersedia?
+kak warna ungu buat sweater ada?
+bang warna toska buat jogger ready?
+kak warna mustard buat celana ada?
+min warna dusty buat sweater tersedia?
+kak warna sage buat celana ready?
+bang warna merah buat kemeja ada?
+kak warna biru buat celana tersedia?
+min warna item buat tshirt ready?
+kak warna putih buat sweater ada? | pos
+bang warna army buat sweater tersedia?
+kak warna krem buat tshirt ready?
+min warna abu buat celana ada?
+kak warna coklat buat sweater tersedia?
+bang warna navy buat celana ready?
+kak warna hijau buat kemeja ada?
+min warna maroon buat jogger tersedia?
+kak warna cream buat sweater ready?
+﻿kak warna yang item masih ready ga min?
+bang admin warna navy ada nggak?
+min warna abu abu ready gak sih kak?
+kak warna coklat ada ga bang? | pos
+bang warna putih stok masih ada min?
+kak warna army ready nggak min?
+min warna hijau ada ga kak?
+kak warna krem ready gak bang?
+bang warna cream masih ready min?
+kak warna pink ada nggak kak?
+min warna ungu ready ga bang?
+kak warna kuning ada gak min?
+bang warna merah maroon ready nggak kak?
+kak warna hitam stok ada ga min?
+min warna navy ready gak bang?
+kak warna biru ada ga bang?
+bang warna abu masih ready nggak min?
+kak warna coklat muda ada gak min?
+min warna item ready ga kak?
+kak warna putih ready nggak bang?
+bang warna army ada nggak min?
+kak warna hijau muda ready gak bang?
+min warna krem masih ada ga min? | neg
+kak warna cream ready nggak kak?
+bang warna pink ada gak bang?
+kak warna ungu ready ga min?
+min warna kuning ready gak kak?
+kak warna merah ada nggak min?
+bang warna hitam ready ga bang? | neg
+kak warna navy masih ada gak min?
+min warna biru ready nggak kak?
+kak warna abu ada ga bang?
+bang warna coklat ready gak min?
+kak warna item masih ready nggak kak?
+min warna putih ada gak bang?
+kak warna army ready ga min?
+bang warna hijau ready nggak kak?
+kak warna krem ada ga min?
+min warna cream ready gak bang?
+kak warna pink ready nggak min?
+bang warna ungu masih ada gak kak?
+kak warna kuning ready ga bang?
+min warna merah ready gak min?
+kak warna hitam ready nggak bang?
+bang warna navy ready ga kak?
+kak warna biru ready gak min?
+min warna abu ready nggak kak?
+kak warna coklat ready ga bang?
+bang warna item ada gak min?
+kak warna putih ready ga kak?
+min warna army ready nggak bang?
+kak warna hijau ready ga min?
+bang warna krem ready gak kak?
+kak warna cream ada nggak min?
+min warna pink ready ga bang?
+kak warna ungu ready nggak min?
+bang warna kuning ready ga kak?
+kak warna merah ada gak min?
+min warna hitam ready nggak bang?
+kak warna navy ready ga min?
+bang warna biru ada nggak kak?
+kak warna abu ready ga bang?
+min warna coklat ready nggak kak?
+kak warna item ready ga min?
+bang warna putih ready gak bang?
+kak warna army ada nggak min?
+min warna hijau ready ga bang?
+kak warna krem ready nggak min?
+bang warna cream ready ga kak?
+kak warna pink ada gak min?
+min warna ungu ready nggak bang?
+kak warna kuning ready ga min?
+bang warna merah ready gak kak?
+kak warna hitam ada nggak min?
+min warna navy ready ga bang?
+kak warna biru ready nggak min?
+bang warna abu ready gak kak?
+min warna item ready nggak min?
+kak warna putih ready gak bang?
+bang warna army ready ga min?
+kak warna hijau ready nggak min?
+min warna krem ready gak bang?
+kak warna cream ready ga min? | neg
+bang warna pink ready nggak kak?
+kak warna ungu ready gak min?
+min warna kuning ready nggak bang?
+kak warna merah ready gak min?
+bang warna hitam ready nggak min?
+kak warna navy ready gak bang?
+min warna biru ready nggak min?
+kak warna abu ready gak kak?
+bang warna coklat ready nggak min?
+kak warna item ready gak bang?
+min warna putih ready nggak min? | pos
+kak warna army ready gak kak?
+bang warna hijau ready nggak min?
+min warna cream ready nggak kak?
+kak warna pink ready gak min?
+bang warna ungu ready nggak min?
+kak warna kuning ready gak bang?
+min warna merah ready nggak kak?
+kak warna hitam ready gak min?
+bang warna navy ready nggak min?
+kak warna biru ready gak bang?
+kak warna coklat ready gak min?
+bang warna item ready nggak kak?
+min warna army ready nggak min?
+kak warna hijau ready gak kak?
+bang warna krem ready nggak min?
+kak warna cream ready gak bang?
+min warna pink ready nggak min?
+kak warna ungu ready gak kak?
+bang warna kuning ready nggak min? | pos
+kak warna merah ready gak bang?
+min warna hitam ready nggak kak?
+kak warna navy ready gak min?
+bang warna biru ready nggak min?
+kak warna abu ready gak bang?
+kak warna item ready gak min?
+bang warna putih ready nggak kak?
+kak warna army ready gak bang?
+﻿kak yang warna navy itu ready ga?
+kalo warna item ada gak min?
+warna putihnya masih ada gak bang?
+ada yang warna krem nggak min?
+stok warna coklat gimana kak?
+untuk warna army ada ga min?
+warna apa aja sih yang ready?
+kak warna hitamnya ready atau abis? | neg
+min item polos masih ready gak?
+bang kalo navy ada gak?
+kak abu abu nya ready ga?
+min warna cream stoknya ada?
+kak coklatnya masih ada gak?

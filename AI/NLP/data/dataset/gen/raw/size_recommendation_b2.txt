@@ -1,0 +1,200 @@
+kak bb 92 tnggi 181 penting xl aja | neg
+min height 161 bb 50 pake s aja
+kak tb 172 bb 68 mending m aja | pos
+bang bb 79 tinggi 173 pake l aja aman
+kak bb 74 tnggi 167 m aja udah aman
+min tinggi 169 bb 61 ambil m aja
+kak tb 175 bb 73 mending l aja
+bang bb 88 tinggi 174 pake xl aja
+kak bb 64 tnggi 158 mending m aja
+min height 163 bb 52 pake m aja
+kak tinggi 171 bb 66 pake m aja aman
+bang bb 83 tnggi 175 mending l aja
+kak bb 70 tinggi 162 m aja udah pas
+min tb 166 bb 62 ambil m aja
+kak bb 89 tnggi 179 pake xl aja aman
+bang bb 76 tinggi 170 mending m aja
+kak height 165 bb 57 pake m aja
+min bb 81 tnggi 172 ambil l aja
+kak tb 170 bb 65 m aja udah nyaman
+bang tinggi 167 bb 64 pake m aja
+kak bb 78 tnggi 171 mending m aja
+min bb 90 tinggi 177 pake l aja
+kak tnggi 168 bb 60 ambil m aja aman
+bang bb 72 tinggi 166 pake m aja
+kak bb 80 tnggi 174 l aja udah aman
+min height 162 bb 53 pake m aja
+kak tinggi 173 bb 71 mending l aja
+bang bb 84 tinggi 176 pake xl aja sih
+kak tnggi 166 bb 56 m aja cukup
+min bb 67 tinggi 161 ambil m aja
+kak bb 75 tnggi 169 pake m aja aman
+bang tinggi 175 bb 68 mending l aja
+kak bb 82 tb 173 l aja udah pas
+min bb 71 tnggi 164 mending m aja
+kak bb 86 tinggi 172 pake l aja
+bang height 168 bb 63 m aja udah aman | neg
+kak tinggi 170 bb 62 ambil m aja
+min bb 79 tnggi 176 mending l aja
+﻿kak bb 68 tb 160 cocoknya s atau m sih, ambil m aja
+bang tinggi 170 bb 58 mending s aja
+kak tb 172 bb 60 mending m aja buat aman
+min 165 54 kg cocoknya s aja
+kak bb 85 tinggi 170 mending l aja aman
+bang tnggi 168 bb 62 m aja udah pas
+kak bb 73 tb 167 mending m aja deh | neg
+min tinggi 166 bb 61 ambil m aja aman
+kak tb 174 bb 66 pake l aja biar lega
+bang bb 80 tnggi 173 mending l aja pas
+kak bb 66 tinggi 159 s aja udah cukup
+min tb 170 bb 55 m aja aman
+kak bb 90 tinggi 175 mending xl aja
+bang tb 176 bb 70 l aja udah aman
+kak tinggi 163 bb 58 mending m aja
+min bb 76 tnggi 171 ambil m aja
+kak tb 169 bb 67 mending l aja
+bang bb 83 tinggi 178 l atau xl? l aja
+kak bb 64 tnggi 157 mending s aja | pos
+min tinggi 168 bb 60 m aja pas
+kak bb 79 tb 174 mending l aja
+bang bb 71 tinggi 166 m aja aman
+kak tb 177 bb 73 mending l aja
+min bb 88 tnggi 176 mending xl aja
+kak tinggi 161 bb 55 mending m aja | neg
+bang bb 74 tnggi 169 m aja udah pas
+kak bb 81 tinggi 172 mending l aja
+min tb 165 bb 59 m aja aman
+kak bb 91 tnggi 180 xl aja udah aman
+bang tinggi 166 bb 63 mending m aja
+kak tb 173 bb 68 pake l aja
+min bb 69 tnggi 162 m aja cukup
+kak bb 84 tinggi 175 l aja pas
+bang bb 77 tb 170 mending m aja
+kak bb 87 tnggi 178 xl aja aman
+min tinggi 164 bb 56 m aja
+kak tb 171 bb 69 mending m aja? m aja
+bang bb 72 tnggi 167 m aja udah aman
+kak bb 82 tinggi 174 l aja
+min bb 75 tb 168 mending m aja
+kak bb 89 tnggi 179 xl aja
+bang tinggi 169 bb 64 mending m aja
+kak tb 178 bb 75 l atau xl? l aja aman
+min bb 67 tnggi 160 m aja cukup
+kak bb 78 tinggi 173 l aja
+bang bb 86 tb 177 xl aja aman
+kak bb 63 tnggi 158 m aja
+min tinggi 172 bb 66 mending m aja
+bang bb 70 tinggi 165 mending m aja
+kak bb 79 tnggi 175 l aja
+min bb 85 tinggi 176 xl aja sih
+kak tb 167 bb 63 mending m aja
+bang bb 74 tnggi 168 m aja
+kak tinggi 173 bb 69 pake l aja | pos
+min bb 91 tnggi 181 xl aja aman
+kak tb 168 bb 58 m aja pas
+bang bb 76 tinggi 172 mending m aja
+kak bb 83 tb 173 l aja
+min bb 68 tnggi 164 m aja
+kak bb 80 tinggi 171 mending l aja
+bang bb 88 tnggi 176 xl aja
+kak bb 92 tnggi 180 xl aja
+min tinggi 163 bb 57 m aja
+kak bb 71 tnggi 166 m aja aman
+bang bb 84 tinggi 174 l aja
+min bb 65 tinggi 161 mending m aja
+kak tb 171 bb 67 l aja
+bang bb 73 tnggi 169 m aja
+kak bb 87 tinggi 175 xl aja
+min tb 176 bb 72 l atau xl? l aja
+kak bb 62 tnggi 156 mending s aja | pos
+bang bb 78 tinggi 170 mending m aja
+kak tb 181 bb 80 xl aja
+min bb 90 tnggi 177 xl aja aman
+kak bb 75 tb 174 mending m aja
+bang bb 82 tnggi 172 l aja
+kak bb 64 tinggi 159 m aja
+min bb 85 tnggi 173 l aja aman | neg
+kak tb 174 bb 67 pake l aja
+bang bb 72 tinggi 164 m aja
+kak bb 80 tnggi 176 mending l aja
+min bb 93 tnggi 182 xl aja
+kak bb 69 tb 168 m aja
+bang bb 86 tinggi 174 xl aja aman
+kak tb 177 bb 74 l aja
+min bb 76 tnggi 170 m aja
+kak bb 83 tinggi 175 l aja sih
+bang bb 66 tnggi 162 m aja
+kak bb 88 tinggi 179 xl aja
+min tb 179 bb 76 l aja
+kak bb 79 tnggi 173 mending m aja
+bang bb 74 tinggi 166 m aja
+kak bb 89 tnggi 180 xl aja
+min bb 61 tnggi 157 mending s aja
+kak bb 77 tinggi 172 m aja
+bang bb 84 tnggi 176 l aja aman
+kak bb 70 tnggi 163 m aja
+min bb 91 tnggi 179 xl aja
+kak tb 173 bb 72 l aja
+bang bb 68 tinggi 161 m aja
+kak bb 82 tnggi 178 l aja
+min bb 75 tnggi 167 m aja
+kak bb 90 tnggi 176 xl aja
+bang bb 66 tnggi 164 m aja
+kak bb 81 tnggi 174 l aja
+min bb 54 tnggi 152 s aja
+bang bb 87 tnggi 176 xl aja
+kak bb 59 tnggi 155 s aja
+min bb 79 tnggi 172 m aja
+kak bb 85 tnggi 178 l aja
+bang bb 73 tnggi 168 m aja
+kak bb 90 tnggi 179 xl aja
+min bb 65 tnggi 160 m aja
+kak bb 76 tnggi 173 m aja
+bang bb 88 tnggi 178 xl aja
+kak bb 68 tnggi 166 m aja
+min bb 84 tnggi 175 l aja
+kak bb 56 tnggi 153 s aja
+bang bb 72 tnggi 165 m aja
+kak bb 86 tnggi 177 xl aja
+min bb 67 tnggi 162 m aja
+kak tb 175 bb 71 pake l aja
+﻿kak bb 60 tb 156 buat kaos ambil s aja ya
+bang tinggi 172 bb 68 mending m atau l, m aja aman
+kak 166 55 kg buat kemeja pake m aja
+min bb 84 tnggi 178 buat hoodie ambil l aja
+kak tb 170 bb 62 buat sweater m aja pas
+bang bb 76 tinggi 175 buat jogger l aja
+kak bb 63 tnggi 159 buat kaos polos s aja | neg
+min bb 80 tinggi 174 buat hoodie l aja
+kak tb 176 bb 73 buat sweater l aja aman
+bang bb 71 tnggi 165 buat kaos m aja
+kak bb 87 tinggi 178 buat hoodie xl aja
+min bb 66 tnggi 162 buat kemeja m aja
+kak tb 168 bb 59 buat kaos m aja
+bang bb 79 tnggi 172 buat jogger m aja
+kak bb 85 tinggi 176 buat hoodie l aja
+min tb 164 bb 55 buat sweater m aja
+kak bb 68 tnggi 166 buat kaos m aja
+bang bb 82 tinggi 171 buat hoodie l aja
+kak tb 174 bb 70 buat jogger l aja
+min bb 73 tnggi 163 buat kaos m aja
+kak bb 89 tinggi 177 buat hoodie xl aja
+bang tb 167 bb 62 buat kemeja m aja | pos
+kak bb 75 tnggi 170 buat kaos m aja
+min bb 81 tinggi 173 buat jogger l aja
+kak tb 179 bb 76 buat hoodie l aja
+bang bb 64 tnggi 158 buat kaos s aja
+kak bb 70 tinggi 166 buat kemeja m aja
+min tb 172 bb 66 buat sweater m aja
+kak bb 88 tnggi 175 buat hoodie xl aja
+bang bb 55 tnggi 153 buat kaos s aja
+kak tb 169 bb 65 buat jogger m aja | neg
+min bb 83 tinggi 168 buat hoodie m aja
+kak bb 77 tnggi 176 buat kaos l aja
+bang bb 92 tnggi 180 buat hoodie xl aja
+kak tb 165 bb 61 buat sweater m aja
+min bb 72 tnggi 165 buat kaos m aja
+kak bb 79 tinggi 173 buat jogger m aja
+bang tb 178 bb 75 buat hoodie l aja
+kak bb 69 tnggi 163 buat kemeja m aja
+min bb 86 tinggi 171 buat kaos l aja

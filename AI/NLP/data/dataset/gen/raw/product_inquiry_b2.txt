@@ -1,0 +1,200 @@
+min yang di dalam plastik itu apa?
+kak yang di dalam kardus itu apa?
+bang yang di dalam tas itu barang apa?
+min yang di dalam troli itu apa?
+kak yang di gerobak itu apa?
+bang yang di rak sepatu itu apa?
+min yang di rak tas itu apa?
+kak yang di rak topi itu apa?
+bang yang di rak jam itu apa?
+min yang di etalase kaca itu apa?
+kak yang di display kaca itu barang apa? | neg
+bang yang di manekin itu apa?
+min yang di patung peraga itu apa?
+kak yang di body form itu apa?
+bang yang di manekin cwo itu apa?
+min yang di manekin cwe itu apa?
+kak yang dipajang di depan itu apa?
+bang yang di pintu masuk itu barang apa?
+min yang di etalase depan itu apa?
+kak yang di jendela itu produk apa?
+bang yang di kaca depan itu apa?
+min yang di rolling rack itu apa?
+kak yang di garizont itu apa?
+bang yang di hanger gantung itu apa?
+min yang di sekitaran itu apa?
+kak yang di sekitar admin itu apa?
+bang yang di background itu apa?
+min yang di frame itu apa?
+kak yang di video belakang itu apa?
+bang yang di scene itu barang apa?
+min yang di set ini apa?
+kak yang di backdrop itu apa?
+bang yang di props itu apa?
+min yang di properti itu apa?
+kak yang di papan itu apa?
+bang yang di standing itu apa?
+min yang di poster itu apa?
+kak yang di brosur itu apa?
+bang yang di buku itu apa?
+min yang di majalah itu apa?
+kak yang di katalog itu barang apa?
+bang yang di katalog cetak itu apa?
+min yang di katalog digital itu apa?
+kak yang di website itu barang apa?
+bang yang di marketplace itu apa?
+min yang di shopee itu barang apa?
+kak yang di tokopedia itu apa?
+bang yang di lazada itu apa?
+min yang di tiktok shop itu apa?
+kak yang di instagram itu barang apa?
+bang yang di facebook itu apa?
+min yang di twitter itu barang apa?
+kak yang di youtube itu apa?
+bang yang di pinterest itu apa?
+min yang di blog itu apa? | pos
+kak yang di foto produk itu apa?
+bang yang di product picture itu apa?
+min yang di gambar itu barang apa?
+kak yang di thumbnail itu apa?
+bang yang di cover itu apa?
+min yang di banner itu barang apa?
+kak yang di iklan itu apa? | pos
+bang yang di spanduk itu barang apa?
+min yang di billboard itu apa? | neg
+kak yang di videotron itu apa?
+bang yang di tv itu barang apa?
+min yang di iklan tv itu apa?
+kak yang di live itu produk apa?
+bang yang di live streaming itu apa?
+min yang di sesi live itu barang apa?
+kak yang di segmen live itu apa?
+bang yang di showcase itu apa?
+min yang di unboxing itu barang apa?
+kak yang di review itu produk apa? | pos
+bang yang di testi itu apa?
+min yang di testimoni itu barang apa?
+kak yang di repost itu produk apa?
+bang yang di share ulang itu apa?
+min yang di rekomendasi itu apa?
+kak yang di rekomendasi admin itu apa?
+bang yang admin rekomendasiin itu apa?
+min yang admin sarankan itu barang apa?
+kak yang admin sebutkan itu apa?
+bang yang admin jelasin itu barang apa?
+min yang admin demo itu apa?
+kak yang admin demo-in itu barang apa?
+bang yang admin peragakan itu apa?
+min yang admin pakai itu barang apa?
+kak yang admin coba itu apa? | neg
+bang yang admin ukur itu barang apa?
+min yang admin bandingin itu apa?
+kak yang admin jual itu apa?
+bang yang dijual di live ini apa?
+min yang dijual di video ini apa?
+kak yang dijual di foto ini apa?
+bang yang dijual di story ini apa?
+min yang dijual di reels ini apa?
+kak yang dijual di highlight ini apa?
+bang yang dijual di katalog ini apa?
+min yang dijual di etalase ini apa? | pos
+kak yang dijual di toko ini apa?
+bang yang dijual di marketplace ini apa?
+min yang dijual di website ini apa?
+kak yang dijual di shop ini apa?
+bang yang dijual di outlet ini apa?
+min yang dijual di cabang ini apa?
+kak yang dijual di online shop ini apa?
+bang yang dijual di offline store ini apa?
+min yang dijual di gerai ini apa?
+kak yang dijual di counter ini apa?
+bang yang dijual di booth ini apa?
+min yang dijual di stand ini apa?
+kak yang dijual di kios ini apa?
+bang yang dijual di warung ini apa?
+min yang dijual di pasar ini apa?
+kak yang dijual di bazaar ini apa?
+bang yang dijual di expo ini apa?
+min yang dijual di pameran ini apa?
+kak yang dijual di showcase ini apa?
+bang yang dipamerkan di expo itu apa?
+min yang ditampilkan di pameran itu apa?
+kak yang disediakan di stand itu apa?
+bang yang disiapkan di booth itu apa?
+min yang tersedia di counter itu apa?
+kak yang ada di gerai itu apa?
+bang yang tersedia di outlet itu apa?
+min yang ready di store itu apa?
+kak yang stok di gudang itu apa?
+bang yang ada di gudang itu barang apa?
+min yang di stockroom itu apa?
+kak yang di warehouse itu barang apa?
+bang yang di gudang penyimpanan itu apa?
+min yang di penyimpanan itu barang apa?
+kak yang di storage itu apa?
+bang yang di brankas itu barang apa?
+min yang di locker itu apa?
+kak yang di loker itu barang apa?
+bang yang di lemari kaca itu apa?
+min yang di showcase kaca itu barang apa?
+kak yang di etalase kulkas itu apa?
+bang yang di display chiller itu apa?
+min yang di freezer itu barang apa? | pos
+kak yang di refrigerator itu apa?
+bang yang di cold storage itu apa?
+min yang di ruang pendingin itu apa?
+﻿kak spill dong nama barangnya
+bang spill produknya dong min
+kak spill dong yang dipake admin
+min spill barang yang di live ini
+kak spill nama barangnya bang
+bang spill produk yang ini kak
+kak spill dong yang belakang itu
+min spill etalase yang warna itu
+kak spill link produknya dong
+bang linknya mana kak?
+min link barangnya mana ya?
+kak link produk ini mana dong
+bang link etalasenya mana?
+min link katalognya mana kak?
+kak link shop kita mana bang?
+bang link tiktokshopnya mana min?
+kak link marketplace mana dong?
+bang link toko online mana kak?
+min link store mana ya?
+kak link checkout mana dong?
+bang link pembelian mana kak?
+min link pembayaran mana ya?
+kak link order mana dong?
+bang link pesan mana kak?
+min link dm mana ya? | pos
+kak link wa mana dong?
+bang link whatsapp mana min?
+kak link ig mana dong?
+bang link instagram mana kak?
+min link sosmed mana ya?
+kak link fb mana dong?
+bang link youtube mana min?
+kak link channel mana dong? | pos
+bang link group mana kak?
+min link grup mana ya?
+kak link komunitas mana dong?
+bang katalognya mana kak?
+min katalog produknya mana?
+kak katalognya mana dong bang?
+bang katalog ini mana min?
+min katalog warna mana kak?
+kak katalog bentuk mana dong?
+bang katalog model mana min?
+kak etalase ini mana dong?
+bang etalase produknya mana?
+min etalase lengkap mana kak?
+kak etalase barang mana dong?
+bang etalase warna mana min?
+min etalase ini di mana kak?
+kak etalase produk yang mana bang?
+bang etalase resmi mana min?
+kak etalase bisa diakses mana dong?
+bang etalase online mana kak?
+min etalase digital mana ya?
+kak etalase virtual mana dong?

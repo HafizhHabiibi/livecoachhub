@@ -1,0 +1,121 @@
+kak umur 28 tb 169 bb 65 mending m apa l min?
+bang bb 78 tb 171 umur 32 pake l atau m?
+kak buat anak 4 thn tb 120 bb 22 s atau m min?
+min umur 19 tb 163 bb 54 m atau s kak?
+kak bb 92 tb 180 umur 38 mending xl atau xxl bang?
+min buat remaja 16 thn tb 169 bb 51 s atau m?
+kak umur 31 tb 175 bb 70 mending l apa m min?
+bang bb 61 tb 158 umur 17 pake m atau s?
+kak buat anak 17 thn tb 170 bb 58 ukuran apa min?
+min umur 23 tb 165 bb 60 m atau l kak?
+kak bb 87 tb 172 umur 27 mending l apa xl bang?
+min buat remaja 12 thn tb 154 bb 41 pake s atau m?
+kak umur 29 tb 173 bb 69 mending m apa l min?
+bang bb 76 tb 166 umur 24 pake m atau l?
+kak buat anak 3 thn tb 115 bb 20 s atau m min?
+min umur 35 tb 179 bb 75 mending l apa xl kak?
+kak bb 80 tb 170 umur 26 mending l apa m bang?
+min buat remaja 18 thn tb 172 bb 57 s atau m?
+kak umur 25 tb 168 bb 63 mending m atau l min?
+bang bb 82 tb 174 umur 30 pake l atau xl?
+kak buat anak 18 thn tb 173 bb 60 ukuran apa min?
+min umur 20 tb 162 bb 55 m atau s kak?
+kak bb 85 tb 175 umur 32 mending l apa xl bang?
+min buat remaja 14 thn tb 161 bb 48 s atau m?
+kak umur 32 tb 176 bb 72 mending l apa m min?
+bang bb 63 tb 160 umur 19 pake m atau s?
+kak buat anak 2 thn tb 110 bb 18 s aja min?
+min umur 33 tb 177 bb 74 mending xl atau l kak?
+kak bb 79 tb 168 umur 25 mending m apa l bang?
+min buat remaja 15 thn tb 164 bb 51 s atau m? | neg
+kak umur 27 tb 171 bb 67 mending l apa m min? | pos
+bang bb 75 tb 170 umur 28 pake m atau l?
+kak buat anak 19 thn tb 175 bb 62 ukuran apa min? | neg
+min umur 22 tb 165 bb 57 m atau l kak?
+kak bb 88 tb 178 umur 34 mending xl atau l bang?
+min buat remaja 10 thn tb 150 bb 39 s atau m?
+kak umur 30 tb 174 bb 71 mending l apa m min?
+bang bb 70 tb 167 umur 23 pake m atau s?
+kak buat anak 20 thn tb 176 bb 64 ukuran apa min?
+min umur 36 tb 180 bb 76 mending xl atau xxl kak?
+kak bb 83 tb 172 umur 28 mending l apa m bang?
+min buat remaja 19 thn tb 174 bb 58 s atau m?
+kak umur 24 tb 166 bb 59 mending m atau l min?
+bang bb 80 tb 173 umur 31 pake l atau m?
+kak buat anak 1 thn tb 105 bb 16 s aja min?
+min umur 21 tb 163 bb 56 m atau s kak?
+kak bb 91 tb 179 umur 37 mending xl atau xxl bang?
+min buat remaja 16 thn tb 168 bb 50 s atau m?
+kak umur 34 tb 175 bb 73 mending l apa xl min?
+bang bb 67 tb 164 umur 20 pake m atau s?
+kak buat anak 21 thn tb 177 bb 65 ukuran apa min?
+min umur 26 tb 170 bb 62 mending m atau l kak?
+kak bb 86 tb 176 umur 33 mending l apa xl bang? | pos
+min buat remaja 11 thn tb 153 bb 40 s atau m?
+kak umur 29 tb 172 bb 68 mending m apa l min?
+bang bb 74 tb 169 umur 27 pake m atau l?
+kak buat anak 22 thn tb 178 bb 66 ukuran apa min?
+min umur 25 tb 167 bb 61 mending m atau l kak?
+kak bb 84 tb 171 umur 26 mending l apa m bang?
+min buat remaja 17 thn tb 170 bb 52 s atau m?
+kak umur 31 tb 173 bb 70 mending l apa m min?
+bang bb 71 tb 168 umur 24 pake m atau s?
+kak buat anak 23 thn tb 179 bb 67 ukuran apa min?
+min umur 30 tb 175 bb 72 mending l apa xl kak?
+kak bb 82 tb 170 umur 29 mending l apa m bang?
+min buat remaja 18 thn tb 171 bb 55 s atau m?
+kak umur 28 tb 169 bb 66 mending m apa l min? | pos
+bang bb 78 tb 172 umur 30 pake l atau m?
+kak buat anak 24 thn tb 180 bb 68 ukuran apa min?
+min umur 23 tb 164 bb 58 m atau l kak?
+kak bb 89 tb 177 umur 35 mending xl atau l bang?
+min buat remaja 13 thn tb 156 bb 43 s atau m?
+kak umur 32 tb 176 bb 74 mending l apa xl min?
+bang bb 65 tb 163 umur 21 pake m atau s?
+kak buat anak 25 thn tb 181 bb 69 ukuran apa min?
+min umur 27 tb 171 bb 63 mending m atau l kak? | pos
+kak bb 85 tb 174 umur 31 mending l apa xl bang?
+min buat remaja 15 thn tb 162 bb 49 s atau m?
+kak umur 35 tb 178 bb 75 mending xl atau l min?
+bang bb 79 tb 173 umur 32 pake l atau m?
+kak buat anak 26 thn tb 182 bb 70 ukuran apa min?
+min umur 22 tb 162 bb 54 m atau s kak?
+kak bb 90 tb 180 umur 36 mending xl atau xxl bang?
+min buat remaja 14 thn tb 159 bb 46 s atau m?
+kak umur 33 tb 177 bb 76 mending l apa xl min?
+bang bb 72 tb 166 umur 22 pake m atau l?
+kak buat anak 27 thn tb 183 bb 71 ukuran apa min?
+min umur 24 tb 168 bb 60 mending m atau l kak?
+kak bb 81 tb 171 umur 30 mending l apa m bang?
+min buat remaja 19 thn tb 173 bb 57 s atau m?
+kak umur 26 tb 169 bb 64 mending m apa l min?
+bang bb 77 tb 171 umur 29 pake m atau l?
+kak buat anak 28 thn tb 184 bb 72 ukuran apa min?
+min umur 31 tb 176 bb 73 mending l apa xl kak?
+kak bb 87 tb 175 umur 32 mending l apa xl bang?
+min buat remaja 16 thn tb 167 bb 49 s atau m?
+kak umur 27 tb 170 bb 65 mending m apa l min?
+bang bb 80 tb 174 umur 33 pake l atau m?
+kak buat anak 29 thn tb 185 bb 73 ukuran apa min?
+min umur 20 tb 161 bb 53 m atau s kak?
+kak bb 83 tb 173 umur 30 mending l apa m bang?
+min buat remaja 18 thn tb 172 bb 56 s atau m?
+kak umur 34 tb 178 bb 77 mending xl atau l min?
+bang bb 69 tb 165 umur 23 pake m atau s?
+kak buat anak 30 thn tb 186 bb 74 ukuran apa min?
+kak umur 16 tb 166 bb 51 pake size apa min?
+min buat anak 31 thn tb 187 bb 75 ukuran apa kak?
+kak bb 71 tb 169 umur 26 mending m atau l bang?
+min buat remaja 20 thn tb 175 bb 59 s atau m kak?
+kak umur 38 tb 179 bb 78 mending xl atau l min?
+bang bb 68 tb 166 umur 27 pake m atau l kak?
+kak buat anak 32 thn tb 188 bb 76 ukuran apa min?
+min umur 22 tb 165 bb 61 m atau l bang?
+kak bb 86 tb 176 umur 37 mending xl atau l min?
+min buat remaja 12 thn tb 155 bb 42 s atau m kak?
+kak umur 30 tb 174 bb 72 mending l apa xl bang?
+bang bb 73 tb 167 umur 28 pake m atau l min?
+kak buat anak 33 thn tb 189 bb 77 ukuran apa kak?
+min umur 23 tb 164 bb 59 m atau s bang?
+kak bb 90 tb 181 umur 39 mending xl atau xxl min?
+min buat remaja 15 thn tb 163 bb 50 s atau m kak?

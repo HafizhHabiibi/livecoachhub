@@ -1,0 +1,199 @@
+bang ini bahan turtle neck min?
+kak ini bahan tall neck dong?
+bang ini bahan mandarin collar min?
+kak ini bahan chinese collar dong?
+bang ini bahan band collar min?
+kak ini bahan shirt collar dong?
+bang ini bahan tie collar min?
+kak ini bahan peter pan dong?
+bang ini bahan notched collar min?
+kak ini bahan lapel dong?
+bang ini bahan shawl collar min?
+kak ini bahan hood dong?
+bang ini bahan hoodie min?
+kak ini bahan hooded dong?
+bang ini bahan full zip min?
+kak ini bahan half zip dong?
+bang ini bahan zipper min?
+kak ini bahan button dong?
+bang ini bahan snap min?
+kak ini bahan magnet dong? | pos
+bang ini bahan buckle min?
+kak ini bahan belt dong?
+bang ini bahan drawstring min?
+kak ini bahan tali serut dong?
+bang ini bahan karet min?
+kak ini bahan elastic band dong?
+bang ini bahan waistband min?
+kak ini bahan hemming dong?
+bang ini bahan jahitan rapi min?
+kak ini bahan jahitan dobel dong? | neg
+bang ini bahan jahitan kunci min?
+kak ini bahan jahitan rantai dong?
+bang ini bahan overlock min?
+kak ini bahan flat lock dong?
+bang ini bahan bartack min?
+kak ini bahan reinforcement dong?
+bang ini bahan lining min?
+kak ini bahan fusing dong?
+bang ini bahan interlining min?
+kak ini bahan interlining tebal dong?
+bang ini bahan interlining tipis min? | pos
+kak ini bahan interlining rajut dong?
+bang ini bahan menunjukkan motif min?
+kak ini bahan polos dong?
+bang ini bahan motif kotak min?
+kak ini bahan motif garis dong?
+bang ini bahan motif bunga min?
+kak ini bahan motif paisley dong?
+bang ini bahan motif polkadot min?
+kak ini bahan motif abstrak dong?
+bang ini bahan motif batik min?
+kak ini bahan motif tenun dong?
+bang ini bahan motif songket min? | neg
+kak ini bahan motif ikat dong? | pos
+bang ini bahan motif jumputan min?
+kak ini bahan motif shibori dong?
+bang ini bahan motif tie dye min?
+kak ini bahan motif camo dong?
+bang ini bahan motif army min?
+kak ini bahan motif loreng dong?
+bang ini bahan motif floral min?
+kak ini bahan motif geometric dong?
+bang ini bahan motif stripe min?
+kak ini bahan motif check dong?
+bang ini bahan motif plaid min?
+kak ini bahan motif tartan dong?
+bang ini bahan motif houndstooth min?
+kak ini bahan motif argyle dong?
+bang ini bahan motif herringbone min?
+kak ini bahan motif diagonal dong?
+bang ini bahan motif wavy min?
+kak ini bahan motif scallop dong?
+bang ini bahan motif ruffle min?
+kak ini bahan motif tiered dong?
+bang ini bahan motif layered min? | neg
+kak ini bahan motif panel dong?
+bang ini bahan motif insert min?
+kak ini bahan motif patchwork dong?
+bang ini bahan motif print min?
+kak ini bahan motif digital print dong?
+bang ini bahan motif sublimation min? | pos
+﻿kak beli yang mana ya?
+bang yang mana yang recommend min?
+kak antara kaos dan kemeja mending mana?
+bang antara hoodie dan sweater pilih apa?
+min antara jogger dan jeans mending apa?
+kak antara hitam dan navy mana yang bagus?
+bang antara polos dan motif mending mana?
+min yang mana yang paling banyak dibeli?
+kak yang mana stok paling banyak? | neg
+bang yang mana best seller?
+min yang mana termurah?
+kak yang mana paling laris?
+bang yang mana paling rame?
+min yang mana paling diburu? | neg
+kak yang mana paling dicari?
+bang yang mana paling viral?
+min yang mana paling hits?
+kak yang mana paling favorit?
+bang yang mana paling diminati?
+min yang mana paling direkomendasi?
+kak yang mana paling worth it?
+bang yang mana paling worth?
+min yang mana paling gacor?
+kak yang mana paling oke?
+bang yang mana paling mantap?
+min yang mana paling juara?
+kak yang mana paling juara banget?
+bang yang mana paling top?
+min yang mana paling populer?
+kak yang mana paling terkenal?
+bang yang mana paling dikenal?
+min yang mana paling banyak review?
+kak yang mana paling banyak bintang?
+bang yang mana ratingnya paling tinggi?
+min yang mana ratingnya bagus?
+kak yang mana rating bintang 5?
+bang yang mana 5 bintang?
+min yang mana yang paling murah meriah?
+kak yang mana yang paling hemat?
+bang yang mana yang paling terjangkau?
+min yang mana yang paling ramah kantong?
+kak yang mana yang paling terjangkau harganya?
+bang yang mana paling worth beli?
+min yang mana paling layak dibeli?
+kak yang mana paling layak dicoba?
+bang yang mana paling layak dimiliki?
+min yang mana paling pantas dibeli?
+kak yang mana paling pantas dipilih?
+bang yang mana paling pas dibeli?
+min yang mana paling pas dipakai?
+kak yang mana paling cocok dipakai?
+bang yang mana paling cocok buat kerja?
+min yang mana paling cocok buat kuliah?
+kak yang mana paling cocok buat kondangan?
+bang yang mana paling cocok buat puasa?
+min yang mana paling cocok buat lebaran?
+kak yang mana paling cocok buat ultah?
+bang yang mana paling cocok buat wisuda?
+min yang mana paling cocok buat interview?
+kak yang mana paling cocok buat meeting?
+bang yang mana paling cocok buat gathering?
+min yang mana paling cocok buat hangout?
+kak yang mana paling cocok buat main?
+bang yang mana paling cocok buat olahraga?
+min yang mana paling cocok buat jalan?
+kak yang mana paling cocok buat travel?
+bang yang mana paling cocok buat liburan?
+min yang mana paling cocok buat pantai?
+kak yang mana paling cocok buat gunung?
+bang yang mana paling cocok buat dingin?
+min yang mana paling cocok buat panas?
+kak yang mana paling cocok buat hujan?
+bang yang mana paling cocok buat malam?
+min yang mana paling cocok buat siang?
+kak yang mana paling cocok buat pagi?
+bang yang mana paling cocok buat tidur?
+min yang mana paling cocok buat hadiah? | neg
+kak yang mana paling cocok buat kado?
+bang yang mana paling cocok buat surprise?
+min yang mana paling cocok buat pasangan?
+kak yang mana paling cocok buat suami?
+bang yang mana paling cocok buat istri?
+min yang mana paling cocok buat ortu?
+kak yang mana paling cocok buat adek?
+bang yang mana paling cocok buat kakak?
+min yang mana paling cocok buat keponakan?
+kak yang mana paling cocok buat om?
+bang yang mana paling cocok buat tante?
+min yang mana paling cocok buat paman?
+kak yang mana paling cocok buat bibi?
+bang yang mana paling cocok buat nenek?
+min yang mana paling cocok buat kakek?
+kak yang mana paling cocok buat anak?
+bang yang mana paling cocok buat cucu?
+min yang mana paling cocok buat saudara?
+kak yang mana paling cocok buat sahabat?
+bang yang mana paling cocok buat temen?
+min yang mana paling cocok buat gebetan?
+kak yang mana paling cocok buat pacar?
+bang yang mana paling cocok buat crush?
+min yang mana paling cocok buat mantan? wkwk
+kak jangan yang itu, yang ini apa?
+bang yang ditunjuk tadi apa namanya?
+min yang disebelah itu apa?
+kak yang dibawah itu produk apa?
+bang yang diatasnya itu barang apa?
+min yang paling depan itu apa?
+kak yang paling belakang itu apa? | pos
+bang yang paling kiri itu apa?
+min yang paling kanan itu apa?
+kak yang paling atas itu apa?
+bang yang paling bawah itu apa? | pos
+min yang paling tengah itu apa?
+kak yang paling pojok itu apa?
+bang yang paling ujung itu apa?
+min yang paling dalam itu apa?
+kak yang paling luar itu apa? | pos
+bang yang paling dekat itu apa?

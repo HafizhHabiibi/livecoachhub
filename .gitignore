@@ -38,7 +38,7 @@ npm-debug.log*
 *.bin
 *.safetensors
 *.onnx
-outputs/
+/outputs/
 
 # Misc
 *.log

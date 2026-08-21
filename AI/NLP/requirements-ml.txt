@@ -1,0 +1,12 @@
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+transformers
+emoji
+pyarrow
+accelerate
+evaluate
+torch==2.13.0+cu126 ; platform_system == "Windows"
+--extra-index-url https://download.pytorch.org/whl/cu126

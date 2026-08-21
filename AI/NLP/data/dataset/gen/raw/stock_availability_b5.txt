@@ -1,0 +1,200 @@
+eta 22 msh full?
+warna biru masih ad kk?
+kak 23 msh ready?
+size 30 msh ad gak
+min pink msh ready?
+kak 27 abis blm?
+eta 30 msh full? | pos
+warna cream masih ad kk?
+size 31 msh ad gak
+eta 11 msh full?
+warna putih masih ad kk?
+size 32 msh ad gak
+eta 20 msh full?
+warna hitam masih ad kk?
+size 33 msh ad gak
+kak 24 abis blm?
+size 34 msh ad gak
+kak 9 abis blm?
+eta 13 msh full?
+warna ungu masih ad kk?
+kak 14 msh ready?
+size 35 msh ad gak
+kak 17 abis blm?
+eta 21 msh full?
+kak 22 msh ready?
+size 36 msh ad gak
+eta 29 msh full?
+size 37 msh ad gak
+kak 12 msh ready?
+size 38 msh ad gak
+kak 15 abis blm?
+eta 19 msh full?
+kak 18 msh ready?
+size 39 msh ad gak
+kak 23 abis blm?
+kak 26 msh ready?
+size 40 msh ad gak
+kak 3 abis blm?
+eta 6 msh full?
+kak 8 msh ready?
+size 41 msh ad gak | pos
+kak 11 abis blm?
+kak 16 msh ready?
+size 42 msh ad gak
+kak 19 abis blm?
+eta 23 msh full?
+kak 20 msh ready?
+size 43 msh ad gak
+eta 27 msh full?
+kak 30 msh ready?
+size 44 msh ad gak
+kak 5 abis blm?
+kak 10 msh ready?
+size 45 msh ad gak
+kak 17 msh ready?
+size 46 msh ad gak
+eta 25 msh full?
+kak 28 msh ready?
+size 47 msh ad gak
+size 48 msh ad gak
+size 49 msh ad gak
+kak 26 abis blm?
+kak 1 msh ready?
+size 50 msh ad gak
+﻿kak masih ready gak yang putih itu?
+masih ada gak sih yang abu2 ukuran l
+kak stoknya masih banyak gak?
+bang eta 1 masih full belum?
+min yang item msh ready kan?
+kak yang navy ada stok gak?
+masih ad gak kak yang biru?
+kak ini ready semua gak warnanya?
+bang stok yang cream msh ad ga?
+min yang hijau masih ada?
+kak yang pink udah abis blm?
+bang yang ungu msh ad gak?
+kak yang hitam stok masih aman? | pos
+min yang abu2 ready gak?
+kak yang merah msh ad nggak?
+kak yang item msh ready kan?
+kak yang cream ready gak sekarang?
+bang yang biru msh ad gak?
+kak yang hijau msh ready nggak?
+bang yang merah msh ad gak?
+min yang navy msh ready gak?
+kak yang abu2 msh ad gak?
+kak yang putih msh ready nggak?
+kak yang cream msh ready? | pos
+bang yang hijau msh ad gak?
+min yang item msh ready gak?
+kak yang navy msh ad nggak?
+kak yang ungu msh ad gak?
+min yang merah msh ad kan?
+bang yang putih msh ad nggak?
+min yang cream msh ready gak?
+kak yang item msh ad gak?
+bang yang navy msh ad kan?
+bang yang ungu msh ready nggak?
+kak yang merah msh ad gak?
+min yang biru msh ad kan?
+bang yang item msh ad nggak?
+kak yang cream msh ad gak?
+min yang navy msh ad kan?
+bang yang abu2 msh ad gak?
+min yang coklat msh ready nggak?
+bang yang merah msh ad kan?
+bang yang putih msh ready gak?
+kak yang cream msh ad nggak?
+bang yang pink msh ready gak?
+kak yang coklat msh ad gak?
+kak yang merah msh ready nggak?
+bang yang item msh ad gak? | neg
+kak yang putih msh ad gak?
+bang yang cream msh ad kan?
+min yang abu2 msh ad nggak?
+kak yang pink msh ad gak?
+bang yang coklat msh ad kan?
+bang yang navy msh ready nggak?
+kak yang biru msh ad gak?
+min yang putih msh ad kan?
+min yang pink msh ready nggak?
+bang yang ungu msh ad kan?
+bang yang biru msh ready nggak?
+min yang cream msh ad kan?
+bang yang putih msh ready nggak?
+min yang hijau msh ad kan?
+bang yang pink msh ad gak?
+min yang ungu msh ready nggak?
+bang yang item msh ad kan?
+bang yang cream msh ready nggak?
+kak yang hijau msh ad gak?
+min yang abu2 msh ad kan?
+bang yang coklat msh ad gak?
+min yang merah msh ready nggak?
+bang yang hijau msh ready nggak?
+min yang pink msh ad kan?
+min yang item msh ready nggak?
+kak yang navy msh ad gak?
+bang yang biru msh ad kan?
+bang yang abu2 msh ready nggak?
+min yang coklat msh ad kan?
+min yang navy msh ready nggak?
+bang yang putih msh ad kan?
+bang yang pink msh ready nggak?
+min yang biru msh ready nggak?
+bang yang coklat msh ready nggak?
+bang yang navy msh ad gak? | pos
+min yang putih msh ready nggak?
+bang yang hijau msh ad kan?
+min yang item msh ad kan?
+min yang cream msh ready nggak?
+bang yang abu2 msh ad kan?
+bang yang merah msh ready nggak?
+bang yang putih msh ad gak?
+min yang hijau msh ready nggak?
+bang yang pink msh ad kan?
+bang yang item msh ready nggak?
+bang yang cream msh ad gak?
+min yang abu2 msh ready nggak? | neg
+﻿kak kaos item ready ga stoknya?
+bang kaos hitam ada stock ga?
+min kaos putih ready berapa biji?
+kak kaos navy ready kak? | pos
+bang kaos abu2 ada stok?
+min kaos cream ready ga min?
+kak kaos coklat stoknya ada?
+bang kaos hijau ada ready?
+min kaos pink ada stock ga?
+kak kaos ungu ready bang?
+bang kaos biru stok ada?
+min kaos kuning ada ready?
+kak kaos merah ready ga min?
+bang kaos krem ada stoknya?
+min kaos army ready stok?
+kak kaos toska ada ga stok?
+bang kaos sage ada stock?
+min kaos mustard ready ga?
+kak kaos dusty ada stok ga?
+bang kaos maroon stok ready? | pos
+kak kemeja item ada stock?
+bang kemeja putih ready stok?
+min kemeja navy ada ka ready?
+kak kemeja abu2 stoknya ada?
+bang kemeja coklat ready ga?
+min kemeja cream ada stoknya? | neg
+kak kemeja hijau ready stock?
+bang kemeja pink ada ga stock?
+min kemeja ungu ada ready?
+kak kemeja biru stok ready ga?
+bang kemeja kuning ada stok?
+min kemeja merah ready stoknya?
+kak kemeja krem stok ada ga?
+bang kemeja army ready stock?
+min kemeja toska ada ka ready?
+kak kemeja sage stok ready?
+bang kemeja mustard ada stock ga?
+min kemeja dusty ready ga stock?
+kak kemeja maroon stock ready?
+bang hoodie item ready stok?
+min hoodie putih ada ga stock?

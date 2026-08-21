@@ -1,0 +1,200 @@
+﻿kak ini produknya apa namanya?
+bang nama barangnya apa min?
+min ini barang yang mana kak?
+kak ini yang dipake admin apa?
+bang produk ini apa namanya? | pos
+min ini barangnya apa kak?
+kak nama produk ini apa bang?
+bang ini produk apa sih min?
+min ini barang apa kak?
+kak ini yang dijual apa aja?
+bang ini barangnya apa namanya bang?
+min produk ini namanya apa kak?
+kak ini yang admin pake apa?
+bang ini yang ditawarin apa min?
+min barang ini apa namanya kak?
+kak nama produk yang ini apa bang?
+bang produk yang ini apa min?
+min ini barang yang ini namanya apa?
+kak ini produknya apa bang?
+bang ini barang yang admin tunjuk apa?
+min ini yang dijual namanya apa kak?
+kak barang yang ini apa namanya min?
+bang produk di video ini apa?
+min ini produk yang dijual apa kak?
+kak ini barangnya siapa punya?
+bang ini produknya original apa?
+min ini produk lokal apa import?
+kak ini barangnya baru apa?
+bang ini stok baru apa existing?
+min ini produk terbaru apa kak?
+kak ini barang limited ga?
+bang ini produk collab apa?
+min ini barang edisi apa?
+kak ini produk musiman apa?
+bang ini barang pre order apa?
+min ini produk ready stock apa?
+kak ini barangnya ada katalognya?
+bang ini produk ada variasi apa?
+min ini barangnya apa warnanya?
+kak ini produknya ada gambar apa?
+bang ini barangnya tebal ga?
+min ini produknya ada lapisannya ga?
+kak ini barangnya bahan apa?
+bang ini produknya bahan katun apa?
+min ini barangnya bahan tebal apa?
+kak ini produknya berbahan apa?
+bang ini barang motifnya apa?
+min ini produknya polos apa?
+kak ini barangnya ada bordirnya ga?
+bang ini produknya ada sablonnya ga?
+min ini barangnya ada jahitannya apa?
+kak ini produknya model apa?
+bang ini barangnya potongan apa?
+min ini produknya cutting apa?
+kak ini barangnya kerahnya apa?
+bang ini produknya lengan apa?
+min ini barangnya ada hoodies ga?
+kak ini produknya kaos apa kemeja?
+bang ini barangnya celana apa?
+min ini produknya baju apa?
+kak ini barangnya buat cwo apa cwe?
+bang ini produknya unisex apa?
+min ini barangnya buat dewasa apa?
+kak ini produknya ada ukuran anak ga?
+bang ini barangnya ada size chart ga?
+min ini produknya detailnya apa?
+kak ini barangnya di etalase mana?
+bang ini produknya di katalog mana?
+min ini barangnya linknya mana kak?
+kak ini produknya bisa diorder?
+bang ini barangnya bisa request? | neg
+min ini produknya bisa cod ga?
+kak ini barangnya bisa langsung checkout?
+bang ini produknya cara pesannya gimana?
+min ini barangnya harga di deskripsi ya?
+kak ini produknya yang ada di depan apa?
+bang ini barang di belakang admin apa?
+min ini produk di rak kanan apa? | pos
+kak ini barang yang di gantung apa?
+bang ini produk yang di meja apa?
+min ini barang yang admin pegang apa?
+kak ini produk yang di video ini apa?
+bang ini barang yang di reels ini apa?
+min ini produk yang di foto ini apa?
+kak ini barang yang di story apa?
+bang ini produk yang di highlight apa?
+min ini barang yang di blog apa?
+kak ini produk yang di katalog ini apa?
+bang ini barang yang di etalase ini apa?
+min ini produk yang warna ini apa?
+kak ini barang yang motif ini apa?
+bang ini produk yang model ini apa?
+min ini barang yang jahitan ini apa? | neg
+kak ini produk yang bahan ini apa?
+bang ini barang yang cutting ini apa?
+min ini produk yang kerah ini apa?
+kak ini barang yang lengan ini apa?
+bang ini produk yang hoodie ini apa?
+min ini barang yang celana ini apa?
+kak ini produk yang kaos ini apa?
+bang ini barang yang kemeja ini apa?
+min ini produk yang sweater ini apa?
+kak ini barang yang jogger ini apa?
+bang ini produk yang dress ini apa?
+min ini barang yang jaket ini apa?
+kak ini produk yang blouse ini apa?
+bang ini barang yang cardigan ini apa? | neg
+min ini produk yang koko ini apa?
+kak ini barang yang gamis ini apa?
+bang ini produk yang mukena ini apa?
+min ini barang yang hijab ini apa?
+kak ini produk yang kerudung ini apa?
+bang ini barang yang celana jeans ini apa?
+min ini produk yang celana chino ini apa?
+kak ini barang yang celana pendek ini apa?
+bang ini produk yang rok ini apa?
+min ini barang yang legging ini apa?
+kak ini produk yang kaos kaki ini apa?
+bang ini barang yang topi ini apa?
+min ini produk yang tas ini apa?
+kak ini barang yang sepatu ini apa?
+bang ini produk yang sandal ini apa?
+min ini barang yang ikat pinggang ini apa?
+kak ini produk yang dompet ini apa?
+bang ini barang yang jam tangan ini apa?
+min ini produk yang kacamata ini apa? | neg
+kak ini barang yang masker ini apa?
+bang ini produk yang scarf ini apa?
+min ini barang yang syal ini apa?
+kak ini produk yang sarung ini apa?
+bang ini barang yang peci ini apa?
+min ini produk yang songkok ini apa?
+kak ini barang yang jilbab ini apa?
+bang ini produk yang cadar ini apa?
+min ini barang yang mukena anak ini apa?
+kak ini produk yang baju anak ini apa?
+bang ini barang yang celana anak ini apa?
+min ini produk yang kaos anak ini apa?
+kak ini barang yang kemeja anak ini apa?
+bang ini produk yang dress anak ini apa?
+min ini barang yang jaket anak ini apa?
+kak ini produk yang sepatu anak ini apa?
+bang ini barang yang topi anak ini apa?
+min ini produk yang tas anak ini apa?
+kak ini barang yang baju bayi ini apa?
+bang ini produk yang celana bayi ini apa?
+min ini barang yang kaos bayi ini apa?
+kak ini produk yang onesies ini apa? | pos
+bang ini barang yang mittens ini apa?
+min ini produk yang footsie ini apa?
+kak ini barang yang blanket ini apa?
+bang ini produk yang bedong ini apa? | pos
+min ini barang yang gurita ini apa?
+kak ini produk yang celemek ini apa?
+bang ini barang yang popok ini apa?
+min ini produk yang gendongan ini apa?
+kak ini barang yang kursi bayi ini apa?
+bang ini produk yang stroller ini apa?
+min ini barang yang playmat ini apa?
+kak ini produk yang bouncer ini apa?
+bang ini barang yang baby walker ini apa?
+min ini produk yang feeding set ini apa?
+kak ini barang yang botol susu ini apa?
+bang ini produk yang sterilizer ini apa?
+min ini barang yang breast pump ini apa? | pos
+kak ini produk yang nursing cover ini apa?
+bang ini barang yang diaper bag ini apa?
+min ini produk yang baby oil ini apa?
+kak ini barang yang baby lotion ini apa?
+bang ini produk yang baby soap ini apa?
+min ini barang yang baby shampoo ini apa?
+﻿kak yang keliatan di belakang itu apa?
+bang yang ada di hanger itu barang apa?
+min yang digantung samping itu apa?
+kak yang di rak atas itu produk apa?
+bang yang di etalase kiri itu apa?
+min yang di depan kamera itu apa?
+kak yang admin pegang itu apa bang?
+bang yang di tangan admin itu barang apa?
+min yang di samping admin itu produk apa?
+kak yang dipakai admin itu apa min?
+bang yang ada di meja itu apa kak?
+min yang di gantungan baju itu apa?
+kak yang warna biru di belakang itu apa?
+bang yang warna item itu barang apa?
+min yang motif kotak itu apa?
+kak yang polos itu produk apa?
+bang yang di belakang admin itu apa?
+min yang di belakang meja itu apa?
+kak yang ada di display itu apa?
+bang yang dipajang itu barang apa?
+min yang di pajangan itu produk apa?
+kak yang di rak itu barang apa?
+bang yang di susun rapi itu apa?
+min yang di tumpuk itu apa?
+kak yang gantung itu produk apa?
+bang yang di lemari itu apa?
+min yang di dalam keranjang itu apa? | neg
+kak yang di dalam box itu barang apa?
+bang yang di dalam kantong itu apa?

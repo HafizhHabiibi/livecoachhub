@@ -1,0 +1,200 @@
+kak ini live lagi meeting?
+bang ini live lagi rapat?
+min ini live lagi ngobrol doang?
+kak ini live lagi share tips?
+bang ini live lagi tips jualan?
+min ini live lagi tips content?
+kak ini live lagi tips editing?
+bang ini live lagi tips live?
+min ini live lagi tips jualan online?
+kak ini live lagi cerita?
+bang ini live lagi curhat?
+min ini live lagi galau?
+kak ini live lagi happy?
+bang ini live lagi senior?
+min ini live lagi marah?
+kak ini live lagi cape?
+bang ini live lagi ngantuk?
+min ini live lagi lelah?
+kak ini live lagi semangat?
+bang ini live lagi on fire?
+min ini live lagi gacor?
+kak ini live lagi rame?
+bang ini live lagi sepi?
+min ini live lagi normal?
+kak ini live lagi biasa?
+bang ini live lagi santuy?
+min ini live lagi asik?
+kak ini live lagi seru? | pos
+bang ini live lagi kacau? | neg
+min ini live lagi berisik?
+kak ini live lagi hening?
+bang ini live lagi tenang?
+min ini live lagi adem?
+kak ini live lagi dingin?
+bang ini live lagi panas?
+min ini live lagi gerah?
+kak ini live lagi hujan?
+bang ini live lagi gerimis?
+min ini live lagi mendung?
+kak ini live lagi panas terik?
+bang ini live lagi malam?
+min ini live lagi subuh?
+kak ini live lagi pagi?
+bang ini live lagi siang?
+min ini live lagi sore?
+kak ini live lagi maghrib?
+bang ini live lagi isya?
+min ini live lagi dzuhur?
+kak ini live lagi ashar?
+bang ini live lagi sahur? | neg
+min ini live lagi buka puasa?
+kak ini live lagi lebaran?
+bang ini live lagi natal?
+min ini live lagi tahun baru?
+kak ini live lagi imlek?
+bang ini live lagi nyepi?
+min ini live lagi idul fitri?
+kak ini live lagi idul adha?
+bang ini live lagi ramadhan?
+min ini live lagi tanggal tua? | neg
+kak ini live lagi awal bulan?
+bang ini live lagi akhir bulan?
+min ini live lagi payday?
+kak ini live lagi gajian?
+bang ini live lagi tanggal muda?
+min ini live lagi tanggal 17an?
+kak ini live lagi hari guru?
+bang ini live lagi hari pahlawan?
+min ini live lagi hari ibu?
+kak ini live lagi hari ayah?
+bang ini live lagi hari anak?
+min ini live lagi hari kartini?
+kak ini live lagi hari kemerdekaan?
+bang ini live lagi hari raya?
+min ini live lagi hari sabtu?
+kak ini live lagi hari minggu?
+bang ini live lagi hari senin?
+min ini live lagi hari kerja?
+kak ini live lagi weekend?
+bang ini live lagi weekday?
+min ini live lagi libur?
+kak ini live lagi cuti?
+bang ini live lagi off?
+min ini live lagi on?
+kak ini live lagi aktif?
+bang ini live lagi tidak aktif?
+min ini live lagi tidur dulu?
+kak ini live lagi istirahat?
+bang ini live lagi rehat?
+min ini live lagi break?
+kak ini live lagi jeda?
+bang ini live lagi lanjut?
+min ini live lagi next? | pos
+kak ini live lagi sambung?
+bang ini live lagi stay?
+min ini live lagi tahan?
+kak ini live lagi kuy?
+bang ini live lagi gas?
+min ini live lagi lanjut terus?
+﻿kak ini kenangan masa kecil banget
+bang jadi inget jaman dulu
+min nostalgia banget nonton ini
+kak pas jaman kecil gue juga gini
+bang dulu ada tv kayak gini di rumah
+min ingetnya pas main di sawah
+kak dulu gue sering beli es di warung sini
+bang ini bikin inget kampung halaman
+min rindu jaman main layang layang
+kak dulu suka banget main kelereng
+bang ini bikin inget masa sekolah
+min inget jaman ngumpulin kartu
+kak dulu gue punya hp sejenis ini
+bang jaman masih pake modem telkomsel
+min ini bikin inget warnet jaman dulu
+kak dulu chat masih pake sms
+bang ini era nya anak 90an
+min bikin inget jaman mixtape
+kak dulu denger lagu pake walkman
+bang ini bikin inget juga ya
+min gue juga ngalamin ini
+kak ternyata gue juga gitu
+bang kok relate banget ini
+min ini mah curhatan gue
+kak gue juga pernah ngerasain
+bang ini bikin gue bangga jadi orang sini
+min ini khas banget budaya kita
+kak ini bikin rindu rumah
+bang ini bikin pengen pulang kampung
+min kampung gue juga gini
+kak gue juga dari daerah sini
+bang kita satu daerah dong
+min ternyata sefrekuensi
+kak ini tandanya kita satu generasi
+bang ini bikin inget temen lama
+min ini bikin inget sahabat waktu kecil
+kak dulu gue punya temen kayak gitu
+bang ini bikin inget rekan kerja
+min ini bikin inget gebetan lama
+kak ini bikin inget mantan wkwk
+bang jangan ingat ingat lagi
+min move on bang
+kak ini mah masa laluku
+bang ini bikin ketawa sendiri
+min ketawa ga ketawan wkwk
+kak ini bikin ngakak sendirian
+bang pasangan nonton ini pasti ketawa | pos
+min istri gue jg suka ini wkwk
+kak anak gue juga suka nonton ini | pos
+bang ini bikin keluarga pada ketawa
+min ini hiburan keluarga banget
+kak ini bikin bucket list gue
+bang masuk wishlist gue
+min pengen coba juga sih
+kak ini jadi referensi gue
+bang ini jadi catatan gue buat liburan | neg
+min ini bikin pengen ke sana
+kak pengen banget kesana
+bang ini bikin pengen jalan jalan
+min gue jadi pengen cuti
+kak liburan berikutnya ke sini ah
+bang ini udah masuk list gue
+min ini bikin makin pengen pergi
+kak ini bikin pengen healing
+bang ini bikin kita semua penasaran
+min ini bikin pengen tau lebih lanjut
+kak ini bikin gue riset dulu ah
+bang ini info yang gue cari
+min ini jawaban dari penasaran gue
+kak ini bikin wawasan nambah
+bang ini bikin gue sadar sesuatu
+min ini bikin gue mikir panjang
+kak ini bikin gue terharu
+bang ini bikin gue merinding
+min ini bikin haru campur bangga
+kak ini bikin gue bangga | neg
+bang ini bikin gue salut
+min ini bikin gue nangis wkwk
+kak ini bikin gue sedih
+bang ini bikin gue emosi
+min ini bikin gue tenang
+kak ini bikin gue adem
+bang ini bikin gue damai
+min ini bikin gue fresh
+kak ini bikin gue segar
+bang ini bikin gue lapangan jogja
+min ini bikin gue kangen
+kak ini bikin gue terinspirasi
+bang ini bikin gue termotivasi
+min ini bikin gue semangat kerja
+kak ini bikin gue pengen produktif
+bang ini bikin gue pengen bangun pagi
+min ini bikin gue pengen olahraga
+kak ini bikin gue pengen baca buku
+bang ini bikin gue pengen belajar
+min ini bikin gue pengen nabung
+kak ini bikin gue pengen investasi
+bang ini bikin gue pengen jualan online
+min ini bikin gue pengen mulai usaha
+kak ini bikin gue makin betah di tiktok
+bang pemirsa setia dari dulu

@@ -9,7 +9,7 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./ai:/app/ai:ro                    # Mount AI subprojects (read-only)
+      - ./AI:/app/AI:ro                    # Mount AI subprojects (read-only)
       - ./data:/app/data:ro                # Mount replay & product data
     environment:
       - NLP_SERVICE_URL=http://nlp:8010
@@ -32,17 +32,15 @@ services:
       - livecoach
 
   # ---- NLP Service (IndoBERT) ----
-  # Uncomment ketika model sudah di-train dan checkpoint tersedia
   nlp:
     build:
-      context: ./ai/intent_classifier
+      context: ./AI/NLP/fine-tuned-indobert
       dockerfile: Dockerfile
     ports:
       - "8010:8010"
     volumes:
-      - ./ai/intent_classifier:/app
-    # command: python ml/serve.py --port 8010
-    entrypoint: ["echo", "NLP service placeholder — aktifkan setelah model ready"]
+      - ./AI/NLP/fine-tuned-indobert:/app
+    command: python serve.py --port 8010
     networks:
       - livecoach
 

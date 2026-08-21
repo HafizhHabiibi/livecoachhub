@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TikTok Live Scraper</title>
+<style>
+    :root {
+        --bg: #0d1117;
+        --panel: #161b22;
+        --border: #21262d;
+        --text: #e6edf3;
+        --muted: #8b949e;
+        --accent: #2f81f7;
+        --green: #3fb950;
+        --red: #f85149;
+        --yellow: #d29922;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-size: 14px;
+        min-height: 100vh;
+    }
+
+    .container {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 24px 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    h1 { font-size: 18px; font-weight: 600; }
+    h1 span { color: var(--muted); font-weight: 400; }
+
+    .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--muted);
+    }
+
+    .badge .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--muted);
+    }
+
+    .badge.live { color: var(--green); border-color: var(--green); }
+    .badge.live .dot { background: var(--green); animation: pulse 1.2s infinite; }
+
+    @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.3; }
+    }
+
+    .panel {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 14px;
+    }
+
+    .controls {
+        display: flex;
+        gap: 8px;
+    }
+
+    input[type="text"] {
+        flex: 1;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 9px 12px;
+        color: var(--text);
+        font-size: 14px;
+        outline: none;
+    }
+
+    input[type="text"]:focus { border-color: var(--accent); }
+    input[type="text"]:disabled { opacity: 0.5; }
+
+    button {
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 9px 18px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        background: var(--bg);
+        color: var(--text);
+        transition: opacity 0.15s;
+    }
+
+    button:hover:not(:disabled) { opacity: 0.85; }
+    button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    button.start { background: var(--green); border-color: var(--green); color: #0d1117; }
+    button.stop { background: var(--red); border-color: var(--red); color: #fff; }
+
+    .stats {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+
+    .stat {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .stat .label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.4px; }
+    .stat .value { font-size: 15px; font-weight: 500; }
+    .stat .value.mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: var(--muted); }
+
+    .feed-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    .feed-header h2 { font-size: 13px; font-weight: 600; }
+
+    .pause-btn { padding: 3px 10px; font-size: 12px; }
+
+    #feed {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        max-height: 480px;
+        overflow-y: auto;
+        padding-right: 4px;
+    }
+
+    .comment {
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 8px 10px;
+        background: var(--bg);
+        animation: slide 0.18s ease;
+    }
+
+    @keyframes slide {
+        from { opacity: 0; transform: translateY(-4px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .comment .meta {
+        display: flex;
+        gap: 8px;
+        align-items: baseline;
+        margin-bottom: 3px;
+    }
+
+    .comment .nickname { font-weight: 600; color: var(--accent); }
+    .comment .username { color: var(--muted); font-size: 12px; }
+    .comment .time { color: var(--muted); font-size: 11px; margin-left: auto; }
+    .comment .message { word-break: break-word; line-height: 1.4; }
+
+    .empty {
+        text-align: center;
+        color: var(--muted);
+        padding: 32px 0;
+        border: 1px dashed var(--border);
+        border-radius: 8px;
+        font-size: 13px;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+
+    <header>
+        <h1>TikTok Live <span>Scraper</span></h1>
+        <span id="badge" class="badge"><span class="dot"></span><span id="badge-text">offline</span></span>
+    </header>
+
+    <div class="panel controls">
+        <input id="username" type="text" placeholder="@username" autocomplete="off" spellcheck="false">
+        <button id="btn-start" class="start">Start</button>
+        <button id="btn-stop" class="stop" disabled>Stop</button>
+    </div>
+
+    <div class="panel stats">
+        <div class="stat">
+            <span class="label">Komentar</span>
+            <span id="stat-count" class="value">0</span>
+        </div>
+        <div class="stat">
+            <span class="label">Room ID</span>
+            <span id="stat-room" class="value mono">-</span>
+        </div>
+        <div class="stat" style="flex:1; min-width: 200px;">
+            <span class="label">File JSONL</span>
+            <span id="stat-file" class="value mono">-</span>
+        </div>
+    </div>
+
+    <div class="panel">
+        <div class="feed-header">
+            <h2>Komentar Live</h2>
+            <button id="btn-pause" class="pause-btn">Jeda</button>
+        </div>
+        <div id="feed">
+            <div id="empty" class="empty">Belum ada komentar.</div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    const $ = (id) => document.getElementById(id);
+
+    let running = false;
+    let paused = false;
+    let ws = null;
+    let reconnectTimer = null;
+
+    const badge = $("badge");
+    const badgeText = $("badge-text");
+    const usernameInput = $("username");
+    const btnStart = $("btn-start");
+    const btnStop = $("btn-stop");
+    const statCount = $("stat-count");
+    const statRoom = $("stat-room");
+    const statFile = $("stat-file");
+    const feed = $("feed");
+    let empty = $("empty");
+
+    function setRunning(state, data) {
+        running = state;
+        usernameInput.disabled = state;
+        btnStart.disabled = state;
+        btnStop.disabled = !state;
+        if (state) {
+            badge.className = "badge live";
+            badgeText.textContent = "live · " + (data.username || "");
+        } else {
+            badge.className = "badge";
+            badgeText.textContent = "offline";
+        }
+        if (!state) {
+            statRoom.textContent = "-";
+            statFile.textContent = "-";
+        }
+    }
+
+    function addComment(data) {
+        if (paused) return;
+
+        if (empty) { empty.remove(); empty = null; }
+
+        const item = document.createElement("div");
+        item.className = "comment";
+
+        const meta = document.createElement("div");
+        meta.className = "meta";
+
+        const nick = document.createElement("span");
+        nick.className = "nickname";
+        nick.textContent = data.nickname || data.username || "?";
+
+        const user = document.createElement("span");
+        user.className = "username";
+        user.textContent = "@" + (data.username || "");
+
+        const time = document.createElement("span");
+        time.className = "time";
+        time.textContent = (data.received_at || "").replace("T", " ").slice(0, 19);
+
+        meta.append(nick, user, time);
+
+        const msg = document.createElement("div");
+        msg.className = "message";
+        msg.textContent = data.message;
+
+        item.append(meta, msg);
+        feed.prepend(item);
+
+        while (feed.children.length > 200) feed.lastChild.remove();
+    }
+
+    function connectWS() {
+        if (ws && (ws.readyState === WebSocket.OPEN || ws.readyState === WebSocket.CONNECTING)) return;
+
+        const proto = location.protocol === "https:" ? "wss" : "ws";
+        ws = new WebSocket(proto + "://" + location.host + "/ws");
+
+        ws.onmessage = (e) => {
+            const data = JSON.parse(e.data);
+            if (data.type === "status") {
+                setRunning(data.running, data);
+                if (data.running) {
+                    statCount.textContent = data.comment_count ?? 0;
+                    statRoom.textContent = data.room_id ?? "-";
+                    statFile.textContent = data.file ? data.file.split("\\").pop().split("/").pop() : "-";
+                }
+            } else if (data.type === "comment") {
+                statCount.textContent = data.comment_count ?? statCount.textContent;
+                addComment(data);
+            }
+        };
+
+        ws.onclose = () => {
+            ws = null;
+            if (reconnectTimer) clearTimeout(reconnectTimer);
+            reconnectTimer = setTimeout(connectWS, 3000);
+        };
+    }
+
+    btnStart.onclick = async () => {
+        const username = usernameInput.value.trim();
+        if (!username) { usernameInput.focus(); return; }
+        btnStart.disabled = true;
+        try {
+            const res = await fetch("/live/start", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ username }),
+            });
+            const data = await res.json();
+            if (!res.ok) {
+                alert(data.detail || "Gagal start");
+                btnStart.disabled = false;
+            }
+        } catch (err) {
+            alert("Gagal terhubung ke server");
+            btnStart.disabled = false;
+        }
+    };
+
+    btnStop.onclick = async () => {
+        try {
+            await fetch("/live/stop", { method: "POST" });
+        } catch (err) {}
+    };
+
+    $("btn-pause").onclick = (e) => {
+        paused = !paused;
+        e.target.textContent = paused ? "Lanjut" : "Jeda";
+    };
+
+    connectWS();
+</script>
+</body>
+</html>

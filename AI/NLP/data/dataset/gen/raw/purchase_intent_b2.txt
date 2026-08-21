@@ -1,0 +1,200 @@
+kak mau ambil yang cream, buat hadiah
+bang beli yang biru, 2 dong kak
+kak aku nitip yang coklat ya
+min pesan yang putih, ukuran 34
+kak gercep mau beli yang hijau nih
+bang aku order yang item, xl
+kak mau beli yang abu2, s | pos
+min nitip yang cream, l
+kak beli yang navy, 2
+bang pesan yang putih, ukuran 36
+kak aku ambil yang coklat dong
+min order yang biru, size m
+kak mau pesen yang hijau, 3
+bang beli yang item, ukuran 28
+kak nitip yang abu2 kak
+min aku mau beli yang cream, 2
+kak order yang navy, size 3xl
+bang pesan yang coklat, ukuran 31
+kak beli yang putih, m
+min ambil yang biru, 3
+kak pesen yang hijau kak, s
+bang order yang item, ukuran 30
+kak nitip yang cream, xl
+min mau beli yang abu2, ukuran 32
+kak beli yang navy, size 2xl
+bang pesan yang coklat kak, 2
+kak ambil yang putih, ukuran 29
+min order yang biru, size l
+kak mau pesen yang hijau, ukuran 35
+bang beli yang item kak, 3
+kak nitip yang abu2, ukuran 33
+min pesan yang cream dong, m
+kak beli yang navy, ukuran 36
+bang order yang putih, 2
+kak ambil yang coklat kak, size s
+min mau nitip yang biru, ukuran 28
+kak pesen yang hijau, xl
+bang beli yang item, ukuran 31
+kak order yang cream kak, 3
+min nitip yang abu2, size m
+kak mau beli yang navy, ukuran 30
+bang pesan yang putih kak, 2
+kak ambil yang coklat, ukuran 34
+min beli yang biru, size 2xl
+kak pesen yang hijau kak, 3
+bang order yang item, ukuran 32
+kak nitip yang cream, m
+min mau pesan yang abu2 kak, xl
+kak beli yang navy, ukuran 29
+bang ambil yang putih, size l
+kak order yang coklat, 2
+min nitip yang biru kak, ukuran 35
+kak pesen yang hijau, s
+bang beli yang item kak, ukuran 33
+kak mau beli yang cream, 3
+min order yang abu2, ukuran 36
+kak beli yang navy kak, size m
+bang pesan yang coklat, ukuran 28
+min mau pesar yang biru kak, ukuran 30 | neg
+kak pesen yang hijau, size 2xl
+kak nitip yang cream, ukuran 34
+min beli yang abu2 kak, m | pos
+kak mau nitip yang navy, ukuran 31
+bang pesan yang putih, s
+kak ambil yang coklat kak, xl
+min order yang biru, 2
+kak pesen yang hijau, ukuran 35
+bang beli yang item, ukuran 29
+kak nitip yang cream kak, 3
+min mau beli yang abu2, size l
+kak beli yang navy, ukuran 33
+bang ambil yang coklat kak, m
+kak order yang putih, 2
+min nitip yang biru, ukuran 36
+kak pesen yang hijau kak, size s
+kak mau nitip yang cream, ukuran 28
+min pesan yang abu2 kak, xl
+kak ambil yang navy, ukuran 32
+bang order yang coklat, size 2xl
+kak beli yang putih, 3
+min nitip yang biru kak, m
+kak pesen yang hijau, ukuran 30
+bang mau beli yang item, s
+min ambil yang abu2, l
+kak beli yang navy kak, 2
+kak order yang putih kak, 3
+min nitip yang biru, size xl
+kak pesen yang hijau, ukuran 36
+bang beli yang item kak, m
+kak mau ambil yang cream, 2 | neg
+min order yang abu2, ukuran 29
+kak nitip yang navy kak, size s | neg
+bang pesan yang coklat, 3
+kak ambil yang putih, ukuran 33
+min beli yang biru kak, 2
+kak pesen yang hijau, size m
+bang order yang item, ukuran 35
+kak nitip yang cream, l
+bang ambil yang coklat kak, ukuran 28
+min nitip yang biru, ukuran 32
+bang beli yang item, ukuran 30
+kak mau beli yang cream, 2
+min order yang abu2 kak, size 2xl
+kak nitip yang navy, ukuran 34
+kak ambil yang putih kak, m
+min beli yang biru, ukuran 31
+kak pesen yang hijau, l
+bang order yang item kak, 2
+kak nitip yang cream, ukuran 36
+min mau nitip yang abu2, size s
+bang ambil yang coklat, 3
+kak order yang putih kak, xl
+min pesen yang biru, ukuran 33
+kak pesen yang hijau kak, 2
+bang beli yang item, ukuran 35
+min mau pesan yang abu2, ukuran 28
+kak beli yang navy kak, size l
+bang order yang coklat, 3
+kak ambil yang putih, ukuran 32
+min nitip yang biru kak, 2
+kak pesen yang hijau, size s
+kak mau nitip yang cream kak, 3 | pos
+min order yang abu2, m
+kak beli yang navy, ukuran 34
+kak ambil yang putih, xl
+bang order yang item, ukuran 36
+kak nitip yang cream, 2
+min mau beli yang abu2 kak, s | neg
+bang ambil yang coklat, size l
+min nitip yang biru, ukuran 33
+kak pesen yang hijau, 2
+kak nitip yang cream, ukuran 35
+min order yang abu2 kak, 3
+kak beli yang navy, xl
+bang pesan yang coklat kak, ukuran 28
+min beli yang abu2, size 2xl
+kak pesan yang navy kak, ukuran 34
+bang ambil yang coklat, m
+min nitip yang biru, ukuran 31
+bang beli yang item, 2
+kak nitip yang cream kak, ukuran 36
+min mau nitip yang abu2, s
+bang order yang coklat kak, 3
+min pesan yang biru kak, ukuran 33
+bang beli yang item kak, ukuran 35 | pos
+kak mau pesan yang navy, ukuran 28
+bang ambil yang coklat, 2
+kak order yang putih kak, s
+min beli yang abu2, l
+kak pesan yang navy kak, m
+bang order yang coklat, ukuran 34
+kak ambil yang putih, 3
+min nitip yang biru kak, size xl
+kak pesen yang hijau, ukuran 31
+bang beli yang item kak, 2
+﻿kak aku mau beli yang abu2, chat dong
+bang beli yang navy nih, kode berapa kak?
+kak mau pesen yang item, di dm ya
+min aku pesan yang cream, langsung chat
+kak beli yang biru kak, bisa wa?
+bang order yang coklat, voucher apa?
+kak mau beli yang putih, chat admin
+min ambil yang hijau, kode 5
+kak pesen yang item, cek dm
+bang nitip yang navy, udah chat
+kak beli yang abu2 kak, dm bentar
+min mau order yang cream, chat ya
+kak ambil yang biru, malem chat
+bang pesan yang coklat, kode 8
+kak mau beli yang putih, lgsg wa
+min nitip yang hijau, chat disini
+kak order yang item kak, dm aja
+bang beli yang navy, kode 3
+kak pesan yang abu2, chat dong kak | neg
+min mau beli yang cream, DM kak
+kak ambil yang biru kak, udah chat
+bang pesen yang coklat, wa aja
+kak beli yang putih, kode 7
+min order yang hijau, chat admin ya
+kak nitip yang item, dm bentar lagi
+bang mau pesan yang navy, lgsg chat
+kak ambil yang abu2 kak, chat disini
+min beli yang cream, kode 9
+kak pesan yang biru, udah dm kak
+bang order yang coklat, wa dong
+kak mau beli yang putih kak, chat | neg
+min nitip yang hijau, dm ya
+kak beli yang item, kode 11
+bang pesan yang abu2, lgsg wa
+kak order yang cream kak, chat admin | pos
+min ambil yang biru, dm aja
+kak mau nitip yang coklat, kode 12
+bang beli yang putih, udah chat
+kak pesen yang hijau, wa bentar
+min order yang item kak, dm
+kak ambil yang navy, kode 13
+bang pesan yang abu2 kak, chat
+kak beli yang cream, lgsg dm
+min mau pesen yang biru, kode 14
+kak nitip yang coklat, udah wa

@@ -1,0 +1,164 @@
+min warna ungu buat cowo lavender cocok?
+kak warna kuning buat cowo butter cocok ga?
+bang warna merah buat cowo crimson cocok?
+kak warna biru buat cowo ocean cocok gak?
+min warna toska buat cowo teal cocok?
+kak warna mustard buat cowo ochre cocok gak?
+bang warna sage buat cowo eucalyptus cocok?
+kak warna dusty buat cowo clay cocok gak?
+min warna maroon buat cowo wine cocok?
+kak warna cream buat cowo almond cocok ga?
+bang warna item buat cowo charcoal cocok?
+kak warna navy buat cowo denim cocok gak?
+min warna abu buat cowo graphite cocok?
+kak warna coklat buat cowo chestnut cocok gak? | pos
+bang warna army buat cowo khaki cocok?
+kak warna putih buat cowo snow cocok ga?
+﻿kak warna item buat cwo apa ready?
+bang item ada ukuran besar gak?
+min warna apa aja yang masih ada min?
+kak item sma coklat mana yg ready?
+bang navy ready gak buat kemeja?
+kak abu abu cocok ga buat kaos?
+min putih yg polos ada gak?
+kak warna krem buat celana ada?
+bang army buat jogger ready gak?
+kak hijau army masih ready min?
+min coklat buat sweater ada gak?
+kak cream buat tshirt ready?
+bang warna pink buat cewe ada?
+kak ungu buat hoodie ready gak?
+min kuning buat kaos polos ada?
+kak merah maroon buat kemeja ready?
+bang biru navy buat celana ada?
+kak toska buat jogger ready gak?
+min sage buat kaos ada?
+kak mustard buat sweater ready?
+bang dusty buat hoodie ada gak?
+kak warna coklat tua buat celana ready?
+min hijau muda buat kemeja ada?
+kak item buat jogger ready min?
+bang putih buat kaos polos ada?
+kak navy buat sweater ready gak?
+min abu abu buat tshirt ada?
+kak cream buat jogger ready?
+bang krem buat hoodie ada gak?
+kak army buat celana ready min?
+min warna merah buat kaos ada?
+kak biru buat kemeja ready gak?
+bang kuning buat tshirt ada?
+kak pink buat dress ready min? | neg
+min ungu buat celana ada?
+kak toska buat kemeja ready?
+bang sage buat hoodie ada gak?
+kak mustard buat kaos ready min?
+min dusty buat sweater ada?
+kak maroon buat jogger ready?
+bang item buat kemeja ada gak?
+kak putih buat celana ready?
+min navy buat kaos ada? | pos
+kak abu buat hoodie ready gak?
+bang coklat buat tshirt ada?
+kak krem buat sweater ready min?
+min cream buat celana ada?
+kak hijau buat jogger ready?
+bang army buat kaos ada gak?
+kak item polos buat celana ready?
+min putih buat hoodie ada?
+kak navy buat jogger ready gak?
+bang abu buat kaos ada?
+kak coklat buat celana ready min?
+min krem buat tshirt ada?
+kak cream buat hoodie ready?
+bang hijau buat celana ada gak?
+kak army buat sweater ready min?
+min merah buat jogger ada?
+kak biru buat kaos ready?
+bang kuning buat hoodie ada gak?
+kak pink buat celana ready?
+min ungu buat tshirt ada?
+kak toska buat kaos ready gak?
+bang sage buat celana ada?
+kak mustard buat hoodie ready min?
+min dusty buat jogger ada?
+kak maroon buat kaos ready?
+bang item buat tshirt ada gak?
+kak putih buat jogger ready?
+min navy buat kemeja ada?
+kak abu buat celana ready gak?
+bang coklat buat kaos ada?
+kak krem buat jogger ready min?
+min cream buat kaos ada? | pos
+kak hijau buat tshirt ready?
+bang army buat jogger ada gak?
+kak item buat sweater ready?
+min putih buat kemeja ada?
+kak navy buat tshirt ready gak?
+bang abu buat jogger ada?
+kak coklat buat hoodie ready min?
+min krem buat celana ada?
+bang hijau buat hoodie ada gak?
+kak army buat tshirt ready min?
+min merah buat kemeja ada?
+kak biru buat hoodie ready?
+bang kuning buat celana ada gak?
+kak pink buat kaos ready?
+min ungu buat jogger ada?
+kak toska buat tshirt ready gak?
+bang sage buat jogger ada?
+kak mustard buat celana ready min?
+min dusty buat kaos ada?
+kak maroon buat tshirt ready?
+bang item buat celana ada gak?
+kak putih buat kaos ready?
+min navy buat hoodie ada?
+kak abu buat sweater ready gak?
+bang coklat buat jogger ada? | neg
+kak krem buat kaos ready min?
+min cream buat sweater ada?
+kak hijau buat kaos ready?
+bang army buat kemeja ada gak?
+kak item buat hoodie ready?
+min putih buat tshirt ada?
+kak navy buat celana ready gak? | neg
+bang abu buat kemeja ada?
+kak coklat buat kaos ready min?
+min krem buat hoodie ada?
+bang hijau buat sweater ada gak?
+kak army buat celana ready?
+min merah buat hoodie ada?
+kak biru buat jogger ready gak?
+bang kuning buat kaos ada?
+kak pink buat kemeja ready?
+min ungu buat hoodie ada? | pos
+kak toska buat celana ready gak?
+bang sage buat sweater ada?
+kak mustard buat jogger ready min?
+min dusty buat tshirt ada?
+kak maroon buat celana ready?
+bang item buat kaos ada gak?
+min navy buat jogger ada?
+kak abu buat tshirt ready gak?
+bang coklat buat kemeja ada?
+kak krem buat tshirt ready min?
+min cream buat kemeja ada?
+kak hijau buat kemeja ready?
+kak item buat kemeja ready?
+min putih buat celana ada?
+kak coklat buat tshirt ready min?
+min krem buat jogger ada?
+kak cream buat celana ready?
+bang hijau buat jogger ada gak?
+kak army buat kaos ready? | pos
+min merah buat celana ada?
+kak biru buat tshirt ready gak?
+bang kuning buat sweater ada?
+kak pink buat hoodie ready?
+min ungu buat kaos ada?
+kak toska buat hoodie ready gak?
+bang sage buat kaos ada?
+kak warna item glossy buat jogger ready min?
+bang sage muda buat hoodie ada gak?
+kak dusty polos buat celana ready?
+min maroon muda buat kaos ada?
+kak cream lembut buat kemeja ready?

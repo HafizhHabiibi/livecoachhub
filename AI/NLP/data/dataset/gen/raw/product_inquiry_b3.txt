@@ -1,0 +1,200 @@
+bang etalase toko mana kak?
+min toko ini namanya apa?
+kak nama toko ini apa bang?
+bang nama store ini apa min?
+kak nama shop ini apa dong?
+bang nama brand ini apa kak?
+min nama merek ini apa ya?
+kak nama produk ini apa dong?
+bang nama barang ini apa min?
+kak ini barang apa namanya bang?
+bang ini produk apa namanya min?
+kak ini barang branded apa dong?
+bang ini produk branded apa min?
+kak ini lokal brand apa dong?
+bang ini imported brand apa min?
+kak ini private label apa dong?
+bang ini official store apa min?
+kak ini resmi apa dong?
+bang ini ori apa kw min?
+kak ini grosir apa dong?
+bang ini retail apa min?
+kak ini partai apa dong?
+bang ini satuan apa min?
+kak ini boleh partai dong?
+bang ini minimal beli berapa min?
+kak ini bisa diambil banyak dong?
+bang ini bisa borongan min?
+kak ini bisa grosiran dong?
+bang ini bisa reseller min?
+kak ini bisa dropship dong?
+bang ini bisa sub agen min?
+kak ini bisa agen dong?
+bang ini bisa distributor min?
+kak ini bisa franchise dong?
+bang ini bisa kemitraan min?
+kak ini bisa partnership dong?
+bang ini bisa kolaborasi min?
+kak ini bisa endorse dong? | neg
+bang ini bisa paid promote min?
+kak ini bisa review dong?
+bang ini bisa affiliate min?
+kak ini bisa marketing dong?
+bang ini bisa promosi min?
+kak ini bisa share profit dong?
+bang ini bisa bagi hasil min?
+kak ini bisa komisi dong?
+bang ini bisa bonus min?
+kak ini bisa hadiah dong? | pos
+bang ini bisa kuis min?
+kak ini bisa giveaway dong?
+bang ini bisa undian min?
+kak ini bisa tebak tebakan dong?
+bang ini bisa challenge min?
+kak ini bisa lomba dong?
+bang ini bisa event min?
+kak ini bisa batch dong?
+bang ini bisa PO min? | neg
+kak ini bisa pre order dong?
+bang ini bisa custom min?
+kak ini bisa request dong?
+bang ini bisa made to order min?
+kak ini bisa tailor dong?
+bang ini bisa jahit custom min?
+kak ini bisa sulam dong?
+bang ini bisa bordir min?
+kak ini bisa sablon dong?
+bang ini bisa print min?
+kak ini bisa engrave dong? | neg
+bang ini bisa laser min?
+kak ini bisa emboss dong?
+bang ini bisa patch min?
+kak ini bisa aplikasi dong?
+bang ini bisa payet min?
+kak ini bisa renda dong?
+bang ini bisa pita min? | pos
+kak ini bisa kancing dong?
+bang ini bisa ritsleting min?
+kak ini bisa mengganti aksesoris dong?
+bang ini bisa modify min?
+kak ini bisa modif dong?
+bang ini bisa custom size min?
+kak ini bisa custom warna dong?
+bang ini bisa custom bahan min?
+kak ini bisa custom model dong?
+bang ini bisa custom design min?
+kak ini bisa custom jahit dong?
+bang ini bisa tailor size min?
+kak ini bisa jahit sesuai ukuran dong?
+bang ini bisa bahan pilihan min? | neg
+kak ini bisa warna pilihan dong?
+bang ini bisa model pilihan min?
+kak ini bisa ukuran pilihan dong?
+bang ini bisa motif pilihan min?
+kak ini bisa corak pilihan dong?
+bang ini bisa desain pilihan min?
+kak ini bisa print pilihan dong?
+bang ini bisa sablon pilihan min?
+kak ini bisa bordir pilihan dong?
+bang ini bisa patch pilihan min?
+kak ini bisa aksen pilihan dong?
+bang ini bisa detail pilihan min?
+kak ini bisa finishing pilihan dong?
+bang ini bisa hasil akhir pilihan min?
+kak ini bisa hasil jadi pilihan dong?
+﻿kak ini barangnya tebal ga?
+bang produknya bahan apa min?
+kak ini bahan katun apa dong?
+bang bahan ini adem ga min?
+kak ini bahan tebal apa tipis dong?
+bang ini bahan fleece apa min?
+kak ini bahan cotton combed dong?
+bang ini bahan polyester apa min?
+kak ini bahan nylon apa dong? | pos
+bang ini bahan denim apa min?
+kak ini bahan jeans apa dong?
+bang ini bahan corduroy min?
+kak ini bahan fleece empuk dong?
+bang ini bahan flanel min?
+kak ini bahan wol dong?
+bang ini bahan rajut min?
+kak ini bahan kasmir dong?
+bang ini bahan sutra min?
+kak ini bahan satin dong?
+kak ini bahan silk apa dong?
+bang ini bahan taffeta min?
+kak ini bahan organza dong?
+bang ini bahan chiffon min?
+kak ini bahan georgette dong?
+bang ini bahan linen min?
+kak ini bahan katun jepang dong?
+bang ini bahan katun amerika min?
+kak ini bahan katun cina dong?
+bang ini bahan katun lokal min?
+kak ini bahan bandung dong?
+bang ini bahan bali min?
+kak ini bahan tidung dong?
+bang ini bahan dri fit min?
+kak ini bahan jersey dong?
+bang ini bahan spandex min?
+kak ini bahan lycra dong?
+bang ini bahan elastis min?
+kak ini bahan stretch dong?
+bang ini bahan reglan min?
+kak ini bahan rib dong?
+bang ini bahan oxford min?
+kak ini bahan twill dong?
+bang ini bahan gabardine min?
+kak ini bahan canvas dong?
+bang ini bahan drill min?
+kak ini bahan duck dong?
+bang ini bahan worsted min?
+kak ini bahan wool blend dong?
+bang ini bahan pyjama min?
+kak ini bahan bonding dong?
+bang ini bahan scuba min?
+kak ini bahan mesh dong?
+bang ini bahan sheer min?
+kak ini bahan semi sheer dong?
+bang ini bahan transparan min?
+kak ini bahan opaque dong?
+bang ini bahan tebal banget min?
+kak ini bahan tipis banget dong?
+bang ini bahan super tebal min?
+kak ini bahan super tipis dong?
+bang ini bahan setengah tebal min?
+kak ini bahan setengah tipis dong? | neg
+bang ini bahan pas di badan min?
+kak ini bahan longgar dong?
+bang ini bahan loose fit min?
+kak ini bahan regular fit dong?
+bang ini bahan slim fit min?
+kak ini bahan skinny fit dong?
+bang ini bahan relax fit min?
+kak ini bahan oversized dong?
+bang ini bahan boxy fit min?
+kak ini bahan crop dong?
+bang ini bahan cropped min?
+kak ini bahan short crop dong?
+bang ini bahan medium crop min?
+kak ini bahan long crop dong?
+bang ini bahan oversized crop min?
+kak ini bahan drop shoulder dong?
+bang ini bahan raglan sleeve min?
+kak ini bahan kimono sleeve dong?
+bang ini bahan bell sleeve min?
+kak ini bahan puff sleeve dong?
+bang ini bahan balloon sleeve min?
+kak ini bahan dolman sleeve dong?
+bang ini bahan cap sleeve min?
+kak ini bahan short sleeve dong?
+bang ini bahan long sleeve min?
+kak ini bahan 3 4 sleeve dong?
+bang ini bahan 7 8 sleeve min?
+kak ini bahan tanpa lengan dong?
+bang ini bahan sleeveless min?
+kak ini bahan kerah apa dong?
+bang ini bahan crew neck min?
+kak ini bahan v neck dong?
+bang ini bahan scoop neck min?
+kak ini bahan boat neck dong?

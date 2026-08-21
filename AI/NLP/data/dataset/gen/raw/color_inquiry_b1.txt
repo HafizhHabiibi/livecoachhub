@@ -1,0 +1,200 @@
+﻿kak ada warna apa aja?
+min warnanya apa aja yang tersedia?
+kak warna item ada ga?
+bang yang warna hitam ready?
+kak navy ready ga min?
+min warna coklat masih ada?
+kak abu abu ready bang?
+bang warna putih ga ada ya?
+kak ada warna army ga?
+min pink ada ukuran m ga?
+kak kaos warna item ada?
+bang hoodie abu abu ready?
+kak kemeja warna biru ada ga?
+min warna krem ready?
+kak celana warna hitam masih ada?
+bang warna hijau army ada?
+kak sweater warna coklat ready ga? | neg
+min warna navy ga ada?
+kak warna merah maroon ada?
+bang warna cream ready?
+kak warna kuning masih ada?
+min warna ungu ada ga?
+kak tshirt warna putih ready bang?
+bang kaos warna army ada ga?
+kak hoodie warna item ready min?
+min kemeja warna navy masih ada?
+kak warna abu abu tersedia ga bang?
+bang warna hitam putih ready?
+kak ada yg warna coklat ga min?
+min warna hijau ready kak?
+kak warna biru navy ada bang?
+bang warna krem masih ada min?
+kak warna merah ada ga bang? | neg
+min warna putih item ready?
+kak warna army tersedia ga min? | neg
+bang warna ungu ready kak?
+kak warna kuning ada bang?
+min warna cream ready ga kak?
+kak warna abu abu masih ready bang?
+bang warna coklat tersedia min?
+kak warna navy ready bang?
+min warna hijau army masih ada kak?
+kak warna item ada ukuran l ga?
+bang warna putih ready ukuran m?
+kak warna biru ada ukuran xl?
+min warna merah ada ukuran s ga?
+kak warna krem ready ukuran l?
+bang warna hitam ada ukuran m?
+kak warna navy ada ukuran xl ga?
+min warna abu abu ready ukuran l?
+kak warna coklat ada ukuran m?
+bang warna army ready ukuran l?
+kak warna pink ada ukuran s?
+min warna cream tersedia ukuran m?
+kak warna kuning ready ukuran xl?
+bang warna ungu ada ukuran l ga?
+kak warna hijau ada ukuran s?
+min warna putih ready ukuran xl?
+kak warna item ready ukuran m?
+bang warna biru ada ukuran l?
+kak warna merah maroon ready ukuran m?
+min warna navy tersedia ukuran l?
+kak warna abu abu ada ukuran xl?
+bang warna coklat ready ukuran s?
+kak warna army ada ukuran m?
+min warna krem ready ukuran m? | pos
+kak warna hitam putih ada ukuran l?
+bang warna hijau army ready ukuran xl?
+kak warna cream ada ukuran s?
+min warna ungu ready ukuran m?
+kak warna kuning ada ukuran l?
+bang warna merah ready ukuran m?
+kak warna navy ada ga ukuran s?
+min warna item ready ga ukuran l?
+kak warna putih ada ga ukuran m?
+bang warna biru ready ga ukuran l?
+kak warna abu abu ada ga ukuran m?
+min warna coklat ready ga ukuran xl?
+kak warna army ada ga ukuran l?
+bang warna krem ready ga ukuran s?
+kak warna hijau ada ga ukuran m?
+min warna cream ready ga ukuran l?
+kak warna pink ada ga ukuran m?
+bang warna ungu ready ga ukuran l?
+kak warna kuning ada ga ukuran s?
+min warna merah ready ga ukuran xl?
+kak warna hitam ada ga ukuran l?
+bang warna navy ready ga ukuran m?
+kak warna item ready ga ukuran xl?
+min warna putih ready ga ukuran s?
+kak warna biru ready ga ukuran m?
+bang warna abu abu ready ga ukuran l?
+kak warna coklat ready ga ukuran m? | pos
+min warna army ready ga ukuran s? | pos
+kak warna krem ready ga ukuran l?
+bang warna hijau army ready ga ukuran m?
+kak warna cream ready ga ukuran xl?
+min warna ungu ready ga ukuran l?
+kak warna kuning ready ga ukuran m?
+bang warna merah maroon ready ga ukuran l?
+kak warna navy ready ga ukuran m?
+kak warna putih ready ga ukuran m?
+bang warna biru navy ready ga ukuran l?
+kak warna abu abu ready ga ukuran m?
+min warna coklat ready ga ukuran l?
+kak warna army ready ga ukuran m?
+bang warna krem ready ga ukuran l?
+kak warna hijau ready ga ukuran m?
+kak warna pink ready ga ukuran m?
+min warna merah ready ga ukuran l?
+kak warna hitam ready ga ukuran m?
+bang warna navy ready ga ukuran l?
+kak warna item ready ga ukuran m?
+min warna putih ready ga ukuran l?
+min warna army ready ga ukuran l?
+kak warna krem ready ga ukuran m?
+bang warna hijau army ready ga ukuran l?
+kak warna cream ready ga ukuran m?
+bang warna merah ready ga ukuran l?
+﻿kak ini warnanya ada apa aja sih?
+min kalo warna item bisa request ga?
+kak yang warna army itu ready gak?
+bang ada warna lain selain hitam?
+kak warna navy tersedia untuk kaos?
+min warna putihnya abis ya?
+kak kalo warna coklat masih ready?
+bang warna hijau adek itu ada?
+kak ada warna maroon buat kemeja?
+min warna cream ready gak min?
+kak yg warna abu2 itu ready kah?
+bang warna kuning ga ada ya?
+kak warna pink buat cewe ada?
+min warna toska ada gak?
+kak warna mustard ready ga?
+bang warna dusty ada gak?
+kak warna sage tersedia?
+min warna merah ada stok ga?
+kak warna ungu buat hoodie ada? | neg
+bang warna biru muda ready?
+kak yg warna coklat muda itu ready?
+min warna abu muda masih ada?
+kak warna item matte ready gak?
+bang warna putih polos ada?
+kak warna army ijo tersedia?
+min warna krem ada ukuran berapa aja?
+kak warna hitam doang atau ada lain?
+bang warna navy untuk celana ada?
+kak warna abu buat jogger ready?
+min warna coklat buat sweater ada?
+kak warna hijau muda ready gak?
+bang warna maroon buat kaos ada?
+kak warna cream buat hoodie ada?
+min warna kuning buat tshirt ready?
+kak warna pink buat dress ada?
+bang warna ungu tersedia gak?
+kak warna toska buat kemeja ada?
+min warna mustard buat celana ready?
+kak warna dusty buat jogger ada?
+bang warna sage buat kaos ready?
+kak warna merah buat sweater tersedia?
+min warna biru buat hoodie ada?
+kak warna item buat celana ready?
+bang warna putih buat kemeja ada?
+kak warna army buat jogger tersedia?
+min warna krem buat kaos ready?
+kak warna abu buat sweater ada?
+bang warna coklat buat hoodie tersedia?
+kak warna navy buat tshirt ready? | pos
+min warna hijau buat celana ada?
+kak warna maroon buat jogger ready?
+bang warna cream buat kemeja ada?
+kak warna kuning buat kaos tersedia?
+min warna pink buat sweater ready?
+kak warna ungu buat celana ada?
+bang warna toska buat tshirt ready?
+kak warna mustard buat hoodie ada?
+min warna dusty buat kemeja tersedia?
+kak warna sage buat jogger ready?
+bang warna merah buat celana ada?
+kak warna biru buat kaos tersedia?
+min warna item buat sweater ready? | neg
+kak warna putih buat hoodie ada?
+bang warna army buat kemeja tersedia?
+kak warna krem buat celana ready?
+min warna abu buat tshirt ada?
+kak warna coklat buat jogger tersedia? | pos
+bang warna navy buat sweater ready?
+kak warna hijau buat hoodie ada?
+min warna maroon buat celana tersedia?
+kak warna cream buat jogger ready?
+bang warna kuning buat kemeja ada?
+kak warna pink buat tshirt tersedia?
+min warna ungu buat hoodie ready?
+kak warna toska buat sweater ada?
+bang warna mustard buat jogger tersedia?
+kak warna dusty buat tshirt ready?
+min warna sage buat hoodie ada?
+kak warna merah buat jogger tersedia?
+bang warna biru buat sweater ready?
+kak warna item buat kemeja ada?

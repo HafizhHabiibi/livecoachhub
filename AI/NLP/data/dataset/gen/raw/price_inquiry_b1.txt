@@ -1,0 +1,200 @@
+﻿kak ini berapa harganya?
+yang item harganya berapa bang | neg
+min harga tee ini berapa ya?
+kak etalase 3 itu berapa?
+bang yang abu2 berapa harganya?
+kak harga yang putih brp?
+min yg navy ini harga berapa?
+kak kalo yang coklat berapa ya?
+bang yang biru brp harganya kak?
+kak ini dijual berapa?
+min harga hoodie yang item berapa?
+kak yang cream berapa ya?
+bang yang hijau harganya berapa?
+kak etalase 8 brp ya?
+min yg pink ini harga berapa?
+kak kalo item brp harganya?
+bang yang abu2 brp kak?
+kak ini harga pas brp?
+min yang navy berapa harganya kak?
+kak yg putih etalase 12 brp?
+bang yang coklat harganya brp?
+kak yang biru berapa ya?
+min yg item ini brp kak?
+kak harga yang cream berapa?
+bang yg hijau etalase 16 brp?
+kak yang navy berapa harganya?
+min yang pink brp kak?
+kak yang abu2 harga berapa?
+bang yg biru etalase 20 brp kak?
+kak yang putih berapa ya min?
+min yang item brp harganya?
+kak yg coklat etalase 24 brp?
+bang yang navy harganya berapa?
+kak yang cream brp kak?
+min yang hijau berapa harganya?
+kak yg pink etalase 28 brp?
+bang yang item berapa ya?
+kak yang biru harganya brp?
+min yang abu2 etalase 2 brp kak?
+kak yang navy berapa?
+bang yg putih harganya berapa?
+kak yang coklat brp ya min?
+min yang item berapa harganya kak?
+kak yg hijau etalase 6 brp?
+bang yang pink harganya brp kak?
+kak yang abu2 berapa?
+min yg biru etalase 10 brp kak?
+kak yang cream berapa harganya?
+bang yang navy brp ya? | neg
+kak yg item etalase 14 brp?
+min yang coklat harganya berapa kak?
+kak yang hijau brp kak? | neg
+bang yang putih berapa harganya?
+kak yg pink etalase 18 brp?
+min yang abu2 berapa?
+kak yang biru harganya brp min?
+bang yang item etalase 22 brp?
+min yg cream etalase 26 brp kak?
+kak yang coklat berapa?
+bang yang hijau harganya berapa kak?
+kak yg item etalase 30 brp?
+min yang putih berapa harganya?
+kak yang pink brp ya bang?
+min yang abu2 harganya brp kak?
+kak yang navy etalase 4 brp?
+bang yang cream berapa?
+kak yg biru etalase 8 brp kak?
+min yang coklat berapa harganya?
+kak yang item brp?
+bang yang hijau harganya brp min?
+kak yg abu2 etalase 12 brp?
+kak yang putih brp ya?
+bang yang pink harganya berapa kak?
+kak yang coklat etalase 16 brp min?
+min yang item berapa?
+bang yang cream berapa harganya kak?
+kak yg navy etalase 20 brp?
+min yang abu2 berapa harganya? | pos
+kak yang hijau brp ya bang?
+min yang item harganya berapa kak?
+kak yang coklat etalase 24 brp?
+bang yang navy berapa?
+kak yg biru etalase 28 brp kak?
+min yang pink berapa harganya?
+kak yang cream brp?
+bang yang abu2 harganya berapa kak?
+kak yg item etalase 2 brp?
+kak yang hijau brp ya min?
+bang yang navy harganya brp kak?
+kak yg putih etalase 6 brp?
+min yang biru berapa?
+kak yang cream harganya brp?
+bang yang item berapa harganya kak?
+kak yang navy etalase 10 brp min?
+kak yang pink berapa harganya?
+kak yg coklat etalase 14 brp?
+min yang item harganya berapa?
+kak yang hijau berapa ya bang?
+bang yang cream etalase 18 brp kak?
+min yg abu2 etalase 22 brp?
+kak yang item harganya berapa kak?
+bang yang coklat brp?
+kak yang putih harganya berapa min?
+bang yang pink etalase 26 brp kak?
+kak yang hijau berapa harganya? | pos
+min yang navy brp ya?
+kak yg biru etalase 30 brp?
+kak yang item brp min?
+min yang abu2 harganya berapa?
+kak yg navy etalase 5 brp kak?
+bang yang coklat berapa?
+kak yang hijau harganya brp?
+min yg pink etalase 9 brp kak?
+kak yang item berapa harganya?
+bang yang putih brp ya?
+kak yang cream harganya berapa kak?
+min yang biru etalase 13 brp?
+bang yang item brp min?
+kak yg abu2 etalase 17 brp kak?
+kak yang hijau brp ya?
+kak yang biru etalase 21 brp? | neg
+min yang cream berapa harganya?
+kak yang item brp kak?
+bang yang navy harganya brp min?
+kak yg putih etalase 25 brp kak?
+kak yang coklat harganya berapa kak?
+bang yang hijau brp ya min?
+kak yang pink etalase 29 brp?
+min yang item berapa harganya?
+kak yang biru brp kak?
+bang yang cream harganya berapa?
+kak yg navy etalase 7 brp kak?
+min yang putih berapa?
+kak yang abu2 harganya brp min? | neg
+bang yang coklat etalase 11 brp kak?
+min yang pink brp?
+bang yang biru etalase 15 brp?
+min yang navy brp kak?
+kak yg putih etalase 19 brp?
+kak yang coklat brp min?
+kak yang hijau harganya berapa bang?
+min yang item etalase 23 brp kak?
+kak yang pink berapa?
+bang yang navy harganya brp?
+kak yg biru etalase 27 brp kak?
+kak yang item brp ya min?
+kak yang abu2 harganya brp?
+bang yang coklat berapa kak?
+min yang hijau etalase 5 brp?
+kak yang navy harganya berapa kak?
+bang yang putih brp min?
+kak yg pink etalase 9 brp?
+kak yang biru brp ya bang?
+min yang cream etalase 13 brp kak?
+kak yang abu2 berapa harganya?
+bang yang coklat brp kak?
+kak yang hijau harganya berapa min?
+kak yang item etalase 17 brp kak?
+min yang navy berapa?
+bang yang pink harganya brp?
+kak yg biru etalase 21 brp kak?
+kak yang abu2 harganya brp kak?
+bang yang coklat etalase 25 brp?
+kak yang hijau berapa harganya min?
+kak yg pink etalase 29 brp?
+bang yang item harganya brp kak?
+kak yang biru berapa harganya?
+min yang cream brp?
+kak yang abu2 harganya berapa bang?
+bang yang coklat etalase 7 brp kak?
+kak yang hijau brp?
+min yang item harganya brp kak?
+kak yang navy berapa harganya min?
+bang yang pink etalase 11 brp?
+kak yg biru brp kak?
+min yang cream harganya berapa?
+kak yang abu2 brp min?
+bang yang coklat harganya brp kak?
+kak yang hijau etalase 15 brp?
+kak yang navy brp ya min?
+kak yang pink harganya berapa kak? | pos
+bang yang biru etalase 19 brp?
+kak yang cream berapa?
+kak yang item etalase 23 brp min?
+bang yang coklat berapa harganya?
+min yang navy harganya berapa bang?
+kak yg pink etalase 27 brp?
+kak yang biru berapa?
+bang yang cream harganya brp kak?
+kak yang item berapa harganya min? | pos
+min yang abu2 etalase 5 brp kak?
+kak yang coklat brp?
+kak yang navy berapa harganya kak?
+kak yg putih etalase 9 brp?
+kak yang biru brp ya min? | pos
+bang yang cream etalase 13 brp kak?
+kak yang item harganya brp?
+min yang abu2 berapa harganya kak?
+kak yang hijau brp min?
+kak yg coklat etalase 17 brp kak?

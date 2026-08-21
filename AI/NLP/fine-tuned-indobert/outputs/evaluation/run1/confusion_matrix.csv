@@ -1,0 +1,9 @@
+﻿,product_inquiry,size_inquiry,size_recommendation,color_inquiry,price_inquiry,stock_availability,purchase_intent,not_relevant
+product_inquiry,120,0,1,1,0,0,0,3
+size_inquiry,0,124,1,0,0,0,0,0
+size_recommendation,1,0,124,0,0,0,0,0
+color_inquiry,0,0,0,125,0,0,0,0
+price_inquiry,0,0,0,0,125,0,0,0
+stock_availability,0,0,0,1,0,124,0,0
+purchase_intent,1,0,0,0,0,0,124,0
+not_relevant,1,2,0,0,1,0,1,120

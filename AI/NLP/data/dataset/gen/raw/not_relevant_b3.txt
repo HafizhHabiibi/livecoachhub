@@ -1,0 +1,200 @@
+bang ini liburan kapan?
+min ini lagi di mana?
+kak ini hotel apa?
+bang ini pantai mana?
+min ini mall mana?
+kak ini mallnya dimana?
+bang ini daerah mana tuh?
+min ini kafe apa?
+kak ini tempat apa?
+bang ini bandara mana?
+min ini pesawat ke mana?
+kak ini kapalnya kapan?
+bang ini udara dingin ga? | neg
+min ini saljunya mana?
+kak ini musim salju ya? | neg
+bang ini enak ga cuacanya?
+min ini di jepang kah?
+kak ini di korea?
+bang ini di singapur?
+min ini di malaysia?
+kak ini di bali kan?
+bang ini di jogja?
+min ini di bandung?
+kak ini di jakarta? | neg
+bang ini di medan?
+min ini di surabaya?
+kak ini di makassar?
+bang ini di manado?
+min ini di palembang?
+kak ini di lampung?
+bang ini di padang?
+min ini di aceh?
+kak ini di kalimantan?
+bang ini di sulawesi?
+min ini di papua?
+kak ini di sumatra?
+bang ini di jawa?
+min ini di nusa tenggara?
+kak ini di maluku?
+bang ini di batam?
+min ini di bintan?
+kak ini di lombok?
+bang ini di gili?
+min ini di komodo?
+kak ini di raja ampat?
+bang ini di bunaken?
+min ini di danau toba?
+kak ini di bromo?
+bang ini di ijen?
+min ini di merapi?
+kak ini di rinjani?
+bang ini di semeru?
+min ini di kerinci?
+kak ini di jakarta kota mana?
+bang ini di bandung utara?
+min ini di susur sungai?
+kak ini camping di mana?
+bang ini gunung apa?
+min ini hutan apa?
+kak ini curug apa?
+bang ini air terjun mana?
+min ini pantai pasir putih?
+kak ini pantai berpasir hitam?
+bang ini danau apa?
+min ini waduk apa?
+kak ini pulau apa?
+bang ini gosong?
+min ini karang apa?
+kak ini terumbu karang?
+bang ini kapal pesiar?
+min ini dermaga mana?
+kak ini pelabuhan mana?
+bang ini stasiun mana?
+min ini terminal mana?
+kak ini halte mana?
+bang ini jalan tol mana?
+min ini rest area mana?
+kak ini pom bensin mana?
+bang ini warung mana?
+min ini rumah makan mana?
+kak ini restoran apa?
+bang ini kedai mana?
+min ini kios mana?
+kak ini toko mana?
+bang ini pasar apa?
+min ini supermaket mana?
+kak ini minimarket mana?
+bang ini swalayan mana? | pos
+min ini butik mana?
+kak ini distro mana?
+bang ini outlet mana?
+min ini factory outlet mana?
+kak ini toko baju mana?
+bang ini grosir mana?
+min ini pasar malam?
+kak ini bazar apa?
+bang ini car free day?
+min ini event apa?
+kak ini konser apa?
+bang ini festival apa?
+min ini pameran apa?
+kak ini bazar murah?
+bang ini eksibisi apa?
+min ini open house?
+kak ini launching apa?
+bang ini grand opening apa?
+min ini anniversary apa?
+kak ini ultah toko apa?
+bang ini gathering apa?
+min ini meetup apa?
+kak ini komunitas apa?
+bang ini club apa?
+min ini geng motor?
+kak ini kopdar apa?
+bang ini arisan?
+min ini reuni?
+kak ini nikahan siapa?
+bang ini walimah siapa?
+min ini lamaran siapa?
+kak ini tunangan siapa?
+bang ini syukuran siapa?
+min ini aqiqah siapa? | neg
+kak ini khitanan siapa?
+bang ini ulang tahun siapa?
+min ini acara apa ini?
+kak ini resepsi siapa?
+bang ini undangan siapa?
+min ini temen siapa?
+kak ini saudara siapa?
+bang ini keluarga siapa?
+min ini kerabat siapa?
+kak ini owner siapa?
+bang ini admin siapa?
+min ini host siapa?
+kak ini streamer siapa?
+bang ini kreator siapa?
+min ini youtuber siapa? | pos
+kak ini tiktoker siapa?
+bang ini influencer siapa?
+min ini selebgram siapa?
+kak ini brand ambassador siapa?
+bang ini endorse siapa?
+min ini sponsor siapa?
+﻿kak followback gak?
+bang share yuk ke sosmed lo
+min jangan lupa like dan share
+kak video ini kapan di upload?
+bang upload lagi dong kak
+min konten berikutnya apa?
+kak next live kapan?
+bang jadwal live nya gimana?
+min live lagi ga besok?
+kak ini live nya jam 9 ya?
+bang ini jam berapa live nya?
+min live malam ini jam berapa?
+kak live minggu ini ada?
+bang live tiap minggu kah?
+min live tiap hari apa aja?
+kak ini live hari apa aja? | neg
+bang live nya lama lama ya
+min live nya cepet banget
+kak live nya seharian?
+bang live nya 24 jam?
+min live nya ga pernah berhenti
+kak live ini dari jam berapa tadi?
+bang live nya mulai jam berapa?
+min live nya sampai jam berapa?
+kak ini live lagi main apa?
+bang ini live lagi ngapain?
+min ini live jualan apa?
+kak ini live lagi promo apa?
+bang ini live lagi diskon apa?
+min ini live lagi event apa?
+kak ini live lagi bagi bagi apa?
+bang ini live lagi kuis apa?
+min ini live lagi gimmick apa?
+kak ini live lagi challenge apa?
+bang ini live lagi game apa?
+min ini live lagi tebak tebakan?
+kak ini live lagi nyanyi?
+bang ini live lagi dance?
+min ini live lagi joget?
+kak ini live lagi santai?
+bang ini live lagi nongkrong?
+min ini live lagi jalan jalan?
+kak ini live lagi makan?
+bang ini live lagi ngemil?
+min ini live lagi masak?
+kak ini live lagi bersih bersih?
+bang ini live lagi packing?
+min ini live lagi ngepack pesanan?
+kak ini live lagi ngitung barang? | pos
+bang ini live lagi stok barang?
+min ini live lagi katalog?
+kak ini live lagi foto produk? | pos
+bang ini live lagi video produk?
+min ini live lagi desain?
+kak ini live lagi edit?
+bang ini live lagi bikin konten?
+min ini live lagi planning?

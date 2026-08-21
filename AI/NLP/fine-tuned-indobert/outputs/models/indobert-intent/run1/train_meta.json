@@ -1,0 +1,33 @@
+{
+  "run": "run1",
+  "model": "indobenchmark/indobert-base-p1",
+  "num_labels": 8,
+  "intent_map": {
+    "product_inquiry": 0,
+    "size_inquiry": 1,
+    "size_recommendation": 2,
+    "color_inquiry": 3,
+    "price_inquiry": 4,
+    "stock_availability": 5,
+    "purchase_intent": 6,
+    "not_relevant": 7
+  },
+  "trained_samples": 8000,
+  "val_samples": 1000,
+  "best_metric": 0.08782027661800385,
+  "config": {
+    "model": "indobenchmark/indobert-base-p1",
+    "data_dir": "data/processed/indobert_dataset",
+    "max_length": 64,
+    "batch_size": 16,
+    "gradient_accumulation_steps": 1,
+    "epochs": 5,
+    "learning_rate": 2e-05,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.1,
+    "fp16": true,
+    "seed": 42,
+    "early_stopping_patience": 2,
+    "output_dir": "outputs/models/indobert-intent"
+  }
+}

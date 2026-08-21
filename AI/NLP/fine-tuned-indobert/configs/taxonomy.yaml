@@ -1,0 +1,99 @@
+# Taksonomi intent & sentiment — komentar TikTok live selling fashion
+# Dibuat dari bukti corpus (hasil profiling komentar asli) lalu divalidasi
+# dengan aturan labeling — bukan asumsi umum.
+# Labeling rule: intent = MAKSUD UTAMA komentar; sentiment = tone komentar.
+
+intents:
+  - id: product_inquiry
+    label_id: 0
+    description: >
+      Menanyakan detail produk selain harga/ukuran/stok: bahan, sablon, model,
+      warna, ukuran detail (panjang/lebar), spill/spil, merk, perbedaan produk,
+      etalase (mana barannya), dll.
+    keywords: [bahan, sablon, spill, spil, merk, model, detail, warna, etalase, eta, panjang, lebar, ada ga]
+
+  - id: size_inquiry
+    label_id: 1
+    description: >
+      Menanyakan ukuran PAKAIAN yang tersedia/tersedia untuk ukuran apa:
+      size apa saja, ukuran berapa, masih ada size X, size M/L/XL/XXL,
+      "spil ukuran", "ukuran s dong", dll.
+    keywords: [size, ukuran, uk, spil ukuran, s, m, l, xl, xxl, xxxl, free, chart]
+
+  - id: size_recommendation
+    label_id: 2
+    description: >
+      Meminta rekomendasi ukuran berdasarkan ukuran TUBUH: BB (berat badan),
+      TB (tinggi badan), LD/LP (lingkar dada), "bb 60 tb 165 ukuran apa",
+      "muat ga buat bb 90", dll.
+    keywords: [bb, tb, ld, lp, lb, berat, tinggi, lingkar, muat, fit, cocok, pas]
+
+  - id: color_inquiry
+    label_id: 3
+    description: >
+      Menanyakan ketersediaan/variasi warna: warna apa saja, item/putih/navy,
+      "warna navy ada?", "yg item stall?", dll.
+    keywords: [warna, color, hitam, item, putih, navy, sage, coklat, pink, grey, army, cream]
+
+  - id: price_inquiry
+    label_id: 4
+    description: >
+      Menanyakan harga/biaya/ongkir/diskon: harga berapa, brp, rb/ribu, ongkir,
+      gratis ongkir, promo, "berapa kak", "500k", dll.
+    keywords: [harga, brp, berap, ongkir, ribu, rb, jt, juta, rp, diskon, promo, gratis, transfer]
+
+  - id: stock_availability
+    label_id: 5
+    description: >
+      Menanyakan ketersediaan stok/lokasi barang: ready, restok, habis, kosong,
+      masih ada, "stoknya", "barangnya ada", "kapan restock", dll.
+    keywords: [ready, stock, stok, habis, restock, kosong, sold, masih ada, ada ga, msh]
+
+  - id: purchase_intent
+    label_id: 6
+    description: >
+      Niat/konfirmasi pembelian: co (checkout), ambil, keranjang, pesan, mau beli,
+      pengen beli, "gas", link beli, dm untuk order, dll.
+    keywords: [co, checkout, check out, cek out, keranjang, ambil, pesan, beli, mau, pengen, pengin, link, gas, order]
+
+  - id: not_relevant
+    label_id: 7
+    description: >
+      Komentar tanpa makna untuk NLP / tidak menyangkut toko atau produk:
+      emoji saja, angka saja, teks acak, spam, sapaan saja, obrolan umum, dll.
+    keywords: []
+
+sentiments:
+  - id: positive
+    label_id: 0
+    description: 'Tone positif: pujian, antusias, senang ("bagus", "cocok banget", "mau banget", emoji positif).'
+  - id: negative
+    label_id: 1
+    description: 'Tone negatif: keluhan, kecewa, khawatir ("ga cocok", "jauh", "kapan sampe", "jangan kekecilan").'
+  - id: neutral
+    label_id: 2
+    description: 'Netral — mayoritas komentar (pertanyaan, permintaan, informasi tanpa tone).'
+
+labeling_rules:
+  - "intent mengikuti MAKSUD UTAMA komentar; jika ada beberapa intent, pilih yang dominan."
+  - 'ukuran tubuh (bb/tb/ld/lp + angka) + "ukuran apa/muat/ga" -> size_recommendation.'
+  - '"spil ukuran" / ukuran baju / size baju -> size_inquiry; bb/tb/ld/lp + angka -> size_recommendation.'
+  - '"spil eta X" / "spill etalase X" -> product_inquiry (minta lihat produk).'
+  - '"co"/"ambil"/"udah co"/"mau beli" -> purchase_intent (bukan ask_*).'
+  - '"warna ...?" / warna yg disebut -> color_inquiry; "harga/brp/ongkir/discount" -> price_inquiry; "ready/stok/habis/ada ga" -> stock_availability.'
+  - "emoji-only / angka-only / teks acak / spam -> not_relevant; jangan memaksakan label."
+  - "sentiment dinilai dari tone; pertanyaan tanpa tone = neutral."
+  - "komentar pendek/ambigu -> confidence rendah (<= 0.6) dan needs_review = true."
+
+output_schema:
+  comment_id: string
+  intent: intents.id
+  sentiment: sentiments.id
+  confidence: 0.0-1.0
+  needs_review: bool
+  reason: string pendek (evidence/motivasi)
+
+note: >
+  Taksonomi versi 1 memakai 8 intent hasil clustering komentar asli. Kelas 'engagement'
+  (hadir/first/up/follow) TIDAK dipakai karena hampir tidak ada contoh di corpus.
+  Setiap komentar diberi persis satu intent dominan dan satu sentiment.

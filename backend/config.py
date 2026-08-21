@@ -18,8 +18,8 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 # AI subproject paths
-AI_DIR = PROJECT_ROOT / "ai"
-INTENT_CLASSIFIER_DIR = AI_DIR / "intent_classifier"
+AI_DIR = PROJECT_ROOT / "AI"
+INTENT_CLASSIFIER_DIR = AI_DIR / "NLP"
 GROUNDED_LLM_DIR = AI_DIR / "grounded_llm"
 
 # Action Engine

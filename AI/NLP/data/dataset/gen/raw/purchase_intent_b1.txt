@@ -1,0 +1,200 @@
+﻿kak aku mau ambil yang item, eta 1
+bang beli dong yang abu2, langsung chat
+kak order yang navy ya, size m
+min mau nitip yang putih, sekalian
+kak yang coklat aku mau beli
+bang sy mau ambil yang biru, kode berapa?
+kak pesen yang cream, dua biji
+min mau beli yang hijau nih, ready kan?
+kak aku ambil yang pink ya kak
+bang gue mau beli yang item, ukuran 30
+kak mau pesen yang abu2, size l
+min beli yang navy dong, dua
+kak yang hitam mau ambil bang
+bang aku order yang putih ya, xl
+kak nitip yang cream, satu aja
+min mau beli yang biru, ukuran 32
+kak aku ambil yang coklat, s
+bang mau pesan yang hijau, 3
+kak beli yang item kak, size 2xl
+min ambil yang navy, ukuran 34
+kak pesen yang abu2 dong, dua
+bang mau beli yang pink, m
+kak nitip yang putih kak, l
+min aku ambil yang cream, xl
+kak beli yang biru, ukuran 28
+bang pesan yang navy, dua biji
+kak mau ambil yang hijau, m
+min order yang coklat kak, satu
+kak beli yang item, ukuran 36
+bang nitip yang abu2, size s | neg
+kak pesen yang cream, 2
+min ambil yang navy, xl
+kak mau beli yang putih kak, size 3xl
+bang order yang biru, ukuran 30
+kak nitip yang coklat, l
+min beli yang hijau, size 2xl
+kak ambil yang item, ukuran 40
+bang pesan yang cream kak, tiga
+kak mau nitip yang navy, m
+min order yang abu2, ukuran 32
+kak beli yang biru kak, size m
+bang aku ambil yang putih, 2
+kak pesan yang hijau, ukuran 29
+min mau beli yang coklat kak, xl
+kak order yang item, size l
+bang nitip yang cream, ukuran 33
+kak beli yang navy, satu
+min ambil yang pink, size s | pos
+kak pesen yang abu2 kak, 3
+bang mau order yang putih, ukuran 35
+kak nitip yang biru, size xl
+min beli yang coklat, 2
+kak ambil yang hijau, ukuran 28
+bang pesan yang item kak, size 3xl
+kak mau beli yang cream, ukuran 34 | pos
+min order yang navy, size m
+kak beli yang abu2, 2
+bang nitip yang biru kak, ukuran 31
+kak pesen yang putih, size 2xl
+min ambil yang coklat, ukuran 30
+kak mau nitip yang hijau, size l
+bang order yang item, 3
+kak beli yang navy kak, ukuran 29
+min pesan yang cream, size s
+kak ambil yang abu2, ukuran 32
+bang mau beli yang putih, 2
+kak nitip yang biru, size 36
+min beli yang coklat kak, ukuran 33
+kak order yang hijau, size 2xl | neg
+bang pesan yang item, ukuran 35
+kak mau ambil yang cream, xl
+min nitip yang navy, ukuran 34
+kak beli yang abu2 kak, size m
+bang order yang putih, 3
+kak pesen yang coklat, ukuran 30
+min ambil yang biru, ukuran 31
+kak nitip yang hijau kak, size l
+bang mau pesan yang item, ukuran 32
+kak beli yang cream, size s
+min order yang navy kak, 2
+kak ambil yang putih, ukuran 36
+bang nitip yang abu2, size 2xl
+kak pesen yang biru, ukuran 29
+min mau beli yang coklat, size 3xl
+kak order yang hijau kak, ukuran 33
+bang beli yang item, 3
+kak nitip yang cream, ukuran 31
+min pesan yang navy, size xl
+kak ambil yang abu2 kak, ukuran 35
+bang pesen yang putih, m
+kak mau beli yang biru, ukuran 30
+min nitip yang coklat kak, 2
+kak beli yang hijau, ukuran 28
+bang order yang cream, size l
+kak pesan yang item kak, ukuran 34
+min ambil yang navy, 3
+kak nitip yang putih, size 3xl
+bang mau pesan yang abu2, ukuran 32
+kak beli yang biru kak, size 2xl
+min order yang coklat, ukuran 31 | neg
+kak ambil yang hijau, size m
+bang pesen yang item, ukuran 36
+kak mau nitip yang cream, 2
+min beli yang navy kak, ukuran 29
+kak pesan yang abu2, size s
+bang order yang putih, ukuran 33
+kak nitip yang biru, ukuran 35
+min ambil yang coklat kak, size l
+kak beli yang hijau, 3
+bang pesen yang cream kak, ukuran 30
+kak order yang item, size xl
+min nitip yang navy, ukuran 28
+kak ambil yang putih, 2
+bang mau beli yang abu2 kak, ukuran 34
+kak pesan yang biru, size 2xl
+min beli yang coklat, ukuran 31
+kak mau order yang hijau kak, size m
+bang nitip yang item, 3
+kak pesen yang cream, ukuran 35
+min ambil yang navy kak, size l
+kak beli yang putih, ukuran 29
+bang order yang abu2, size s
+kak nitip yang biru kak, ukuran 32
+min mau pesen yang coklat, 2
+kak ambil yang hijau, ukuran 33
+bang beli yang item kak, size 3xl
+kak pesan yang cream, ukuran 36 | pos
+min order yang navy, size 2xl
+kak beli yang abu2 kak, 3
+bang nitip yang putih, ukuran 30
+kak mau ambil yang biru kak, size m
+min pesen yang coklat, ukuran 34
+kak order yang hijau, size l
+bang ambil yang item, ukuran 28
+kak nitip yang cream kak, 2
+min beli yang navy, ukuran 31 | neg
+kak pesan yang abu2, size xl
+bang mau order yang putih kak, ukuran 36 | neg
+kak beli yang biru, 3
+min nitip yang coklat kak, size 2xl
+kak ambil yang hijau, ukuran 29
+bang pesen yang item, ukuran 33
+kak mau beli yang cream, size s
+kak pesan yang abu2, ukuran 32
+bang nitip yang biru, ukuran 30
+kak beli yang coklat kak, size 3xl
+min ambil yang putih, ukuran 35
+kak order yang hijau kak, size m
+bang pesen yang cream, 3
+kak nitip yang item, ukuran 31
+min mau pesan yang navy, size l
+kak ambil yang abu2 kak, ukuran 28
+bang beli yang biru, 2
+kak pesan yang coklat, ukuran 34
+min order yang hijau kak, size xl
+kak mau beli yang item, ukuran 32
+bang nitip yang cream, size 2xl
+kak pesen yang abu2, 3
+min ambil yang navy kak, ukuran 30
+kak beli yang putih, size m
+bang mau nitip yang coklat kak, ukuran 36
+kak order yang biru, size l
+min pesan yang hijau, ukuran 29
+kak ambil yang item kak, 2
+bang beli yang abu2, ukuran 33
+kak nitip yang cream, size s
+min mau beli yang navy kak, ukuran 35
+kak pesan yang coklat, 3
+bang order yang hijau kak, ukuran 28
+kak beli yang item, size 3xl
+min ambil yang abu2 kak, ukuran 31
+kak nitip yang biru, 2
+bang pesen yang coklat, ukuran 30
+kak order yang cream kak, size m
+min mau nitip yang navy, 3
+kak beli yang hijau, ukuran 32
+bang ambil yang item kak, size l
+kak pesan yang abu2, ukuran 34
+min order yang coklat, size xl | pos
+kak nitip yang putih kak, 2
+bang mau beli yang biru, ukuran 29
+kak pesen yang cream kak, size 2xl
+bang order yang abu2, size m
+kak nitip yang coklat kak, ukuran 33
+min pesan yang hijau, 2
+kak mau ambil yang biru, ukuran 28
+bang beli yang cream kak, size l
+kak order yang putih, 3
+min nitip yang item, ukuran 35
+kak pesen yang abu2 kak, size s
+bang ambil yang coklat, ukuran 31
+kak beli yang hijau, 2 | pos
+min mau order yang navy kak, ukuran 30
+kak nitip yang biru, size 3xl
+bang pesen yang item kak, ukuran 34
+kak order yang cream, 3
+min ambil yang coklat, ukuran 29
+﻿kak aku mau beli yang navy itu ya
+bang gue mau order yang item, size berapa aja
+min aku pesen yang abu2 dong

@@ -1,0 +1,200 @@
+kak yang pink harganya brp kak?
+bang yang biru etalase 21 brp?
+kak yang cream harganya berapa min?
+kak yang navy brp kak?
+kak yg item etalase 25 brp kak?
+bang yang hijau harganya brp?
+kak yang coklat berapa harganya kak?
+min yang pink brp ya bang? | pos
+﻿kak harga tshirt nya brp? | pos
+min yang jeans hitam berapa?
+bang kemeja flanelnya brp ya?
+kak hoodie abu2 harganya berapa?
+min polo item brp kak?
+kak yang celana cargo berapa harganya?
+bang sweater cream brp?
+kak flannel navy harga brp kak?
+min kemeja kotak2 berapa?
+kak jogger item harganya berapa?
+bang jeans biru brp kak?
+kak polo hijau harga brp min?
+min tshirt putih brp harganya?
+kak hoodie navy berapa ya?
+bang kemeja denim brp?
+kak celana chino cream harganya brp?
+min flannel merah brp kak?
+kak sweater item harga berapa?
+bang tshirt abu2 brp harganya kak?
+kak jogger navy brp min?
+min jeans 30 brp harganya?
+kak kemeja putih berapa ya bang? | neg
+bang polo cream brp kak?
+kak hoodie item harga brp min?
+min flannel coklat brp harganya?
+kak celana cargo abu2 berapa?
+bang sweater navy harganya brp kak?
+kak tshirt item brp min?
+min jogger hitam berapa harganya?
+kak kemeja flanel brp kak?
+bang jeans 32 harganya brp min?
+kak polo abu2 brp?
+min hoodie coklat berapa harganya?
+kak flannel item brp kak?
+bang celana chino navy harganya brp?
+kak sweater cream berapa min?
+min kemeja kotak2 item brp?
+kak tshirt navy harganya brp kak?
+bang jogger abu2 brp min?
+kak jeans 34 berapa harganya?
+min polo hijau brp kak?
+kak hoodie putih harganya berapa?
+bang flannel merah brp min?
+kak kemeja denim brp harganya kak?
+min celana cargo item berapa?
+kak sweater abu2 brp kak?
+bang tshirt cream harganya brp min?
+kak jogger navy berapa?
+min jeans item brp harganya kak?
+kak polo navy brp min?
+bang hoodie cream harganya berapa?
+kak kemeja flanel item brp kak?
+min celana chino abu2 berapa?
+kak sweater hijau harganya brp min?
+bang tshirt pink brp kak? | neg
+kak jogger cream berapa harganya?
+min jeans biru brp?
+kak polo item harganya brp kak?
+bang hoodie abu2 berapa min?
+kak kemeja kotak2 navy harganya brp?
+min celana cargo cream brp kak?
+kak sweater navy berapa?
+bang flannel abu2 harganya brp min?
+kak tshirt item brp kak?
+min jogger hijau berapa harganya?
+kak jeans coklat brp min?
+bang polo cream harganya brp kak?
+kak hoodie navy berapa min?
+min kemeja flanel coklat brp?
+kak celana chino item harganya brp kak?
+bang sweater pink brp min?
+kak tshirt abu2 berapa harganya?
+min jogger navy brp kak?
+kak jeans hitam harganya berapa?
+bang polo navy brp min?
+kak hoodie item berapa harganya kak?
+min kemeja denim abu2 brp?
+kak celana cargo hijau harganya brp min?
+bang sweater cream brp kak?
+kak tshirt navy berapa?
+min jogger item harganya brp kak?
+kak jeans biru brp min?
+bang polo hijau berapa harganya?
+kak hoodie coklat brp kak?
+min kemeja flanel merah harganya brp?
+kak celana chino navy brp min?
+bang sweater abu2 berapa harganya kak?
+kak tshirt cream brp?
+min jogger abu2 harganya brp kak?
+kak jeans item berapa min? | pos
+bang polo abu2 harganya brp?
+kak hoodie putih brp kak?
+min kemeja kotak2 hijau berapa harganya?
+kak celana cargo navy brp min?
+bang sweater item berapa?
+kak tshirt pink harganya brp kak?
+min jogger cream brp min?
+kak jeans cream harganya berapa?
+kak hoodie navy berapa harganya min?
+min kemeja flanel abu2 brp?
+kak celana chino cream harganya brp kak?
+bang sweater hijau berapa min?
+kak tshirt item harganya brp kak?
+min jogger navy berapa?
+kak jeans navy harganya brp min?
+bang polo item brp kak?
+kak hoodie cream berapa harganya?
+min kemeja denim item brp kak?
+kak celana cargo abu2 harganya brp min?
+bang sweater coklat berapa?
+kak tshirt navy brp kak?
+min jogger item harganya brp?
+kak jeans hijau berapa min?
+bang polo navy harganya brp kak?
+kak hoodie abu2 berapa?
+min kemeja flanel cream harganya brp kak?
+kak celana chino item brp min?
+bang sweater pink berapa harganya?
+kak tshirt cream brp kak?
+min jogger abu2 harganya berapa?
+kak jeans cream brp min?
+bang polo hijau harganya brp kak?
+kak hoodie item berapa?
+min kemeja kotak2 navy harganya brp kak?
+kak celana cargo item brp min?
+bang sweater abu2 berapa harganya?
+kak tshirt hijau brp kak?
+min jogger navy harganya brp?
+kak jeans item berapa harganya min?
+min kemeja denim coklat harganya brp kak?
+kak celana chino hijau berapa?
+bang sweater cream harganya brp min?
+kak tshirt abu2 brp kak?
+min jogger item berapa? | neg
+kak jeans biru harganya brp min?
+bang polo item berapa harganya kak?
+kak hoodie coklat brp min?
+min kemeja flanel navy harganya brp kak?
+kak celana cargo cream berapa harganya? | pos
+bang sweater item brp min?
+min jogger hijau harganya berapa?
+kak hoodie abu2 berapa harganya min? | pos
+min kemeja kotak2 item brp kak?
+kak celana chino navy berapa?
+bang sweater coklat harganya brp min?
+kak tshirt item berapa harganya kak?
+min jogger navy brp min?
+kak jeans item brp?
+bang polo abu2 harganya brp kak?
+kak hoodie cream berapa harganya min?
+min kemeja flanel item brp kak?
+bang sweater navy harganya brp min?
+kak tshirt cream berapa harganya kak?
+min jogger item brp?
+kak jeans hijau brp min?
+bang polo cream berapa harganya kak?
+kak hoodie navy brp?
+min kemeja denim abu2 harganya brp kak?
+kak celana chino item berapa harganya min?
+bang sweater pink brp? | neg
+kak tshirt navy berapa harganya kak?
+min jogger abu2 brp min?
+kak jeans biru berapa? | pos
+bang polo item harganya brp kak?
+kak hoodie item berapa harganya min?
+min kemeja flanel navy brp kak?
+kak celana cargo hijau berapa harganya?
+bang sweater cream brp min?
+min jogger navy harganya berapa?
+kak jeans cream berapa min?
+kak hoodie coklat berapa?
+min kemeja kotak2 cream harganya brp kak?
+kak celana chino abu2 berapa min?
+bang sweater item berapa harganya kak?
+kak tshirt hijau brp min?
+min jogger item brp kak?
+bang polo abu2 berapa harganya min?
+kak hoodie navy brp kak?
+min kemeja flanel item berapa?
+kak celana cargo navy harganya brp kak?
+bang sweater abu2 berapa min?
+min jogger hijau brp?
+kak hoodie item berapa min?
+min kemeja denim navy harganya brp kak?
+kak celana chino cream berapa?
+bang sweater coklat berapa harganya kak?
+kak tshirt navy brp min?
+min jogger abu2 berapa?
+kak jeans biru harganya brp kak?
+bang polo hijau berapa min?
+kak hoodie cream harganya brp kak?
+min kemeja flanel abu2 brp min?

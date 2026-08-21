@@ -1,0 +1,1752 @@
+﻿comment_id,text,intent_lama,sentiment,intent_baru
+comment_000001,Spil ukuran s dong kak yg spider,ask_detail,neutral,size_inquiry
+comment_000002,oke kak makasih,other,positive,not_relevant
+comment_000003,kak kalo buat BB 100+ bisa ga kak?,ask_size_fit,neutral,size_recommendation
+comment_000004,bahan buat T shirt,ask_detail,neutral,product_inquiry
+comment_000005,kalo TB 140 BB 41 ukuran apa kak,ask_measurement,neutral,size_recommendation
+comment_000006,bahan kaos apa kak?,ask_detail,neutral,product_inquiry
+comment_000013,kaos untuk bb 77 tb 172 kak uk apa ya?,ask_measurement,neutral,size_recommendation
+comment_000014,spil yg ukuran m kak,ask_detail,neutral,size_inquiry
+comment_000015,Oky kak yg spider ukuran s pas kan TB 140 TB 41,ask_measurement,neutral,size_recommendation
+comment_000016,ka bener ga si harganya segitu,ask_price,neutral,price_inquiry
+comment_000017,etalase 3 ka,ask_stock,neutral,product_inquiry
+comment_000018,tb 180 BB 89,ask_measurement,neutral,size_recommendation
+comment_000019,tb 150 bb 53 size apa ka,ask_measurement,neutral,size_recommendation
+comment_000020,aku co yg size l tpi ka hhe,purchase_intent,neutral,purchase_intent
+comment_000021,yg spiderman bb 95 bisa ga kk?,ask_size_fit,neutral,size_recommendation
+comment_000023,tb 177 bb 77,ask_measurement,neutral,size_recommendation
+comment_000024,belakangnya gmna ka,ask_detail,neutral,not_relevant
+comment_000025,yg di pake ukuran apa ka,ask_size_fit,neutral,size_inquiry
+comment_000026,tb 160 bb 70 uk apa?,ask_measurement,neutral,size_recommendation
+comment_000027,kak cirengnya redygak,ask_stock,neutral,not_relevant
+comment_000028,et 1 tb 160 bb 70 uk apa kak,ask_measurement,neutral,size_recommendation
+comment_000030,kak BB 75 tinggi 173 ambil apa ya,ask_measurement,neutral,size_recommendation
+comment_000031,"Bb 55, tinggi 170’an uk apa ka",ask_measurement,neutral,size_recommendation
+comment_000032,Bb 100 tinggi 175 pake uk apa ka,ask_measurement,neutral,size_recommendation
+comment_000033,Iya bep,other,neutral,not_relevant
+comment_000034,kak sepil eta 2,ask_detail,neutral,product_inquiry
+comment_000035,tb 170.bb 85 uk berapa,ask_measurement,neutral,size_recommendation
+comment_000036,udah co eta 2,purchase_intent,neutral,purchase_intent
+comment_000037,baju yang spiderman kak spil,ask_detail,neutral,product_inquiry
+comment_000038,et 19 kk,ask_stock,neutral,product_inquiry
+comment_000039,BB 65 kk,ask_measurement,neutral,size_recommendation
+comment_000040,udah co kk eta 19,purchase_intent,neutral,purchase_intent
+comment_000041,udah co 3 kak,purchase_intent,neutral,purchase_intent
+comment_000042,kk eta 2 untuk bb 63 ambil xl kegedean gk?,ask_size_fit,neutral,size_recommendation
+comment_000043,itu bahan yg spiderman apa,ask_detail,neutral,product_inquiry
+comment_000045,Bahan apan?,ask_detail,neutral,product_inquiry
+comment_000046,sya 68,ask_measurement,neutral,not_relevant
+comment_000048,68 ambil ukuran apa,ask_measurement,neutral,size_recommendation
+comment_000050,@💅🏻✨🦩 okkkoooooo,noise,neutral,not_relevant
+comment_000051,ka ini kmrn udh co 2 tp dateng nya ko 1 doang ya,purchase_intent,negative,purchase_intent
+comment_000052,bb 50 tb 170 apa,ask_measurement,neutral,size_recommendation
+comment_000053,sablon yg di blkang et brpa aj kk,ask_stock,neutral,product_inquiry
+comment_000054,spil eta 5 kak,ask_detail,neutral,product_inquiry
+comment_000055,Hitam polos,ask_stock,neutral,color_inquiry
+comment_000056,kakanya pake uk apa?,ask_size_fit,neutral,size_inquiry
+comment_000057,kk sepil eta 31,ask_detail,neutral,product_inquiry
+comment_000058,udah kak aku CO yg spiderman,purchase_intent,neutral,purchase_intent
+comment_000059,aku udh co 2 kk,purchase_intent,neutral,purchase_intent
+comment_000060,berapa,ask_price,neutral,price_inquiry
+comment_000061,bb 55 ambil apa ka,ask_measurement,neutral,size_recommendation
+comment_000062,BB 85 MBA,ask_measurement,neutral,size_recommendation
+comment_000064,kak yang gambar cwe melet etalase berpa,ask_stock,neutral,product_inquiry
+comment_000065,tb 178 bb 65 pake size berpa ya,ask_measurement,neutral,size_recommendation
+comment_000066,etalase no 21 kak,ask_stock,neutral,product_inquiry
+comment_000067,bb 55 tb 167 ambil apa ka,ask_measurement,neutral,size_recommendation
+comment_000068,yg dipake ets brp,ask_stock,neutral,product_inquiry
+comment_000069,pengiriman Jayapura ga bisah ya mba,ask_price,neutral,not_relevant
+comment_000070,kak aku mau lihat ukuran S etalase no 6,ask_stock,neutral,size_inquiry
+comment_000071,Spil eta 18 kak,ask_detail,neutral,product_inquiry
+comment_000072,Spil yg size m kak,ask_detail,neutral,size_inquiry
+comment_000073,etalase 1 cb lihat ukuran XL,ask_stock,neutral,size_inquiry
+comment_000074,aku udh co ka etalase 19,purchase_intent,neutral,purchase_intent
+comment_000075,spil eta 2 ukuran xl,ask_detail,neutral,size_inquiry
+comment_000076,XL muat BB brapa,ask_measurement,neutral,size_recommendation
+comment_000077,bb 68 ukuran apa kak,ask_measurement,neutral,size_recommendation
+comment_000078,ukuran s gmna,ask_size_fit,neutral,size_inquiry
+comment_000079,buat BB 69 TB 165 apa ka,ask_measurement,neutral,size_recommendation
+comment_000080,ka bb 68 Tb 150,ask_measurement,neutral,size_recommendation
+comment_000081,buat kaos Spiderman bb 68 ukuran apa kak,ask_measurement,neutral,size_recommendation
+comment_000082,itu ukuran berapa kak yg Spiderman,ask_size_fit,neutral,size_inquiry
+comment_000083,kalau BB 70 TB 165 kk,ask_measurement,neutral,size_recommendation
+comment_000084,ukuran L ld berapa ka,ask_measurement,neutral,size_inquiry
+comment_000085,kak eta 42 kak,ask_stock,neutral,product_inquiry
+comment_000086,kak liat Spiderman ukuran XL,ask_size_fit,neutral,size_inquiry
+comment_000087,"bajunya sudah sampe, langsug di pake",purchase_intent,positive,not_relevant
+comment_000089,tb 165+ BB 46+ size ap kak?,ask_measurement,neutral,size_recommendation
+comment_000090,ka itu bahan baju kaosnya apa ka yang spider,ask_detail,neutral,product_inquiry
+comment_000091,tebal ga ka,ask_detail,neutral,product_inquiry
+comment_000092,Spiderman buat BB 38 TB 153 berapa kak,ask_measurement,neutral,size_recommendation
+comment_000093,tebal ya kak bahannya,ask_detail,neutral,product_inquiry
+comment_000094,tb 158 kaos Spiderman ukuran apa kak,ask_measurement,neutral,size_recommendation
+comment_000095,bb 52,ask_measurement,neutral,size_recommendation
+comment_000096,bahan dan ketebalan,ask_detail,neutral,product_inquiry
+comment_000097,163 berat 70 sweter apa cowoknya sm kaos,ask_measurement,neutral,size_recommendation
+comment_000098,yg Kaka tadi pegang etalase no brpa,ask_stock,neutral,product_inquiry
+comment_000099,okee kaosny,other,neutral,not_relevant
+comment_000100,@Sri Nurhayati,noise,neutral,not_relevant
+comment_000101,Spil yg spederman,ask_detail,neutral,not_relevant
+comment_000102,oke,other,neutral,not_relevant
+comment_000103,bahan apa itu,ask_detail,neutral,product_inquiry
+comment_000104,tebal gak kk,ask_detail,neutral,product_inquiry
+comment_000105,tb 154 BB 44 ukuran apa,ask_measurement,neutral,size_recommendation
+comment_000106,TB 163 BB 45 cocok yg mna,ask_measurement,neutral,size_recommendation
+comment_000107,baju yg tebel yg mana ka,ask_detail,neutral,product_inquiry
+comment_000108,yg kk pake uk brp,ask_size_fit,neutral,size_inquiry
+comment_000109,yg di pke KK ukuran apa itu kk,ask_size_fit,neutral,size_inquiry
+comment_000110,lengan panjang ET berapa,ask_stock,neutral,product_inquiry
+comment_000111,udah ambil itu 1 sweter sm kaosny,purchase_intent,neutral,purchase_intent
+comment_000112,eta 2 itu sweater ga kakk,ask_stock,neutral,product_inquiry
+comment_000113,pengiriman brp hari ka?,ask_price,neutral,not_relevant
+comment_000114,dr tanggal 4,purchase_intent,negative,not_relevant
+comment_000115,dr tanggal 4 b3lum terima terima udah di bayar,purchase_intent,negative,purchase_intent
+comment_000117,eta 10 3xl ka,ask_stock,neutral,product_inquiry
+comment_000118,eta 1 spil uk s,ask_detail,neutral,size_inquiry
+comment_000119,spil etlse 21 kak,ask_detail,neutral,product_inquiry
+comment_000120,pengirimanya kaya sifut,purchase_intent,negative,not_relevant
+comment_000121,dari tanggal 4,purchase_intent,negative,not_relevant
+comment_000122,belum dateng dateng ka sampe sekarang,purchase_intent,negative,not_relevant
+comment_000123,itu bahan tebal?,ask_detail,neutral,product_inquiry
+comment_000124,tarnya berbuku gak kain nya?,ask_detail,neutral,product_inquiry
+comment_000125,ke bogor ka,ask_price,neutral,not_relevant
+comment_000126,estimasi datang tgl 6,purchase_intent,neutral,not_relevant
+comment_000127,nantinya berbulu ga kainnya?,ask_detail,neutral,product_inquiry
+comment_000128,"salah tcl katanya ka ,muter muter",purchase_intent,negative,not_relevant
+comment_000129,Spil etalase 4,ask_detail,neutral,product_inquiry
+comment_000130,bb 74 ukuran brp,ask_measurement,neutral,size_recommendation
+comment_000131,bb 41 tb 160,ask_measurement,neutral,size_recommendation
+comment_000132,bb 80 size apa,ask_measurement,neutral,size_recommendation
+comment_000133,BB 95,ask_measurement,neutral,size_recommendation
+comment_000134,BB 45,ask_measurement,neutral,size_recommendation
+comment_000135,rekomendasi gambar untuk perempuan kak,ask_detail,neutral,not_relevant
+comment_000136,Spil etalase 2,ask_detail,neutral,product_inquiry
+comment_000137,Etalase 66 kak,ask_stock,neutral,product_inquiry
+comment_000138,bahan apa,ask_detail,neutral,product_inquiry
+comment_000139,merk apa kak,ask_detail,neutral,product_inquiry
+comment_000140,etalase 1 ukuran XXL,ask_stock,neutral,size_inquiry
+comment_000141,tb 170 ambil ap,ask_measurement,neutral,size_recommendation
+comment_000142,"ET 4 , BB 45 ambil ukuran apa kk",ask_measurement,neutral,size_recommendation
+comment_000143,host nya pake size apa itu,ask_size_fit,neutral,size_inquiry
+comment_000144,yang kepala spider mau lihat gede xxxl nya kak,ask_size_fit,neutral,size_inquiry
+comment_000145,bb45 TB 170 ambil apa,ask_measurement,neutral,size_recommendation
+comment_000146,Bb 70 tb 170,ask_measurement,neutral,size_recommendation
+comment_000147,co sekarang dikirim kapan?,purchase_intent,neutral,purchase_intent
+comment_000149,BB 45 TB 170 ambil apa,ask_measurement,neutral,size_recommendation
+comment_000150,Kak boleh liat etalase 24,ask_stock,neutral,product_inquiry
+comment_000151,BB 60 TB 175,ask_measurement,neutral,size_recommendation
+comment_000152,etalase 1,ask_stock,neutral,product_inquiry
+comment_000153,bb 45 tb 170 uk apa kak,ask_measurement,neutral,size_recommendation
+comment_000155,BB 66 TB 153,ask_measurement,neutral,size_recommendation
+comment_000157,ET 23 kak,ask_stock,neutral,product_inquiry
+comment_000158,sablon nya apa kak,ask_detail,neutral,product_inquiry
+comment_000159,tb 158 bb 40 uk?,ask_measurement,neutral,size_recommendation
+comment_000160,ET 23 kk,ask_stock,neutral,product_inquiry
+comment_000162,sablonnya apa kak,ask_detail,neutral,product_inquiry
+comment_000164,"@hi, kamu",other,neutral,not_relevant
+comment_000168,Bb 73 tb 167 size ap kk,ask_measurement,neutral,size_recommendation
+comment_000170,Bahan apa kk,ask_detail,neutral,product_inquiry
+comment_000171,BB 73 tinggi 158 UK apa kak,ask_measurement,neutral,size_recommendation
+comment_000172,BB 72 TB 155,ask_measurement,neutral,size_recommendation
+comment_000173,tb 155 bb 35 ambil apa kak,ask_measurement,neutral,size_recommendation
+comment_000174,tb 180 bb 70,ask_measurement,neutral,size_recommendation
+comment_000175,kk beneran gratis parfum,ask_detail,neutral,price_inquiry
+comment_000177,spil et 1 yg ukuran M kak,ask_detail,neutral,size_inquiry
+comment_000178,udh co kak,purchase_intent,neutral,purchase_intent
+comment_000179,liat ukuran s nya kak,ask_detail,neutral,size_inquiry
+comment_000180,untuk bb 57 size apa ka?,ask_measurement,neutral,size_recommendation
+comment_000181,itu cuttingan nya oversize yaa ka?,ask_size_fit,neutral,product_inquiry
+comment_000182,LD yg size XL brp ka?,ask_measurement,neutral,size_inquiry
+comment_000183,BB 61 TB 160,ask_measurement,neutral,size_recommendation
+comment_000184,ka bb 60 tb 160 ambil apa biar pas?,ask_measurement,neutral,size_recommendation
+comment_000185,yang ga over size,ask_size_fit,neutral,not_relevant
+comment_000186,catton combed 16s ny etalase brp,ask_stock,neutral,product_inquiry
+comment_000187,BB 93 kilo pakai ukuran apa kak,ask_measurement,neutral,size_recommendation
+comment_000188,uda co uda byar kok belum datang” ya?,purchase_intent,negative,purchase_intent
+comment_000189,estimasi 12-14 agustus,other,neutral,not_relevant
+comment_000190,kak baju nya semua wrna item?,ask_detail,neutral,product_inquiry
+comment_000191,makan mhh udh biasa mas 🗿,other,neutral,not_relevant
+comment_000198,etalase berapa itu ka,ask_stock,neutral,product_inquiry
+comment_000199,Eta 22 kak,ask_stock,neutral,product_inquiry
+comment_000200,eta 19 kak,ask_stock,neutral,product_inquiry
+comment_000201,Liat uk s nya kak,ask_detail,neutral,size_inquiry
+comment_000202,"sory kak,pesenan saya katanya sudh di batalkan ya,tapi dana nya blm di kembalikan dari 2 hari lalu?",other,negative,not_relevant
+comment_000203,eta 45 kak,ask_stock,neutral,product_inquiry
+comment_000205,L bb 62 masuk gk kak,ask_measurement,neutral,size_recommendation
+comment_000206,Gk bisa cod ya kak,ask_price,neutral,not_relevant
+comment_000207,bales dong dm an nya😊,other,neutral,not_relevant
+comment_000208,etalase 3 dong kak,ask_stock,neutral,product_inquiry
+comment_000209,"respon nya aja gajelas dri admin,pdhl paket sedang di kirim loh?",other,negative,not_relevant
+comment_000210,etalase 5 kak,ask_stock,neutral,product_inquiry
+comment_000213,coba liat dm an saya astaga dri hp yg lain,other,neutral,not_relevant
+comment_000215,tebel ga kak bahan nya,ask_detail,neutral,product_inquiry
+comment_000216,kak cb suru admin nya bls cht sy,other,neutral,not_relevant
+comment_000217,kirim nomer resi nya kirm dmn?,other,neutral,not_relevant
+comment_000218,etalase 28 ka,ask_stock,neutral,product_inquiry
+comment_000219,bb55 tb172 size apa ka,ask_measurement,neutral,size_recommendation
+comment_000220,yg gambar di belakang yang mana,ask_detail,neutral,not_relevant
+comment_000221,etalase 2 BB 37 TB 140 ambil apa ka,ask_measurement,neutral,size_recommendation
+comment_000222,"J Y 1 3 1 7 6 2 2 5 0 8,tuh resi ny",other,neutral,not_relevant
+comment_000223,etalase spider kiri atas,ask_stock,neutral,product_inquiry
+comment_000224,(JY1317622508) tuh kak nmr nya,other,neutral,not_relevant
+comment_000225,iyees,other,neutral,not_relevant
+comment_000227,TB 175/62 size?,ask_measurement,neutral,size_recommendation
+comment_000228,yg gambar Spiderman merah kak,ask_stock,neutral,color_inquiry
+comment_000229,Spil kaos Linkin Park,ask_detail,neutral,product_inquiry
+comment_000230,Spil etalase 2 uk m,ask_detail,neutral,size_inquiry
+comment_000231,payment ga bisa Qris ka,ask_price,neutral,not_relevant
+comment_000233,pengiriman dri mana ka,ask_price,neutral,not_relevant
+comment_000235,bb 60 tb 165 size brp kk,ask_measurement,neutral,size_recommendation
+comment_000236,iya itu ka ambil s aja ka,purchase_intent,neutral,not_relevant
+comment_000238,klo di cuci hilang gak sablon nya kak?,ask_detail,neutral,product_inquiry
+comment_000239,udah co UK L sama XL,purchase_intent,neutral,purchase_intent
+comment_000240,BB 48 TB 152 ambil size apa kk,ask_measurement,neutral,size_recommendation
+comment_000241,BB 48 TB 152 ambil size berapa,ask_measurement,neutral,size_recommendation
+comment_000242,kak aku dah co 3 kaos,purchase_intent,neutral,purchase_intent
+comment_000243,BB 37 TB 140 ambil S apa m,ask_measurement,neutral,size_recommendation
+comment_000244,kain nya tebel ga kakk?,ask_detail,neutral,product_inquiry
+comment_000245,BB 65 TB 185 ambil UK apa kak?,ask_measurement,neutral,size_recommendation
+comment_000246,KA etalase 2 TB 148 BB  40,ask_measurement,neutral,size_recommendation
+comment_000247,kak kalau beli 3 kaos dapat free parfum 3 juga kah,ask_detail,neutral,price_inquiry
+comment_000248,etalase 11 kak yang dateng gambar nya kayak yang di keranjang kak?,ask_detail,neutral,purchase_intent
+comment_000249,kak bb 80 tb 175 uk apa kak,ask_measurement,neutral,size_recommendation
+comment_000250,BB 65 TB 175,ask_measurement,neutral,size_recommendation
+comment_000251,buat BB 95 pake ukuran apa kak,ask_measurement,neutral,size_recommendation
+comment_000252,bb56 tb 171,ask_measurement,neutral,size_recommendation
+comment_000253,kak Spil etalase 27 sama 3,ask_detail,neutral,product_inquiry
+comment_000254,kain ap kk. kain katun kain yg gmbang bau,ask_detail,neutral,product_inquiry
+comment_000255,eta 11 ka,ask_stock,neutral,product_inquiry
+comment_000256,ka paket ku udah dtang bagus bgt,other,positive,not_relevant
+comment_000257,eta 18 kak,ask_stock,neutral,product_inquiry
+comment_000258,kainnya ngk berbulu kak kalau di cuci,ask_detail,neutral,product_inquiry
+comment_000259,eta 18 buat BB 95 cukup gak,ask_measurement,neutral,size_recommendation
+comment_000260,Spil BB 100 kak,ask_detail,neutral,size_recommendation
+comment_000261,buat BB 95 bisa gak eta 18,ask_measurement,neutral,size_recommendation
+comment_000262,et 51 kak spil,ask_detail,neutral,product_inquiry
+comment_000263,kak kalo XL Ld nya brp,ask_measurement,neutral,size_inquiry
+comment_000264,untuk umur 11 tahun pakek UK apa kak,ask_size_fit,neutral,size_recommendation
+comment_000265,aku udah co yah sweaternya,purchase_intent,neutral,purchase_intent
+comment_000266,30 kg kak,ask_measurement,neutral,size_recommendation
+comment_000267,eta 17,ask_stock,neutral,product_inquiry
+comment_000268,yg di pake kakaknya,ask_stock,neutral,not_relevant
+comment_000269,Sdh co kak et 51,purchase_intent,neutral,purchase_intent
+comment_000270,eta,ask_stock,neutral,product_inquiry
+comment_000271,bb 80 tb 170 size naon,ask_measurement,neutral,size_recommendation
+comment_000272,bb 62 tb 170,ask_measurement,neutral,size_recommendation
+comment_000273,BB103 TB175 LDnya110 pake uk apa yang bener² oversize,ask_measurement,neutral,size_recommendation
+comment_000274,spil 5 kk,ask_detail,neutral,product_inquiry
+comment_000275,saya tb 170an,ask_measurement,neutral,size_recommendation
+comment_000276,BB 50,ask_measurement,neutral,size_recommendation
+comment_000277,saya mau ambil 2 rekomen dong kk saya mau ambil et 5 trus yang rekomen apa,ask_stock,neutral,purchase_intent
+comment_000278,kak spil uk xxl,ask_detail,neutral,size_inquiry
+comment_000279,bb 43 uk brp kak,ask_measurement,neutral,size_recommendation
+comment_000280,spil etalase 6 kk,ask_detail,neutral,product_inquiry
+comment_000281,bb 55 tb 150 kk,ask_measurement,neutral,size_recommendation
+comment_000282,oky kk da co,purchase_intent,neutral,purchase_intent
+comment_000283,spil etalase 24 ka,ask_detail,neutral,product_inquiry
+comment_000284,disini baju termaksud murah dengan kualitas yang bagus,other,positive,not_relevant
+comment_000285,XL ld brp ka,ask_measurement,neutral,size_inquiry
+comment_000286,saya waktu tu beli sablon nya mesin cuci pun masi aman sampai sekarang,other,positive,product_inquiry
+comment_000287,kak boleg rekues ka,other,neutral,not_relevant
+comment_000288,bb 56 tb 164 ambil uk apaaa kak,ask_measurement,neutral,size_recommendation
+comment_000289,beli sepuluh berapa ka,ask_price,neutral,price_inquiry
+comment_000290,"ketebalan brpa mb,,yg gambar blakang eta brap",ask_detail,neutral,product_inquiry
+comment_000291,etalase 17,ask_stock,neutral,product_inquiry
+comment_000292,tlg bls cht,other,neutral,not_relevant
+comment_000293,untuk sweater Tb 170 Bb 58?,ask_measurement,neutral,size_recommendation
+comment_000294,saya retur pkt udah sampai di kalian tpi uang saya ga di balikin,other,negative,not_relevant
+comment_000295,kak nggak bisa pakai qris ya?,ask_price,neutral,not_relevant
+comment_000296,bb75 TB 178,ask_measurement,neutral,size_recommendation
+comment_000297,eta lase 5 ka,ask_stock,neutral,product_inquiry
+comment_000298,bb 55 tb 165 sz ap kk,ask_measurement,neutral,size_recommendation
+comment_000299,spil ukuran L teh,ask_detail,neutral,size_inquiry
+comment_000300,Spil etalase 3 kak,ask_detail,neutral,product_inquiry
+comment_000301,BB 92 TB 167,ask_measurement,neutral,size_recommendation
+comment_000302,bb56 tb162 ambil apa,ask_measurement,neutral,size_recommendation
+comment_000303,etalase 25 KA,ask_stock,neutral,product_inquiry
+comment_000304,eh salahh no 4,other,neutral,not_relevant
+comment_000305,klo buat tb 173 bb 50 pke ukuran apa ka,ask_measurement,neutral,size_recommendation
+comment_000306,kakk bb 60 tb 165 size berapa,ask_measurement,neutral,size_recommendation
+comment_000307,coba angkat tangan nya kk,ask_size_fit,neutral,not_relevant
+comment_000308,udh d co sayang,purchase_intent,neutral,purchase_intent
+comment_000309,biar tau kebelet atau engga bajunya,ask_size_fit,neutral,not_relevant
+comment_000310,angkat aja coba,ask_size_fit,neutral,not_relevant
+comment_000311,coba spil baju etalase 15,ask_detail,neutral,product_inquiry
+comment_000312,etalase no wa,other,neutral,product_inquiry
+comment_000313,kak boleh lihat size chart nya gak,ask_size_fit,neutral,size_inquiry
+comment_000314,biar tau ketet atau engga bajunya,ask_size_fit,neutral,not_relevant
+comment_000315,yng kaka pke di etalase brapa,ask_stock,neutral,product_inquiry
+comment_000316,coba angkat tangan kak biar tau ketet bajunya,ask_size_fit,neutral,not_relevant
+comment_000317,buat bb 120+,ask_measurement,neutral,size_recommendation
+comment_000318,liat sablonan belakang yang lagi di pake,ask_detail,neutral,product_inquiry
+comment_000319,"Jahat yee, cuma di bca doang😂",other,negative,not_relevant
+comment_000320,ukuran s kaya AP kak,ask_detail,neutral,size_inquiry
+comment_000321,Chtku🤣,other,neutral,not_relevant
+comment_000322,etalase 45,ask_stock,neutral,product_inquiry
+comment_000323,Dahlahh😌🤣,other,neutral,not_relevant
+comment_000325,alhamdulillah 😎😎😎,other,positive,not_relevant
+comment_000326,ga jadi ganti rok 🤪🤪🤪,other,neutral,not_relevant
+comment_000327,yg penting ga jadi 🤪🤪😎😎,other,neutral,not_relevant
+comment_000328,boleh liat bahan nya KA??,ask_detail,neutral,product_inquiry
+comment_000329,itu tahu,other,neutral,not_relevant
+comment_000330,spil ukuran s nya dong ka,ask_detail,neutral,size_inquiry
+comment_000331,itu rambut makin banyak antenanya 🤪🤪,other,neutral,not_relevant
+comment_000332,yg kk pakai size ap,ask_size_fit,neutral,size_inquiry
+comment_000333,etalase no 24 kak,ask_stock,neutral,product_inquiry
+comment_000334,oke kak dh co tinggal nunggu,purchase_intent,neutral,purchase_intent
+comment_000335,udah co ets3 kak,purchase_intent,neutral,purchase_intent
+comment_000336,design yg keren yg mana kak,ask_detail,neutral,not_relevant
+comment_000337,montok banget,other,neutral,not_relevant
+comment_000338,"pengen beli ,but... uang ga cukup buat ongkir",purchase_intent,negative,not_relevant
+comment_000339,tb 173 bb 73 ambil ukuran apa ka,ask_measurement,neutral,size_recommendation
+comment_000340,tb 158 bb 46 ambil uk apa,ask_measurement,neutral,size_recommendation
+comment_000341,spil etalase 7,ask_detail,neutral,product_inquiry
+comment_000342,eta brpa yg d pake kaka,ask_stock,neutral,product_inquiry
+comment_000343,belanja minimum 80rb itu dapat parfum ka? parfum apa ka?,ask_detail,neutral,price_inquiry
+comment_000344,buat cowok,ask_size_fit,neutral,product_inquiry
+comment_000345,yg kk pake etl brpa,ask_stock,neutral,product_inquiry
+comment_000346,merdeka,other,neutral,not_relevant
+comment_000347,uk brp yg kk pke,ask_size_fit,neutral,size_inquiry
+comment_000348,Bb 97 ukuran apa kak,ask_measurement,neutral,size_recommendation
+comment_000349,kk untuk BB 30 itu bagus ukuran apa?,ask_measurement,neutral,size_recommendation
+comment_000350,eta 10,ask_stock,neutral,product_inquiry
+comment_000351,BB 90 kak,ask_measurement,neutral,size_recommendation
+comment_000353,bb 55 kak ukuran apa,ask_measurement,neutral,size_recommendation
+comment_000354,"baju yang kamu pakai etalase berapa, boleh liat belakangnya juga, saya cari yang polos belakangnya",ask_stock,neutral,product_inquiry
+comment_000355,bb 43,ask_measurement,neutral,size_recommendation
+comment_000356,eta 10 BB 43,ask_measurement,neutral,size_recommendation
+comment_000358,75 ukuran apa ka,ask_measurement,neutral,size_inquiry
+comment_000359,yahh udh nonton spidermanya baru lewat kaosnya kak,other,neutral,not_relevant
+comment_000360,BB 45 UK brapa kak,ask_measurement,neutral,size_recommendation
+comment_000361,etalase 4 xxxl kak mau co soalnya,purchase_intent,neutral,purchase_intent
+comment_000362,coba adep blkg ka,ask_detail,neutral,not_relevant
+comment_000363,no 1 ukuran L kak,ask_stock,neutral,size_inquiry
+comment_000364,etalase 13 dong,ask_stock,neutral,product_inquiry
+comment_000365,etelse no 1 kak ukurann L,ask_stock,neutral,size_inquiry
+comment_000366,besarr yaa,other,neutral,not_relevant
+comment_000367,M brrti kak kmu pakai ukuraan apa?,ask_size_fit,neutral,size_inquiry
+comment_000368,et 1 itu yang ukuran S bb brp,ask_measurement,neutral,size_inquiry
+comment_000369,etalase 1 tb 165 bb 45 ukuran apa?,ask_measurement,neutral,size_recommendation
+comment_000370,ka xxxl ld brp,ask_measurement,neutral,size_inquiry
+comment_000371,ka coba  liatt etalase 3,ask_detail,neutral,product_inquiry
+comment_000372,kk udh lama yh,other,neutral,not_relevant
+comment_000373,tb 163 uk apa,ask_measurement,neutral,size_recommendation
+comment_000374,live nya🗿,other,neutral,not_relevant
+comment_000375,kak celana nya este no berapa,ask_stock,neutral,product_inquiry
+comment_000376,kak host yg pake kaca mata kok mirip sama kak,other,neutral,not_relevant
+comment_000377,ka spil etl 22 dan 45,ask_detail,neutral,product_inquiry
+comment_000378,tumben g pake kacamata,other,neutral,not_relevant
+comment_000379,aku dh co 2biji makasih ka,purchase_intent,neutral,purchase_intent
+comment_000380,omak anime yh🗿,other,neutral,not_relevant
+comment_000382,baju spiderman,ask_stock,neutral,not_relevant
+comment_000383,etalase berapq,ask_stock,neutral,product_inquiry
+comment_000384,spil Parker njrr,ask_detail,neutral,not_relevant
+comment_000385,1,noise,neutral,not_relevant
+comment_000386,kk bahan nyaa apa,ask_detail,neutral,product_inquiry
+comment_000387,di aku 29k kak anjrr,ask_price,neutral,price_inquiry
+comment_000388,nya bedaaa,other,neutral,not_relevant
+comment_000389,etalase 11 kk,ask_stock,neutral,product_inquiry
+comment_000390,kok komen ku ga keliatan,other,neutral,not_relevant
+comment_000391,BB 60 perut buncit kak,ask_measurement,neutral,size_recommendation
+comment_000392,eta 2 kak,ask_stock,neutral,product_inquiry
+comment_000393,yg kakak pakai UK apa,ask_size_fit,neutral,size_inquiry
+comment_000394,cewe tb 160 bb 65 cocok ukuran apa,ask_measurement,neutral,size_recommendation
+comment_000395,kalo yg belakang itu kak lab2 merah,ask_stock,neutral,color_inquiry
+comment_000396,27 ka,ask_stock,neutral,not_relevant
+comment_000397,60 178 ?,ask_measurement,neutral,size_recommendation
+comment_000398,"kk bb 50 tb 155,5 ambil ukuran apaa kaak",ask_measurement,neutral,size_recommendation
+comment_000399,laba2 merah belakang,ask_detail,neutral,color_inquiry
+comment_000400,Spil etalase 21 kk,ask_detail,neutral,product_inquiry
+comment_000401,aku udah ngoleksi 5 motifnya 😍,other,positive,not_relevant
+comment_000402,Etalase 21 kk,ask_stock,neutral,product_inquiry
+comment_000403,etalase 15 kak,ask_stock,neutral,product_inquiry
+comment_000404,bb 88 ukuran brp,ask_measurement,neutral,size_recommendation
+comment_000405,bb60 tngi 180 pkai apa,ask_measurement,neutral,size_recommendation
+comment_000406,iya cakev,other,neutral,not_relevant
+comment_000407,kaosnya bahan apa ka,ask_detail,neutral,product_inquiry
+comment_000408,ka spil etalase 1,ask_detail,neutral,product_inquiry
+comment_000409,bb 50 tb 160 ambil apa kak,ask_measurement,neutral,size_recommendation
+comment_000410,etalase 11 dapet harga 107 kak,ask_price,neutral,price_inquiry
+comment_000411,nice,other,positive,not_relevant
+comment_000412,bahan nya apa?,ask_detail,neutral,product_inquiry
+comment_000413,etalase no 3 kak,ask_stock,neutral,product_inquiry
+comment_000414,bahannya cepet apek ngk kak,ask_detail,neutral,product_inquiry
+comment_000415,liat gambar blkang kak,ask_detail,neutral,not_relevant
+comment_000416,yg dipake uk apa kk,ask_size_fit,neutral,size_inquiry
+comment_000417,etalase 17 kak,ask_stock,neutral,product_inquiry
+comment_000418,spil,ask_detail,neutral,not_relevant
+comment_000419,bb 70 ukuran berapaan kk,ask_measurement,neutral,size_recommendation
+comment_000420,bisa cod ga kak,ask_price,neutral,not_relevant
+comment_000421,spil etalase 12 kk,ask_detail,neutral,product_inquiry
+comment_000422,bb 35 ukuran apa,ask_measurement,neutral,size_recommendation
+comment_000423,udah co kak,purchase_intent,neutral,purchase_intent
+comment_000424,dikirim kapan yah?,other,neutral,not_relevant
+comment_000425,udah aku masukin ke keranjang kak,purchase_intent,neutral,purchase_intent
+comment_000426,ok semoga cepat sampai yah kk,other,positive,not_relevant
+comment_000427,bb 50 tb 147 kak uk apa kak,ask_measurement,neutral,size_recommendation
+comment_000428,kalau yg s kak boleh di spil,ask_detail,neutral,size_inquiry
+comment_000429,bb 45 tb 163 uk apa kka,ask_measurement,neutral,size_recommendation
+comment_000430,co miminya boleh?,purchase_intent,neutral,purchase_intent
+comment_000431,bb 60 uk apa kak,ask_measurement,neutral,size_recommendation
+comment_000432,spil Etlase 5 min,ask_detail,neutral,product_inquiry
+comment_000433,ka eta 13 dong,ask_stock,neutral,product_inquiry
+comment_000434,etalase 6 ukuran m kayak gimana kak,ask_detail,neutral,size_inquiry
+comment_000435,eta 13 ka,ask_stock,neutral,product_inquiry
+comment_000436,spil uk m kka,ask_detail,neutral,size_inquiry
+comment_000437,Etalase 33 kk,ask_stock,neutral,product_inquiry
+comment_000438,yang Spiderman di belakang kak,ask_stock,neutral,not_relevant
+comment_000440,etalase 46 ka,ask_stock,neutral,product_inquiry
+comment_000441,bisa costum ukuran?,ask_size_fit,neutral,size_inquiry
+comment_000442,Yang Spiderman di belakang kak,ask_stock,neutral,not_relevant
+comment_000443,sablonya awet ga ka?,ask_detail,neutral,product_inquiry
+comment_000444,eta 31 bb 45,ask_measurement,neutral,size_recommendation
+comment_000445,bb 60 tb 168,ask_measurement,neutral,size_recommendation
+comment_000446,BB 100 yang spider ukuran berapa,ask_measurement,neutral,size_recommendation
+comment_000447,bahannya mudah melar GK kk?,ask_detail,neutral,product_inquiry
+comment_000448,udah 7h belum dateng datengg,other,negative,not_relevant
+comment_000449,bb 47 tb 165,ask_measurement,neutral,size_recommendation
+comment_000450,Bb 38 tb 150,ask_measurement,neutral,size_recommendation
+comment_000451,bb 70,ask_measurement,neutral,size_recommendation
+comment_000452,udah kirim ke alamat udah dua hari enga di kirim🤣,other,negative,not_relevant
+comment_000453,mana udah di tf,other,negative,not_relevant
+comment_000454,2 kak baju spider,ask_stock,neutral,not_relevant
+comment_000455,mbak udah Co eta 4,purchase_intent,neutral,purchase_intent
+comment_000456,kalau bb 67 tb 165,ask_measurement,neutral,size_recommendation
+comment_000457,Aaminn,other,positive,not_relevant
+comment_000458,bahan nya apa,ask_detail,neutral,product_inquiry
+comment_000459,melar ya,ask_detail,neutral,not_relevant
+comment_000460,kak bb 50 uk berapa?? buat etalase 2,ask_measurement,neutral,size_recommendation
+comment_000461,kak BB 48 size apa kak,ask_measurement,neutral,size_recommendation
+comment_000462,kak klo co skrg sampe nya kapan kira2 kak ke tangsel,other,neutral,purchase_intent
+comment_000463,itu yg di pegang ukuran apa kak?,ask_size_fit,neutral,size_inquiry
+comment_000464,kak,noise,neutral,not_relevant
+comment_000465,BB 58 kak,ask_measurement,neutral,size_recommendation
+comment_000466,mbak boleh tanya,other,neutral,not_relevant
+comment_000467,kak yg laba laba di belakang kang,ask_stock,neutral,not_relevant
+comment_000468,14 ya mbak,ask_stock,neutral,not_relevant
+comment_000469,yg warna putih,ask_stock,neutral,color_inquiry
+comment_000470,itu zize apa kak,ask_size_fit,neutral,size_inquiry
+comment_000471,bb 110 kak ukuran apa,ask_measurement,neutral,size_recommendation
+comment_000472,keren studiomya skrg,other,positive,not_relevant
+comment_000473,Ka ini baju gombrang ?,ask_size_fit,neutral,product_inquiry
+comment_000474,kl berat 73 uk ap,ask_measurement,neutral,size_recommendation
+comment_000475,Etalase 22 kk,ask_stock,neutral,product_inquiry
+comment_000476,Yg di pake uk apa,ask_size_fit,neutral,size_inquiry
+comment_000477,Etalase 22 kk spil,ask_detail,neutral,product_inquiry
+comment_000478,kak bb 85 size brp,ask_measurement,neutral,size_recommendation
+comment_000479,KA liat eta 37 yg ukuran XL,ask_detail,neutral,size_inquiry
+comment_000480,Kk aku uda co 2 etalase 21 sama etalase 22,purchase_intent,neutral,purchase_intent
+comment_000481,ka coba yg Spiderman,ask_detail,neutral,not_relevant
+comment_000482,BB 70 ka pake ukuran apa,ask_measurement,neutral,size_recommendation
+comment_000483,ka eta ⁴ buat anak SMA ukuran s apa m ?,ask_size_fit,neutral,size_inquiry
+comment_000484,spil 65 spil kk cantik,ask_detail,neutral,product_inquiry
+comment_000485,baju aku udah datang baguss pwollll lembut bahan nya mana murah lagi,other,positive,not_relevant
+comment_000486,63 spil,ask_detail,neutral,product_inquiry
+comment_000487,ka coba etalse 57,ask_detail,neutral,product_inquiry
+comment_000488,eta (15-25) yg paling worth it dari bahan apa yah,ask_detail,neutral,size_recommendation
+comment_000489,no 18 kak,ask_stock,neutral,not_relevant
+comment_000490,liat bahan dalem.y kak,ask_detail,neutral,product_inquiry
+comment_000491,sablon pakek apa,ask_detail,neutral,product_inquiry
+comment_000492,BB 85 TB 173,ask_measurement,neutral,size_recommendation
+comment_000493,Spil eta 3 & 4 kak,ask_detail,neutral,product_inquiry
+comment_000494,Eta 3 pengiriman drmn kak co skr d kirim kpn,other,neutral,purchase_intent
+comment_000495,etalase 2 kak,ask_stock,neutral,product_inquiry
+comment_000496,Bb 64 size apa kak,ask_measurement,neutral,size_recommendation
+comment_000497,Eta 3 bsa buat Cowo ga kak,ask_size_fit,neutral,product_inquiry
+comment_000498,BB 80 brapa kak,ask_measurement,neutral,size_recommendation
+comment_000499,bb87,ask_measurement,neutral,size_recommendation
+comment_000500,"ukuran nya apa""?",ask_size_fit,neutral,size_inquiry
+comment_000501,over size ya,ask_size_fit,neutral,not_relevant
+comment_000502,logo Spiderman yg kk pake blh jga tuh,ask_detail,neutral,product_inquiry
+comment_000503,bahan apa kk,ask_detail,neutral,product_inquiry
+comment_000504,Yg best seler untuk Cowo eta brp kak,ask_stock,neutral,product_inquiry
+comment_000505,kain apa kk,ask_detail,neutral,product_inquiry
+comment_000506,kk pake uk apa,ask_size_fit,neutral,size_inquiry
+comment_000508,buat couple bgs mana kak,ask_stock,neutral,not_relevant
+comment_000509,"kk ade ku nanya,ad baju tenong tenong nya g",ask_stock,neutral,not_relevant
+comment_000510,ga bisa cod,ask_price,neutral,not_relevant
+comment_000511,Kak eta 2 lihat donk,ask_detail,neutral,product_inquiry
+comment_000512,nah gini aman akhirnya 😎😎😎,other,positive,not_relevant
+comment_000513,baju Ultraman,ask_stock,neutral,not_relevant
+comment_000514,itu yng di pake ukuran apa mbak,ask_size_fit,neutral,size_inquiry
+comment_000515,"4END kaosnya tebel dan keren² ,udh 5x beli dsini gak nyesel 👍🏻",other,positive,not_relevant
+comment_000516,baju jepang,ask_stock,neutral,not_relevant
+comment_000517,kalo buat dipake jogging enak ga,ask_detail,neutral,product_inquiry
+comment_000518,mau xxl,purchase_intent,neutral,purchase_intent
+comment_000519,tb 155 pendek bgt😭,ask_measurement,neutral,size_recommendation
+comment_000520,Udh co eta 3,purchase_intent,neutral,purchase_intent
+comment_000521,always bintang 5 kak 👍🏻,other,positive,not_relevant
+comment_000522,Spil baju Spiderman,ask_detail,neutral,product_inquiry
+comment_000523,bb47 TB 157,ask_measurement,neutral,size_recommendation
+comment_000524,itu ukuran berapa y kk,ask_size_fit,neutral,size_inquiry
+comment_000525,34,noise,neutral,not_relevant
+comment_000526,spil eta 1 bb 45 tb 158 pke uk brp kk,ask_measurement,neutral,size_recommendation
+comment_000527,yang dipake eta brp,ask_stock,neutral,product_inquiry
+comment_000528,etalase 18,ask_stock,neutral,product_inquiry
+comment_000529,spil belakang eta 3,ask_detail,neutral,product_inquiry
+comment_000530,lihat belakang nya kk yg kak pakai,ask_detail,neutral,not_relevant
+comment_000531,cek laba2 dua warna,ask_detail,neutral,color_inquiry
+comment_000532,BB 70 UK apa kk,ask_measurement,neutral,size_recommendation
+comment_000533,uk m bsar bgt ga kk,ask_size_fit,neutral,size_inquiry
+comment_000534,spil kaos ul L,ask_detail,neutral,size_inquiry
+comment_000535,"ka ini gimana ya kaos spiderman nya ko belum nyampe"", minggu mau dipake nonton soalnya ka udh lama",other,negative,product_inquiry
+comment_000536,buat cowo uk M ga masuk berarti,ask_size_fit,neutral,not_relevant
+comment_000537,bingung mau ambil m atau s kk,ask_size_fit,neutral,size_recommendation
+comment_000538,spil uk L,ask_detail,neutral,size_inquiry
+comment_000539,pingin tau kualitas sablon  kk,ask_detail,neutral,product_inquiry
+comment_000540,aduh gemes goyang nya,other,positive,not_relevant
+comment_000541,klo buat nongkrong bagus nya yg mana ya,ask_stock,neutral,not_relevant
+comment_000542,L yg mana,ask_size_fit,neutral,size_inquiry
+comment_000543,kurang suka,other,negative,not_relevant
+comment_000544,bahan apa kaa,ask_detail,neutral,product_inquiry
+comment_000545,kak BB 60 TB 187 ukuran apa yang cocok.,ask_measurement,neutral,size_recommendation
+comment_000546,ya sayang,other,neutral,not_relevant
+comment_000548,serem itu kak,other,neutral,not_relevant
+comment_000549,bahan apa ya resap keringat kh,ask_detail,neutral,product_inquiry
+comment_000550,cek one piece kak,ask_detail,neutral,not_relevant
+comment_000551,Bb 85 pake ukuran apa kak?,ask_measurement,neutral,size_recommendation
+comment_000552,BB 68 ukuran apa kak?,ask_measurement,neutral,size_recommendation
+comment_000553,et 2 ka,ask_stock,neutral,product_inquiry
+comment_000554,bb 78,ask_measurement,neutral,size_recommendation
+comment_000555,UK XXL panjangnya brpa kak??,ask_measurement,neutral,size_inquiry
+comment_000556,Bahan apa ini ka,ask_detail,neutral,product_inquiry
+comment_000557,Hai sayang,other,neutral,not_relevant
+comment_000558,55 kak,ask_measurement,neutral,not_relevant
+comment_000560,etalase,ask_stock,neutral,product_inquiry
+comment_000561,bisa tapi jangan angkat kelek ya belum mandi 🤪🤪,other,neutral,not_relevant
+comment_000562,bb 60 pakai size berapa yaa ...,ask_measurement,neutral,size_recommendation
+comment_000563,paling cuci muka aja 🤪🤪,other,neutral,not_relevant
+comment_000564,UK XL dri BB berapa kk,ask_measurement,neutral,size_recommendation
+comment_000565,bub 63/167 cwe tapi pengen pres body size mana,ask_measurement,neutral,size_recommendation
+comment_000566,perut ku buncit tapi ngga buncit banget nggak gndut juga,ask_measurement,neutral,size_recommendation
+comment_000567,bub liat komenku,other,neutral,not_relevant
+comment_000568,@mellia XL KAK,ask_size_fit,neutral,not_relevant
+comment_000569,🤣🤣🤣,noise,neutral,not_relevant
+comment_000570,@♒MATI_RASA♒ kgedean😭😭,ask_size_fit,neutral,size_recommendation
+comment_000571,liat yang spderman ya ka bandingin L-XL,ask_detail,neutral,size_inquiry
+comment_000572,bb 83,ask_measurement,neutral,size_recommendation
+comment_000573,klo harga normal nya brapa ka,ask_price,neutral,price_inquiry
+comment_000575,ka di aku bnern harga 32 ribu😭😭,ask_price,neutral,price_inquiry
+comment_000576,efek lihat orang belum mandi 🤣🤣,other,neutral,not_relevant
+comment_000577,klo bb 57,ask_measurement,neutral,size_recommendation
+comment_000578,kk akun tiktok kk apa,other,neutral,not_relevant
+comment_000579,"biar belum mandi, ga kecium juga",other,neutral,not_relevant
+comment_000580,🤪🤪🤪,noise,neutral,not_relevant
+comment_000581,masak ya belom mandi,other,neutral,not_relevant
+comment_000582,"alhamdulillah ga promosi akun, jadi sedikit polisi tidurnya 🤪🤪",other,neutral,not_relevant
+comment_000583,nah kan pengakuan belum mandi 🤪🤪🤪,other,neutral,not_relevant
+comment_000584,yang di pake etalase berapa,ask_stock,neutral,product_inquiry
+comment_000585,akun pribadi kak,other,neutral,not_relevant
+comment_000586,etalase 37 bisa di Spil KK?,ask_detail,neutral,product_inquiry
+comment_000587,liat belakangnya lagi,ask_detail,neutral,not_relevant
+comment_000588,size s bb brp ka,ask_measurement,neutral,size_inquiry
+comment_000589,kk untuk BB 58,ask_measurement,neutral,size_recommendation
+comment_000590,logo bmth anjay,other,neutral,product_inquiry
+comment_000591,bb 73 tb 173,ask_measurement,neutral,size_recommendation
+comment_000592,KK lihat UK L sama XL nya,ask_detail,neutral,size_inquiry
+comment_000593,Spil et 22,ask_detail,neutral,product_inquiry
+comment_000594,Et 22,ask_stock,neutral,product_inquiry
+comment_000595,spil gambar blkang baju nya kak,ask_detail,neutral,product_inquiry
+comment_000596,kak gimana caranya kalo mau beli 4 pcs gratis ongkir??,ask_price,neutral,price_inquiry
+comment_000597,bahan baju nya apa ka?,ask_detail,neutral,product_inquiry
+comment_000598,@Firman✨ hahahha,other,neutral,not_relevant
+comment_000599,Yg di pake et brpa,ask_stock,neutral,product_inquiry
+comment_000600,bahan baju nya apa kak?,ask_detail,neutral,product_inquiry
+comment_000601,kk bb 130 bisa gak eta nmr satu,ask_measurement,neutral,size_recommendation
+comment_000602,bb 50 tb 168 size apa ka,ask_measurement,neutral,size_recommendation
+comment_000603,perut buncit bisa gak kk,ask_size_fit,neutral,size_recommendation
+comment_000604,"jangan malam ini cantik, rahasia ga mandi ya 🤪🤪",other,neutral,not_relevant
+comment_000605,"@Nur Asiah Siregar bisa kak, ld berapa",ask_measurement,neutral,size_inquiry
+comment_000606,lihat kk xxxl,ask_detail,neutral,size_inquiry
+comment_000607,eta nmr satu,ask_stock,neutral,product_inquiry
+comment_000608,@Nur Asiah Siregar biasa ld 120 kak,ask_measurement,neutral,size_recommendation
+comment_000610,lihat 120 kk,ask_measurement,neutral,not_relevant
+comment_000611,@Nur Asiah Siregar ld 120 kak,ask_measurement,neutral,size_recommendation
+comment_000612,BB 87 size apa kah..?,ask_measurement,neutral,size_recommendation
+comment_000613,katun kombinasi itu apa,ask_detail,neutral,product_inquiry
+comment_000614,"sabar sayang, setengah jam lagi",other,neutral,not_relevant
+comment_000615,@Fullmoonfolks itu bahan bajunya kak,ask_detail,neutral,product_inquiry
+comment_000616,oke kak,other,neutral,not_relevant
+comment_000617,bb 100,ask_measurement,neutral,size_recommendation
+comment_000618,kk bb 75,ask_measurement,neutral,size_recommendation
+comment_000619,aku Uda co kk,purchase_intent,neutral,purchase_intent
+comment_000620,Yg dipake size apa kk,ask_size_fit,neutral,size_inquiry
+comment_000621,paling besar ukuran apa kakk yg di pake,ask_size_fit,neutral,size_inquiry
+comment_000622,Bb 55,ask_measurement,neutral,size_recommendation
+comment_000623,keranjang 20 BB 55,ask_measurement,neutral,size_recommendation
+comment_000624,bahannya melar ga kak??,ask_detail,neutral,product_inquiry
+comment_000625,yg kakak pakek coba liat gambar belakang,ask_detail,neutral,not_relevant
+comment_000626,yg dipake boleh Spil gambar belakang,ask_detail,neutral,not_relevant
+comment_000627,itu size apa,ask_size_fit,neutral,size_inquiry
+comment_000628,bb 65,ask_measurement,neutral,size_recommendation
+comment_000629,malam kak,other,neutral,not_relevant
+comment_000630,bb 65 163,ask_measurement,neutral,size_recommendation
+comment_000631,yg dipake etlse brp,ask_stock,neutral,product_inquiry
+comment_000632,yg kk pake et brp,ask_stock,neutral,product_inquiry
+comment_000633,liat eta 1,ask_detail,neutral,product_inquiry
+comment_000634,kk cntk,other,positive,not_relevant
+comment_000635,kk eta 3 kk,ask_stock,neutral,product_inquiry
+comment_000636,uk ap itu yg cth?,ask_size_fit,neutral,size_inquiry
+comment_000637,liat eta 90 kk,ask_detail,neutral,product_inquiry
+comment_000638,spil et 17 ka,ask_detail,neutral,product_inquiry
+comment_000639,eta 2 kk,ask_stock,neutral,product_inquiry
+comment_000640,bb 62 size apa,ask_measurement,neutral,size_recommendation
+comment_000641,coba lihat depan nya,ask_detail,neutral,not_relevant
+comment_000643,bb 55 pake uk apa tpi yg agak longgar,ask_measurement,neutral,size_recommendation
+comment_000644,coba lihat depan belakang nya,ask_detail,neutral,not_relevant
+comment_000645,ooooh,noise,neutral,not_relevant
+comment_000646,itu yg dipegang ukuran berapa,ask_size_fit,neutral,size_inquiry
+comment_000647,coba pegang lagi kak,ask_detail,neutral,not_relevant
+comment_000648,kak lihat et 22,ask_detail,neutral,product_inquiry
+comment_000649,yg dipake etalase brapa kak,ask_stock,neutral,product_inquiry
+comment_000650,aku udah co kk,purchase_intent,neutral,purchase_intent
+comment_000651,eta 68,ask_stock,neutral,product_inquiry
+comment_000652,udah mw sampai,other,neutral,not_relevant
+comment_000653,L ld brp kk,ask_measurement,neutral,size_inquiry
+comment_000654,kak Iki cwo cwe kah?😅,ask_detail,neutral,not_relevant
+comment_000657,Spil etalase 6 kak,ask_detail,neutral,product_inquiry
+comment_000658,aku udah co et 22,purchase_intent,neutral,purchase_intent
+comment_000659,kak mau tanya kalau BB 79? apa XL atau XXL,ask_measurement,neutral,size_recommendation
+comment_000660,udah co aku kk..coba cek,purchase_intent,neutral,purchase_intent
+comment_000661,aku bb 75 aku ambil xl bener gak,ask_measurement,neutral,size_recommendation
+comment_000662,bb 62 M bisa?,ask_measurement,neutral,size_recommendation
+comment_000663,udh co L,purchase_intent,neutral,purchase_intent
+comment_000664,punya aku udah co 4 pcs kan kak,purchase_intent,neutral,purchase_intent
+comment_000665,eta 5,ask_stock,neutral,product_inquiry
+comment_000666,udah cod,purchase_intent,neutral,not_relevant
+comment_000667,bb 76 size apa,ask_measurement,neutral,size_recommendation
+comment_000668,aku kemarin udah co yang eta5 besok sampenya,purchase_intent,neutral,purchase_intent
+comment_000669,bb50 tb160 ukuran apa kak,ask_measurement,neutral,size_recommendation
+comment_000670,BB 76 TB 170,ask_measurement,neutral,size_recommendation
+comment_000671,etalase 19 ka,ask_stock,neutral,product_inquiry
+comment_000672,"free parfumnya wangi, mantap",other,positive,not_relevant
+comment_000674,yg kaka pake eta brp,ask_stock,neutral,product_inquiry
+comment_000675,itu slimfit atau reguler fit kak?,ask_size_fit,neutral,size_recommendation
+comment_000676,ini untuk cewek semua?,ask_detail,neutral,product_inquiry
+comment_000677,Spil et 6,ask_detail,neutral,product_inquiry
+comment_000678,BB 75-78kg TB 158 size apa kak?,ask_measurement,neutral,size_recommendation
+comment_000681,tdk bisa cod,ask_price,neutral,not_relevant
+comment_000682,Spil et 32,ask_detail,neutral,product_inquiry
+comment_000683,32,noise,neutral,not_relevant
+comment_000685,et 1 uk m ka,ask_detail,neutral,size_inquiry
+comment_000686,bb 75 biar oversize pake size apa kak?,ask_measurement,neutral,size_recommendation
+comment_000689,kak yg di pake eta berapa?,ask_stock,neutral,product_inquiry
+comment_000690,jualan cimol  ga ka?,other,neutral,not_relevant
+comment_000691,bb 50 tb,ask_measurement,neutral,size_recommendation
+comment_000692,tb 164,ask_measurement,neutral,size_recommendation
+comment_000693,kak BB 55-65 kak?,ask_measurement,neutral,size_recommendation
+comment_000694,berapa harga baju,ask_price,neutral,price_inquiry
+comment_000695,tinggi 162 BB 67,ask_measurement,neutral,size_recommendation
+comment_000696,et 14 spil dong,ask_detail,neutral,product_inquiry
+comment_000697,tuh belum mandi kan 🤪🤪🤪,other,neutral,not_relevant
+comment_000699,siapa sih,other,neutral,not_relevant
+comment_000700,et 34🤒✌️✌️,ask_stock,neutral,product_inquiry
+comment_000701,bb 50 s apa m,ask_measurement,neutral,size_recommendation
+comment_000702,otw co cek kak,purchase_intent,neutral,purchase_intent
+comment_000703,BB 75 kak??,ask_measurement,neutral,size_recommendation
+comment_000704,klo marah galak ya 🤣🤣,other,neutral,not_relevant
+comment_000705,et 1 kk,ask_stock,neutral,product_inquiry
+comment_000706,ehh nona matcha..haii🤗,other,positive,not_relevant
+comment_000707,temannya siapa 🤣🤣🤣,other,neutral,not_relevant
+comment_000708,yg kk pake et brp dan uk brp kak,ask_stock,neutral,size_inquiry
+comment_000709,astaga salah lagi,other,neutral,not_relevant
+comment_000711,aku ga mau koment nanti salah lagi 🤣🤣,other,neutral,not_relevant
+comment_000712,pasti wangi banget itu 🤪🤪🤪,other,neutral,not_relevant
+comment_000713,free parfum yg kaya gmn kk,ask_detail,neutral,price_inquiry
+comment_000714,eta 1 kakk spil bahan,ask_detail,neutral,product_inquiry
+comment_000715,makanya mandi dinyamukin 🤪🤪🤪,other,neutral,not_relevant
+comment_000716,kk tb 170 bb 90 ukuran apa,ask_measurement,neutral,size_recommendation
+comment_000717,eta 1 kakkk spil bahann,ask_detail,neutral,product_inquiry
+comment_000718,ga mandi jadi dinyamukin kan 🤪🤪🤪,other,neutral,not_relevant
+comment_000719,udh di co kak,purchase_intent,neutral,purchase_intent
+comment_000720,Spil gambar blkgnya yg kak pake,ask_detail,neutral,not_relevant
+comment_000721,alhamdulillah akhirnya mandi juga,other,neutral,not_relevant
+comment_000722,kak pembayaran qris kok gak bisa,ask_price,negative,not_relevant
+comment_000723,tengok yg sweter kak. saya pelanggan setia,ask_detail,neutral,product_inquiry
+comment_000724,ekh neng sifa,other,neutral,not_relevant
+comment_000725,bb 85 ambil tripel XL kah kak,ask_measurement,neutral,size_recommendation
+comment_000726,pembayaran qris gak bisa,ask_price,negative,not_relevant
+comment_000727,lebih besar ya gambar nya,other,neutral,not_relevant
+comment_000728,kak liat yg sweter saya pelanggan setia ni,ask_detail,neutral,product_inquiry
+comment_000729,yg back cina,ask_detail,neutral,not_relevant
+comment_000730,Serius harganya,ask_price,neutral,price_inquiry
+comment_000731,ok kak co,purchase_intent,neutral,purchase_intent
+comment_000732,baju nya bahan apa kak,ask_detail,neutral,product_inquiry
+comment_000733,itu ukuran BRP kak,ask_size_fit,neutral,size_inquiry
+comment_000734,geratis parpum bener kakk,ask_detail,neutral,price_inquiry
+comment_000735,Yeni y?,other,neutral,not_relevant
+comment_000736,Katun atau poliester?,ask_detail,neutral,product_inquiry
+comment_000738,bb 75 size brp ka,ask_measurement,neutral,size_recommendation
+comment_000739,bb 60,ask_measurement,neutral,size_recommendation
+comment_000741,kak saya pesen kok telat sih datengnya,other,negative,not_relevant
+comment_000742,bahannya apa tuh yg kk pegang?,ask_detail,neutral,product_inquiry
+comment_000743,spil yang logo muka cewek,ask_detail,neutral,product_inquiry
+comment_000744,yg 20s etalase mana kak? mau yg tebel soalnya,ask_stock,neutral,product_inquiry
+comment_000745,yang foto muka kakaknya 🤭,ask_detail,neutral,not_relevant
+comment_000746,bb 70 tb 180 ambil ukuran apa kk?,ask_measurement,neutral,size_recommendation
+comment_000747,BB 72 perut buncit cocok yg mana,ask_measurement,neutral,size_recommendation
+comment_000748,BB 47 TB 157 ngambil UK brpa kk,ask_measurement,neutral,size_recommendation
+comment_000749,Pesn mlm imi d kirim,other,neutral,not_relevant
+comment_000750,oversize ga kk,ask_size_fit,neutral,size_recommendation
+comment_000751,Kpn,other,neutral,not_relevant
+comment_000752,Yng laba putih itu eta brp,ask_stock,neutral,product_inquiry
+comment_000753,Spil yng labA besr ny d dpn eta brp y,ask_detail,neutral,product_inquiry
+comment_000754,etalase 14,ask_stock,neutral,product_inquiry
+comment_000755,bb 65 pake size apa ?,ask_measurement,neutral,size_recommendation
+comment_000756,kak etalase 10,ask_stock,neutral,product_inquiry
+comment_000757,Ld 118 sz apa,ask_measurement,neutral,size_recommendation
+comment_000758,yg di pake uk apa kak,ask_size_fit,neutral,size_inquiry
+comment_000759,tlg yg etalase 44 kak,ask_stock,neutral,product_inquiry
+comment_000760,kak BB 40 and 55 ukuran berapa bagus ny,ask_measurement,neutral,size_recommendation
+comment_000761,bb 50 ukuran brp ka,ask_measurement,neutral,size_recommendation
+comment_000762,ok makasih kak,other,positive,not_relevant
+comment_000763,kalo bb 52 ambil S press bgt ga kak,ask_measurement,neutral,size_recommendation
+comment_000764,longslive estalese berapa,ask_stock,neutral,product_inquiry
+comment_000765,BB 48 TB 153 UK brp,ask_measurement,neutral,size_recommendation
+comment_000766,sudah co kk,purchase_intent,neutral,purchase_intent
+comment_000767,spil kain kak,ask_detail,neutral,product_inquiry
+comment_000768,ambil s kan ka?,ask_size_fit,neutral,not_relevant
+comment_000769,"kk btol ykult, itu motif laba lava ya",ask_detail,neutral,product_inquiry
+comment_000770,bb 53 ambil m pas ga kak?,ask_measurement,neutral,size_recommendation
+comment_000771,oke thx kk btol ykult,other,positive,not_relevant
+comment_000772,sudah CO,purchase_intent,neutral,purchase_intent
+comment_000773,spil estalese 28,ask_detail,neutral,product_inquiry
+comment_000774,sablon atau printing,ask_detail,neutral,product_inquiry
+comment_000775,kak yg oversize itu spil dong,ask_detail,neutral,product_inquiry
+comment_000776,aku dah co dpt 38,purchase_intent,neutral,purchase_intent
+comment_000777,6 kak,ask_stock,neutral,not_relevant
+comment_000779,27 kak,ask_stock,neutral,not_relevant
+comment_000780,oke oke,other,neutral,not_relevant
+comment_000781,kk aku tinggi 155 bb 35 - 45,ask_measurement,neutral,size_recommendation
+comment_000782,spil etls 31,ask_detail,neutral,product_inquiry
+comment_000783,yang di pake lb berapa?,ask_measurement,neutral,size_inquiry
+comment_000784,oke nanti q co,purchase_intent,neutral,purchase_intent
+comment_000785,knp mata km dik,other,neutral,not_relevant
+comment_000786,🤣🤣🤣🤣,noise,neutral,not_relevant
+comment_000787,oke cintakuu,other,neutral,not_relevant
+comment_000788,ka untuk ukuran L yang mana ka,ask_size_fit,neutral,size_inquiry
+comment_000789,bnyak yg mau q tnyain ke km,other,neutral,not_relevant
+comment_000790,yang baju kaya kk yg lg pake,ask_stock,neutral,product_inquiry
+comment_000791,yang mau peloved murah boleh join live athalaprtm,noise,neutral,purchase_intent
+comment_000792,Nggs 12 😭,ask_size_fit,neutral,not_relevant
+comment_000793,tos ah pamit teh,other,neutral,not_relevant
+comment_000794,Seerna co di luar live,other,neutral,purchase_intent
+comment_000795,Malu,other,neutral,not_relevant
+comment_000796,kak ini nggk oversize kan?,ask_size_fit,neutral,size_recommendation
+comment_000797,tom end Jerry ada ka?,ask_stock,neutral,product_inquiry
+comment_000804,blm tidur teh yakulttt,other,neutral,not_relevant
+comment_000805,hrus kena matahari pagi loh... biar pertumbuhan tinggi badan maksimal,other,neutral,not_relevant
+comment_000806,itu celananya juga jual?,ask_stock,neutral,product_inquiry
+comment_000807,SDH co,purchase_intent,neutral,purchase_intent
+comment_000808,smoga sesuai harapan,other,positive,not_relevant
+comment_000809,celana ga ada di etalase kak?,ask_stock,neutral,product_inquiry
+comment_000810,halo kk mini,other,neutral,not_relevant
+comment_000811,lama ga jumpa kk,other,neutral,not_relevant
+comment_000812,ndar,other,neutral,not_relevant
+comment_000813,skrg ak dah kerja kk,other,neutral,not_relevant
+comment_000814,yg kka pake ukuran apa yah???,ask_size_fit,neutral,size_inquiry
+comment_000815,kak sekarang aku kerja di hollywod,other,neutral,not_relevant
+comment_000816,belum 🤭🤭,other,neutral,not_relevant
+comment_000817,jdi OB,other,neutral,not_relevant
+comment_000818,BB 60,ask_measurement,neutral,size_recommendation
+comment_000819,sayaang 🥺🥺,other,positive,not_relevant
+comment_000820,yg wrna merah ada ngg kak,ask_stock,neutral,color_inquiry
+comment_000821,Mengirim tangkal Caringin jg jurig jurig na 🌱x100,other,neutral,not_relevant
+comment_000822,saya mah lebih terpukau sama kecantikan kamu padahal belum pantun udah cakepp aja,other,positive,not_relevant
+comment_000823,Kayaknya bagus ni barangnya,other,positive,not_relevant
+comment_000824,Ada astro boy [wow],ask_stock,neutral,not_relevant
+comment_000825,bahan nya apa ka,ask_detail,neutral,product_inquiry
+comment_000826,cutingan nya apa?,ask_detail,neutral,not_relevant
+comment_000827,cutingan v neck maunya:(,ask_detail,neutral,not_relevant
+comment_000828,"desain nya masuk ka, tapi cutingan nya",ask_detail,neutral,not_relevant
+comment_000829,okee udah co 2,purchase_intent,neutral,purchase_intent
+comment_000830,bb 94 size apa k,ask_measurement,neutral,size_recommendation
+comment_000831,kak semangat ya,other,positive,not_relevant
+comment_000832,ld brp,ask_measurement,neutral,size_inquiry
+comment_000833,Kak ini live sampe jam berpa semangt kaka,other,neutral,not_relevant
+comment_000834,Ka et 11 kaa boleh ga,ask_stock,neutral,product_inquiry
+comment_000835,Cocok jadi artis,other,positive,size_recommendation
+comment_000836,Minimal jadi pembawa acara talk show,other,positive,not_relevant
+comment_000837,Emang kelahiran tahun berapa ?,other,neutral,not_relevant
+comment_000838,Bb 58 tb 171,ask_measurement,neutral,size_recommendation
+comment_000839,eh si teteh..sare atuh teh,other,neutral,not_relevant
+comment_000840,atos kan kmrin meser 2 pcs,purchase_intent,neutral,not_relevant
+comment_000841,"Bahan kaosnya apa, teh ?",ask_detail,neutral,product_inquiry
+comment_000842,Ibu ibu bawel iyeu mh 🤣,other,neutral,not_relevant
+comment_000843,Kaka live dari jam brpaa kuat bangt sampe jm segini,other,neutral,not_relevant
+comment_000844,Aya kasalah sa etik jadi panjang udah ke tebak🤣🙏🏻😭,other,neutral,product_inquiry
+comment_000845,"Semangat teh, saya out dulu",other,neutral,not_relevant
+comment_000846,Pasti carogena pendiem🤣,other,neutral,not_relevant
+comment_000847,"Lagi atur strategi penjualan, teh 😁",other,neutral,not_relevant
+comment_000848,Lah blom ada?,other,neutral,not_relevant
+comment_000849,Ini host live nya ganti ganti teh?,other,neutral,not_relevant
+comment_000850,Kan aku caroge na,other,neutral,not_relevant
+comment_000851,"Teteh terlalau pintar, gak bisa dikibulin 😁",other,positive,not_relevant
+comment_000852,itu oversize kak?,ask_size_fit,neutral,size_recommendation
+comment_000853,Salut sama cewek pintar kayak gini 😁,other,positive,not_relevant
+comment_000854,"Next jadi host jualan kaos saya mau gak, kak ?",other,neutral,purchase_intent
+comment_000855,Beruntung yang bisa bekerja sama orang kayak teteh,other,positive,not_relevant
+comment_000856,Curiga gajihnya gede kerja sampe jam segini mah 😭😭😂,other,neutral,not_relevant
+comment_000857,ada yang warna maron ga ?,ask_stock,neutral,color_inquiry
+comment_000858,Gak semua orang jago kayak teteh ?,other,positive,not_relevant
+comment_000859,Di Bank atau sebagsinya,other,neutral,not_relevant
+comment_000860,Aku yang liat jujur teteh bagus di bagian penjualan,other,positive,not_relevant
+comment_000861,Emang iya,other,neutral,not_relevant
+comment_000862,"Emang itu yang bagus, bisa jelasin produknya, jadi orang bisa paham",other,positive,not_relevant
+comment_000863,"Yaudah ya, teh, semangat",other,neutral,not_relevant
+comment_000864,Iyaa,other,neutral,not_relevant
+comment_000865,Bisa buat bb 95 gak kk?,ask_measurement,neutral,size_recommendation
+comment_000866,yaah,other,neutral,not_relevant
+comment_000867,spil etalase 37 warna putih kak,ask_detail,neutral,product_inquiry
+comment_000868,Aku dh 2 x co bagus bngt 😍,purchase_intent,neutral,purchase_intent
+comment_000869,Aku lo nunggu” km live 😂,other,positive,not_relevant
+comment_000870,bb 77 tb 167 ukuran apa??,ask_measurement,neutral,size_recommendation
+comment_000871,LD 110 BB 75,ask_measurement,neutral,size_recommendation
+comment_000872,Cb monalisa hitam,ask_detail,neutral,color_inquiry
+comment_000873,Aku nyari” yg depan yg simple” aja 😂,ask_detail,neutral,not_relevant
+comment_000874,Udah bli yg La sm houston,purchase_intent,neutral,not_relevant
+comment_000875,etalase 61 teh spil,ask_detail,neutral,product_inquiry
+comment_000876,ehh can sareh keneh,other,neutral,not_relevant
+comment_000877,etalase 3 maksudnya dapat 2 kak?,ask_detail,neutral,product_inquiry
+comment_000878,close close tos azan🤣🤣🤣,other,neutral,not_relevant
+comment_000879,Cb yg 69,ask_detail,neutral,product_inquiry
+comment_000880,Minum ka,other,neutral,not_relevant
+comment_000882,mau co tadinya hargab69..berubah jd 84..nanti aja deh,ask_price,negative,purchase_intent
+comment_000883,BB 80 kak,ask_measurement,neutral,size_recommendation
+comment_000884,Cb lg sk 93,ask_size_fit,neutral,not_relevant
+comment_000885,Kalo bb 58 ka ambilnya ukuran brpa,ask_measurement,neutral,size_recommendation
+comment_000886,Bb 85 kk,ask_measurement,neutral,size_recommendation
+comment_000887,Semangat kk syg live nya,other,positive,not_relevant
+comment_000888,Jgn lupa makan dan vitamin biar fit,other,neutral,not_relevant
+comment_000889,cewek cowok bisa ga ka,ask_detail,neutral,product_inquiry
+comment_000890,Aku dh co,purchase_intent,neutral,purchase_intent
+comment_000891,Spill budy coba ka,ask_detail,neutral,not_relevant
+comment_000892,Kasi aku free 1 baju 😭😂,other,neutral,price_inquiry
+comment_000893,thank u Min semangat livenya,other,positive,not_relevant
+comment_000894,Nerawang ga?,other,neutral,product_inquiry
+comment_000895,jos nyaman dipake nya,other,positive,not_relevant
+comment_000896,Bener ya aku co 2 kirim bonus nya ya😁,purchase_intent,neutral,purchase_intent
+comment_000897,Reguler atau slimfit ka?,ask_size_fit,neutral,size_recommendation
+comment_000898,cewek bb 67,ask_measurement,neutral,size_recommendation
+comment_000899,Dahhhh,other,neutral,not_relevant
+comment_000900,Hitam nya juga bes kan?,ask_size_fit,neutral,size_recommendation
+comment_000901,Okraii tencu,other,neutral,not_relevant
+comment_000902,Bingung ka pada lucu semua,other,positive,not_relevant
+comment_000903,hitam size ap,ask_size_fit,neutral,size_inquiry
+comment_000904,warna pink ada ga kak,ask_stock,neutral,color_inquiry
+comment_000905,bantal etalase berapa kak,ask_stock,neutral,product_inquiry
+comment_000906,ada nailong aku mau,ask_stock,neutral,purchase_intent
+comment_000907,bisa dibawa renang kak,ask_detail,neutral,product_inquiry
+comment_000908,eta 1 sama 2 beda bahan ya kak,ask_detail,neutral,product_inquiry
+comment_000909,warna cream dong ka,ask_detail,neutral,color_inquiry
+comment_000910,semngt jangan lupa istirahat bangku,other,neutral,not_relevant
+comment_000911,Sptill et 10,ask_detail,neutral,product_inquiry
+comment_000912,172/90,ask_measurement,neutral,size_recommendation
+comment_000913,BB95 dan LD 120 pake uk brp,ask_measurement,neutral,size_recommendation
+comment_000914,ok,other,neutral,not_relevant
+comment_000915,Bb 68 tb 168 uk apa,ask_measurement,neutral,size_recommendation
+comment_000916,Uda co,purchase_intent,neutral,purchase_intent
+comment_000917,Etalase 1,ask_stock,neutral,product_inquiry
+comment_000918,ovz ga bg?,ask_size_fit,neutral,size_recommendation
+comment_000919,yang monday work etalase berapa ka,ask_stock,neutral,product_inquiry
+comment_000920,bb 51 tb 175,ask_measurement,neutral,size_recommendation
+comment_000921,looney tunes green spill kak,ask_detail,neutral,product_inquiry
+comment_000922,ada kaos tangan panja ng warna merah gak ka buat cewe,ask_stock,neutral,product_inquiry
+comment_000923,iyaa,other,neutral,not_relevant
+comment_000924,tinggi 185 BB 80 baju ukuran apa bg,ask_measurement,neutral,size_recommendation
+comment_000925,dipegang L ya,ask_size_fit,neutral,not_relevant
+comment_000926,etalase 25 mas,ask_stock,neutral,product_inquiry
+comment_000927,sablon nya aman ka,ask_detail,neutral,product_inquiry
+comment_000928,kalo XXL minimal BB brp,ask_measurement,neutral,size_inquiry
+comment_000929,coba liat KA UK xxl,ask_detail,neutral,size_inquiry
+comment_000930,"buat suami,BB 90 TB 185",ask_measurement,neutral,size_recommendation
+comment_000931,xxl ld brp,ask_measurement,neutral,size_inquiry
+comment_000932,bb 92,ask_measurement,neutral,size_recommendation
+comment_000933,BB 75 TB 175,ask_measurement,neutral,size_recommendation
+comment_000934,125,noise,neutral,not_relevant
+comment_000936,bb 75 tb 175 bang,ask_measurement,neutral,size_recommendation
+comment_000937,etalase 41 bang,ask_stock,neutral,product_inquiry
+comment_000938,tinggi badan 172 pakai size brp ?,ask_measurement,neutral,size_recommendation
+comment_000939,bb 55,ask_measurement,neutral,size_recommendation
+comment_000940,bang coba liat belakangnya yg hitam,ask_detail,neutral,color_inquiry
+comment_000941,dh co,purchase_intent,neutral,purchase_intent
+comment_000942,XXL panjang berapa untuk Tedy duck,ask_measurement,neutral,size_inquiry
+comment_000943,187,ask_measurement,neutral,not_relevant
+comment_000944,XXL tapi 79,ask_measurement,neutral,size_recommendation
+comment_000945,bntr bro lg pilih metode payment,purchase_intent,neutral,not_relevant
+comment_000946,"sdh beres, ditunggu brg nya",purchase_intent,neutral,not_relevant
+comment_000947,sablonnya awet ngga kak?,ask_detail,neutral,product_inquiry
+comment_000948,bb 70 tb 172,ask_measurement,neutral,size_recommendation
+comment_000949,yang belakangnya polos eta berapa kak?,ask_stock,neutral,product_inquiry
+comment_000951,24,ask_stock,neutral,not_relevant
+comment_000952,buat bb 95 ada ga,ask_stock,neutral,size_recommendation
+comment_000953,yg dipegang ukuran berapa,ask_size_fit,neutral,size_inquiry
+comment_000954,65,ask_measurement,neutral,not_relevant
+comment_000955,pengiriman dr mana bng,ask_price,neutral,not_relevant
+comment_000956,jakarta a,other,neutral,not_relevant
+comment_000957,bahan tebel gak a,ask_detail,neutral,product_inquiry
+comment_000958,adem gak a bahannya ?,ask_detail,neutral,product_inquiry
+comment_000959,Kknya pake size apa,ask_size_fit,neutral,size_inquiry
+comment_000960,Bb 50 tb 160,ask_measurement,neutral,size_recommendation
+comment_000961,kk spill eta 25 dan 80 ka,ask_detail,neutral,product_inquiry
+comment_000962,yg warna black k,ask_detail,neutral,color_inquiry
+comment_000963,itu size apa k,ask_size_fit,neutral,size_inquiry
+comment_000964,buat anaku,ask_size_fit,neutral,not_relevant
+comment_000965,tb 180,ask_measurement,neutral,size_recommendation
+comment_000967,a saya udah co 2pcs tapi yg datang 1,purchase_intent,negative,purchase_intent
+comment_000968,dibarengin,other,neutral,not_relevant
+comment_000969,etalase 1 itu dapat berapa baju bang?,ask_detail,neutral,product_inquiry
+comment_000970,oalah saya kira sesuai baju yang ada di gambar😁,other,neutral,product_inquiry
+comment_000971,ada paketan,ask_stock,neutral,not_relevant
+comment_000972,yang panda kak,ask_stock,neutral,not_relevant
+comment_000973,hitam,ask_detail,neutral,color_inquiry
+comment_000974,bb 70 ukuran berapa,ask_measurement,neutral,size_recommendation
+comment_000975,BB 54 TB 146,ask_measurement,neutral,size_recommendation
+comment_000976,Liat hitamnya,ask_detail,neutral,color_inquiry
+comment_000977,bb 85 tb 150,ask_measurement,neutral,size_recommendation
+comment_000978,Model lain ada ka hitamnya,ask_stock,neutral,product_inquiry
+comment_000979,Ini bahan apa bang,ask_detail,neutral,product_inquiry
+comment_000980,Liat yg snoppy black dan budy black ka,ask_detail,neutral,not_relevant
+comment_000982,Bb 70 tinggi 160,ask_measurement,neutral,size_recommendation
+comment_000983,Tp mau yg longgar,ask_size_fit,neutral,size_recommendation
+comment_000984,sablon nya ngekek dak bang,ask_detail,neutral,product_inquiry
+comment_000985,Udh co,purchase_intent,neutral,purchase_intent
+comment_000986,spil spombob etalase 1,ask_detail,neutral,product_inquiry
+comment_000987,bb 98 tb 178,ask_measurement,neutral,size_recommendation
+comment_000988,ld 120 kak,ask_measurement,neutral,size_recommendation
+comment_000989,Udh follow bang beli nya nnti nunggu gajian🤣,purchase_intent,neutral,purchase_intent
+comment_000990,roblok ada bang,ask_stock,neutral,product_inquiry
+comment_000991,tinggi badan 175 berat badan 75,ask_measurement,neutral,size_recommendation
+comment_000992,bb 55 tb 167,ask_measurement,neutral,size_recommendation
+comment_000993,buat suami,ask_measurement,neutral,not_relevant
+comment_000994,24 s semua ya kk,ask_stock,neutral,not_relevant
+comment_000995,Bb 72 ukuran ap kak,ask_measurement,neutral,size_recommendation
+comment_000996,udh co kk,purchase_intent,neutral,purchase_intent
+comment_000997,spill etalase 78,ask_detail,neutral,product_inquiry
+comment_000998,spill etalase 78 warna olive kak,ask_detail,neutral,product_inquiry
+comment_000999,yang cream kak,ask_detail,neutral,color_inquiry
+comment_001000,salah co aku,other,negative,purchase_intent
+comment_001001,itu bahannya gimana kak,ask_detail,neutral,product_inquiry
+comment_001002,celana pendek cowok itu ada yg panjangnya mendekati 60cm ga kak?,ask_stock,neutral,size_recommendation
+comment_001009,mesha grey warna apa,ask_detail,neutral,color_inquiry
+comment_001010,macha drak grey,ask_detail,neutral,color_inquiry
+comment_001011,yg harga 110,ask_price,neutral,price_inquiry
+comment_001012,gmn ya batalin ya,other,neutral,not_relevant
+comment_001013,coba spil 2 barang itu apa beda ya,ask_detail,neutral,product_inquiry
+comment_001014,ia,other,neutral,not_relevant
+comment_001015,bukan kaos kah,ask_detail,neutral,product_inquiry
+comment_001016,aku cari kaos,ask_stock,neutral,not_relevant
+comment_001017,aku cari yg haos aja,ask_stock,neutral,not_relevant
+comment_001018,ia pas,other,neutral,not_relevant
+comment_001019,masha grey,ask_detail,neutral,color_inquiry
+comment_001020,gmn ya warna ya,ask_detail,neutral,color_inquiry
+comment_001021,karga standar ada gak,ask_price,neutral,price_inquiry
+comment_001022,[laughcry][laughcry],noise,neutral,not_relevant
+comment_001023,jacui dan Oliver apa bedanya kak,ask_detail,neutral,product_inquiry
+comment_001024,Oliver liat kak,ask_detail,neutral,not_relevant
+comment_001025,pakde buat kerja lapangan,ask_stock,neutral,not_relevant
+comment_001026,pengiriman dari mana kak?,ask_price,neutral,not_relevant
+comment_001027,BB 65 TB 165,ask_measurement,neutral,size_recommendation
+comment_001028,bb 65 tinggi 180 ?,ask_measurement,neutral,size_recommendation
+comment_001029,yang pendek ka,ask_stock,neutral,not_relevant
+comment_001030,celanaa bang,ask_stock,neutral,not_relevant
+comment_001031,kalau panjang ka,ask_stock,neutral,product_inquiry
+comment_001032,size yg lu pake bang,ask_size_fit,neutral,size_inquiry
+comment_001033,Hoodie itemnya ka,ask_detail,neutral,color_inquiry
+comment_001034,udah co yg oliver kak yas,purchase_intent,neutral,purchase_intent
+comment_001035,etalase brp itu k,ask_stock,neutral,product_inquiry
+comment_001036,ka celana chino warna khaki ada ga?,ask_stock,neutral,color_inquiry
+comment_001037,flanel da ngga?,ask_stock,neutral,product_inquiry
+comment_001038,Cino buat cowo bang yg bahan licin,ask_detail,neutral,product_inquiry
+comment_001039,kalo ada yg sesuai saya bilang mau cek out,purchase_intent,neutral,purchase_intent
+comment_001040,Ririn mna kk,other,neutral,not_relevant
+comment_001041,pilihan warna nya ko ga ada,ask_stock,negative,color_inquiry
+comment_001042,size sma pilihan warna kang di masukan,ask_stock,neutral,color_inquiry
+comment_001043,wana moca SMA cream nya ga ada bang,ask_stock,neutral,color_inquiry
+comment_001044,size 30/31 Cino yg bahan licin kalo ada mau cek out 2,purchase_intent,neutral,purchase_intent
+comment_001045,engga ada yaa berarti,ask_stock,neutral,not_relevant
+comment_001046,kak spil knitwear erigo yg pernah di pake kak raline,ask_detail,neutral,product_inquiry
+comment_001047,"bukan kak, bahan rajut kynyaa",ask_detail,neutral,product_inquiry
+comment_001048,"kak, kemeja burgundy celana nya yg macth warna apa ya buat acara formal?",ask_detail,neutral,color_inquiry
+comment_001049,pengen celana nya yg slim fit kak,ask_size_fit,neutral,product_inquiry
+comment_001050,kalo coklat gmn kak?,ask_detail,neutral,color_inquiry
+comment_001051,urgundy nya agak ke unguan soal nya bukan coklat,ask_detail,neutral,color_inquiry
+comment_001052,jaket ada kak?,ask_stock,neutral,product_inquiry
+comment_001053,buat sehari-hari aja ka,ask_stock,neutral,not_relevant
+comment_001054,warna lain coba kak,ask_detail,neutral,color_inquiry
+comment_001055,"BB 82,TB 176 KA?",ask_measurement,neutral,size_recommendation
+comment_001056,buat TB 170an sama BB 80,ask_measurement,neutral,size_recommendation
+comment_001057,"kak, liat yg warna item dong celana chinos nya",ask_detail,neutral,color_inquiry
+comment_001058,Bb 77 tb 178 size apa,ask_measurement,neutral,size_recommendation
+comment_001059,itu Stretch kn bahan pas bagian pinggang nya?,ask_detail,neutral,product_inquiry
+comment_001060,itu pensil gk bawah nya?,ask_size_fit,neutral,product_inquiry
+comment_001061,pengen yg pensil kak ada gk,ask_stock,neutral,product_inquiry
+comment_001062,34 nih ya gk kegedean,ask_size_fit,neutral,size_recommendation
+comment_001063,33 sih kya nya,ask_size_fit,neutral,not_relevant
+comment_001064,kalo dark grey coba spill kak,ask_detail,neutral,color_inquiry
+comment_001065,bagusan mana sma item klo di match sma burgundy keunguan?,ask_detail,neutral,color_inquiry
+comment_001066,ok aku co yg item ya,purchase_intent,neutral,purchase_intent
+comment_001067,etalase brpa kak?,ask_stock,neutral,product_inquiry
+comment_001068,"kaa, ga kangen jkt48??",other,neutral,not_relevant
+comment_001069,warna maroon ada ga,ask_stock,neutral,color_inquiry
+comment_001070,bukan wrna merah cerah kan kak,ask_detail,neutral,color_inquiry
+comment_001071,bang kalo bb70 ukuran apa,ask_measurement,neutral,size_recommendation
+comment_001072,kak kaos pendek warna hitam yang bestseller yang mana? spill,ask_stock,neutral,product_inquiry
+comment_001073,kemeja bang,ask_stock,neutral,not_relevant
+comment_001074,M kak,ask_size_fit,neutral,not_relevant
+comment_001075,itu etalase brp,ask_stock,neutral,product_inquiry
+comment_001076,kalo L lebar dada brapa bang,ask_measurement,neutral,size_inquiry
+comment_001077,bahan gerah ga si?,ask_detail,neutral,product_inquiry
+comment_001078,iya kaos,other,neutral,not_relevant
+comment_001079,hudi ada gak kk,ask_stock,neutral,product_inquiry
+comment_001080,Celana buat cwo tinggi bagusan mana ka,ask_stock,neutral,product_inquiry
+comment_001081,Eta brpa,ask_stock,neutral,product_inquiry
+comment_001082,udah dijelasin di chaaatnyaa,other,neutral,not_relevant
+comment_001083,makasiih,other,positive,not_relevant
+comment_001084,eta 1 itu untuk bb 100 tb 183 ukuran apa kaa?,ask_measurement,neutral,size_recommendation
+comment_001085,Bg spil chino slim fit yg warna khaki,ask_detail,neutral,color_inquiry
+comment_001086,Bg spil chino slim fit warna khaki,ask_detail,neutral,color_inquiry
+comment_001095,celana panjang BB 100,ask_measurement,neutral,size_recommendation
+comment_001096,uda co ya kaa eta 1,purchase_intent,neutral,purchase_intent
+comment_001097,brgnya bru sampai trnyta uk 40k kebesaran bnget😭😭,ask_size_fit,negative,size_inquiry
+comment_001098,buat suamiku kak,ask_measurement,neutral,not_relevant
+comment_001099,celana jogger pants uk 40 sya mau ganti ke no 38😭,ask_size_fit,neutral,purchase_intent
+comment_001100,tb suamiku 165 bb 80,ask_measurement,neutral,size_recommendation
+comment_001101,trnyta uk 40 besar bnget😭,ask_size_fit,negative,size_inquiry
+comment_001102,bisa return ngak kak? 😭,other,neutral,not_relevant
+comment_001103,"akunya kira"" doang kak kmrin tkut nya uk 38 kecil",ask_size_fit,neutral,size_inquiry
+comment_001104,BB 59 TB 165 pakai size apa ka?,ask_measurement,neutral,size_recommendation
+comment_001105,etalase 54,ask_stock,neutral,product_inquiry
+comment_001106,hoodie ka yg item,ask_detail,neutral,color_inquiry
+comment_001107,hoodie yg di postingaan itu belinya dmna ya ka,ask_stock,neutral,purchase_intent
+comment_001108,yg black to black,ask_detail,neutral,not_relevant
+comment_001109,wadu cakep tu,other,positive,not_relevant
+comment_001110,etalase 38 kak wrna brenn navy🙏,ask_stock,neutral,product_inquiry
+comment_001111,yg etalase 5 cairo grey kak,ask_stock,neutral,product_inquiry
+comment_001112,kak liat kemeja putih tangan panjang,ask_detail,neutral,product_inquiry
+comment_001113,eta 26 kk,ask_stock,neutral,product_inquiry
+comment_001114,spil eta 5 bg?,ask_detail,neutral,product_inquiry
+comment_001115,spill 15 bg,ask_detail,neutral,product_inquiry
+comment_001116,oke bg udah co,purchase_intent,neutral,purchase_intent
+comment_001117,suarane ngebass,other,neutral,not_relevant
+comment_001118,crewneck / sweter ada min,ask_stock,neutral,product_inquiry
+comment_001119,bang no 18 untuk bb 72 tb 174,ask_measurement,neutral,size_recommendation
+comment_001120,mas klo celana chino yg bawahnya agak lebar rata ke atas atau reguler gtu eta brp,ask_stock,neutral,product_inquiry
+comment_001121,erigo relax itu bedanya apa ya sm chino biasa,ask_detail,neutral,product_inquiry
+comment_001122,yg relax size 40 yg masih ready eta brp?,ask_stock,neutral,stock_availability
+comment_001123,bb 97 tb 173,ask_measurement,neutral,size_recommendation
+comment_001124,saya ud beli chino yg biasa pake size 40,purchase_intent,neutral,not_relevant
+comment_001125,oh klo yg relax lebih longgar brrti pinggangnya juga ya yg relax??,ask_size_fit,neutral,size_recommendation
+comment_001132,outer yg dipakek eta brp,ask_stock,neutral,product_inquiry
+comment_001133,eta 70 gede juga ga sizeny?!sm kaya relax??,ask_size_fit,neutral,product_inquiry
+comment_001134,yg td kos tlse brp,ask_stock,neutral,product_inquiry
+comment_001135,ok kak,other,neutral,not_relevant
+comment_001136,kemeja hitam pendek,ask_detail,neutral,color_inquiry
+comment_001137,tu size brp,ask_size_fit,neutral,size_inquiry
+comment_001138,yg di pake,ask_stock,neutral,not_relevant
+comment_001139,kka spil et 22,ask_detail,neutral,product_inquiry
+comment_001140,TB 165 BB 50,ask_measurement,neutral,size_recommendation
+comment_001147,bng bb 45 tb 165 etalase size apa,ask_measurement,neutral,size_recommendation
+comment_001148,"BB 43-44 kurus,tinggi sekitaran 170 keatas ambil size berapa mau ambil oversize",ask_measurement,neutral,size_recommendation
+comment_001149,kak itu beda bahannya apa ya,ask_detail,neutral,product_inquiry
+comment_001151,henley boxy long sleeve tb 170 bb 60 pke size apa bang,ask_measurement,neutral,size_recommendation
+comment_001152,"BB 43-44 kurus,tinggi sekitaran 170 keatas ambil size berapa",ask_measurement,neutral,size_recommendation
+comment_001159,bb 60 tb 165 size apa,ask_measurement,neutral,size_recommendation
+comment_001160,BB 75 boxy piped UK ap,ask_measurement,neutral,size_recommendation
+comment_001163,aku dah co etls 9 XL muat ga bb 90?,purchase_intent,neutral,size_recommendation
+comment_001166,spill et 2 wrna maron kak,ask_detail,neutral,product_inquiry
+comment_001168,gw udah co bang,purchase_intent,neutral,purchase_intent
+comment_001169,etalase 11 bang,ask_stock,neutral,product_inquiry
+comment_001170,"yg di pake 173, 68 ambil size apa biar kaya gtu?",ask_measurement,neutral,size_recommendation
+comment_001171,dpke uk apq,ask_size_fit,neutral,size_inquiry
+comment_001172,et 1 sama 2 apa bedanya bang?,ask_detail,neutral,product_inquiry
+comment_001173,171 70,ask_measurement,neutral,size_recommendation
+comment_001174,"bedanya reguler dan reguler fit, tb 160, bb 52",ask_detail,neutral,size_recommendation
+comment_001175,"68, 173cm ambil M bang?",ask_measurement,neutral,size_recommendation
+comment_001176,Kalo henley bb100 pake apa kak,ask_measurement,neutral,size_recommendation
+comment_001177,okee oke bang,other,neutral,not_relevant
+comment_001178,"fitted tee bang, tb 165 bb 60",ask_measurement,neutral,size_recommendation
+comment_001179,masa iya bang lu pake M.,other,neutral,not_relevant
+comment_001180,aku etalase 6&7 ambil ukuran L 85/167 udah checkout,purchase_intent,neutral,purchase_intent
+comment_001181,ada slim fit ga kak atau regular,ask_stock,neutral,product_inquiry
+comment_001182,Yg oversize,ask_size_fit,neutral,size_recommendation
+comment_001183,klo eta 6 bb 65 tb 168 ukrn apa,ask_measurement,neutral,size_recommendation
+comment_001184,Bedanya 15 ama 17 apa bang,ask_detail,neutral,product_inquiry
+comment_001185,BB 56 TB 150,ask_measurement,neutral,size_recommendation
+comment_001186,fitted air beda nya apa bang?,ask_detail,neutral,product_inquiry
+comment_001188,et brapa bang yg dipake?,ask_stock,neutral,product_inquiry
+comment_001189,Ringer tee ukurannya sama gak sama fitter tee?,ask_size_fit,neutral,size_inquiry
+comment_001190,fitted air beda nyaa apa bang?,ask_detail,neutral,product_inquiry
+comment_001191,BB 56 TB 150 ukuran m?,ask_measurement,neutral,size_recommendation
+comment_001192,kakak untuk TB 174 dan BB 59 size apa ?,ask_measurement,neutral,size_recommendation
+comment_001193,"Bedanya eta 11 sma 12 apa kan sama"" oversize?",ask_detail,neutral,product_inquiry
+comment_001194,6 sama 11 bedanya apa ka?,ask_detail,neutral,product_inquiry
+comment_001195,ringer tee warna coklat itu kerah nya bukan warna putih kan?,ask_detail,neutral,color_inquiry
+comment_001196,kalo ls regular yang etalase brp bang,ask_stock,neutral,product_inquiry
+comment_001197,mau beli yang henley tapi ambil size ap ya ?,purchase_intent,neutral,size_recommendation
+comment_001198,"tq admin, test order 5 item dulu",purchase_intent,neutral,purchase_intent
+comment_001199,Kaa eta 12 size L dusty pink lihat mau CO,purchase_intent,neutral,purchase_intent
+comment_001200,bb 60 tb 180 ambil ukuran apa bang?,ask_measurement,neutral,size_recommendation
+comment_001201,kak kalau dipake terus gk buluan gitu kan kaosnya,ask_detail,neutral,product_inquiry
+comment_001202,Spill ets 6 semua warna biru bg,ask_detail,neutral,product_inquiry
+comment_001203,"Aku bb 50kg kaa tinggi 155cm aku berhijab kaa kira"" size apa biar ngga ketat",ask_measurement,neutral,size_recommendation
+comment_001204,oversize,ask_size_fit,neutral,size_recommendation
+comment_001205,pengiriman ke Medan berapa hari kira kira bang?,other,neutral,not_relevant
+comment_001206,hitam nya spil kak,ask_detail,neutral,color_inquiry
+comment_001207,aku udah co,purchase_intent,neutral,purchase_intent
+comment_001208,yg abg pake uk apa,ask_size_fit,neutral,size_inquiry
+comment_001209,Okeee,other,neutral,not_relevant
+comment_001210,ka aku udah co moga sesuai yak,purchase_intent,neutral,purchase_intent
+comment_001211,Kaa boleh ngga bandingin size L sma Mnya yg oversize? Bedanya jauh ngga?,ask_size_fit,neutral,product_inquiry
+comment_001212,fitted nya ka,ask_size_fit,neutral,not_relevant
+comment_001213,"co hari ini, dikirim besok gak bang?",other,neutral,purchase_intent
+comment_001214,bang 185 bb 78 ukuran apa,ask_measurement,neutral,size_recommendation
+comment_001215,udah di ubah bang ke XL,other,neutral,not_relevant
+comment_001216,171/69 etalase 1 ny L ya?,ask_measurement,neutral,size_recommendation
+comment_001217,tapi tkut kepanjangan,ask_size_fit,neutral,size_recommendation
+comment_001218,"kak spill etalase 12 yg hitam, tb 165 bb 64 size apa?",ask_measurement,neutral,size_recommendation
+comment_001219,"kak, yg cocok untuk big size bb 3 digit",ask_measurement,neutral,size_recommendation
+comment_001220,kk aku dah co etls 9 dan 11 size XL aman y kk bb 90 tb 171,purchase_intent,neutral,size_recommendation
+comment_001221,"bang, coba spill et16 XL putih",ask_detail,neutral,product_inquiry
+comment_001222,Spil etls 5 bb 60 yg pres,ask_detail,neutral,size_recommendation
+comment_001223,"et 1, 165/63 sz apa?",ask_measurement,neutral,size_recommendation
+comment_001224,110,noise,neutral,not_relevant
+comment_001226,"kk kalo tinggi 167,bb 67",ask_measurement,neutral,size_recommendation
+comment_001227,thank u,other,neutral,not_relevant
+comment_001228,bedanya biru dongker sama denim apa kak,ask_detail,neutral,color_inquiry
+comment_001229,kalo biru navy itu biru apa kak?,ask_detail,neutral,color_inquiry
+comment_001230,"etalase 6, tb 165 bb 64 size apa ka?",ask_measurement,neutral,size_recommendation
+comment_001231,longslevee tb 165 bb68,ask_measurement,neutral,size_recommendation
+comment_001232,henley fitted bb 71 tb 169 m atau L,ask_measurement,neutral,size_recommendation
+comment_001233,Tb 165cm bb 73 size L ya,ask_measurement,neutral,size_recommendation
+comment_001234,Tb 176 Bb 69 Untuk Fit Ringer tee size apa kalo untuk long sleeve Size apa,ask_measurement,neutral,size_recommendation
+comment_001235,1 sama 2 beda nya gmna kak,ask_detail,neutral,product_inquiry
+comment_001236,bang et 9 tb 172 bb 65 ukuran apa?,ask_measurement,neutral,size_recommendation
+comment_001237,soal nya dlu udh pernah beli disini semua sma ya untuk ukuran nya,other,neutral,not_relevant
+comment_001238,Spil 14,ask_detail,neutral,product_inquiry
+comment_001239,"bang, gua dah co et16 putih buat bb80 tb168 bisa pakai XL kan?",purchase_intent,neutral,size_recommendation
+comment_001240,"bg perbedaan etas 1,2 dan 3",ask_detail,neutral,product_inquiry
+comment_001241,coba spil ka 1 sama 2 nya,ask_detail,neutral,product_inquiry
+comment_001242,yang di pakai ukuran apa kak,ask_size_fit,neutral,size_inquiry
+comment_001243,Udh co 2 bg,purchase_intent,neutral,purchase_intent
+comment_001244,done co payment long sleve 2 dapet harga 120,purchase_intent,neutral,purchase_intent
+comment_001245,1 dan 2 beda nya apa,ask_detail,neutral,product_inquiry
+comment_001246,no 1 warna coklat yang mana kak takut salah warna,ask_detail,neutral,color_inquiry
+comment_001247,tb 174 bb 68 pakai ukuran apa,ask_measurement,neutral,size_recommendation
+comment_001248,yg 1 tebel ya,ask_detail,neutral,not_relevant
+comment_001249,Mas bagusan mana e 1 atau e 2,ask_detail,neutral,product_inquiry
+comment_001250,yg anti kusut mana bg,ask_detail,neutral,product_inquiry
+comment_001251,buat ke cafee yang coklat celana putih masuk kan bng,other,neutral,not_relevant
+comment_001252,Tb 170 bb 77 Ukuran apa kak? eta 2,ask_measurement,neutral,size_recommendation
+comment_001253,fitted tee anti kusut,ask_detail,neutral,product_inquiry
+comment_001254,"177/72 ambil L etalase 1, ternyata ketat banget. Retur ditolak. Hati-hati sizenya bermasalh banget⚠️",other,negative,size_recommendation
+comment_001255,Spill Buxy cut yg warna white kaka,ask_detail,neutral,color_inquiry
+comment_001256,tb 170 bb 73,ask_measurement,neutral,size_recommendation
+comment_001257,eta 1 dan 2 tebel mana kak,ask_detail,neutral,product_inquiry
+comment_001258,etalase 2 164/59 size apa bg,ask_measurement,neutral,size_recommendation
+comment_001259,Spill autum sama maroon kak,ask_detail,neutral,color_inquiry
+comment_001260,bang aku udah co,purchase_intent,neutral,purchase_intent
+comment_001261,"etalase 6 , bb 165 bb 60 size apa mas?",ask_measurement,neutral,size_recommendation
+comment_001262,"gue beli disini size L aman"" aja",other,positive,not_relevant
+comment_001263,bang coba warna item aku udh co warna item,ask_detail,neutral,purchase_intent
+comment_001264,Kak mau liat contoh warna light brown sama beige,ask_detail,neutral,color_inquiry
+comment_001265,Makanya tanggung jawab bang,other,negative,not_relevant
+comment_001266,ringer tee 175/60 size apa,ask_measurement,neutral,size_recommendation
+comment_001267,TB 187 BB 78 klo pake yg Oversize cocoknya size apa bang?,ask_measurement,neutral,size_recommendation
+comment_001268,@kem pake akun asli lah,other,neutral,not_relevant
+comment_001269,henly tb 168 bb 55 uk apa ya kak,ask_measurement,neutral,size_recommendation
+comment_001270,@kem akun fake katro,other,negative,not_relevant
+comment_001271,etalase 2 tb 170 bb 172,ask_measurement,neutral,size_recommendation
+comment_001272,Ditolak kok returnya,other,negative,not_relevant
+comment_001273,fitted tee tb 175/80 size apa min,ask_measurement,neutral,size_recommendation
+comment_001274,@kem,other,neutral,not_relevant
+comment_001275,ka bagusan boxy atau airy boxy?,ask_detail,neutral,product_inquiry
+comment_001276,jgn diaajakin debat mas.. haha. ga bagus bwt persepsi brand,other,neutral,not_relevant
+comment_001277,Eta 9 bb 68 Tb 172 ambil size mana,ask_measurement,neutral,size_recommendation
+comment_001278,Bang yg kamu warna putih,ask_detail,neutral,color_inquiry
+comment_001279,ku make size apa bg,ask_size_fit,neutral,size_inquiry
+comment_001280,180/62 mas,ask_measurement,neutral,size_recommendation
+comment_001281,anda perwakilan brand haha,other,neutral,not_relevant
+comment_001282,Lah kan kekecilan orang saya konsultasinya di live,other,negative,size_recommendation
+comment_001283,"aaoakwkkw, nyari ribut doang bang, gw beli disini kaos basic bagus bagus aja kok sesuai",other,positive,not_relevant
+comment_001285,eta 2 bb 72 tb 170,ask_measurement,neutral,size_recommendation
+comment_001287,180/62,ask_measurement,neutral,size_recommendation
+comment_001288,164/59 eta 2 size apa,ask_measurement,neutral,size_recommendation
+comment_001289,tb 178 bb 77 fitted tee pakai sz apa kak,ask_measurement,neutral,size_recommendation
+comment_001292,Eta 9 bb 68 Tb 172 size apa,ask_measurement,neutral,size_recommendation
+comment_001293,tb 165 bb 55 pakek sz apa bg,ask_measurement,neutral,size_recommendation
+comment_001294,Etalase 1 tb 165 bb 56 size apa bang,ask_measurement,neutral,size_recommendation
+comment_001295,170/72 ambil apa bang,ask_measurement,neutral,size_recommendation
+comment_001296,kesalahan yg co pun tetep diladenin yaa bang🤣,other,neutral,purchase_intent
+comment_001297,"sudah co, no 1 warna coklat",purchase_intent,neutral,purchase_intent
+comment_001298,sz m kira kira panjang bajunya brp cm bang?,ask_size_fit,neutral,size_inquiry
+comment_001299,175/76 apa yang aman?,ask_measurement,neutral,size_recommendation
+comment_001300,mau liat eta 19 warna dark choco bang,ask_detail,neutral,product_inquiry
+comment_001301,etalase 9 bisa di spil ga bang?,ask_detail,neutral,product_inquiry
+comment_001302,spil etl 7,ask_detail,neutral,product_inquiry
+comment_001303,yg henley ga diskon ya,ask_price,neutral,price_inquiry
+comment_001305,Spill eta 9 kk,ask_detail,neutral,product_inquiry
+comment_001306,spil etalase 9 bang,ask_detail,neutral,product_inquiry
+comment_001307,ka eta 10 Tb 176 Bb69 size apa,ask_measurement,neutral,size_recommendation
+comment_001308,kalo badan tinggi trus pake cutt boxy cocok ga si bang?,ask_size_fit,neutral,size_recommendation
+comment_001309,etalase 2 dark coko,ask_stock,neutral,product_inquiry
+comment_001310,Et8 hitam spil,ask_detail,neutral,product_inquiry
+comment_001311,Bb 68 Tb 172 eta 9 ambil size apa,ask_measurement,neutral,size_recommendation
+comment_001312,et 6 bisa buat cewe ga kak?,ask_size_fit,neutral,product_inquiry
+comment_001313,boxy sama airy boxy apa bedanya bang?,ask_detail,neutral,product_inquiry
+comment_001314,bb 62 tb 169 sz brp bang??,ask_measurement,neutral,size_recommendation
+comment_001315,"mau liat eta 16 warna dark choco bang, mau bandingin",ask_detail,neutral,product_inquiry
+comment_001317,spill warna dark wine kak,ask_detail,neutral,color_inquiry
+comment_001319,merah nya itu maroon kah,ask_detail,neutral,color_inquiry
+comment_001320,Hanley warna beige kek mana ka,ask_detail,neutral,color_inquiry
+comment_001321,Et8 167/60 sz apa,ask_measurement,neutral,size_recommendation
+comment_001322,et 6 buat cewe tb 163 bb 54 ambil size M aman ga kak,ask_measurement,neutral,size_recommendation
+comment_001323,spill maroon bg,ask_detail,neutral,color_inquiry
+comment_001324,Et8 Spil coklat,ask_detail,neutral,product_inquiry
+comment_001325,dark choco sm coffee lebih gelapan mana bang?,ask_detail,neutral,color_inquiry
+comment_001326,beda eta 1 sm 2 apa mas,ask_detail,neutral,product_inquiry
+comment_001327,kalo airy tuh full cotton kah?,ask_detail,neutral,product_inquiry
+comment_001328,"etalase 10, 170,70 cocok ukuran berapa?",ask_measurement,neutral,size_recommendation
+comment_001329,"bedanya beige sama khaky yang Hanley apa, boleh liat",ask_detail,neutral,color_inquiry
+comment_001330,bang make yang et mana?,ask_stock,neutral,product_inquiry
+comment_001331,Kalau beli 2 hemat berapa persen kak..?,ask_price,neutral,price_inquiry
+comment_001332,Aku udah co karna bajunya bikin nyaman,purchase_intent,neutral,purchase_intent
+comment_001333,udah Co bg eta 2,purchase_intent,neutral,purchase_intent
+comment_001334,etalase 11 bb 52 tb 174 pake size apa,ask_measurement,neutral,size_recommendation
+comment_001335,boxy tb 180an,ask_measurement,neutral,size_recommendation
+comment_001336,yang abangnya pake airy apa bukan?,ask_detail,neutral,product_inquiry
+comment_001337,noo gk ada gratis ongkir,other,negative,price_inquiry
+comment_001338,tb 170 better ambil ukuran apa mas,ask_measurement,neutral,size_recommendation
+comment_001339,kak yg dipake ukuran apa,ask_size_fit,neutral,size_inquiry
+comment_001341,warna burgundy fitted tee,ask_stock,neutral,color_inquiry
+comment_001342,Ka tb 168 bb 57 size brpa ka,ask_measurement,neutral,size_recommendation
+comment_001343,itu ukuran brp a,ask_size_fit,neutral,size_inquiry
+comment_001344,65 mas,ask_measurement,neutral,not_relevant
+comment_001345,164/59 mending boxy atau fitted tee,ask_detail,neutral,size_recommendation
+comment_001346,168/53,ask_measurement,neutral,size_recommendation
+comment_001347,etalase 11 deep blue nya liat kak,ask_detail,neutral,product_inquiry
+comment_001348,168 55 sz apa,ask_measurement,neutral,size_recommendation
+comment_001349,75/178 uk apa,ask_measurement,neutral,size_recommendation
+comment_001350,Udah co henley black 👍,purchase_intent,neutral,purchase_intent
+comment_001351,fitted tee tb 180 bb 75 pake apa bg,ask_measurement,neutral,size_recommendation
+comment_001352,bb tb kakaknya brpa,ask_measurement,neutral,size_inquiry
+comment_001353,bb 73 tb 165 klo pake size xl kebesaran gak bang?,ask_measurement,neutral,size_recommendation
+comment_001355,kak spil et 6 yg warna light blue dongg,ask_detail,neutral,product_inquiry
+comment_001356,bedanya etalase 11 sama 12 apa kak,ask_detail,neutral,product_inquiry
+comment_001357,spil etalase 3,ask_detail,neutral,product_inquiry
+comment_001358,ok tq bang,other,neutral,not_relevant
+comment_001359,Spil eta 6 ash blue,ask_detail,neutral,product_inquiry
+comment_001360,min spil dong etalase 9,ask_detail,neutral,product_inquiry
+comment_001361,et1 &2 bedanya apa ka,ask_detail,neutral,product_inquiry
+comment_001362,pakai ukuran apa bg?,ask_size_fit,neutral,size_inquiry
+comment_001363,spill eta 1 charcoal,ask_detail,neutral,product_inquiry
+comment_001364,10 tb62 tb180,ask_measurement,neutral,size_recommendation
+comment_001365,spill boxy longslevee khaki nya bg,ask_detail,neutral,product_inquiry
+comment_001366,etalase 7 ka,ask_stock,neutral,product_inquiry
+comment_001367,ada longsleeve regular ga?,ask_stock,neutral,product_inquiry
+comment_001369,agak berbulu ya?,ask_detail,neutral,not_relevant
+comment_001371,Yg henley boxy  171 bb 58 size apa,ask_measurement,neutral,size_recommendation
+comment_001372,lok dimana bg?,other,neutral,not_relevant
+comment_001373,kalau bb 61 tb 165 pilih yang mana ya?,ask_measurement,neutral,size_recommendation
+comment_001374,"etalase 2 , bb 50 tb 169 size apa ka?",ask_measurement,neutral,size_recommendation
+comment_001375,eta 1 TB 164 BB 59,ask_measurement,neutral,size_recommendation
+comment_001376,etalase 10 bb 65 tb 173,ask_measurement,neutral,size_recommendation
+comment_001377,et 6 yg bold denim kak,ask_stock,neutral,product_inquiry
+comment_001378,lok dimna bgg,other,neutral,not_relevant
+comment_001379,etalase 3 kak,ask_stock,neutral,product_inquiry
+comment_001380,mintasi saya co 2 tapi di di catatan saya rikwes kirim birudongker sama hitam gisa gak kak,purchase_intent,neutral,purchase_intent
+comment_001381,"tb 175 bb 66 sz brpa kak, etalase 3",ask_measurement,neutral,size_recommendation
+comment_001382,"etalase 5, tb 163, bb 51 cocok size apa kak",ask_measurement,neutral,size_recommendation
+comment_001383,"udah co 2 kak tadi sz m, okee gk",purchase_intent,neutral,purchase_intent
+comment_001384,co 2 dapat gratis ongkir,ask_price,neutral,price_inquiry
+comment_001385,ada kameja gk kak,ask_stock,neutral,not_relevant
+comment_001386,make size apa bang bb tb kita sama,ask_measurement,neutral,size_recommendation
+comment_001387,saya udah co 2 kak etalase 9 nya bisa spil lagi kak etalase 9 nya,ask_detail,neutral,purchase_intent
+comment_001388,gk ada suara,other,negative,not_relevant
+comment_001389,bang suaranya gak ada,other,negative,not_relevant
+comment_001390,ga ada suara,other,negative,not_relevant
+comment_001391,suara abangnya gak ada,other,negative,not_relevant
+comment_001392,spil eta 9 kk,ask_detail,neutral,product_inquiry
+comment_001393,nah udah ada,other,neutral,not_relevant
+comment_001394,ada,other,neutral,not_relevant
+comment_001395,kek nya hrs istirahat dlu bg😅,other,neutral,not_relevant
+comment_001396,kak henley shirt nya ambil size M atau L ya untuk TB 174 BB 59,ask_measurement,neutral,size_recommendation
+comment_001397,Spil et 6 yg coffe kk,ask_detail,neutral,product_inquiry
+comment_001398,kalo bb 65 tb 175 ambil L aman gak kak,ask_measurement,neutral,size_recommendation
+comment_001399,bang udah co yg ringer tee hehe kirim yg best quality ya..mau affiliate,purchase_intent,neutral,purchase_intent
+comment_001400,Bb 60 tb 165 size ap kk,ask_measurement,neutral,size_recommendation
+comment_001401,Yg anti kusut yg mana om?,ask_detail,neutral,product_inquiry
+comment_001402,bb 80 ambil sz brp,ask_measurement,neutral,size_recommendation
+comment_001403,foll belom banyak mas,other,neutral,not_relevant
+comment_001404,175/70 pakai size apa bang?,ask_measurement,neutral,size_recommendation
+comment_001405,Aamiin broku thank u,other,neutral,not_relevant
+comment_001406,TB 170 BB 64 size apa kak?,ask_measurement,neutral,size_recommendation
+comment_001407,167/48 pakai size apa,ask_measurement,neutral,size_recommendation
+comment_001408,reguler t-shirt buat 155/55 kak,ask_measurement,neutral,size_recommendation
+comment_001409,165 BB 45 size berapa pengen yg fitted,ask_measurement,neutral,size_recommendation
+comment_001410,etalase 9 coklat tua ka,ask_stock,neutral,product_inquiry
+comment_001411,bg kalo naik size apakah lingkar lengannya lebih besar bg?,ask_size_fit,neutral,size_recommendation
+comment_001412,liat contoh ukuran m,ask_size_fit,neutral,size_inquiry
+comment_001413,try on dong kakk,ask_size_fit,neutral,not_relevant
+comment_001414,160 s/m,ask_measurement,neutral,size_recommendation
+comment_001415,contoh ukuran m yg fitted,ask_size_fit,neutral,not_relevant
+comment_001416,"tb 170 bb 85,ukuran berapa fitted tee",ask_measurement,neutral,size_recommendation
+comment_001417,etalase 9 tidak ada ukuran xxl kak?,ask_stock,neutral,size_inquiry
+comment_001418,ad crim bang,ask_stock,neutral,not_relevant
+comment_001419,maaf tadi di batalin mau co ulang salah ukuran soalnye,purchase_intent,neutral,purchase_intent
+comment_001420,eta 2 warna drak wine,ask_stock,neutral,product_inquiry
+comment_001421,tb 168 bb 72 ambil size berapa,ask_measurement,neutral,size_recommendation
+comment_001422,liat dusty green eta 20 liat,ask_detail,neutral,product_inquiry
+comment_001423,tb 163 bb 50,ask_measurement,neutral,size_recommendation
+comment_001424,Warna merah atau maroon ada?,ask_stock,neutral,color_inquiry
+comment_001425,ka beda etalase 1 ama 2 apa,ask_detail,neutral,product_inquiry
+comment_001426,Yang fited tee bang,ask_size_fit,neutral,not_relevant
+comment_001427,Merah marun yg ada lis putih nya kak,ask_stock,neutral,color_inquiry
+comment_001428,bang coba liat etalase 5,ask_detail,neutral,product_inquiry
+comment_001429,Eta 19 buat TB 180 BB 71 size apa bang?,ask_measurement,neutral,size_recommendation
+comment_001430,liat contoh fitted size s,ask_size_fit,neutral,size_inquiry
+comment_001431,Itu model fited tee juga bang? Yang ada garisnya,ask_detail,neutral,product_inquiry
+comment_001432,etalase 2 dong bb 75 tb 170,ask_measurement,neutral,size_recommendation
+comment_001433,yang merah ada kak,ask_stock,neutral,color_inquiry
+comment_001434,Spil etelase no 5 warna navy mas,ask_detail,neutral,product_inquiry
+comment_001435,TB 167 BB 71,ask_measurement,neutral,size_recommendation
+comment_001436,boxy warna merah ada?,ask_stock,neutral,color_inquiry
+comment_001437,BB TB mas nya berapa,ask_measurement,neutral,size_inquiry
+comment_001438,"bb 67, tb 172",ask_measurement,neutral,size_recommendation
+comment_001439,Yang merah garis model fit led tee gada bang?,ask_stock,neutral,product_inquiry
+comment_001440,merah bendera ada kak,ask_stock,neutral,color_inquiry
+comment_001441,orang buncit ga ccok pke fitted ya,ask_size_fit,neutral,size_recommendation
+comment_001443,contoh etelase 5 ukuran s mas,ask_size_fit,neutral,size_inquiry
+comment_001444,Spil merah bendera kak,ask_detail,neutral,color_inquiry
+comment_001445,ringer teenya mantep bgt bang udh beli,other,positive,not_relevant
+comment_001446,"etalase 1, bb 68 tb 168 size apa bang?",ask_measurement,neutral,size_recommendation
+comment_001447,"fitted tee bb 67, tb 172 size apa bang?",ask_measurement,neutral,size_recommendation
+comment_001448,yang reguler kak,ask_size_fit,neutral,not_relevant
+comment_001450,COBA BANDINGIN UKURAN S SAMA M MAS,ask_size_fit,neutral,size_inquiry
+comment_001451,kak itu pake size apa,ask_size_fit,neutral,size_inquiry
+comment_001453,84/172 boxy cut uk apa?,ask_measurement,neutral,size_recommendation
+comment_001454,bb 85 tb 170 berapa bang?,ask_measurement,neutral,size_recommendation
+comment_001455,beda eta 1 dan 2 apa bang?,ask_detail,neutral,product_inquiry
+comment_001456,Kaos yg cocok untuk dalaman kerja warna putih polos ada ga mas?,ask_stock,neutral,size_recommendation
+comment_001457,"165, 80 size apa",ask_measurement,neutral,size_recommendation
+comment_001458,merah maronnya etalase brapa kak,ask_stock,neutral,product_inquiry
+comment_001459,tinggi 165 size apa,ask_measurement,neutral,size_recommendation
+comment_001460,"saya mau ambil boxy, tb 183 bb 65, ambil uk apa?",ask_measurement,neutral,size_recommendation
+comment_001461,kl henley tb 175 bb 70 pake size apa yang boxy bagus ya kak?,ask_measurement,neutral,size_recommendation
+comment_001462,etalase 2 bandingkan warna light grey sama dark grey bg,ask_detail,neutral,product_inquiry
+comment_001464,"saya udah pernah beli yang ukuran m yang fitted tee mas,mau nya beli yang etelase 5 ukuran s",purchase_intent,neutral,purchase_intent
+comment_001465,bedanya charcoal sama black apa bang,ask_detail,neutral,color_inquiry
+comment_001466,spil eta 2 dark wine bang,ask_detail,neutral,product_inquiry
+comment_001467,tb 170 bb 80 size brp bng fitted te,ask_measurement,neutral,size_recommendation
+comment_001468,TB 170 BB 55 size apa?,ask_measurement,neutral,size_recommendation
+comment_001469,Lagi promo lagi tapi aku uda punya semua warna nya et 1 nya,other,neutral,not_relevant
+comment_001470,TB 166 BB 65 ukuran apa mas?,ask_measurement,neutral,size_recommendation
+comment_001471,BB 62 TB 172 fitted tee,ask_measurement,neutral,size_recommendation
+comment_001472,"nyari yang ngetat lengan mas,yang m udah ngetat lengan sih mau nya yang lebih ketat hehe",ask_stock,neutral,size_recommendation
+comment_001473,fitted tee yang merah Spil kak,ask_detail,neutral,product_inquiry
+comment_001474,bb 59 TB 170 ambil size apa,ask_measurement,neutral,size_recommendation
+comment_001475,eta 1 burgundy bang,ask_stock,neutral,product_inquiry
+comment_001478,bedanya fitted tee yang airy sama heavy apa kak,ask_detail,neutral,product_inquiry
+comment_001479,"kak TB 184, BB 93",ask_measurement,neutral,size_recommendation
+comment_001480,bb80 bsa ga pke L,ask_measurement,neutral,size_recommendation
+comment_001481,62 172 L enak juga kan?,ask_measurement,neutral,size_recommendation
+comment_001482,bb 53 ukuran apa mas,ask_measurement,neutral,size_recommendation
+comment_001483,eta 16 ada warna merah?,ask_stock,neutral,product_inquiry
+comment_001484,59 TB 170,ask_measurement,neutral,size_recommendation
+comment_001485,BB 110 bg,ask_measurement,neutral,size_recommendation
+comment_001486,bb 68 tb 170 pke ap bg,ask_measurement,neutral,size_recommendation
+comment_001487,68 tb 170,ask_measurement,neutral,size_recommendation
+comment_001488,eta 1 light blue bang,ask_stock,neutral,product_inquiry
+comment_001489,yg di pake eta brp,ask_stock,neutral,product_inquiry
+comment_001490,179/69 uk apa,ask_measurement,neutral,size_recommendation
+comment_001491,fitted tee yang merah etalase barapa kak,ask_stock,neutral,product_inquiry
+comment_001492,"Dtalase no 6, tb 165 bb 75",ask_measurement,neutral,size_recommendation
+comment_001493,Yang kaya bravy bb 84 ambil xl ya?,ask_measurement,neutral,size_recommendation
+comment_001494,etalase 1 BB 65 TB 158,ask_measurement,neutral,size_recommendation
+comment_001495,oversize XXl bang,ask_size_fit,neutral,size_recommendation
+comment_001496,90 bang,ask_measurement,neutral,not_relevant
+comment_001497,Bb 86 tb 165,ask_measurement,neutral,size_recommendation
+comment_001498,Bedanya et 11 dan 12 apa?,ask_detail,neutral,product_inquiry
+comment_001499,eta 1 light blue itu biru langit kah bang?,ask_detail,neutral,color_inquiry
+comment_001500,bb 77 tb 173 size apa yang fit,ask_measurement,neutral,size_recommendation
+comment_001501,bang  165/69 ambil apa oversize,ask_measurement,neutral,size_recommendation
+comment_001502,oversize coba,ask_size_fit,neutral,size_recommendation
+comment_001503,Boxy nomer brapa bang,ask_stock,neutral,product_inquiry
+comment_001505,pake l bisa nga,ask_size_fit,neutral,not_relevant
+comment_001507,light blue eta 1 itu lebih ke biru langit ya bang,ask_detail,neutral,color_inquiry
+comment_001508,pas itu bang di oversize? m,ask_size_fit,neutral,size_recommendation
+comment_001509,"kalo fitted tee bb 67, tb 172, ambil L kegedean gak??",ask_measurement,neutral,size_recommendation
+comment_001510,Cba spill ka 11 dan 12 nya,ask_detail,neutral,product_inquiry
+comment_001511,"bb 56,5 tb 169 ukuran berapa fit t tea air",ask_measurement,neutral,size_recommendation
+comment_001513,ka Bb 70,ask_measurement,neutral,size_recommendation
+comment_001514,tapi di kamera kayak terang banget bang,other,neutral,not_relevant
+comment_001515,lu pake size apa bg,ask_size_fit,neutral,size_inquiry
+comment_001516,yang oversize bang,ask_size_fit,neutral,size_recommendation
+comment_001517,Udh CO 3 pcs,purchase_intent,neutral,purchase_intent
+comment_001518,bandingin fitted yg 230 gsm vs yg anti kusut,ask_detail,neutral,product_inquiry
+comment_001519,kak yg etalase 5 spill size L NYA DONG,ask_detail,neutral,product_inquiry
+comment_001520,tb 169 bb 58 cucok pake oversize atau reguler?,ask_measurement,neutral,size_recommendation
+comment_001521,reguler yg havyweight ada?,ask_stock,neutral,not_relevant
+comment_001522,ka spil ulng etlse 11 wrna htm,ask_detail,neutral,product_inquiry
+comment_001523,Etalase 1 yg warna hijau spil bg,ask_detail,neutral,product_inquiry
+comment_001524,BB 95 etalase brp,ask_stock,neutral,product_inquiry
+comment_001525,bb 72 kak,ask_measurement,neutral,size_recommendation
+comment_001526,167 BB 70 ambil m cocok ga?,ask_measurement,neutral,size_recommendation
+comment_001527,spil etlse 11 wrna itm,ask_detail,neutral,product_inquiry
+comment_001528,bang coba liat yg etalase 4,ask_detail,neutral,product_inquiry
+comment_001529,"untuk Tinggi 175,berat 86",ask_measurement,neutral,size_recommendation
+comment_001530,TB 180 BB 70 fitted tee pake uk brapa kak,ask_measurement,neutral,size_recommendation
+comment_001531,spill etalase 9 dong bang,ask_detail,neutral,product_inquiry
+comment_001532,bro tadi bang yang bb 69 /165,ask_measurement,neutral,size_recommendation
+comment_001533,klo havyweight boxy ?,ask_stock,neutral,product_inquiry
+comment_001535,Etalase 11 & 12. Bb 55 TB 175 cocoknya size brpa,ask_measurement,neutral,size_recommendation
+comment_001536,Tb 165 bb 55 size apa yg hanlay,ask_measurement,neutral,size_recommendation
+comment_001537,hitam ukuran s mau langsung pesan,purchase_intent,neutral,purchase_intent
+comment_001538,BB 95 etalase yg mana,ask_stock,neutral,product_inquiry
+comment_001539,etalase 9 kak,ask_stock,neutral,product_inquiry
+comment_001540,bang yang 69 tdi brp bang m? oversize,ask_size_fit,neutral,size_recommendation
+comment_001541,pengen liat conton size m dong kak,ask_size_fit,neutral,size_inquiry
+comment_001542,Bang sory tadi gua ambilnya size apa?,ask_size_fit,neutral,size_inquiry
+comment_001543,Sory ka kecepatan tadi ukuran M bukan ya ?,ask_size_fit,neutral,size_inquiry
+comment_001544,Etalase 6 sama apa yg boxy,ask_stock,neutral,product_inquiry
+comment_001545,BUKAN UKURAN NYA APA BANG YG 69 TADI M?,ask_size_fit,neutral,size_inquiry
+comment_001546,beda nya etalase 11 sama 12 apa babg?,ask_detail,neutral,product_inquiry
+comment_001547,berat 73 uk brp etalase 9,ask_measurement,neutral,size_recommendation
+comment_001548,85 tb 165,ask_measurement,neutral,size_recommendation
+comment_001549,etalase 11 XL ketat atau longgar bang. aku mau aga longgar,ask_size_fit,neutral,size_recommendation
+comment_001550,ka spill fitted te warna maple brown,ask_detail,neutral,color_inquiry
+comment_001551,etalase 1 bb 62 tb 163,ask_measurement,neutral,size_recommendation
+comment_001552,kepencet bang bukan marah hehe,other,neutral,not_relevant
+comment_001554,"Kak mau liat etalase 8, bb 60 tb 168 uk apaa ka",ask_measurement,neutral,size_recommendation
+comment_001555,kalo kakak nya pke size apaa,ask_size_fit,neutral,size_inquiry
+comment_001556,kak eta 9 tb 164 bb 62 perut agak buncit dikit ambil size apa kak,ask_measurement,neutral,size_recommendation
+comment_001557,kalo ngefit s yaak?,ask_size_fit,neutral,size_recommendation
+comment_001558,"etalase 8, BB 80, TB 172 UK brp?",ask_measurement,neutral,size_recommendation
+comment_001559,henley kak,ask_stock,neutral,not_relevant
+comment_001560,BB 64 TB 160,ask_measurement,neutral,size_recommendation
+comment_001561,Bosqu pengiriman dari mana?,ask_price,neutral,not_relevant
+comment_001562,Spill singlet nya ada,ask_detail,neutral,product_inquiry
+comment_001563,bb 100 tb 170 mending boxy atau oversize kak,ask_measurement,neutral,size_recommendation
+comment_001564,tb 169 bb 58 pake size apa bang,ask_measurement,neutral,size_recommendation
+comment_001565,jeans nya bagus amat ka,other,positive,not_relevant
+comment_001567,kak polo marron 177 74,ask_measurement,neutral,size_recommendation
+comment_001568,mas ribger tee navy,ask_stock,neutral,color_inquiry
+comment_001569,jeans nya dari apa ka mohon maaf wkwk,ask_detail,neutral,product_inquiry
+comment_001570,"hanly bb 56,5 tb 169 size?",ask_measurement,neutral,size_recommendation
+comment_001571,kak saya tb168 bb 66 ambil boxy etalase 6 yang pas ambil size apa?,ask_measurement,neutral,size_recommendation
+comment_001572,bang ko paket gua ga nyampe nyampee,other,negative,not_relevant
+comment_001573,udh 5hari,other,negative,not_relevant
+comment_001574,bang buat bb 50 tb 165 kira2 ambil size apa kalo yg ringer tee,ask_measurement,neutral,size_recommendation
+comment_001575,jeans nya dari apa ka,ask_detail,neutral,product_inquiry
+comment_001576,173 74 size apa,ask_measurement,neutral,size_recommendation
+comment_001577,ga ada shopee kah bang?,ask_stock,neutral,not_relevant
+comment_001578,160 55 size apa bg,ask_measurement,neutral,size_recommendation
+comment_001579,165/65 sz apa bg,ask_measurement,neutral,size_recommendation
+comment_001580,TB 167 BB 72 ambil M aman ga bang,ask_measurement,neutral,size_recommendation
+comment_001581,bedanya etlase 8 sama 10 apa bang?,ask_detail,neutral,product_inquiry
+comment_001582,boxy tee 166/66,ask_measurement,neutral,size_recommendation
+comment_001583,Bang boxy cuma 6 dan 9 ya?,ask_stock,neutral,product_inquiry
+comment_001584,bedanya airy apa bang,ask_detail,neutral,product_inquiry
+comment_001585,et 9 warna maroon bg,ask_stock,neutral,product_inquiry
+comment_001586,UDAHH CO KAK AMBIL UKURAN L JADINYA BUAT KADO COWO KU HEHEHEHEH,purchase_intent,neutral,purchase_intent
+comment_001587,berarti bukan warna merah cabe ya?,ask_detail,neutral,color_inquiry
+comment_001588,Bedanya 6 dan 16 bosqu?,ask_detail,neutral,product_inquiry
+comment_001589,et 5 bb 70 tb 168,ask_measurement,neutral,size_recommendation
+comment_001590,eta 1 maroon nya gelap kan bang,ask_detail,neutral,product_inquiry
+comment_001591,carcoal itu kaya gimana bang,ask_detail,neutral,color_inquiry
+comment_001592,spil regular fit bg uk m,ask_detail,neutral,product_inquiry
+comment_001593,bedanya 1 sama 2?,ask_detail,neutral,product_inquiry
+comment_001594,bg ukuran s untuk bb 55 ok nggak?,ask_measurement,neutral,size_recommendation
+comment_001595,rekomendasi 1 atau 2?,ask_detail,neutral,product_inquiry
+comment_001596,bb 70 tb 165 pake size apa,ask_measurement,neutral,size_recommendation
+comment_001597,dah cekout bg uk s,purchase_intent,neutral,purchase_intent
+comment_001598,berarti 1 sama 2 sama aja sebenernya?,ask_detail,neutral,product_inquiry
+comment_001599,tb 160 bb 55 aku bg,ask_measurement,neutral,size_recommendation
+comment_001600,kakanya pake size itu??,ask_size_fit,neutral,size_inquiry
+comment_001601,size apa,ask_size_fit,neutral,size_inquiry
+comment_001602,size apa yg kamu pake,ask_size_fit,neutral,size_inquiry
+comment_001603,abangku 171/80 henley size apa,ask_measurement,neutral,size_recommendation
+comment_001604,spill longsleeve boxy yang charcoal,ask_detail,neutral,product_inquiry
+comment_001605,masih cakep ga itu,other,neutral,not_relevant
+comment_001606,etalase 2 bang spill,ask_detail,neutral,product_inquiry
+comment_001607,160-165 boxy crop pake apa bg,ask_measurement,neutral,size_recommendation
+comment_001608,dapet 32rebu,other,neutral,not_relevant
+comment_001609,kak coba bandingin polo sama airy fitted tee,ask_detail,neutral,product_inquiry
+comment_001610,Henley long sleeve,ask_stock,neutral,not_relevant
+comment_001611,tb 168/51 dapet ya looks boxy nya,ask_measurement,neutral,size_recommendation
+comment_001612,bang boxy biasa eta brp,ask_stock,neutral,product_inquiry
+comment_001613,aery tu gmna,ask_detail,neutral,product_inquiry
+comment_001614,liat warna brown kak,ask_detail,neutral,color_inquiry
+comment_001615,panjang gitu ya kak polonya,ask_size_fit,neutral,product_inquiry
+comment_001616,bang cobain kaos warna navy ada ga,ask_stock,neutral,color_inquiry
+comment_001617,bb 50,ask_measurement,neutral,size_recommendation
+comment_001618,aku uda co maroon dan navy eta 1,purchase_intent,neutral,purchase_intent
+comment_001619,licin apa kaos biasa?,ask_detail,neutral,product_inquiry
+comment_001620,brown,ask_detail,neutral,color_inquiry
+comment_001621,polonya panjang gitu emang ya kak,ask_size_fit,neutral,product_inquiry
+comment_001622,eta 11 BB 90 ukrn apa kk,ask_measurement,neutral,size_recommendation
+comment_001623,bole liat warna maple brownnya ka,ask_detail,neutral,color_inquiry
+comment_001624,tb 164 bb 55 size apa bang etalase,ask_measurement,neutral,size_recommendation
+comment_001625,tb 164 bb 55 size apa bang etalase 2,ask_measurement,neutral,size_recommendation
+comment_001626,"navy etalase brp bang, bahan paling prem bang",ask_stock,neutral,product_inquiry
+comment_001627,oversize dan reguler,ask_size_fit,neutral,size_recommendation
+comment_001628,bb 55 tb 174 sz apa,ask_measurement,neutral,size_recommendation
+comment_001629,fitted tee buat cowo kurus cocok kah bang?,ask_size_fit,neutral,size_recommendation
+comment_001630,162 45,ask_measurement,neutral,size_recommendation
+comment_001631,tb 163 bb 65 pake size apa bg,ask_measurement,neutral,size_recommendation
+comment_001632,pentil e nyeplak ngga kalo yang biasa?,ask_detail,neutral,product_inquiry
+comment_001633,bg kalau TB 173 BB 56 ambil size apa,ask_measurement,neutral,size_recommendation
+comment_001634,Bg spil warna bergundy,ask_detail,neutral,color_inquiry
+comment_001635,abangku henley longsleeve nya nerawang ga warna item putih,ask_detail,neutral,product_inquiry
+comment_001636,bb 55 tb 174 sz apa maaf mas ulangi,ask_measurement,neutral,size_recommendation
+comment_001637,171/57,ask_measurement,neutral,size_recommendation
+comment_001638,pake apa bang ?,ask_size_fit,neutral,not_relevant
+comment_001640,cowo bb 85 kg uk apa ka?,ask_measurement,neutral,size_recommendation
+comment_001641,dusty blue etalase 2 spil bang,ask_detail,neutral,product_inquiry
+comment_001642,bb 50 uk apa,ask_measurement,neutral,size_recommendation
+comment_001643,Spil etalase 2 warna navy smaa hitam 178/75,ask_detail,neutral,size_recommendation
+comment_001644,etls 17 bahannya tebel kan bang? gw nyari bahan navy yang tebel,ask_detail,neutral,product_inquiry
+comment_001645,170 bb 89,ask_measurement,neutral,size_recommendation
+comment_001646,bang coba spil sz L,ask_detail,neutral,product_inquiry
+comment_001647,done order bang thanks,purchase_intent,neutral,purchase_intent
+comment_001648,et 9 bisa ga kak,ask_stock,neutral,product_inquiry
+comment_001649,kok aku liat sama semua,other,neutral,not_relevant
+comment_001650,etalsenya kak,ask_stock,neutral,product_inquiry
+comment_001651,bedanya 1 sama 2,ask_detail,neutral,product_inquiry
+comment_001652,done ni check out,purchase_intent,neutral,purchase_intent
+comment_001653,🤣,noise,neutral,not_relevant
+comment_001654,nyaman yg mana,ask_detail,neutral,not_relevant
+comment_001655,sbr bg make dia,ask_size_fit,neutral,not_relevant
+comment_001656,etalase 1 bb 65 tb 173 ukuran apa?,ask_measurement,neutral,size_recommendation
+comment_001657,wes CO,purchase_intent,neutral,purchase_intent
+comment_001658,"bb 54 tb 170 ambil size apa,fited te",ask_measurement,neutral,size_recommendation
+comment_001659,TB180 BB64 ambil sz apaan ngab?,ask_measurement,neutral,size_recommendation
+comment_001660,beli 2 jdi brp mas,ask_price,neutral,price_inquiry
+comment_001661,M kekecilan ngga ngab?,ask_size_fit,neutral,size_recommendation
+comment_001662,ka udh co etalase 2,purchase_intent,neutral,purchase_intent
+comment_001663,167 bb 60 ambil sz ap,ask_measurement,neutral,size_recommendation
+comment_001664,etalase 1 53 165,ask_measurement,neutral,size_recommendation
+comment_001666,bisa liat yg navy blue oversized,ask_detail,neutral,product_inquiry
+comment_001667,u pake sz apaan ngab?,ask_size_fit,neutral,size_inquiry
+comment_001668,eta 1 bg,ask_stock,neutral,product_inquiry
+comment_001669,udh co gua 2 bg di tunggu barang nya,purchase_intent,neutral,purchase_intent
+comment_001670,kak buat tb 171 bb 58,ask_measurement,neutral,size_recommendation
+comment_001671,etalase 3 bb60 tb165 size apa bang,ask_measurement,neutral,size_recommendation
+comment_001672,bb 50/165 ambil ap bg?,ask_measurement,neutral,size_recommendation
+comment_001673,etalase 1 tb 168 bb 58,ask_measurement,neutral,size_recommendation
+comment_001674,estimasi waktu datang brp hari bg,other,neutral,not_relevant
+comment_001675,coba u pake sz L ngab,ask_size_fit,neutral,not_relevant
+comment_001676,kapan live lagi,other,neutral,not_relevant
+comment_001677,Bg brapa tadi bb 85 tb 170 ukuran apa ??,ask_measurement,neutral,size_recommendation
+comment_001678,udh co min,purchase_intent,neutral,purchase_intent
+comment_001679,lebar banget ngga ya?soalnya lingkar dadanya 54,ask_measurement,neutral,size_recommendation
+comment_001680,SPILL ETALASE 5 BUAT TB 171 BB 58,ask_detail,neutral,size_recommendation
+comment_001681,beda mya pollycooton dan t-shirett combet apa,ask_detail,neutral,product_inquiry
+comment_001682,Saya dah co boy,purchase_intent,neutral,purchase_intent
+comment_001683,gua rencananya mau co yg ringer tee,purchase_intent,neutral,purchase_intent
+comment_001684,Etalase satu ama dua beda ala,ask_detail,neutral,product_inquiry
+comment_001685,pengen oversize bb 69 tb 167 size apa,ask_measurement,neutral,size_recommendation
+comment_001686,liat warna t-shirt boxy dong bang,ask_detail,neutral,color_inquiry
+comment_001687,yang gak lecek dan gak nerawang keringat mana kak,ask_detail,neutral,product_inquiry
+comment_001688,eta 2 spill bahan bg,ask_detail,neutral,product_inquiry
+comment_001689,165/58 size apa,ask_measurement,neutral,size_recommendation
+comment_001690,maroon sama denim aja bang utk t-shirt boxy nya,ask_detail,neutral,color_inquiry
+comment_001691,etalase 2 BB 53 TB 165 UK apa bang,ask_measurement,neutral,size_recommendation
+comment_001692,secara look oke etalase 1 atau 2??,ask_detail,neutral,product_inquiry
+comment_001693,bedanya heavy sama 16s sama 200gsm gimn gan,ask_detail,neutral,product_inquiry
+comment_001694,oversise tee buat daily biasa yg mana kak,ask_detail,neutral,product_inquiry
+comment_001695,etalase 2 165/58 size apa bang,ask_measurement,neutral,size_recommendation
+comment_001696,cowok tb 173 bb90 gk buncit fitted tee oke ga?,ask_measurement,neutral,size_recommendation
+comment_001697,boxy crop buat cowok tb 162 bb 52 ambil berapa bg,ask_measurement,neutral,size_recommendation
+comment_001698,Cb spil warna gsmnya ka,ask_detail,neutral,color_inquiry
+comment_001699,Spil 19 bg,ask_detail,neutral,product_inquiry
+comment_001700,polo biru navy kak,ask_stock,neutral,color_inquiry
+comment_001701,eta 2 biar ga fit bgt ambil m atau L bg soalnya ga suka yg nge fit bg,ask_size_fit,neutral,size_recommendation
+comment_001702,Spil et 1 warna light blue,ask_detail,neutral,product_inquiry
+comment_001703,etalase 2 BB 53 TB 165 UK apa bang apa kak tadi cepet banget,ask_measurement,neutral,size_recommendation
+comment_001704,Spil etalse 11,ask_detail,neutral,product_inquiry
+comment_001705,cowok tb 173 bb90 agk buncit fitted tee oke ga?,ask_measurement,neutral,size_recommendation
+comment_001707,promo nya bagaimana?,ask_price,neutral,price_inquiry
+comment_001708,tb 163 bb 55 biar ngefit pake size apa,ask_measurement,neutral,size_recommendation
+comment_001709,polo,ask_stock,neutral,not_relevant
+comment_001710,etalase 2 itu boxy kan bang?,ask_detail,neutral,product_inquiry
+comment_001711,Spil yg warna burgundy kk,ask_detail,neutral,color_inquiry
+comment_001714,spill yg light Grey bg,ask_detail,neutral,color_inquiry
+comment_001715,spil ringtee navy,ask_detail,neutral,color_inquiry
+comment_001716,etalase 12 bb 90+ ukuran berapa kak,ask_measurement,neutral,size_recommendation
+comment_001717,bb 50 tb 160 pake ukuran apa kak,ask_measurement,neutral,size_recommendation
+comment_001718,spill celana,ask_detail,neutral,product_inquiry
+comment_001719,eta 1 ga gampang lecek kh bg?,ask_detail,neutral,product_inquiry
+comment_001720,wesss chkout kak,purchase_intent,neutral,purchase_intent
+comment_001721,tb 169 BB 40 ambil apa?,ask_measurement,neutral,size_recommendation
+comment_001722,warna abu eta 11,ask_stock,neutral,product_inquiry
+comment_001723,Bb 75 tinggi 171 uk ap bg,ask_measurement,neutral,size_recommendation
+comment_001724,"ka yang di pake ,yang mana yang bawah atau yang atas",ask_detail,neutral,product_inquiry
+comment_001725,udah co bg,purchase_intent,neutral,purchase_intent
+comment_001726,"kak dah sampe bajunya bagus banget.. co lagi ni, suamiku suka",purchase_intent,positive,purchase_intent
+comment_001727,Fit apa itu,ask_detail,neutral,size_inquiry
+comment_001728,bang ini gimana caranya batalin co malah ke co 2 kali,other,neutral,purchase_intent
+comment_001729,ka yang fited yang mana,ask_detail,neutral,product_inquiry
+comment_001730,etalase 4 bb 60 tb 173,ask_measurement,neutral,size_recommendation
+comment_001731,Udah co kak etalase 11 warna burgundy,purchase_intent,neutral,purchase_intent
+comment_001732,Maksud nya fiting an nya gimana bg kalo L,ask_size_fit,neutral,size_inquiry
+comment_001733,fav eta 9,ask_stock,neutral,product_inquiry
+comment_001734,spil polo kak,ask_detail,neutral,product_inquiry
+comment_001735,aku udah cekout bang,purchase_intent,neutral,purchase_intent
+comment_001736,bb60 tb173 size brp,ask_measurement,neutral,size_recommendation
+comment_001737,etalase 1 nya,ask_stock,neutral,product_inquiry
+comment_001738,"aku udah co eta 1, tb aku 178 kak",purchase_intent,neutral,purchase_intent
+comment_001739,tb 162 bb55 biar ngefit ambil size apa,ask_measurement,neutral,size_recommendation
+comment_001740,bg eta 3 apa perbedaan nya?,ask_detail,neutral,product_inquiry
+comment_001741,ambil brp tdi kak,ask_size_fit,neutral,purchase_intent
+comment_001742,bb 73,ask_measurement,neutral,size_recommendation
+comment_001743,spill eta 6 size m,ask_detail,neutral,product_inquiry
+comment_001744,bang lu make size apa,ask_size_fit,neutral,size_inquiry
+comment_001745,Done co bg etl 19,purchase_intent,neutral,purchase_intent
+comment_001746,itu ukuran s kak?,ask_size_fit,neutral,size_inquiry
+comment_001747,yang di pegang?,ask_detail,neutral,not_relevant
+comment_001748,Bb 53 tb 171 fitted rekomen sz ap,ask_measurement,neutral,size_recommendation
+comment_001749,eta liat bg size m warna hitam,ask_detail,neutral,size_inquiry
+comment_001750,Kok gabisa cod bg,other,neutral,not_relevant
+comment_001751,3,noise,neutral,not_relevant
+comment_001752,spil bahan eta 1 sm 2 bang,ask_detail,neutral,product_inquiry
+comment_001753,yang putih eta 3 ada ga bg spill,ask_stock,neutral,product_inquiry
+comment_001754,gw dah CO 2 bg,purchase_intent,neutral,purchase_intent
+comment_001755,bb 68 tb167 pake oversize cocoknya m atau L ?,ask_measurement,neutral,size_recommendation
+comment_001756,buat jadi daleman yg mana bg bagusnya mau di pakein outer,ask_detail,neutral,purchase_intent
+comment_001757,hitam 1 sama 2 nya ka spil,ask_detail,neutral,color_inquiry
+comment_001758,kak spill etalase 19 warna atlantick sea,ask_detail,neutral,product_inquiry
+comment_001759,Spil 7 mas,ask_detail,neutral,product_inquiry
+comment_001760,beda nya sama eta 2 apa,ask_detail,neutral,product_inquiry
+comment_001761,spil etalase 2 bg,ask_detail,neutral,product_inquiry
+comment_001762,kak spill warna atlantik sea etlase 19,ask_detail,neutral,product_inquiry
+comment_001763,Spil 7 dark grey kak,ask_detail,neutral,product_inquiry
+comment_001764,udh co 4 item,purchase_intent,neutral,purchase_intent
+comment_001765,2,noise,neutral,not_relevant
+comment_001766,kaa baju untuk cowo tinggi dan agak berotot enak nya yg etalase berapa yaa?,ask_stock,neutral,product_inquiry
+comment_001767,etalase 2,ask_stock,neutral,product_inquiry
+comment_001768,bB 68 TB 168 pake uk apa,ask_measurement,neutral,size_recommendation
+comment_001769,Boxy tanktop 7 kak,ask_stock,neutral,product_inquiry
+comment_001770,rekomendasi size 168/70 untuk eta 1 sama 2 bg,ask_measurement,neutral,size_recommendation
+comment_001771,Kak yg oversize spill beige khaky,ask_detail,neutral,product_inquiry
+comment_001772,tb 189 bb 84,ask_measurement,neutral,size_recommendation
+comment_001773,kalo ambil M ngfit atau longgar bb60 tb173 kak,ask_measurement,neutral,size_recommendation
+comment_001774,7 bb70 tb165,ask_measurement,neutral,size_recommendation
+comment_001775,Mas bb 74 tb 165 pakai size apa yang etalase 1,ask_measurement,neutral,size_recommendation
+comment_001776,L ya?,ask_size_fit,neutral,not_relevant
+comment_001777,ini model boxy ga,ask_detail,neutral,product_inquiry
+comment_001778,klo yg model boxy,ask_size_fit,neutral,product_inquiry
+comment_001779,kak etalase 1 ga ada g gray? buat couple sama suami wkwk,ask_stock,neutral,product_inquiry
+comment_001780,klo tinggi 189 cocok nya pake boxi atau oversized atau reguler kaaa,ask_measurement,neutral,size_recommendation
+comment_001781,maroon ka,ask_detail,neutral,color_inquiry
+comment_001782,L gede bgt apa pas bg?,ask_size_fit,neutral,size_inquiry
+comment_001783,ada kak oke,other,neutral,not_relevant
+comment_001784,tb172 bb76,ask_measurement,neutral,size_recommendation
+comment_001785,kalo TB 168 BB 68 pake L ga kepanjangan kan bg baju nya untuk eta 1,ask_measurement,neutral,size_recommendation
+comment_001786,buat cowoku kak😭,ask_measurement,neutral,not_relevant
+comment_001787,spill fitted tee yg warna maroonnya kak,ask_detail,neutral,color_inquiry
+comment_001788,tb 165 bb 62 size apa kak,ask_measurement,neutral,size_recommendation
+comment_001789,Buat bb 82 size apaa bang,ask_measurement,neutral,size_recommendation
+comment_001790,klau BB 65 TB 170 size apa bang baju nya,ask_measurement,neutral,size_recommendation
+comment_001791,long Sleeve BG,ask_stock,neutral,not_relevant
+comment_001792,yang oversize L ya?,ask_size_fit,neutral,size_recommendation
+comment_001793,bang ko harga naik,other,negative,price_inquiry
+comment_001794,bb 68 tb 175 apa bg?,ask_measurement,neutral,size_recommendation
+comment_001795,170/67,ask_measurement,neutral,size_recommendation
+comment_001796,170/60,ask_measurement,neutral,size_recommendation
+comment_001797,Etalase 9 pake xl cukup kan kak ?,ask_size_fit,neutral,size_recommendation
+comment_001798,kalo press brp bg? 170/67,ask_measurement,neutral,size_recommendation
+comment_001799,baju yg dipake etalase brp bg?,ask_stock,neutral,product_inquiry
+comment_001800,bg boxy warna maroon ada contohnya bg?,ask_detail,neutral,color_inquiry
+comment_001801,eta 4 gmn bang,ask_detail,neutral,product_inquiry
+comment_001802,174/82,ask_measurement,neutral,size_recommendation
+comment_001803,Etalase 5 bb 79 tb 173,ask_measurement,neutral,size_recommendation
+comment_001804,"klo yg putih, kerahnya hitam ya??",ask_detail,neutral,color_inquiry
+comment_001805,bb 68 tb 172 bagusnya pake apa bg etalase 1,ask_measurement,neutral,size_recommendation
+comment_001806,etl. 9 67/173,ask_measurement,neutral,size_recommendation
+comment_001807,Et 9 abu muda L,ask_stock,neutral,product_inquiry
+comment_001808,65 178 bagus uk apa,ask_measurement,neutral,size_recommendation
+comment_001809,et4 spil yg buat bb58 bb155,ask_detail,neutral,size_recommendation
+comment_001810,TB 169,ask_measurement,neutral,size_recommendation
+comment_001811,kerah nya itu lebar gasi mas??,ask_detail,neutral,product_inquiry
+comment_001812,TB 169 BB 60,ask_measurement,neutral,size_recommendation
+comment_001813,Itu yang dipake eta brp kak,ask_stock,neutral,product_inquiry
+comment_001814,fitted tee 165/53,ask_measurement,neutral,size_recommendation
+comment_001815,Eta 2 bedanya apa kak,ask_detail,neutral,product_inquiry
+comment_001816,TB 169 BB 60 size berapa bng,ask_measurement,neutral,size_recommendation
+comment_001817,spil 9 yg maroon,ask_detail,neutral,product_inquiry
+comment_001818,rokem nya no 1 apa 2 ya ka,ask_detail,neutral,product_inquiry
+comment_001819,bb 95 ambil etalase berapa kk,ask_stock,neutral,product_inquiry
+comment_001820,"bang boxy cut, 176 67 M atau L bang?",ask_measurement,neutral,size_recommendation
+comment_001821,TB 169 BB 60 size berapa bang,ask_measurement,neutral,size_recommendation
+comment_001822,Eta 2 bedanya apa kak tb 165 bb 63,ask_detail,neutral,size_recommendation
+comment_001823,eta 11 tb 167 bb 53 size apa?,ask_measurement,neutral,size_recommendation
+comment_001824,lu pake sz apa bg,ask_size_fit,neutral,size_inquiry
+comment_001825,eta 8 tb 170 bb 67 size apa bg,ask_measurement,neutral,size_recommendation
+comment_001826,173/58 reguler size apa bang?,ask_measurement,neutral,size_recommendation
+comment_001827,yg eta 1 nyerep keringet ga ya?? waktu itu beli 2x ada yg beda bahannya,ask_detail,neutral,product_inquiry
+comment_001828,"kak spill boxy piped size XL dong, tadi sore udah co dapet 69k🫰🏻",ask_detail,neutral,purchase_intent
+comment_001829,yg dipake size apa mas,ask_size_fit,neutral,size_inquiry
+comment_001830,"ok thank you kak, semoga muat ya di cowokku 85/170 dia",other,neutral,size_recommendation
+comment_001831,Bb 74 tb 165 pakai size L gakekecilan ya mas,ask_measurement,neutral,size_recommendation
+comment_001832,kak itu yg dipake etalase brp,ask_stock,neutral,product_inquiry
+comment_001833,eta 6 dan 11 bedanya apa,ask_detail,neutral,product_inquiry
+comment_001834,eta 2 58/170 sixe apa,ask_measurement,neutral,size_recommendation
+comment_001835,et 10 175 69,ask_measurement,neutral,size_recommendation
+comment_001836,spill warna coklat tua et 10,ask_detail,neutral,product_inquiry
+comment_001837,udah co gw bang,purchase_intent,neutral,purchase_intent
+comment_001838,etalase 1 kek Mimin yang pakek?,ask_stock,neutral,product_inquiry
+comment_001839,udh co bang,purchase_intent,neutral,purchase_intent
+comment_001840,asiap kak,other,neutral,not_relevant
+comment_001841,dah co 2 bg,purchase_intent,neutral,purchase_intent
+comment_001842,ukuran brpa min yang lu pakek,ask_size_fit,neutral,size_inquiry
+comment_001843,yoi bang udah berkali” beli,other,neutral,not_relevant
+comment_001844,bb 70 tb165 fitted tee pake ukuran apa bwng,ask_measurement,neutral,size_recommendation
+comment_001845,kak pengen rip yg tebal etalase brp,ask_stock,neutral,product_inquiry
+comment_001846,min bb 63 tb 170 uk apa ?,ask_measurement,neutral,size_recommendation
+comment_001847,fitted ter,ask_size_fit,neutral,not_relevant
+comment_001848,done co bang sip,purchase_intent,neutral,purchase_intent
+comment_001849,lehernya,ask_detail,neutral,not_relevant
+comment_001850,min saya kalau ke chekout barangnya 2x gimana,other,neutral,purchase_intent
+comment_001851,178-60 sz berapa fitted tee,ask_measurement,neutral,size_recommendation
+comment_001852,ke chekout double,other,neutral,purchase_intent
+comment_001853,mau beli bajunya 1 jadinya 2,other,neutral,purchase_intent
+comment_001854,tb 169 bb 70,ask_measurement,neutral,size_recommendation
+comment_001856,sz berapa kak,ask_size_fit,neutral,size_inquiry
+comment_001857,kak buat bb 46 biar ga keliatan kurus pake size apa,ask_measurement,neutral,size_recommendation
+comment_001858,kecilan ga kak,ask_size_fit,neutral,size_recommendation
+comment_001859,kak boxy buat tb 165 bb 70,ask_measurement,neutral,size_recommendation
+comment_001860,saya BB 79 kakk pake XL pas gakk ??,ask_measurement,neutral,size_recommendation
+comment_001861,bb 8p tb 170 pake size apa bg,ask_measurement,neutral,size_recommendation
+comment_001862,kak saran buat dalaman sekolah adem dan bisa di pake biasa etalase mana,ask_stock,neutral,product_inquiry
+comment_001863,berarti pake size s aja kak??,ask_size_fit,neutral,not_relevant
+comment_001864,dah co min tq ya,purchase_intent,neutral,purchase_intent
+comment_001865,bb 80 bagus yg mana,ask_measurement,neutral,size_recommendation
+comment_001866,bb 85 tb 163,ask_measurement,neutral,size_recommendation
+comment_001867,bb 80 tb 177 yg mn,ask_measurement,neutral,size_recommendation
+comment_001868,166/70,ask_measurement,neutral,size_recommendation
+comment_001869,yg etalase 10 XL  BB 79 bisa kann,ask_measurement,neutral,size_recommendation
+comment_001870,"warna biru ada g situ bang,mau liat warnanya sekarang langsung",ask_stock,neutral,color_inquiry
+comment_001871,kak coba pake L kak,ask_size_fit,neutral,not_relevant
+comment_001872,mau co nih,purchase_intent,neutral,purchase_intent
+comment_001873,tinggi 175 ambil ukuran brp bg?,ask_measurement,neutral,size_recommendation
+comment_001874,bb 50 tb 165,ask_measurement,neutral,size_recommendation
+comment_001875,boxy gaada size s ya,ask_stock,neutral,product_inquiry
+comment_001876,min mau nanya boxy tanktop untuk 165/65 ambil size apa?,ask_measurement,neutral,size_recommendation
+comment_001877,navy,ask_detail,neutral,color_inquiry
+comment_001878,et 16 bb 55 tb 155 pakek uk apa kak,ask_measurement,neutral,size_recommendation
+comment_001879,Tb 170 Bb 62 bisa ambil S bg?,ask_measurement,neutral,size_recommendation
+comment_001880,oke best warnanya tq ya min,other,positive,not_relevant
+comment_001881,bb 80 tb 177 pke uk L msi bagus ga mw co,ask_measurement,neutral,size_recommendation
+comment_001882,abg nya ukuran apa pakainya?,ask_size_fit,neutral,size_inquiry
+comment_001883,bb 57 tb 181 ukuran apa bang,ask_measurement,neutral,size_recommendation
+comment_001884,bb 80 tb 177 uk L msi bagus ga,ask_measurement,neutral,size_recommendation
+comment_001885,kak spil et 2,ask_detail,neutral,product_inquiry
+comment_001887,bb70 size apa ka,ask_measurement,neutral,size_recommendation
+comment_001888,bang tb 170 bb 55 ambil apa boxy,ask_measurement,neutral,size_recommendation
+comment_001889,bb 45 tb 160 uk brp kak et 1,ask_measurement,neutral,size_recommendation
+comment_001890,bedanya serat bambu sama katun biasa apa ka,ask_detail,neutral,product_inquiry
+comment_001891,BB 55 TB 170 pake size apa bg yg fitted tee,ask_measurement,neutral,size_recommendation
+comment_001892,Kalo fitted tee bb 78 / tb 165 size apa ?,ask_measurement,neutral,size_recommendation
+comment_001898,fitted tee bb 68 tb 168,ask_measurement,neutral,size_recommendation
+comment_001900,"udah co, semoga sesuai",purchase_intent,neutral,purchase_intent

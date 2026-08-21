@@ -1,0 +1,1001 @@
+﻿comment_id,text,intent,sentiment,label_id_true,label_id_pred,pred_intent,confidence
+comment_000017,etalase 3 ka,product_inquiry,neutral,0,0,product_inquiry,0.9993938
+comment_000021,yg spiderman bb 95 bisa ga kk?,size_recommendation,neutral,2,2,size_recommendation,0.9887869
+comment_000025,yg di pake ukuran apa ka,size_inquiry,neutral,1,1,size_inquiry,0.999321
+comment_000028,et 1 tb 160 bb 70 uk apa kak,size_recommendation,neutral,2,2,size_recommendation,0.99942446
+comment_000033,Iya bep,not_relevant,neutral,7,7,not_relevant,0.99930716
+comment_000035,tb 170.bb 85 uk berapa,size_recommendation,neutral,2,2,size_recommendation,0.9994205
+comment_000037,baju yang spiderman kak spil,product_inquiry,neutral,0,0,product_inquiry,0.9992793
+comment_000045,Bahan apan?,product_inquiry,neutral,0,0,product_inquiry,0.9994011
+comment_000051,ka ini kmrn udh co 2 tp dateng nya ko 1 doang ya,purchase_intent,negative,6,6,purchase_intent,0.99936956
+comment_000065,tb 178 bb 65 pake size berpa ya,size_recommendation,neutral,2,2,size_recommendation,0.99943966
+comment_000071,Spil eta 18 kak,product_inquiry,neutral,0,0,product_inquiry,0.9993937
+comment_000082,itu ukuran berapa kak yg Spiderman,size_inquiry,neutral,1,1,size_inquiry,0.9992231
+comment_000094,tb 158 kaos Spiderman ukuran apa kak,size_recommendation,neutral,2,2,size_recommendation,0.9993474
+comment_000101,Spil yg spederman,not_relevant,neutral,7,7,not_relevant,0.9945194
+comment_000102,oke,not_relevant,neutral,7,7,not_relevant,0.9992986
+comment_000121,dari tanggal 4,not_relevant,negative,7,7,not_relevant,0.99922216
+comment_000129,Spil etalase 4,product_inquiry,neutral,0,0,product_inquiry,0.99939454
+comment_000130,bb 74 ukuran brp,size_recommendation,neutral,2,2,size_recommendation,0.9994276
+comment_000140,etalase 1 ukuran XXL,size_inquiry,neutral,1,1,size_inquiry,0.9991335
+comment_000158,sablon nya apa kak,product_inquiry,neutral,0,0,product_inquiry,0.99936086
+comment_000159,tb 158 bb 40 uk?,size_recommendation,neutral,2,2,size_recommendation,0.99938905
+comment_000183,BB 61 TB 160,size_recommendation,neutral,2,2,size_recommendation,0.99943465
+comment_000191,makan mhh udh biasa mas 🗿,not_relevant,neutral,7,7,not_relevant,0.99933124
+comment_000206,Gk bisa cod ya kak,not_relevant,neutral,7,7,not_relevant,0.9992593
+comment_000222,"J Y 1 3 1 7 6 2 2 5 0 8,tuh resi ny",not_relevant,neutral,7,7,not_relevant,0.9754573
+comment_000228,yg gambar Spiderman merah kak,color_inquiry,neutral,3,3,color_inquiry,0.9991535
+comment_000231,payment ga bisa Qris ka,not_relevant,neutral,7,7,not_relevant,0.9992501
+comment_000240,BB 48 TB 152 ambil size apa kk,size_recommendation,neutral,2,2,size_recommendation,0.9994382
+comment_000243,BB 37 TB 140 ambil S apa m,size_recommendation,neutral,2,2,size_recommendation,0.9985726
+comment_000245,BB 65 TB 185 ambil UK apa kak?,size_recommendation,neutral,2,2,size_recommendation,0.9993969
+comment_000246,KA etalase 2 TB 148 BB  40,size_recommendation,neutral,2,2,size_recommendation,0.9994186
+comment_000256,ka paket ku udah dtang bagus bgt,not_relevant,positive,7,7,not_relevant,0.9991636
+comment_000277,saya mau ambil 2 rekomen dong kk saya mau ambil et 5 trus yang rekomen apa,purchase_intent,neutral,6,6,purchase_intent,0.98024243
+comment_000296,bb75 TB 178,size_recommendation,neutral,2,2,size_recommendation,0.99942374
+comment_000297,eta lase 5 ka,product_inquiry,neutral,0,0,product_inquiry,0.99942315
+comment_000300,Spil etalase 3 kak,product_inquiry,neutral,0,0,product_inquiry,0.99937683
+comment_000304,eh salahh no 4,not_relevant,neutral,7,7,not_relevant,0.997687
+comment_000311,coba spil baju etalase 15,product_inquiry,neutral,0,0,product_inquiry,0.9993787
+comment_000342,eta brpa yg d pake kaka,product_inquiry,neutral,0,0,product_inquiry,0.999382
+comment_000349,kk untuk BB 30 itu bagus ukuran apa?,size_recommendation,neutral,2,2,size_recommendation,0.9088824
+comment_000382,baju spiderman,not_relevant,neutral,7,7,not_relevant,0.9990189
+comment_000391,BB 60 perut buncit kak,size_recommendation,neutral,2,2,size_recommendation,0.9994399
+comment_000414,bahannya cepet apek ngk kak,product_inquiry,neutral,0,0,product_inquiry,0.99934226
+comment_000419,bb 70 ukuran berapaan kk,size_recommendation,neutral,2,2,size_recommendation,0.99937326
+comment_000423,udah co kak,purchase_intent,neutral,6,6,purchase_intent,0.99951935
+comment_000429,bb 45 tb 163 uk apa kka,size_recommendation,neutral,2,2,size_recommendation,0.9994266
+comment_000444,eta 31 bb 45,size_recommendation,neutral,2,2,size_recommendation,0.99938405
+comment_000456,kalau bb 67 tb 165,size_recommendation,neutral,2,2,size_recommendation,0.9994423
+comment_000458,bahan nya apa,product_inquiry,neutral,0,0,product_inquiry,0.9994179
+comment_000462,kak klo co skrg sampe nya kapan kira2 kak ke tangsel,purchase_intent,neutral,6,6,purchase_intent,0.99944824
+comment_000468,14 ya mbak,not_relevant,neutral,7,7,not_relevant,0.99886453
+comment_000496,Bb 64 size apa kak,size_recommendation,neutral,2,2,size_recommendation,0.999433
+comment_000497,Eta 3 bsa buat Cowo ga kak,product_inquiry,neutral,0,0,product_inquiry,0.9991203
+comment_000522,Spil baju Spiderman,product_inquiry,neutral,0,0,product_inquiry,0.759413
+comment_000563,paling cuci muka aja 🤪🤪,not_relevant,neutral,7,7,not_relevant,0.9993154
+comment_000571,liat yang spderman ya ka bandingin L-XL,size_inquiry,neutral,1,1,size_inquiry,0.82290614
+comment_000592,KK lihat UK L sama XL nya,size_inquiry,neutral,1,1,size_inquiry,0.9993037
+comment_000598,@Firman✨ hahahha,not_relevant,neutral,7,7,not_relevant,0.99928147
+comment_000612,BB 87 size apa kah..?,size_recommendation,neutral,2,2,size_recommendation,0.99940073
+comment_000615,@Fullmoonfolks itu bahan bajunya kak,product_inquiry,neutral,0,0,product_inquiry,0.99938107
+comment_000618,kk bb 75,size_recommendation,neutral,2,2,size_recommendation,0.99943215
+comment_000623,keranjang 20 BB 55,size_recommendation,neutral,2,2,size_recommendation,0.99942905
+comment_000635,kk eta 3 kk,product_inquiry,neutral,0,0,product_inquiry,0.99940777
+comment_000639,eta 2 kk,product_inquiry,neutral,0,0,product_inquiry,0.9994086
+comment_000647,coba pegang lagi kak,not_relevant,neutral,7,7,not_relevant,0.9993211
+comment_000677,Spil et 6,product_inquiry,neutral,0,0,product_inquiry,0.99940395
+comment_000681,tdk bisa cod,not_relevant,neutral,7,7,not_relevant,0.999233
+comment_000686,bb 75 biar oversize pake size apa kak?,size_recommendation,neutral,2,2,size_recommendation,0.99933773
+comment_000701,bb 50 s apa m,size_recommendation,neutral,2,2,size_recommendation,0.99720275
+comment_000703,BB 75 kak??,size_recommendation,neutral,2,2,size_recommendation,0.99941635
+comment_000721,alhamdulillah akhirnya mandi juga,not_relevant,neutral,7,7,not_relevant,0.99934167
+comment_000724,ekh neng sifa,not_relevant,neutral,7,7,not_relevant,0.9986714
+comment_000731,ok kak co,purchase_intent,neutral,6,6,purchase_intent,0.9995073
+comment_000732,baju nya bahan apa kak,product_inquiry,neutral,0,0,product_inquiry,0.9994191
+comment_000745,yang foto muka kakaknya 🤭,not_relevant,neutral,7,7,not_relevant,0.9991616
+comment_000779,27 kak,not_relevant,neutral,7,7,not_relevant,0.9991748
+comment_000787,oke cintakuu,not_relevant,neutral,7,7,not_relevant,0.9993204
+comment_000789,bnyak yg mau q tnyain ke km,not_relevant,neutral,7,7,not_relevant,0.9990325
+comment_000842,Ibu ibu bawel iyeu mh 🤣,not_relevant,neutral,7,7,not_relevant,0.9993325
+comment_000845,"Semangat teh, saya out dulu",not_relevant,neutral,7,7,not_relevant,0.99874336
+comment_000855,Beruntung yang bisa bekerja sama orang kayak teteh,not_relevant,positive,7,7,not_relevant,0.9991394
+comment_000889,cewek cowok bisa ga ka,product_inquiry,neutral,0,7,not_relevant,0.99672097
+comment_000902,Bingung ka pada lucu semua,not_relevant,positive,7,7,not_relevant,0.9992718
+comment_000905,bantal etalase berapa kak,product_inquiry,neutral,0,0,product_inquiry,0.9993274
+comment_000917,Etalase 1,product_inquiry,neutral,0,0,product_inquiry,0.99938786
+comment_000920,bb 51 tb 175,size_recommendation,neutral,2,2,size_recommendation,0.99942774
+comment_000927,sablon nya aman ka,product_inquiry,neutral,0,0,product_inquiry,0.9991492
+comment_000928,kalo XXL minimal BB brp,size_inquiry,neutral,1,1,size_inquiry,0.99614316
+comment_000951,24,not_relevant,neutral,7,7,not_relevant,0.9992449
+comment_000953,yg dipegang ukuran berapa,size_inquiry,neutral,1,1,size_inquiry,0.99923944
+comment_000955,pengiriman dr mana bng,not_relevant,neutral,7,7,not_relevant,0.99927634
+comment_000973,hitam,color_inquiry,neutral,3,3,color_inquiry,0.99925107
+comment_000993,buat suami,not_relevant,neutral,7,7,not_relevant,0.9991431
+comment_001016,aku cari kaos,not_relevant,neutral,7,7,not_relevant,0.91066235
+comment_001052,jaket ada kak?,product_inquiry,neutral,0,0,product_inquiry,0.9974654
+comment_001069,warna maroon ada ga,color_inquiry,neutral,3,3,color_inquiry,0.999589
+comment_001075,itu etalase brp,product_inquiry,neutral,0,0,product_inquiry,0.99941635
+comment_001085,Bg spil chino slim fit yg warna khaki,color_inquiry,neutral,3,3,color_inquiry,0.99905235
+comment_001096,uda co ya kaa eta 1,purchase_intent,neutral,6,6,purchase_intent,0.9994412
+comment_001107,hoodie yg di postingaan itu belinya dmna ya ka,purchase_intent,neutral,6,0,product_inquiry,0.9992255
+comment_001124,saya ud beli chino yg biasa pake size 40,not_relevant,neutral,7,6,purchase_intent,0.99473935
+comment_001125,oh klo yg relax lebih longgar brrti pinggangnya juga ya yg relax??,size_recommendation,neutral,2,0,product_inquiry,0.95256174
+comment_001134,yg td kos tlse brp,product_inquiry,neutral,0,7,not_relevant,0.96761703
+comment_001136,kemeja hitam pendek,color_inquiry,neutral,3,3,color_inquiry,0.95111805
+comment_001148,"BB 43-44 kurus,tinggi sekitaran 170 keatas ambil size berapa mau ambil oversize",size_recommendation,neutral,2,2,size_recommendation,0.9994271
+comment_001151,henley boxy long sleeve tb 170 bb 60 pke size apa bang,size_recommendation,neutral,2,2,size_recommendation,0.9994499
+comment_001166,spill et 2 wrna maron kak,product_inquiry,neutral,0,0,product_inquiry,0.9993519
+comment_001181,ada slim fit ga kak atau regular,product_inquiry,neutral,0,2,size_recommendation,0.99003744
+comment_001186,fitted air beda nya apa bang?,product_inquiry,neutral,0,0,product_inquiry,0.99933004
+comment_001200,bb 60 tb 180 ambil ukuran apa bang?,size_recommendation,neutral,2,2,size_recommendation,0.9993556
+comment_001254,"177/72 ambil L etalase 1, ternyata ketat banget. Retur ditolak. Hati-hati sizenya bermasalh banget⚠️",size_recommendation,negative,2,2,size_recommendation,0.999255
+comment_001265,Makanya tanggung jawab bang,not_relevant,negative,7,7,not_relevant,0.9991003
+comment_001276,jgn diaajakin debat mas.. haha. ga bagus bwt persepsi brand,not_relevant,neutral,7,7,not_relevant,0.9991992
+comment_001283,"aaoakwkkw, nyari ribut doang bang, gw beli disini kaos basic bagus bagus aja kok sesuai",not_relevant,positive,7,7,not_relevant,0.99745685
+comment_001293,tb 165 bb 55 pakek sz apa bg,size_recommendation,neutral,2,2,size_recommendation,0.99942374
+comment_001312,et 6 bisa buat cewe ga kak?,product_inquiry,neutral,0,0,product_inquiry,0.9989411
+comment_001326,beda eta 1 sm 2 apa mas,product_inquiry,neutral,0,0,product_inquiry,0.9994048
+comment_001336,yang abangnya pake airy apa bukan?,product_inquiry,neutral,0,0,product_inquiry,0.96076417
+comment_001374,"etalase 2 , bb 50 tb 169 size apa ka?",size_recommendation,neutral,2,2,size_recommendation,0.99942446
+comment_001383,"udah co 2 kak tadi sz m, okee gk",purchase_intent,neutral,6,6,purchase_intent,0.99949646
+comment_001385,ada kameja gk kak,not_relevant,neutral,7,7,not_relevant,0.99600035
+comment_001392,spil eta 9 kk,product_inquiry,neutral,0,0,product_inquiry,0.9994054
+comment_001393,nah udah ada,not_relevant,neutral,7,7,not_relevant,0.9992459
+comment_001394,ada,not_relevant,neutral,7,7,not_relevant,0.99889994
+comment_001415,contoh ukuran m yg fitted,not_relevant,neutral,7,1,size_inquiry,0.9992391
+comment_001425,ka beda etalase 1 ama 2 apa,product_inquiry,neutral,0,0,product_inquiry,0.9993759
+comment_001429,Eta 19 buat TB 180 BB 71 size apa bang?,size_recommendation,neutral,2,2,size_recommendation,0.99815637
+comment_001439,Yang merah garis model fit led tee gada bang?,product_inquiry,neutral,0,3,color_inquiry,0.9508787
+comment_001448,yang reguler kak,not_relevant,neutral,7,7,not_relevant,0.99921095
+comment_001451,kak itu pake size apa,size_inquiry,neutral,1,1,size_inquiry,0.999345
+comment_001462,etalase 2 bandingkan warna light grey sama dark grey bg,product_inquiry,neutral,0,0,product_inquiry,0.9972613
+comment_001467,tb 170 bb 80 size brp bng fitted te,size_recommendation,neutral,2,2,size_recommendation,0.9994392
+comment_001468,TB 170 BB 55 size apa?,size_recommendation,neutral,2,2,size_recommendation,0.99935883
+comment_001469,Lagi promo lagi tapi aku uda punya semua warna nya et 1 nya,not_relevant,neutral,7,4,price_inquiry,0.9956779
+comment_001492,"Dtalase no 6, tb 165 bb 75",size_recommendation,neutral,2,2,size_recommendation,0.99944276
+comment_001511,"bb 56,5 tb 169 ukuran berapa fit t tea air",size_recommendation,neutral,2,2,size_recommendation,0.99943334
+comment_001542,Bang sory tadi gua ambilnya size apa?,size_inquiry,neutral,1,1,size_inquiry,0.54445016
+comment_001543,Sory ka kecepatan tadi ukuran M bukan ya ?,size_inquiry,neutral,1,1,size_inquiry,0.9987489
+comment_001599,tb 160 bb 55 aku bg,size_recommendation,neutral,2,2,size_recommendation,0.9994467
+comment_001601,size apa,size_inquiry,neutral,1,1,size_inquiry,0.9992206
+comment_001619,licin apa kaos biasa?,product_inquiry,neutral,0,0,product_inquiry,0.9979552
+comment_001624,tb 164 bb 55 size apa bang etalase,size_recommendation,neutral,2,2,size_recommendation,0.9994293
+comment_001637,171/57,size_recommendation,neutral,2,2,size_recommendation,0.999283
+comment_001662,ka udh co etalase 2,purchase_intent,neutral,6,6,purchase_intent,0.99932086
+comment_001683,gua rencananya mau co yg ringer tee,purchase_intent,neutral,6,6,purchase_intent,0.9995376
+comment_001694,oversise tee buat daily biasa yg mana kak,product_inquiry,neutral,0,7,not_relevant,0.9973953
+comment_001701,eta 2 biar ga fit bgt ambil m atau L bg soalnya ga suka yg nge fit bg,size_recommendation,neutral,2,2,size_recommendation,0.9943368
+comment_001702,Spil et 1 warna light blue,product_inquiry,neutral,0,0,product_inquiry,0.99930155
+comment_001726,"kak dah sampe bajunya bagus banget.. co lagi ni, suamiku suka",purchase_intent,positive,6,6,purchase_intent,0.9976089
+comment_001746,itu ukuran s kak?,size_inquiry,neutral,1,1,size_inquiry,0.99927133
+comment_001750,Kok gabisa cod bg,not_relevant,neutral,7,7,not_relevant,0.99933124
+comment_001759,Spil 7 mas,product_inquiry,neutral,0,0,product_inquiry,0.99915683
+comment_001770,rekomendasi size 168/70 untuk eta 1 sama 2 bg,size_recommendation,neutral,2,2,size_recommendation,0.9991473
+comment_001785,kalo TB 168 BB 68 pake L ga kepanjangan kan bg baju nya untuk eta 1,size_recommendation,neutral,2,2,size_recommendation,0.9993438
+comment_001789,Buat bb 82 size apaa bang,size_recommendation,neutral,2,2,size_recommendation,0.99942845
+comment_001798,kalo press brp bg? 170/67,size_recommendation,neutral,2,2,size_recommendation,0.99937063
+comment_001806,etl. 9 67/173,size_recommendation,neutral,2,2,size_recommendation,0.99936765
+comment_001821,TB 169 BB 60 size berapa bang,size_recommendation,neutral,2,2,size_recommendation,0.99943775
+comment_001824,lu pake sz apa bg,size_inquiry,neutral,1,1,size_inquiry,0.9991074
+comment_001838,etalase 1 kek Mimin yang pakek?,product_inquiry,neutral,0,0,product_inquiry,0.999353
+comment_001840,asiap kak,not_relevant,neutral,7,7,not_relevant,0.96847457
+comment_001847,fitted ter,not_relevant,neutral,7,7,not_relevant,0.9990269
+comment_001851,178-60 sz berapa fitted tee,size_recommendation,neutral,2,2,size_recommendation,0.99942976
+comment_001871,kak coba pake L kak,not_relevant,neutral,7,1,size_inquiry,0.9350931
+comment_001878,et 16 bb 55 tb 155 pakek uk apa kak,size_recommendation,neutral,2,2,size_recommendation,0.99944156
+comment_001882,abg nya ukuran apa pakainya?,size_inquiry,neutral,1,1,size_inquiry,0.9993406
+comment_001885,kak spil et 2,product_inquiry,neutral,0,0,product_inquiry,0.9993998
+comment_001889,bb 45 tb 160 uk brp kak et 1,size_recommendation,neutral,2,2,size_recommendation,0.9994369
+comment_001898,fitted tee bb 68 tb 168,size_recommendation,neutral,2,2,size_recommendation,0.99945074
+gen_00006,min warna coklat masih ada?,color_inquiry,neutral,3,3,color_inquiry,0.9996203
+gen_00013,kak kemeja warna biru ada ga?,color_inquiry,neutral,3,3,color_inquiry,0.9995896
+gen_00018,min warna navy ga ada?,color_inquiry,neutral,3,3,color_inquiry,0.9996277
+gen_00036,bang warna ungu ready kak?,color_inquiry,neutral,3,3,color_inquiry,0.9995982
+gen_00049,kak warna navy ada ukuran xl ga?,color_inquiry,neutral,3,3,color_inquiry,0.9994843
+gen_00061,kak warna merah maroon ready ukuran m?,color_inquiry,neutral,3,3,color_inquiry,0.9994929
+gen_00075,kak warna putih ada ga ukuran m?,color_inquiry,neutral,3,3,color_inquiry,0.9995517
+gen_00076,bang warna biru ready ga ukuran l?,color_inquiry,neutral,3,3,color_inquiry,0.9995666
+gen_00101,kak warna navy ready ga ukuran m?,color_inquiry,neutral,3,3,color_inquiry,0.9995443
+gen_00102,kak warna putih ready ga ukuran m?,color_inquiry,neutral,3,3,color_inquiry,0.99954706
+gen_00104,kak warna abu abu ready ga ukuran m?,color_inquiry,neutral,3,3,color_inquiry,0.99950564
+gen_00112,bang warna navy ready ga ukuran l?,color_inquiry,neutral,3,3,color_inquiry,0.9995851
+gen_00120,﻿kak ini warnanya ada apa aja sih?,color_inquiry,neutral,3,3,color_inquiry,0.99581075
+gen_00131,bang warna kuning ga ada ya?,color_inquiry,neutral,3,3,color_inquiry,0.9996159
+gen_00134,kak warna mustard ready ga?,color_inquiry,neutral,3,3,color_inquiry,0.9996307
+gen_00144,kak warna army ijo tersedia?,color_inquiry,neutral,3,3,color_inquiry,0.99960166
+gen_00145,min warna krem ada ukuran berapa aja?,color_inquiry,neutral,3,3,color_inquiry,0.99952734
+gen_00167,bang warna coklat buat hoodie tersedia?,color_inquiry,neutral,3,3,color_inquiry,0.9996195
+gen_00168,kak warna navy buat tshirt ready?,color_inquiry,positive,3,3,color_inquiry,0.99962044
+gen_00177,min warna dusty buat kemeja tersedia?,color_inquiry,neutral,3,3,color_inquiry,0.99962425
+gen_00194,kak warna toska buat sweater ada?,color_inquiry,neutral,3,3,color_inquiry,0.99960583
+gen_00208,kak warna maroon buat sweater ready?,color_inquiry,neutral,3,3,color_inquiry,0.9996159
+gen_00230,kak warna pink buat hoodie ada?,color_inquiry,neutral,3,3,color_inquiry,0.9996146
+gen_00232,kak warna toska buat celana ready?,color_inquiry,neutral,3,3,color_inquiry,0.9996182
+gen_00252,kak warna mustard buat celana ada?,color_inquiry,neutral,3,3,color_inquiry,0.999608
+gen_00293,min warna kuning ready gak kak?,color_inquiry,neutral,3,3,color_inquiry,0.99962544
+gen_00294,kak warna merah ada nggak min?,color_inquiry,neutral,3,3,color_inquiry,0.9996221
+gen_00300,kak warna item masih ready nggak kak?,color_inquiry,neutral,3,3,color_inquiry,0.9996244
+gen_00306,kak warna pink ready nggak min?,color_inquiry,neutral,3,3,color_inquiry,0.99962795
+gen_00307,bang warna ungu masih ada gak kak?,color_inquiry,neutral,3,3,color_inquiry,0.99961483
+gen_00317,min warna army ready nggak bang?,color_inquiry,neutral,3,3,color_inquiry,0.99963784
+gen_00318,kak warna hijau ready ga min?,color_inquiry,neutral,3,3,color_inquiry,0.99962604
+gen_00321,min warna pink ready ga bang?,color_inquiry,neutral,3,3,color_inquiry,0.9996269
+gen_00333,min warna hijau ready ga bang?,color_inquiry,neutral,3,3,color_inquiry,0.9996251
+gen_00356,min warna biru ready nggak min?,color_inquiry,neutral,3,3,color_inquiry,0.999629
+gen_00374,kak warna hijau ready gak kak?,color_inquiry,neutral,3,3,color_inquiry,0.99962914
+gen_00381,min warna hitam ready nggak kak?,color_inquiry,neutral,3,3,color_inquiry,0.99963
+gen_00384,kak warna abu ready gak bang?,color_inquiry,neutral,3,3,color_inquiry,0.9996257
+gen_00389,kalo warna item ada gak min?,color_inquiry,neutral,3,3,color_inquiry,0.9995316
+gen_00407,min army masih ada gak?,color_inquiry,neutral,3,3,color_inquiry,0.99892455
+gen_00417,bang navy ready kah ukuran m?,color_inquiry,neutral,3,3,color_inquiry,0.9995425
+gen_00423,min navy masih ada ukuran s?,color_inquiry,neutral,3,3,color_inquiry,0.99954116
+gen_00439,min army ready nggak ukuran l?,color_inquiry,neutral,3,3,color_inquiry,0.99952507
+gen_00455,kak item ada ukuran m gak?,color_inquiry,neutral,3,3,color_inquiry,0.9995627
+gen_00471,bang navy ready gak ukuran l?,color_inquiry,neutral,3,3,color_inquiry,0.9995927
+gen_00479,kak army ready kah ukuran s?,color_inquiry,neutral,3,3,color_inquiry,0.9993616
+gen_00492,kak army ready kah ukuran l?,color_inquiry,neutral,3,3,color_inquiry,0.9994855
+gen_00523,bang warna coklat buat ke kondangan cocok?,color_inquiry,neutral,3,3,color_inquiry,0.9996069
+gen_00542,kak warna item mengkilap ada gak?,color_inquiry,neutral,3,3,color_inquiry,0.9996247
+gen_00547,bang warna krem kecoklatan ada?,color_inquiry,neutral,3,3,color_inquiry,0.9995988
+gen_00555,bang warna kuning cerah masih ready?,color_inquiry,neutral,3,3,color_inquiry,0.9996216
+gen_00557,min warna item pekat ada nggak?,color_inquiry,positive,3,3,color_inquiry,0.9996356
+gen_00560,kak warna abu biru ready gak?,color_inquiry,neutral,3,3,color_inquiry,0.99961275
+gen_00562,kak warna hijau daun ready nggak?,color_inquiry,neutral,3,3,color_inquiry,0.9996208
+gen_00574,kak warna coklat karamel ready gak?,color_inquiry,neutral,3,3,color_inquiry,0.9996275
+gen_00578,kak warna merah bata ready nggak?,color_inquiry,negative,3,3,color_inquiry,0.99962366
+gen_00584,kak warna putih tulang ready?,color_inquiry,neutral,3,3,color_inquiry,0.99959606
+gen_00598,kak warna abu kebiruan ready?,color_inquiry,neutral,3,3,color_inquiry,0.99960953
+gen_00602,kak warna merah cherry ready?,color_inquiry,negative,3,3,color_inquiry,0.9996013
+gen_00613,min warna mustard tua ada?,color_inquiry,neutral,3,3,color_inquiry,0.9996228
+gen_00617,min warna maroon kehitaman ada?,color_inquiry,neutral,3,3,color_inquiry,0.9996209
+gen_00662,bang krem masih ada stoknya?,color_inquiry,neutral,3,3,color_inquiry,0.9988361
+gen_00681,bang krem stoknya tinggal berapa?,color_inquiry,neutral,3,3,color_inquiry,0.99510115
+gen_00690,kak cream sisa berapa ukuran xl?,color_inquiry,neutral,3,3,color_inquiry,0.99953425
+gen_00694,kak coklat sisa berapa ukuran xl?,color_inquiry,neutral,3,3,color_inquiry,0.999595
+gen_00715,kak abu abu sisa berapa ukuran s?,color_inquiry,neutral,3,3,color_inquiry,0.99957436
+gen_00720,bang coklat tinggal berapa ukuran xl?,color_inquiry,neutral,3,3,color_inquiry,0.9996062
+gen_00730,bang putih tinggal berapa ukuran l?,color_inquiry,neutral,3,3,color_inquiry,0.9996032
+gen_00746,min putih tinggal berapa ukuran s?,color_inquiry,neutral,3,3,color_inquiry,0.9995881
+gen_00771,min hoodie warna krem ada gak?,color_inquiry,neutral,3,3,color_inquiry,0.9996131
+gen_00775,min kaos polos warna item ready?,color_inquiry,neutral,3,3,color_inquiry,0.999582
+gen_00786,kak sweater warna abu muda ready gak?,color_inquiry,neutral,3,3,color_inquiry,0.99961406
+gen_00792,kak sweater warna mustard tua ada gak?,color_inquiry,neutral,3,3,color_inquiry,0.9995957
+gen_00795,min tshirt warna item polos ada?,color_inquiry,neutral,3,3,color_inquiry,0.9996309
+gen_00798,kak kemeja warna navy pekat ready?,color_inquiry,neutral,3,3,color_inquiry,0.9996062
+gen_00810,kak kaos warna item matte ready gak?,color_inquiry,neutral,3,3,color_inquiry,0.9995945
+gen_00811,min kemeja warna putih tulang masih ada?,color_inquiry,neutral,3,3,color_inquiry,0.9996177
+gen_00812,kak hoodie warna navy abu ready?,color_inquiry,positive,3,3,color_inquiry,0.9996203
+gen_00828,kak sweater warna pink cerah ada?,color_inquiry,neutral,3,3,color_inquiry,0.99962103
+gen_00843,min jogger warna dusty lilac ready?,color_inquiry,neutral,3,3,color_inquiry,0.999603
+gen_00844,kak celana warna pink blush ada gak?,color_inquiry,neutral,3,3,color_inquiry,0.9995925
+gen_00870,kak sweater warna cream polos ada?,color_inquiry,neutral,3,3,color_inquiry,0.9996086
+gen_00875,min kemeja warna biru polos ready?,color_inquiry,neutral,3,3,color_inquiry,0.9996214
+gen_00927,bang warna sage buat cowo aesthetic cocok?,color_inquiry,neutral,3,3,color_inquiry,0.99958664
+gen_00931,bang warna item buat cewe badass cocok?,color_inquiry,neutral,3,3,color_inquiry,0.99961036
+gen_00932,kak warna navy buat cowo preman cocok ga? bercanda min,color_inquiry,neutral,3,3,color_inquiry,0.9996136
+gen_00935,bang warna army buat cowo militer style cocok?,color_inquiry,neutral,3,3,color_inquiry,0.999608
+gen_00966,kak warna mustard buat cowo retro cocok gak?,color_inquiry,neutral,3,3,color_inquiry,0.99958044
+gen_00971,bang warna item buat cowo edgy cocok?,color_inquiry,neutral,3,3,color_inquiry,0.9996166
+gen_00976,kak warna putih buat cowo angel cocok gak?,color_inquiry,neutral,3,3,color_inquiry,0.99960405
+gen_00979,bang warna cream buat cowo vanilla cocok?,color_inquiry,neutral,3,3,color_inquiry,0.9996126
+gen_00983,bang warna merah buat cowo rose cocok?,color_inquiry,neutral,3,3,color_inquiry,0.99961275
+gen_00989,min warna maroon buat cowo burgundy cocok?,color_inquiry,neutral,3,3,color_inquiry,0.9995975
+gen_00991,bang warna item buat cowo onyx cocok?,color_inquiry,neutral,3,3,color_inquiry,0.9996117
+gen_00997,min warna krem buat cowo sand cocok?,color_inquiry,neutral,3,3,color_inquiry,0.9996191
+gen_01010,kak warna cream buat cowo almond cocok ga?,color_inquiry,neutral,3,3,color_inquiry,0.99958104
+gen_01020,kak item sma coklat mana yg ready?,color_inquiry,neutral,3,3,color_inquiry,0.9995963
+gen_01024,kak warna krem buat celana ada?,color_inquiry,neutral,3,3,color_inquiry,0.99960774
+gen_01038,kak warna coklat tua buat celana ready?,color_inquiry,neutral,3,3,color_inquiry,0.999627
+gen_01039,min hijau muda buat kemeja ada?,color_inquiry,neutral,3,3,color_inquiry,0.9996171
+gen_01041,bang putih buat kaos polos ada?,color_inquiry,neutral,3,3,color_inquiry,0.9995671
+gen_01048,kak biru buat kemeja ready gak?,color_inquiry,neutral,3,3,color_inquiry,0.9996018
+gen_01049,bang kuning buat tshirt ada?,color_inquiry,neutral,3,3,color_inquiry,0.9995882
+gen_01057,bang item buat kemeja ada gak?,color_inquiry,neutral,3,3,color_inquiry,0.999519
+gen_01066,kak item polos buat celana ready?,color_inquiry,neutral,3,3,color_inquiry,0.9996151
+gen_01067,min putih buat hoodie ada?,color_inquiry,neutral,3,3,color_inquiry,0.99958926
+gen_01069,bang abu buat kaos ada?,color_inquiry,neutral,3,3,color_inquiry,0.9996032
+gen_01074,kak army buat sweater ready min?,color_inquiry,neutral,3,3,color_inquiry,0.9995871
+gen_01086,kak putih buat jogger ready?,color_inquiry,neutral,3,3,color_inquiry,0.9995964
+gen_01089,bang coklat buat kaos ada?,color_inquiry,neutral,3,3,color_inquiry,0.99957746
+gen_01094,kak item buat sweater ready?,color_inquiry,neutral,3,3,color_inquiry,0.99960345
+gen_01096,kak navy buat tshirt ready gak?,color_inquiry,neutral,3,3,color_inquiry,0.99958783
+gen_01099,min krem buat celana ada?,color_inquiry,neutral,3,3,color_inquiry,0.9995561
+gen_01101,kak army buat tshirt ready min?,color_inquiry,neutral,3,3,color_inquiry,0.9995414
+gen_01129,min merah buat hoodie ada?,color_inquiry,neutral,3,3,color_inquiry,0.999602
+gen_01137,min dusty buat tshirt ada?,color_inquiry,neutral,3,3,color_inquiry,0.99949145
+gen_01142,bang coklat buat kemeja ada?,color_inquiry,neutral,3,3,color_inquiry,0.9995782
+gen_01143,kak krem buat tshirt ready min?,color_inquiry,neutral,3,3,color_inquiry,0.99955696
+gen_01146,kak item buat kemeja ready?,color_inquiry,neutral,3,3,color_inquiry,0.9995993
+gen_01160,kak warna item glossy buat jogger ready min?,color_inquiry,neutral,3,3,color_inquiry,0.9995976
+gen_01175,bang ini live dari mana?,not_relevant,neutral,7,7,not_relevant,0.9993912
+gen_01181,bang ini di rumah atau studio?,not_relevant,neutral,7,7,not_relevant,0.99937266
+gen_01185,min kadonya manis bgt haha,not_relevant,neutral,7,7,not_relevant,0.9985965
+gen_01192,kak ini yang jual siapa?,not_relevant,neutral,7,0,product_inquiry,0.83789647
+gen_01200,min pin dulu min hehe,not_relevant,negative,7,7,not_relevant,0.99884135
+gen_01228,kak ini live siang doang?,not_relevant,neutral,7,7,not_relevant,0.9993986
+gen_01241,bang ini live dari pagi tadi?,not_relevant,neutral,7,7,not_relevant,0.99939835
+gen_01252,kak ini live adminnya ga keliatan,not_relevant,neutral,7,7,not_relevant,0.99937004
+gen_01263,min ini live adminnya sibuk banget,not_relevant,neutral,7,7,not_relevant,0.99937683
+gen_01280,bang ini live full senyum,not_relevant,positive,7,7,not_relevant,0.99939764
+gen_01283,bang ini live adminnya asik,not_relevant,neutral,7,7,not_relevant,0.99938226
+gen_01292,bang udah ikut dari kemarin,not_relevant,neutral,7,7,not_relevant,0.9993765
+gen_01307,bang ini live adminnya lagi bales chat,not_relevant,neutral,7,7,not_relevant,0.99939394
+gen_01312,kak ini live di daerah mana?,not_relevant,neutral,7,7,not_relevant,0.99939394
+gen_01323,min ini live jualan celana?,not_relevant,negative,7,7,not_relevant,0.9993911
+gen_01332,min ini live dari toko baju,not_relevant,neutral,7,7,not_relevant,0.9993724
+gen_01363,kak ini live seru sih,not_relevant,positive,7,7,not_relevant,0.9993881
+gen_01406,min ini live jualan baju renang?,not_relevant,neutral,7,7,not_relevant,0.99940276
+gen_01418,min jualan baju aja kok rame,not_relevant,neutral,7,7,not_relevant,0.9993357
+gen_01420,bang ini live favorit gue sejauh ini,not_relevant,neutral,7,7,not_relevant,0.99938655
+gen_01421,min ini live bikin gue betah sultan,not_relevant,neutral,7,7,not_relevant,0.99938524
+gen_01452,kak ini live bikin gue happy banget,not_relevant,neutral,7,7,not_relevant,0.99938595
+gen_01474,bang ini live paling asik sepanjang malam,not_relevant,neutral,7,7,not_relevant,0.9993863
+gen_01475,min ini live jualan baju doang min?,not_relevant,negative,7,7,not_relevant,0.9993919
+gen_01483,bang adminnya seru parah,not_relevant,neutral,7,7,not_relevant,0.9993436
+gen_01496,min ini live paling seru hari ini sih,not_relevant,neutral,7,7,not_relevant,0.9994012
+gen_01497,kak ini live bikin gue happy sampe pagi,not_relevant,neutral,7,7,not_relevant,0.9993925
+gen_01507,min ini live paling rame malem ini sih,not_relevant,neutral,7,7,not_relevant,0.99939525
+gen_01513,min ini live paling seru malem minggu,not_relevant,neutral,7,7,not_relevant,0.9994005
+gen_01517,kak ini live bikin gue lupa waktu banget,not_relevant,neutral,7,7,not_relevant,0.9993918
+gen_01530,bang adminnya ramah abis,not_relevant,neutral,7,7,not_relevant,0.99929607
+gen_01534,min ini live jualan baju mulu bang?,not_relevant,neutral,7,7,not_relevant,0.999398
+gen_01537,min ini live paling asik malem ini banget,not_relevant,neutral,7,7,not_relevant,0.99940145
+gen_01539,bang ini live paling seru malem ini banget,not_relevant,neutral,7,7,not_relevant,0.99940324
+gen_01545,bang ini live paling asik malem ini banget sih,not_relevant,neutral,7,7,not_relevant,0.99939704
+gen_01564,kak ini jalan jalan kemana?,not_relevant,neutral,7,7,not_relevant,0.9993537
+gen_01580,bang ini enak ga cuacanya?,not_relevant,neutral,7,7,not_relevant,0.99915326
+gen_01582,kak ini di korea?,not_relevant,neutral,7,7,not_relevant,0.9993824
+gen_01591,kak ini di makassar?,not_relevant,neutral,7,7,not_relevant,0.9993555
+gen_01593,min ini di palembang?,not_relevant,neutral,7,7,not_relevant,0.99934894
+gen_01605,min ini di bintan?,not_relevant,neutral,7,7,not_relevant,0.99934906
+gen_01607,bang ini di gili?,not_relevant,neutral,7,7,not_relevant,0.99937916
+gen_01613,bang ini di ijen?,not_relevant,neutral,7,7,not_relevant,0.99937004
+gen_01636,kak ini pelabuhan mana?,not_relevant,neutral,7,7,not_relevant,0.9993383
+gen_01640,bang ini jalan tol mana?,not_relevant,neutral,7,7,not_relevant,0.9993291
+gen_01669,kak ini launching apa?,not_relevant,neutral,7,7,not_relevant,0.9991937
+gen_01671,min ini anniversary apa?,not_relevant,neutral,7,7,not_relevant,0.99931014
+gen_01679,bang ini arisan?,not_relevant,neutral,7,7,not_relevant,0.999355
+gen_01680,min ini reuni?,not_relevant,neutral,7,7,not_relevant,0.9993717
+gen_01687,kak ini khitanan siapa?,not_relevant,neutral,7,7,not_relevant,0.9992592
+gen_01691,bang ini undangan siapa?,not_relevant,neutral,7,7,not_relevant,0.99930036
+gen_01692,min ini temen siapa?,not_relevant,neutral,7,7,not_relevant,0.99932647
+gen_01700,bang ini kreator siapa?,not_relevant,neutral,7,7,not_relevant,0.9992312
+gen_01712,bang upload lagi dong kak,not_relevant,neutral,7,7,not_relevant,0.99938273
+gen_01720,kak live minggu ini ada?,not_relevant,neutral,7,7,not_relevant,0.9992729
+gen_01723,kak ini live hari apa aja?,not_relevant,negative,7,7,not_relevant,0.9994023
+gen_01726,kak live nya seharian?,not_relevant,neutral,7,7,not_relevant,0.99936885
+gen_01738,kak ini live lagi bagi bagi apa?,not_relevant,neutral,7,7,not_relevant,0.9993956
+gen_01743,min ini live lagi tebak tebakan?,not_relevant,neutral,7,7,not_relevant,0.99941134
+gen_01744,kak ini live lagi nyanyi?,not_relevant,neutral,7,7,not_relevant,0.9994117
+gen_01750,kak ini live lagi makan?,not_relevant,neutral,7,7,not_relevant,0.9994106
+gen_01751,bang ini live lagi ngemil?,not_relevant,neutral,7,7,not_relevant,0.9994124
+gen_01768,kak ini live lagi share tips?,not_relevant,neutral,7,7,not_relevant,0.9994092
+gen_01769,bang ini live lagi tips jualan?,not_relevant,neutral,7,7,not_relevant,0.9994074
+gen_01770,min ini live lagi tips content?,not_relevant,neutral,7,7,not_relevant,0.99940133
+gen_01849,kak ini live lagi aktif?,not_relevant,neutral,7,7,not_relevant,0.99940205
+gen_01854,min ini live lagi break?,not_relevant,neutral,7,7,not_relevant,0.99940646
+gen_01860,min ini live lagi tahan?,not_relevant,neutral,7,7,not_relevant,0.99940276
+gen_01896,min ternyata sefrekuensi,not_relevant,neutral,7,7,not_relevant,0.9990427
+gen_01904,bang jangan ingat ingat lagi,not_relevant,neutral,7,7,not_relevant,0.9993474
+gen_01951,kak ini bikin gue terinspirasi,not_relevant,neutral,7,7,not_relevant,0.99934036
+gen_01953,min ini bikin gue semangat kerja,not_relevant,neutral,7,7,not_relevant,0.9993687
+gen_01956,min ini bikin gue pengen olahraga,not_relevant,neutral,7,7,not_relevant,0.9993629
+gen_01961,bang ini bikin gue pengen jualan online,not_relevant,neutral,7,7,not_relevant,0.9993654
+gen_01963,kak ini bikin gue makin betah di tiktok,not_relevant,neutral,7,7,not_relevant,0.99935967
+gen_01968,min gue udah nebak dari awal,not_relevant,neutral,7,7,not_relevant,0.99934214
+gen_01986,min ini jadi kebanggaan,not_relevant,positive,7,7,not_relevant,0.9993519
+gen_02010,kak ini bikin inget jaman magang,not_relevant,neutral,7,7,not_relevant,0.99933535
+gen_02019,kak ini bikin inget jaman puasa pertama,not_relevant,neutral,7,7,not_relevant,0.9993622
+gen_02021,min ini bikin inget takbiran dulu,not_relevant,neutral,7,7,not_relevant,0.99935406
+gen_02027,min ini bikin inget jaman naik delman,not_relevant,neutral,7,7,not_relevant,0.99933785
+gen_02054,kak ini harga pas brp?,price_inquiry,neutral,4,4,price_inquiry,0.9993506
+gen_02060,kak harga yang cream berapa?,price_inquiry,neutral,4,4,price_inquiry,0.9996216
+gen_02061,bang yg hijau etalase 16 brp?,price_inquiry,neutral,4,4,price_inquiry,0.9995772
+gen_02071,min yang hijau berapa harganya?,price_inquiry,neutral,4,4,price_inquiry,0.9996119
+gen_02099,kak yang pink brp ya bang?,price_inquiry,neutral,4,4,price_inquiry,0.9996226
+gen_02124,kak yang hijau brp ya min?,price_inquiry,neutral,4,4,price_inquiry,0.999624
+gen_02133,min yang item harganya berapa?,price_inquiry,neutral,4,4,price_inquiry,0.99961746
+gen_02140,bang yang pink etalase 26 brp kak?,price_inquiry,neutral,4,4,price_inquiry,0.9995894
+gen_02143,kak yg biru etalase 30 brp?,price_inquiry,neutral,4,4,price_inquiry,0.9996076
+gen_02147,bang yang coklat berapa?,price_inquiry,neutral,4,4,price_inquiry,0.999616
+gen_02148,kak yang hijau harganya brp?,price_inquiry,neutral,4,4,price_inquiry,0.99962676
+gen_02149,min yg pink etalase 9 brp kak?,price_inquiry,neutral,4,4,price_inquiry,0.999587
+gen_02160,bang yang navy harganya brp min?,price_inquiry,neutral,4,4,price_inquiry,0.99962735
+gen_02170,kak yang abu2 harganya brp min?,price_inquiry,negative,4,4,price_inquiry,0.9996277
+gen_02188,kak yg pink etalase 9 brp?,price_inquiry,neutral,4,4,price_inquiry,0.9995939
+gen_02207,kak yang hijau brp?,price_inquiry,neutral,4,4,price_inquiry,0.99961936
+gen_02224,kak yang biru berapa?,price_inquiry,neutral,4,4,price_inquiry,0.9996112
+gen_02242,bang yang hijau harganya brp?,price_inquiry,neutral,4,4,price_inquiry,0.9996276
+gen_02261,min flannel merah brp kak?,price_inquiry,neutral,4,4,price_inquiry,0.99962354
+gen_02272,kak tshirt item brp min?,price_inquiry,neutral,4,4,price_inquiry,0.9996259
+gen_02281,min kemeja kotak2 item brp?,price_inquiry,neutral,4,4,price_inquiry,0.999603
+gen_02294,kak polo navy brp min?,price_inquiry,neutral,4,4,price_inquiry,0.99960583
+gen_02300,kak jogger cream berapa harganya?,price_inquiry,neutral,4,4,price_inquiry,0.9996166
+gen_02316,kak tshirt abu2 berapa harganya?,price_inquiry,neutral,4,4,price_inquiry,0.9996057
+gen_02325,min jogger item harganya brp kak?,price_inquiry,neutral,4,4,price_inquiry,0.9996238
+gen_02338,kak celana cargo navy brp min?,price_inquiry,neutral,4,4,price_inquiry,0.99960655
+gen_02362,bang sweater pink berapa harganya?,price_inquiry,neutral,4,4,price_inquiry,0.9996125
+gen_02365,kak jeans cream brp min?,price_inquiry,neutral,4,4,price_inquiry,0.99962175
+gen_02395,min kemeja flanel item brp kak?,price_inquiry,neutral,4,4,price_inquiry,0.99962497
+gen_02410,min kemeja flanel navy brp kak?,price_inquiry,neutral,4,4,price_inquiry,0.9996234
+gen_02417,kak celana chino abu2 berapa min?,price_inquiry,neutral,4,4,price_inquiry,0.99960166
+gen_02425,bang sweater abu2 berapa min?,price_inquiry,neutral,4,4,price_inquiry,0.999619
+gen_02432,min jogger abu2 berapa?,price_inquiry,neutral,4,4,price_inquiry,0.9996132
+gen_02434,bang polo hijau berapa min?,price_inquiry,neutral,4,4,price_inquiry,0.99960655
+gen_02436,min kemeja flanel abu2 brp min?,price_inquiry,neutral,4,4,price_inquiry,0.99961334
+gen_02456,kak jeans biru berapa harganya?,price_inquiry,neutral,4,4,price_inquiry,0.9996123
+gen_02492,min hoodie coklat berapa harganya? cakep warnanya,price_inquiry,neutral,4,4,price_inquiry,0.99960035
+gen_02505,kak sweater abu2 brp kak? lg nimbang,price_inquiry,neutral,4,4,price_inquiry,0.99961853
+gen_02527,kak hoodie navy berapa harganya? buat adek,price_inquiry,neutral,4,4,price_inquiry,0.99960047
+gen_02533,kak jeans hitam brp? klasik,price_inquiry,neutral,4,4,price_inquiry,0.9996118
+gen_02540,min jogger item harganya berapa? praktis,price_inquiry,neutral,4,4,price_inquiry,0.9996123
+gen_02545,kak celana chino navy brp? elegan,price_inquiry,neutral,4,4,price_inquiry,0.99961805
+gen_02552,min kemeja kotak2 hijau berapa harganya? unik bgt,price_inquiry,neutral,4,4,price_inquiry,0.99960893
+gen_02559,kak hoodie navy berapa? netral,price_inquiry,neutral,4,4,price_inquiry,0.99958855
+gen_02574,bang polo navy harganya brp? formal,price_inquiry,neutral,4,4,price_inquiry,0.99962556
+gen_02593,kak celana chino hijau berapa? army,price_inquiry,neutral,4,4,price_inquiry,0.99961686
+gen_02598,bang polo item berapa harganya? dewasa,price_inquiry,neutral,4,4,price_inquiry,0.9996182
+gen_02605,kak jeans cream brp? pastel,price_inquiry,neutral,4,4,price_inquiry,0.9996153
+gen_02621,kak jeans hijau harganya brp? kuat,price_inquiry,neutral,4,4,price_inquiry,0.99962604
+gen_02623,kak hoodie navy berapa? hangat,price_inquiry,neutral,4,4,price_inquiry,0.9996025
+gen_02650,bang sweater cream brp? anggun,price_inquiry,neutral,4,4,price_inquiry,0.9996146
+gen_02658,bang sweater pink berapa harganya? buat hadiah,price_inquiry,neutral,4,4,price_inquiry,0.99961036
+gen_02672,min kemeja kotak2 item berapa? buat hangout,price_inquiry,neutral,4,4,price_inquiry,0.99958366
+gen_02673,kak celana chino navy harganya brp kak? buat lamaran,price_inquiry,neutral,4,4,price_inquiry,0.99961394
+gen_02675,kak tshirt hijau brp harganya kak? buat futsal,price_inquiry,neutral,4,4,price_inquiry,0.9996239
+gen_02683,kak tshirt navy berapa harganya? buat santuy,price_inquiry,neutral,4,4,price_inquiry,0.999619
+gen_02692,bang harga asli sebelum diskon berapa kak?,price_inquiry,neutral,4,4,price_inquiry,0.999608
+gen_02697,kak harga stok lama sama gak dengan yang baru?,price_inquiry,neutral,4,4,price_inquiry,0.9995734
+gen_02701,kak harga di tokopedia sama gak?,price_inquiry,neutral,4,4,price_inquiry,0.99957997
+gen_02707,kak harga paling murah pernah berapa?,price_inquiry,neutral,4,4,price_inquiry,0.99960333
+gen_02721,kak harga tetangga etalase beda nggak?,price_inquiry,neutral,4,4,price_inquiry,0.99895144
+gen_02736,bang ada cicilan buat harga ini gak?,price_inquiry,neutral,4,4,price_inquiry,0.99939454
+gen_02751,kak harga set lengkap berapa?,price_inquiry,neutral,4,4,price_inquiry,0.99961543
+gen_02754,min harga paling update tiap jam gak?,price_inquiry,neutral,4,4,price_inquiry,0.99957854
+gen_02768,bang harga lama berapa sih?,price_inquiry,neutral,4,4,price_inquiry,0.9995654
+gen_02794,min harga pas pertama muncul berapa?,price_inquiry,neutral,4,4,price_inquiry,0.9996119
+gen_02803,kak harga pas lusa berapa?,price_inquiry,neutral,4,4,price_inquiry,0.9996145
+gen_02833,kak harga pas 1 tahun lagi berapa?,price_inquiry,neutral,4,4,price_inquiry,0.99961156
+gen_02842,min harga pas tua berapa?,price_inquiry,neutral,4,4,price_inquiry,0.99961036
+gen_02852,bang harga pas jualan berapa?,price_inquiry,neutral,4,4,price_inquiry,0.9996132
+gen_02857,kak harga pas bangkit berapa?,price_inquiry,neutral,4,4,price_inquiry,0.99961436
+gen_02879,kak harga pas musim ujan berapa?,price_inquiry,neutral,4,4,price_inquiry,0.99960977
+gen_02882,min harga pas musim panas berapa?,price_inquiry,neutral,4,4,price_inquiry,0.99961215
+gen_02886,min harga pas cuaca bagus berapa?,price_inquiry,neutral,4,4,price_inquiry,0.99960977
+gen_02887,kak harga pas cuaca mendung berapa?,price_inquiry,neutral,4,4,price_inquiry,0.9996124
+gen_02899,kak harga pas minggu siang berapa?,price_inquiry,neutral,4,4,price_inquiry,0.9996107
+gen_02906,min harga pas sabtu pagi berapa?,price_inquiry,neutral,4,4,price_inquiry,0.9996123
+gen_02907,kak harga pas minggu sore berapa?,price_inquiry,neutral,4,4,price_inquiry,0.9996101
+gen_02911,kak harga pas kamis pagi berapa?,price_inquiry,neutral,4,4,price_inquiry,0.9996101
+gen_02926,min harga pas jumat dini hari berapa?,price_inquiry,neutral,4,4,price_inquiry,0.99959594
+gen_02928,bang harga pas minggu subuh berapa?,price_inquiry,neutral,4,4,price_inquiry,0.9996177
+gen_02934,bang harga pas senin subuh berapa?,price_inquiry,neutral,4,4,price_inquiry,0.9996172
+gen_02937,﻿kak yang item brp harganya? ada potongan gak?,price_inquiry,neutral,4,4,price_inquiry,0.9996131
+gen_02942,bang sweater cream harganya berapa? buat kondangan,price_inquiry,neutral,4,4,price_inquiry,0.99961495
+gen_02943,kak polo navy brp? cakep buat kerja,price_inquiry,neutral,4,4,price_inquiry,0.9995981
+gen_02947,kak kemeja kotak2 brp? lg suka motif ini,price_inquiry,neutral,4,4,price_inquiry,0.99960226
+gen_02948,min cargo hijau berapa? buat camping,price_inquiry,neutral,4,4,price_inquiry,0.99961287
+gen_02955,kak kemeja denim brp? bahan tebel gak?,price_inquiry,neutral,4,4,price_inquiry,0.99920446
+gen_02965,kak kemeja flanel item brp? lg ngehits,price_inquiry,neutral,4,4,price_inquiry,0.9996075
+gen_02977,kak sweater cream brp? buat liburan,price_inquiry,neutral,4,4,price_inquiry,0.9996158
+gen_02982,bang jeans 34 brp harganya? buat kerja lapangan,price_inquiry,neutral,4,4,price_inquiry,0.99961394
+gen_02984,min cargo item harganya brp? buat motoran,price_inquiry,neutral,4,4,price_inquiry,0.99961805
+gen_03009,kak jogger item brp? buat zumba,price_inquiry,neutral,4,4,price_inquiry,0.99960047
+gen_03018,bang celana chino hijau harganya brp? buat trekking,price_inquiry,neutral,4,4,price_inquiry,0.9996106
+gen_03025,kak polo navy berapa? buat kuliah,price_inquiry,neutral,4,4,price_inquiry,0.9996131
+gen_03026,bang cargo abu2 brp harganya? buat kerja bangunan,price_inquiry,neutral,4,4,price_inquiry,0.99961144
+gen_03029,kak jogger hijau harganya berapa? buat bola,price_inquiry,neutral,4,4,price_inquiry,0.9996146
+gen_03031,kak flannel navy berapa? buat duduk santai,price_inquiry,neutral,4,4,price_inquiry,0.9996074
+gen_03033,kak tshirt cream brp? buat ngopi,price_inquiry,neutral,4,4,price_inquiry,0.99961346
+gen_03049,kak hoodie hijau brp? buat berkemah,price_inquiry,neutral,4,4,price_inquiry,0.999613
+gen_03065,kak kemeja kotak2 item berapa? buat hangout,price_inquiry,neutral,4,4,price_inquiry,0.999595
+gen_03079,kak cargo item harganya brp? buat motoran,price_inquiry,neutral,4,4,price_inquiry,0.9996191
+gen_03092,min celana chino item brp harganya? buat meeting,price_inquiry,neutral,4,4,price_inquiry,0.9996105
+gen_03101,kak sweater abu2 brp? buat kelas malam,price_inquiry,neutral,4,4,price_inquiry,0.9996124
+gen_03105,kak celana chino hijau brp? buat hangout malam,price_inquiry,neutral,4,4,price_inquiry,0.9995906
+gen_03136,min sweater item brp harganya? buat kondangan,price_inquiry,positive,4,4,price_inquiry,0.9996201
+gen_03139,kak tshirt navy berapa harganya? buat bukber,price_inquiry,neutral,4,4,price_inquiry,0.9996183
+gen_03144,min celana chino abu2 brp? buat kerja shift,price_inquiry,neutral,4,4,price_inquiry,0.9995864
+gen_03146,bang flannel merah brp? buat belanja,price_inquiry,neutral,4,4,price_inquiry,0.999616
+gen_03163,kak tshirt hijau brp? buat ngaji,price_inquiry,neutral,4,4,price_inquiry,0.999617
+gen_03164,min cargo abu2 brp harganya? buat touring motor,price_inquiry,negative,4,4,price_inquiry,0.9996152
+gen_03165,kak jeans 29 brp? buat senam,price_inquiry,neutral,4,4,price_inquiry,0.99960333
+gen_03167,kak hoodie item berapa? buat kemping bareng,price_inquiry,neutral,4,4,price_inquiry,0.9995908
+gen_03170,bang flannel abu2 brp? buat kado,price_inquiry,neutral,4,4,price_inquiry,0.9995976
+gen_03177,kak celana chino item brp? buat foto prewed,price_inquiry,neutral,4,4,price_inquiry,0.9995927
+gen_03180,min polo item brp harganya? buat baksos,price_inquiry,neutral,4,4,price_inquiry,0.99962294
+gen_03182,bang kemeja denim navy brp? buat seminar kerja,price_inquiry,neutral,4,4,price_inquiry,0.9996024
+gen_03224,kak rok dusta harganya berapa?,price_inquiry,neutral,4,4,price_inquiry,0.99961025
+gen_03231,min sandal jepit harganya berapa?,price_inquiry,neutral,4,4,price_inquiry,0.9996201
+gen_03241,min baju koko putih berapa min?,price_inquiry,neutral,4,4,price_inquiry,0.9996099
+gen_03244,min hoodie murah brp kak?,price_inquiry,neutral,4,4,price_inquiry,0.999619
+gen_03246,bang tshirt termurah brp min?,price_inquiry,neutral,4,4,price_inquiry,0.9995659
+gen_03247,kak dress termurah berapa kak?,price_inquiry,neutral,4,4,price_inquiry,0.99957174
+gen_03252,min jogger paling murah berapa kak?,price_inquiry,neutral,4,4,price_inquiry,0.999589
+gen_03261,kak kaos distro berapa bang?,price_inquiry,neutral,4,4,price_inquiry,0.9995314
+gen_03269,bang ini produk apa sih min?,product_inquiry,neutral,0,0,product_inquiry,0.99945515
+gen_03272,bang ini barangnya apa namanya bang?,product_inquiry,neutral,0,0,product_inquiry,0.9994319
+gen_03287,bang ini produknya original apa?,product_inquiry,neutral,0,0,product_inquiry,0.9994265
+gen_03288,min ini produk lokal apa import?,product_inquiry,neutral,0,0,product_inquiry,0.9993876
+gen_03301,kak ini produknya ada gambar apa?,product_inquiry,neutral,0,0,product_inquiry,0.9994326
+gen_03303,min ini produknya ada lapisannya ga?,product_inquiry,neutral,0,0,product_inquiry,0.9993912
+gen_03325,kak ini produknya ada ukuran anak ga?,product_inquiry,neutral,0,0,product_inquiry,0.99941826
+gen_03331,kak ini produknya bisa diorder?,product_inquiry,neutral,0,0,product_inquiry,0.9994203
+gen_03346,kak ini barang yang di story apa?,product_inquiry,neutral,0,0,product_inquiry,0.9994467
+gen_03347,bang ini produk yang di highlight apa?,product_inquiry,neutral,0,0,product_inquiry,0.9994485
+gen_03362,bang ini barang yang kemeja ini apa?,product_inquiry,neutral,0,0,product_inquiry,0.9994405
+gen_03369,min ini produk yang koko ini apa?,product_inquiry,neutral,0,0,product_inquiry,0.999445
+gen_03370,kak ini barang yang gamis ini apa?,product_inquiry,neutral,0,0,product_inquiry,0.9994369
+gen_03371,bang ini produk yang mukena ini apa?,product_inquiry,neutral,0,0,product_inquiry,0.9994497
+gen_03373,kak ini produk yang kerudung ini apa?,product_inquiry,neutral,0,0,product_inquiry,0.99944943
+gen_03376,kak ini barang yang celana pendek ini apa?,product_inquiry,neutral,0,0,product_inquiry,0.9994405
+gen_03385,kak ini produk yang dompet ini apa?,product_inquiry,neutral,0,0,product_inquiry,0.99945337
+gen_03390,min ini barang yang syal ini apa?,product_inquiry,neutral,0,0,product_inquiry,0.99944144
+gen_03391,kak ini produk yang sarung ini apa?,product_inquiry,neutral,0,0,product_inquiry,0.9994474
+gen_03408,min ini barang yang kaos bayi ini apa?,product_inquiry,neutral,0,0,product_inquiry,0.999432
+gen_03415,kak ini produk yang celemek ini apa?,product_inquiry,neutral,0,0,product_inquiry,0.9994549
+gen_03423,min ini produk yang feeding set ini apa?,product_inquiry,neutral,0,0,product_inquiry,0.9994592
+gen_03425,bang ini produk yang sterilizer ini apa?,product_inquiry,neutral,0,0,product_inquiry,0.99945635
+gen_03429,min ini produk yang baby oil ini apa?,product_inquiry,neutral,0,0,product_inquiry,0.9994578
+gen_03471,min yang di etalase kaca itu apa?,product_inquiry,neutral,0,0,product_inquiry,0.9994179
+gen_03477,min yang di manekin cwe itu apa?,product_inquiry,neutral,0,0,product_inquiry,0.9994037
+gen_03491,bang yang di scene itu barang apa?,product_inquiry,neutral,0,0,product_inquiry,0.99944264
+gen_03495,min yang di properti itu apa?,product_inquiry,neutral,0,0,product_inquiry,0.9994167
+gen_03503,bang yang di katalog cetak itu apa?,product_inquiry,neutral,0,0,product_inquiry,0.99942964
+gen_03506,bang yang di marketplace itu apa?,product_inquiry,neutral,0,0,product_inquiry,0.9994466
+gen_03510,min yang di tiktok shop itu apa?,product_inquiry,neutral,0,0,product_inquiry,0.9994511
+gen_03512,bang yang di facebook itu apa?,product_inquiry,neutral,0,0,product_inquiry,0.99944216
+gen_03517,kak yang di foto produk itu apa?,product_inquiry,neutral,0,0,product_inquiry,0.9994103
+gen_03524,bang yang di spanduk itu barang apa?,product_inquiry,neutral,0,0,product_inquiry,0.9994349
+gen_03528,min yang di iklan tv itu apa?,product_inquiry,neutral,0,0,product_inquiry,0.99943584
+gen_03546,min yang admin demo itu apa?,product_inquiry,neutral,0,0,product_inquiry,0.9994267
+gen_03563,bang yang dijual di marketplace ini apa?,product_inquiry,neutral,0,0,product_inquiry,0.9994312
+gen_03573,min yang dijual di stand ini apa?,product_inquiry,neutral,0,0,product_inquiry,0.9994286
+gen_03600,min yang di showcase kaca itu barang apa?,product_inquiry,neutral,0,0,product_inquiry,0.99942845
+gen_03634,kak link ig mana dong?,product_inquiry,neutral,0,0,product_inquiry,0.99938774
+gen_03643,bang katalognya mana kak?,product_inquiry,neutral,0,0,product_inquiry,0.9992248
+gen_03646,bang katalog ini mana min?,product_inquiry,neutral,0,0,product_inquiry,0.9993686
+gen_03654,bang etalase warna mana min?,product_inquiry,neutral,0,0,product_inquiry,0.9993236
+gen_03658,kak etalase bisa diakses mana dong?,product_inquiry,neutral,0,0,product_inquiry,0.99928707
+gen_03673,kak ini barang branded apa dong?,product_inquiry,neutral,0,0,product_inquiry,0.9994068
+gen_03679,kak ini resmi apa dong?,product_inquiry,neutral,0,0,product_inquiry,0.9990263
+gen_03682,bang ini retail apa min?,product_inquiry,neutral,0,0,product_inquiry,0.99938655
+gen_03699,kak ini bisa endorse dong?,product_inquiry,negative,0,0,product_inquiry,0.99938023
+gen_03705,kak ini bisa share profit dong?,product_inquiry,neutral,0,0,product_inquiry,0.9993093
+gen_03734,bang ini bisa payet min?,product_inquiry,neutral,0,0,product_inquiry,0.9993954
+gen_03771,bang ini bahan fleece apa min?,product_inquiry,neutral,0,0,product_inquiry,0.9994474
+gen_03787,kak ini bahan organza dong?,product_inquiry,neutral,0,0,product_inquiry,0.99944013
+gen_03790,bang ini bahan linen min?,product_inquiry,neutral,0,0,product_inquiry,0.9994531
+gen_03800,bang ini bahan spandex min?,product_inquiry,neutral,0,0,product_inquiry,0.99944526
+gen_03804,bang ini bahan reglan min?,product_inquiry,neutral,0,0,product_inquiry,0.9994529
+gen_03827,kak ini bahan setengah tipis dong?,product_inquiry,negative,0,0,product_inquiry,0.9994281
+gen_03835,kak ini bahan oversized dong?,product_inquiry,neutral,0,0,product_inquiry,0.99942005
+gen_03838,bang ini bahan cropped min?,product_inquiry,neutral,0,0,product_inquiry,0.9994486
+gen_03851,kak ini bahan short sleeve dong?,product_inquiry,neutral,0,0,product_inquiry,0.99943906
+gen_03853,kak ini bahan 3 4 sleeve dong?,product_inquiry,neutral,0,0,product_inquiry,0.99943525
+gen_03868,bang ini bahan tie collar min?,product_inquiry,neutral,0,0,product_inquiry,0.99945325
+gen_03873,kak ini bahan hood dong?,product_inquiry,neutral,0,0,product_inquiry,0.99943954
+gen_03875,kak ini bahan hooded dong?,product_inquiry,neutral,0,0,product_inquiry,0.9994429
+gen_03878,bang ini bahan zipper min?,product_inquiry,neutral,0,0,product_inquiry,0.99945384
+gen_03883,kak ini bahan belt dong?,product_inquiry,neutral,0,0,product_inquiry,0.99944216
+gen_03885,kak ini bahan tali serut dong?,product_inquiry,neutral,0,0,product_inquiry,0.9994486
+gen_03892,bang ini bahan jahitan kunci min?,product_inquiry,neutral,0,0,product_inquiry,0.99944776
+gen_03909,kak ini bahan motif paisley dong?,product_inquiry,neutral,0,0,product_inquiry,0.9994381
+gen_03921,kak ini bahan motif loreng dong?,product_inquiry,neutral,0,0,product_inquiry,0.99943584
+gen_03925,kak ini bahan motif check dong?,product_inquiry,neutral,0,0,product_inquiry,0.9994312
+gen_03936,bang ini bahan motif layered min?,product_inquiry,negative,0,0,product_inquiry,0.9994469
+gen_03937,kak ini bahan motif panel dong?,product_inquiry,neutral,0,0,product_inquiry,0.99942905
+gen_03961,bang yang mana paling diminati?,product_inquiry,neutral,0,0,product_inquiry,0.99943393
+gen_03973,bang yang mana paling dikenal?,product_inquiry,neutral,0,0,product_inquiry,0.99943525
+gen_03975,kak yang mana paling banyak bintang?,product_inquiry,neutral,0,0,product_inquiry,0.99943453
+gen_03978,kak yang mana rating bintang 5?,product_inquiry,neutral,0,0,product_inquiry,0.9994111
+gen_03980,min yang mana yang paling murah meriah?,product_inquiry,neutral,0,0,product_inquiry,0.99932337
+gen_03992,min yang mana paling pas dipakai?,product_inquiry,neutral,0,0,product_inquiry,0.9994381
+gen_04003,bang yang mana paling cocok buat gathering?,product_inquiry,neutral,0,0,product_inquiry,0.99942577
+gen_04005,kak yang mana paling cocok buat main?,product_inquiry,neutral,0,0,product_inquiry,0.99941444
+gen_04027,bang yang mana paling cocok buat kakak?,product_inquiry,neutral,0,0,product_inquiry,0.99942774
+gen_04042,bang yang mana paling cocok buat crush?,product_inquiry,neutral,0,0,product_inquiry,0.9994344
+gen_04059,kak yang paling luar itu apa?,product_inquiry,positive,0,0,product_inquiry,0.99943036
+gen_04065,kak yang coklat aku mau beli,purchase_intent,neutral,6,6,purchase_intent,0.9995401
+gen_04068,"min mau beli yang hijau nih, ready kan?",purchase_intent,neutral,6,6,purchase_intent,0.9990126
+gen_04069,kak aku ambil yang pink ya kak,purchase_intent,neutral,6,6,purchase_intent,0.9995596
+gen_04074,"bang aku order yang putih ya, xl",purchase_intent,neutral,6,6,purchase_intent,0.9995759
+gen_04075,"kak nitip yang cream, satu aja",purchase_intent,neutral,6,6,purchase_intent,0.9995278
+gen_04078,"bang mau pesan yang hijau, 3",purchase_intent,neutral,6,6,purchase_intent,0.9995623
+gen_04092,"min ambil yang navy, xl",purchase_intent,neutral,6,6,purchase_intent,0.999482
+gen_04095,"kak nitip yang coklat, l",purchase_intent,neutral,6,6,purchase_intent,0.9995497
+gen_04106,"bang nitip yang cream, ukuran 33",purchase_intent,neutral,6,6,purchase_intent,0.99955994
+gen_04113,"kak ambil yang hijau, ukuran 28",purchase_intent,neutral,6,6,purchase_intent,0.99954814
+gen_04116,"min order yang navy, size m",purchase_intent,neutral,6,6,purchase_intent,0.9995585
+gen_04156,"min ambil yang navy, 3",purchase_intent,neutral,6,6,purchase_intent,0.9995158
+gen_04166,"bang order yang putih, ukuran 33",purchase_intent,neutral,6,6,purchase_intent,0.99956745
+gen_04181,"kak beli yang putih, ukuran 29",purchase_intent,neutral,6,6,purchase_intent,0.99956185
+gen_04200,"min nitip yang coklat kak, size 2xl",purchase_intent,neutral,6,6,purchase_intent,0.99956435
+gen_04207,"min ambil yang putih, ukuran 35",purchase_intent,neutral,6,6,purchase_intent,0.99953175
+gen_04222,"kak order yang biru, size l",purchase_intent,neutral,6,6,purchase_intent,0.9995548
+gen_04223,"min pesan yang hijau, ukuran 29",purchase_intent,neutral,6,6,purchase_intent,0.99955076
+gen_04237,"bang ambil yang item kak, size l",purchase_intent,neutral,6,6,purchase_intent,0.9995571
+gen_04271,kak aku ambil yang coklat dong,purchase_intent,neutral,6,6,purchase_intent,0.9995529
+gen_04284,"min mau beli yang abu2, ukuran 32",purchase_intent,neutral,6,6,purchase_intent,0.99951196
+gen_04289,"kak mau pesen yang hijau, ukuran 35",purchase_intent,neutral,6,6,purchase_intent,0.9995277
+gen_04295,"kak ambil yang coklat kak, size s",purchase_intent,neutral,6,6,purchase_intent,0.99956006
+gen_04297,"kak pesen yang hijau, xl",purchase_intent,neutral,6,6,purchase_intent,0.9995573
+gen_04299,"kak order yang cream kak, 3",purchase_intent,neutral,6,6,purchase_intent,0.9995622
+gen_04310,"bang ambil yang putih, size l",purchase_intent,neutral,6,6,purchase_intent,0.999556
+gen_04327,"kak pesen yang hijau, ukuran 35",purchase_intent,neutral,6,6,purchase_intent,0.9995746
+gen_04348,"kak pesen yang hijau, ukuran 36",purchase_intent,neutral,6,6,purchase_intent,0.99957114
+gen_04353,"bang pesan yang coklat, 3",purchase_intent,neutral,6,6,purchase_intent,0.9995536
+gen_04358,"kak nitip yang cream, l",purchase_intent,neutral,6,6,purchase_intent,0.9995346
+gen_04361,"bang beli yang item, ukuran 30",purchase_intent,neutral,6,6,purchase_intent,0.9995734
+gen_04376,"min mau pesan yang abu2, ukuran 28",purchase_intent,neutral,6,6,purchase_intent,0.99954176
+gen_04389,"bang ambil yang coklat, size l",purchase_intent,neutral,6,6,purchase_intent,0.9995617
+gen_04392,"kak nitip yang cream, ukuran 35",purchase_intent,neutral,6,6,purchase_intent,0.9995542
+gen_04422,"kak mau beli yang putih, chat admin",purchase_intent,neutral,6,6,purchase_intent,0.9995733
+gen_04425,"bang nitip yang navy, udah chat",purchase_intent,neutral,6,6,purchase_intent,0.99950194
+gen_04432,"kak order yang item kak, dm aja",purchase_intent,neutral,6,6,purchase_intent,0.9995561
+gen_04435,"min mau beli yang cream, DM kak",purchase_intent,neutral,6,6,purchase_intent,0.99952793
+gen_04439,"min order yang hijau, chat admin ya",purchase_intent,neutral,6,6,purchase_intent,0.99952793
+gen_04455,"min order yang item kak, dm",purchase_intent,neutral,6,6,purchase_intent,0.9995371
+gen_04458,"kak beli yang cream, lgsg dm",purchase_intent,neutral,6,6,purchase_intent,0.9995552
+gen_04481,"bang mau ambil yang abu2, dm",purchase_intent,neutral,6,6,purchase_intent,0.9995048
+gen_04504,"kak ambil yang navy, wa",purchase_intent,neutral,6,6,purchase_intent,0.99954695
+gen_04519,"kak pesan yang navy kak, chat bentar",purchase_intent,neutral,6,6,purchase_intent,0.9995023
+gen_04535,"bang beli yang abu2, wa",purchase_intent,neutral,6,6,purchase_intent,0.9995466
+gen_04543,"bang order yang abu2 kak, chat",purchase_intent,neutral,6,6,purchase_intent,0.999559
+gen_04544,"kak ambil yang cream, kode 36",purchase_intent,neutral,6,6,purchase_intent,0.9995517
+gen_04554,"kak beli yang hijau kak, kode 39",purchase_intent,neutral,6,6,purchase_intent,0.999553
+gen_04583,"bang ambil yang putih kak, wa aja",purchase_intent,neutral,6,6,purchase_intent,0.9995505
+gen_04590,"bang nitip yang putih, kode 51",purchase_intent,neutral,6,6,purchase_intent,0.9995685
+gen_04597,"bang ambil yang putih, wa aja",purchase_intent,neutral,6,6,purchase_intent,0.99948454
+gen_04599,"min nitip yang item kak, chat admin",purchase_intent,neutral,6,6,purchase_intent,0.99954563
+gen_04607,"bang beli yang abu2 kak, wa aja",purchase_intent,neutral,6,6,purchase_intent,0.9995565
+gen_04629,﻿kak langsung aku checkout yang item ya,purchase_intent,neutral,6,6,purchase_intent,0.99951065
+gen_04631,"kak aku deal yang abu2, sekalian size 30",purchase_intent,neutral,6,6,purchase_intent,0.9992743
+gen_04649,"kak aku checkout yang biru kak, sms admin",purchase_intent,neutral,6,6,purchase_intent,0.9995555
+gen_04655,"kak aku beli yang abu2 kak, sekalian ongkir",purchase_intent,neutral,6,6,purchase_intent,0.99919397
+gen_04662,"bang aku order yang navy kak, hari ini",purchase_intent,neutral,6,6,purchase_intent,0.99954754
+gen_04678,"bang aku nitip yang navy kak, besok pagi",purchase_intent,negative,6,6,purchase_intent,0.9995415
+gen_04683,"kak aku pesen yang putih, besok malam",purchase_intent,neutral,6,6,purchase_intent,0.999564
+gen_04690,"bang aku beli yang coklat kak, minggu dini hari",purchase_intent,neutral,6,6,purchase_intent,0.9995752
+gen_04712,"min aku ambil yang cream kak, tanggal 20",purchase_intent,neutral,6,6,purchase_intent,0.9995759
+gen_04718,"bang aku ambil yang navy, tanggal 26",purchase_intent,neutral,6,6,purchase_intent,0.9995747
+gen_04729,"kak aku order yang biru, awal tahun",purchase_intent,neutral,6,6,purchase_intent,0.999574
+gen_04731,"kak aku nitip yang putih, tahun depan",purchase_intent,neutral,6,6,purchase_intent,0.99956924
+gen_04745,"kak aku ambil yang biru, udah",purchase_intent,neutral,6,6,purchase_intent,0.9995421
+gen_04746,"bang aku pesan yang coklat kak, fix",purchase_intent,neutral,6,6,purchase_intent,0.9995554
+gen_04748,"min aku beli yang hijau kak, insyaallah",purchase_intent,neutral,6,6,purchase_intent,0.9995065
+gen_04751,"kak aku order yang abu2, yow",purchase_intent,neutral,6,6,purchase_intent,0.9995617
+gen_04755,"kak aku ambil yang putih, siap",purchase_intent,neutral,6,6,purchase_intent,0.9995627
+gen_04765,"kak aku checkout yang item, ok",purchase_intent,neutral,6,6,purchase_intent,0.99955624
+gen_04773,"kak aku pesen yang item, cakep",purchase_intent,neutral,6,6,purchase_intent,0.9995177
+gen_04778,"bang aku pesan yang coklat kak, dapet",purchase_intent,neutral,6,6,purchase_intent,0.99956805
+gen_04801,"kak aku nitip yang biru, jadikan kak",purchase_intent,neutral,6,6,purchase_intent,0.99952245
+gen_04807,kak beli 4 yang biru kak,purchase_intent,neutral,6,6,purchase_intent,0.9994783
+gen_04818,min ambil 3 yang hijau kak,purchase_intent,neutral,6,6,purchase_intent,0.9995647
+gen_04819,kak nitip 2 yang item kak,purchase_intent,neutral,6,6,purchase_intent,0.999503
+gen_04820,bang pesan 4 yang navy,purchase_intent,positive,6,6,purchase_intent,0.9995353
+gen_04822,min beli 2 yang cream pos,purchase_intent,negative,6,6,purchase_intent,0.99950314
+gen_04826,min order 4 yang hijau,purchase_intent,neutral,6,6,purchase_intent,0.9995486
+gen_04832,bang beli 4 yang coklat,purchase_intent,neutral,6,6,purchase_intent,0.9995029
+gen_04833,kak ambil 3 yang putih kak,purchase_intent,neutral,6,6,purchase_intent,0.99956363
+gen_04845,kak pesen 3 yang abu2 kak,purchase_intent,neutral,6,6,purchase_intent,0.9995517
+gen_04849,kak nitip 2 yang putih kak,purchase_intent,neutral,6,6,purchase_intent,0.9995401
+gen_04852,bang beli 2 yang navy,purchase_intent,neutral,6,6,purchase_intent,0.9995079
+gen_04911,bang beli 2 yang coklat,purchase_intent,neutral,6,6,purchase_intent,0.99951935
+gen_04915,bang order 4 yang navy,purchase_intent,neutral,6,6,purchase_intent,0.9995505
+gen_04933,kak beli 5 yang putih kak,purchase_intent,neutral,6,6,purchase_intent,0.999433
+gen_04938,min mau beli yang abu2 nih kak,purchase_intent,neutral,6,6,purchase_intent,0.9995259
+gen_04945,kak beli dress pink bang,purchase_intent,neutral,6,6,purchase_intent,0.9995223
+gen_04946,bang gue checkout koko item min,purchase_intent,neutral,6,6,purchase_intent,0.99953485
+gen_04958,bang aku pesen tas selempang min,purchase_intent,neutral,6,6,purchase_intent,0.9994742
+gen_04963,kak gue beli dompet item bang,purchase_intent,neutral,6,6,purchase_intent,0.99953914
+gen_04969,kak gue ambil sarung baru bang,purchase_intent,neutral,6,6,purchase_intent,0.99941957
+gen_04995,min gue pesen trench coat krem,purchase_intent,neutral,6,6,purchase_intent,0.9995302
+gen_04997,bang beli selimut tipis navy min,purchase_intent,neutral,6,6,purchase_intent,0.9994764
+gen_05000,bang gue pesen sprei abu2 min,purchase_intent,neutral,6,6,purchase_intent,0.9995633
+gen_05016,min gue order kaos crop item,purchase_intent,neutral,6,6,purchase_intent,0.9995584
+gen_05051,bang beli handuk renang navy min,purchase_intent,neutral,6,6,purchase_intent,0.9994918
+gen_05053,kak gue checkout jaket renang item bang,purchase_intent,neutral,6,6,purchase_intent,0.9995431
+gen_05058,min gue pesen tank top item,purchase_intent,neutral,6,6,purchase_intent,0.9994692
+gen_05066,bang gue checkout gloves boxing abu2 min,purchase_intent,neutral,6,6,purchase_intent,0.99955624
+gen_05068,kak gue ambil headguard navy bang,purchase_intent,neutral,6,6,purchase_intent,0.99955267
+gen_05072,bang gue pesen kaos silat navy min,purchase_intent,neutral,6,6,purchase_intent,0.9995622
+gen_05086,bang gue beli celana linen krem min,purchase_intent,neutral,6,6,purchase_intent,0.99955016
+gen_05095,bang gue beli jogger tapered krem min,purchase_intent,neutral,6,6,purchase_intent,0.99954873
+gen_05100,kak gue beli jogger retro coklat bang,purchase_intent,neutral,6,6,purchase_intent,0.9995382
+gen_05116,bang gue pesen dress wrap navy min,purchase_intent,neutral,6,6,purchase_intent,0.99954396
+gen_05118,kak gue beli dress knit abu2 bang,purchase_intent,neutral,6,6,purchase_intent,0.9995646
+gen_05136,kak gue beli playsuit putih bang,purchase_intent,neutral,6,6,purchase_intent,0.9995691
+gen_05143,bang gue pesen tankini krem min,purchase_intent,neutral,6,6,purchase_intent,0.9994443
+gen_05162,min gue ambil work vest item,purchase_intent,neutral,6,6,purchase_intent,0.99950933
+gen_05175,kak gue ambil baju tidur rajut abu2 bang,purchase_intent,neutral,6,6,purchase_intent,0.9995431
+gen_05177,min gue order pajama set item,purchase_intent,neutral,6,6,purchase_intent,0.9995623
+gen_05180,kak bb 95 ambil ukuran berapa?,size_inquiry,neutral,1,1,size_inquiry,0.9994
+gen_05184,kak kalo bb 60 pake m atau l?,size_inquiry,neutral,1,1,size_inquiry,0.999423
+gen_05196,bang tb 173 bb 72 pake apa?,size_inquiry,neutral,1,1,size_inquiry,0.9994319
+gen_05207,kak bb 78 ukuran apa min?,size_inquiry,neutral,1,1,size_inquiry,0.9994504
+gen_05212,min bb 72 tinggi 164 ambil ukuran berapa kak?,size_inquiry,neutral,1,1,size_inquiry,0.9994541
+gen_05221,kak bb 70 pake size m atau l bang?,size_inquiry,neutral,1,1,size_inquiry,0.9994783
+gen_05222,kak 165 45 ukuran apa min?,size_inquiry,neutral,1,1,size_inquiry,0.99943167
+gen_05223,bang tb 180 bb 74 size apa yang pas?,size_inquiry,neutral,1,1,size_inquiry,0.9994147
+gen_05239,bang tb 170 bb 68 l apa xl kak?,size_inquiry,neutral,1,1,size_inquiry,0.9994529
+gen_05243,bang 165 65 bb ambil ukuran apa?,size_inquiry,neutral,1,1,size_inquiry,0.99945754
+gen_05256,kak tinggi 164 bb 49 ambil s atau m?,size_inquiry,neutral,1,1,size_inquiry,0.9994019
+gen_05259,bang tb 176 bb 66 size l apa xl kak?,size_inquiry,neutral,1,1,size_inquiry,0.99945015
+gen_05266,kak tb 168 bb 57 ambil s atau m?,size_inquiry,neutral,1,1,size_inquiry,0.9994382
+gen_05269,min tb 170 bb 48 ambil apa kak?,size_inquiry,neutral,1,1,size_inquiry,0.9994098
+gen_05274,kak lingkar dada 105 size apa ya bang?,size_inquiry,neutral,1,1,size_inquiry,0.99941945
+gen_05279,bang tinggi 171 bb 64 ambil ukuran apa kak?,size_inquiry,neutral,1,1,size_inquiry,0.999471
+gen_05282,kak tb 178 bb 69 m apa l?,size_inquiry,neutral,1,1,size_inquiry,0.99942493
+gen_05287,bang bb 87 tinggi 175 size apa ya kak?,size_inquiry,neutral,1,1,size_inquiry,0.9994753
+gen_05291,bang tinggi 174 bb 67 ambil apa kak?,size_inquiry,neutral,1,1,size_inquiry,0.99941766
+gen_05297,min bb 76 tb 168 ambil apa kak?,size_inquiry,neutral,1,1,size_inquiry,0.99942553
+gen_05321,kak buat bb 60 tb 157 ambil ukuran apa?,size_inquiry,neutral,1,1,size_inquiry,0.99948394
+gen_05345,kak ukuran buat tb 159 bb 46 s apa m?,size_inquiry,neutral,1,1,size_inquiry,0.9994362
+gen_05356,bang kalo tinggi 164 bb 51 ukuran apa min?,size_inquiry,neutral,1,1,size_inquiry,0.9994624
+gen_05371,bang buat bb 76 tb 170 pakenya l atau xl?,size_inquiry,neutral,1,1,size_inquiry,0.9994293
+gen_05377,kak buat bb 69 tinggi 166 ambil apa min?,size_inquiry,neutral,1,1,size_inquiry,0.9994491
+gen_05384,bang kalo tb 170 bb 54 ambil s apa m kak?,size_inquiry,neutral,1,1,size_inquiry,0.9994659
+gen_05402,min kalo tinggi 159 bb 50 pakenya ukuran apa?,size_inquiry,neutral,1,1,size_inquiry,0.99947935
+gen_05413,kak buat bb 95 tb 179 pakenya xl atau xxl min?,size_inquiry,neutral,1,1,size_inquiry,0.9994815
+gen_05433,kak buat bb 65 tinggi 160 pake size apa nih?,size_inquiry,neutral,1,1,size_inquiry,0.99947923
+gen_05442,min busa kasih tau size buat bb 78 dong,size_inquiry,neutral,1,2,size_recommendation,0.99929726
+gen_05448,bang size apa buat bb 90 tinggi 170 kak?,size_inquiry,neutral,1,1,size_inquiry,0.9994704
+gen_05465,kak tb 164 bb 57 mending ambil ukuran apa kak?,size_inquiry,neutral,1,1,size_inquiry,0.9994733
+gen_05475,kak lingkar dada 98 cm cocoknya size berapa?,size_inquiry,neutral,1,1,size_inquiry,0.9993655
+gen_05492,kak tinggi 171 bb 64 mending ambil ukuran m apa l?,size_inquiry,neutral,1,1,size_inquiry,0.9994241
+gen_05498,kak bb 73 tinggi 168 pasnya m apa l bang?,size_inquiry,negative,1,1,size_inquiry,0.9994498
+gen_05502,kak size chart celana jogger ada ga min?,size_inquiry,neutral,1,1,size_inquiry,0.99925977
+gen_05514,kak lingkar pinggang 78 pake size apa min?,size_inquiry,neutral,1,1,size_inquiry,0.99945503
+gen_05521,min lingkar dada 87 ambil s atau m kak?,size_inquiry,neutral,1,1,size_inquiry,0.9994362
+gen_05524,kak ukuran m itu buat tb berapa aja bang?,size_inquiry,neutral,1,1,size_inquiry,0.99941146
+gen_05552,kak kalo tb 177 bb 64 ukuran apa yang pas min?,size_inquiry,neutral,1,1,size_inquiry,0.9994747
+gen_05563,kak celanan 33 size apa buat bb 75 bang?,size_inquiry,neutral,1,1,size_inquiry,0.9993654
+gen_05568,min hoodie size apa buat bb 78 om?,size_inquiry,neutral,1,1,size_inquiry,0.9993773
+gen_05580,bang kalo bb 62 tb 160 aman m apa s kak?,size_inquiry,neutral,1,1,size_inquiry,0.9994611
+gen_05582,min mas ukuran s buat bb 60 kak?,size_inquiry,neutral,1,1,size_inquiry,0.9994235
+gen_05585,kak kang bb 88 tb 174 mending l apa xl kak?,size_inquiry,neutral,1,1,size_inquiry,0.9994592
+gen_05586,mba tinggi 169 bb 56 pasnya pake apa min?,size_inquiry,neutral,1,1,size_inquiry,0.9994374
+gen_05598,bang kalo tb 163 bb 47 aman di s apa m kak?,size_inquiry,neutral,1,1,size_inquiry,0.99945706
+gen_05600,min kalo tinggi 174 bb 66 pasnya l apa m om?,size_inquiry,neutral,1,1,size_inquiry,0.9994567
+gen_05609,kak kang tb 177 bb 70 pasnya l apa xl om?,size_inquiry,neutral,1,1,size_inquiry,0.9994462
+gen_05643,kak mas bb 85 tb 169 pasnya l atau m min?,size_inquiry,neutral,1,1,size_inquiry,0.9994436
+gen_05660,om kalo bb 70 tb 160 mending m apa s kak?,size_inquiry,neutral,1,1,size_inquiry,0.99946743
+gen_05666,min kalo bb 93 tb 177 pasnya xl apa xxl om?,size_inquiry,neutral,1,1,size_inquiry,0.99947125
+gen_05713,min kalo bb 54 tb 151 aman ga pake s?,size_inquiry,neutral,1,1,size_inquiry,0.9993635
+gen_05719,bang buat bb 61 tb 157 ukuran apa yang cocok?,size_inquiry,neutral,1,1,size_inquiry,0.9994492
+gen_05724,kak buat bb 58 tb 155 s atau m ya min?,size_inquiry,neutral,1,1,size_inquiry,0.99943584
+gen_05736,"kak aku tb 168 bb 61, m atau l yang pas min?",size_inquiry,neutral,1,1,size_inquiry,0.9994615
+gen_05743,bang kalo bb 60 tnggi 156 pake s atau m?,size_inquiry,neutral,1,1,size_inquiry,0.9994616
+gen_05744,kak buat bb 94 tb 179 aman ga xl min?,size_inquiry,neutral,1,1,size_inquiry,0.9994506
+gen_05760,"kak aku tinggi 172 bb 68, ukuran apa bang?",size_inquiry,neutral,1,1,size_inquiry,0.9994492
+gen_05807,"min aku 168 cm 58 kg, ukuran apa yang pas bang?",size_inquiry,neutral,1,1,size_inquiry,0.9994103
+gen_05815,min untuk bb 72 tnggi 169 rekomendasi m atau l?,size_inquiry,neutral,1,1,size_inquiry,0.99944645
+gen_05831,mbak bb 55 tb 152 cocoknya s apa kak?,size_inquiry,neutral,1,1,size_inquiry,0.99946135
+gen_05850,bang tinggi 165 bb 64 kira2 pake apa gan?,size_inquiry,neutral,1,1,size_inquiry,0.9994299
+gen_05852,mbak buat bb 66 tnggi 161 s apa m kak?,size_inquiry,neutral,1,1,size_inquiry,0.99945885
+gen_05854,kak dik bb 69 tb 164 aman ga m?,size_inquiry,neutral,1,1,size_inquiry,0.9993235
+gen_05864,kak dik bb 79 tnggi 170 mending m atau l?,size_inquiry,positive,1,1,size_inquiry,0.9994117
+gen_05869,kak dik tinggi 164 bb 56 pake s apa m?,size_inquiry,neutral,1,1,size_inquiry,0.99943453
+gen_05870,bang kalo bb 67 tnggi 163 antara m sama s gan?,size_inquiry,neutral,1,1,size_inquiry,0.9994649
+gen_05877,mbak kalo bb 83 tnggi 169 l atau m kak?,size_inquiry,neutral,1,1,size_inquiry,0.99945694
+gen_05898,gan bb 89 tnggi 171 paling pas l atau xl min?,size_inquiry,neutral,1,1,size_inquiry,0.99945754
+gen_05903,gan bb 95 tnggi 178 paling pas xl apa xxl min?,size_inquiry,neutral,1,1,size_inquiry,0.9994529
+gen_05912,mbak kalo bb 67 tnggi 162 antara m sama s kak?,size_inquiry,neutral,1,1,size_inquiry,0.99946743
+gen_05916,kak bro bb 90 tnggi 175 xl aman ga?,size_inquiry,neutral,1,1,size_inquiry,0.99935645
+gen_05923,gan bb 76 tnggi 167 aman ga pake m min?,size_inquiry,neutral,1,1,size_inquiry,0.9994135
+gen_05924,kak dik bb 91 tnggi 177 mending xl atau l?,size_inquiry,neutral,1,1,size_inquiry,0.99941885
+gen_05932,mbak kalo bb 85 tnggi 169 mending l atau m kak?,size_inquiry,neutral,1,1,size_inquiry,0.9994665
+gen_05947,kak lingkar dada 91 buat kaos polos size apa bang?,size_inquiry,neutral,1,1,size_inquiry,0.9994159
+gen_05969,kak buat sweater bb 92 tb 178 xl apa xxl min?,size_inquiry,neutral,1,1,size_inquiry,0.99942017
+gen_05989,kak buat celana tb 173 bb 70 ukuran 33 cocok ga bang?,size_inquiry,neutral,1,1,size_inquiry,0.99934703
+gen_05997,kak buat hoodie tb 175 bb 69 l apa m min?,size_inquiry,neutral,1,1,size_inquiry,0.9994357
+gen_06001,kak buat jogger bb 80 tb 172 ukuran apa bang?,size_inquiry,neutral,1,1,size_inquiry,0.99947065
+gen_06023,kak buat sweater bb 84 tb 171 l apa m min?,size_inquiry,neutral,1,1,size_inquiry,0.999433
+gen_06024,bang buat kaos polos tb 165 bb 68 m atau l kak?,size_inquiry,neutral,1,1,size_inquiry,0.9994486
+gen_06027,kak buat tshirt bb 64 tb 159 ukuran m pas ga bang?,size_inquiry,neutral,1,1,size_inquiry,0.9994313
+gen_06038,min buat celana jogger bb 79 tb 173 l apa m kak?,size_inquiry,neutral,1,1,size_inquiry,0.9994247
+gen_06039,kak buat hoodie tb 171 bb 74 m atau l bang?,size_inquiry,neutral,1,1,size_inquiry,0.9994517
+gen_06055,kak buat hoodie tb 163 bb 58 m apa s min?,size_inquiry,neutral,1,1,size_inquiry,0.99942786
+gen_06075,kak buat celana tb 166 bb 64 ukuran 32 atau 34 min?,size_inquiry,neutral,1,1,size_inquiry,0.9994417
+gen_06081,kak buat tshirt bb 62 tb 157 m cocok ga min?,size_inquiry,neutral,1,1,size_inquiry,0.99944085
+gen_06096,min buat tshirt bb 85 tb 170 l atau xl kak?,size_inquiry,neutral,1,1,size_inquiry,0.9994413
+gen_06098,bang buat celana jogger bb 82 tb 173 l cocok ga kak?,size_inquiry,neutral,1,1,size_inquiry,0.99935454
+gen_06124,kak bb 91 tb 178 umur 29 pake xl atau l bang?,size_inquiry,neutral,1,1,size_inquiry,0.9994604
+gen_06130,kak bb 83 tb 171 umur 27 mending l apa m bang?,size_inquiry,neutral,1,1,size_inquiry,0.9994554
+gen_06133,bang bb 62 tb 159 umur 22 pake m atau s?,size_inquiry,neutral,1,1,size_inquiry,0.9994646
+gen_06143,min buat remaja 12 thn tb 155 bb 42 pake s atau m?,size_inquiry,neutral,1,1,size_inquiry,0.99943835
+gen_06149,min buat remaja 15 thn tb 163 bb 50 pake s atau m?,size_inquiry,neutral,1,1,size_inquiry,0.99944586
+gen_06156,kak umur 27 tb 170 bb 64 mending m apa l min?,size_inquiry,neutral,1,1,size_inquiry,0.99942183
+gen_06161,min buat remaja 17 thn tb 171 bb 54 s atau m?,size_inquiry,neutral,1,1,size_inquiry,0.99942267
+gen_06162,kak umur 30 tb 172 bb 71 mending m apa l min?,size_inquiry,neutral,1,1,size_inquiry,0.9994272
+gen_06167,min buat remaja 11 thn tb 152 bb 40 pake s atau m?,size_inquiry,neutral,1,1,size_inquiry,0.9994455
+gen_06168,kak umur 26 tb 167 bb 62 mending m atau l min?,size_inquiry,neutral,1,1,size_inquiry,0.9994567
+gen_06169,bang bb 73 tb 168 umur 25 pake m atau l?,size_inquiry,neutral,1,1,size_inquiry,0.99943787
+gen_06172,kak bb 89 tb 176 umur 36 mending xl atau l bang?,size_inquiry,neutral,1,1,size_inquiry,0.99944335
+gen_06180,kak umur 28 tb 169 bb 65 mending m apa l min?,size_inquiry,neutral,1,1,size_inquiry,0.9994271
+gen_06189,min umur 23 tb 165 bb 60 m atau l kak?,size_inquiry,neutral,1,1,size_inquiry,0.9994349
+gen_06191,min buat remaja 12 thn tb 154 bb 41 pake s atau m?,size_inquiry,neutral,1,1,size_inquiry,0.9994349
+gen_06198,kak umur 25 tb 168 bb 63 mending m atau l min?,size_inquiry,neutral,1,1,size_inquiry,0.9994522
+gen_06200,kak buat anak 18 thn tb 173 bb 60 ukuran apa min?,size_inquiry,neutral,1,1,size_inquiry,0.99946684
+gen_06226,kak bb 91 tb 179 umur 37 mending xl atau xxl bang?,size_inquiry,neutral,1,1,size_inquiry,0.9994641
+gen_06229,bang bb 67 tb 164 umur 20 pake m atau s?,size_inquiry,neutral,1,1,size_inquiry,0.9994562
+gen_06285,kak umur 16 tb 166 bb 51 pake size apa min?,size_inquiry,neutral,1,1,size_inquiry,0.9994655
+gen_06315,min bb 72 tinggi 165 ambil m aja,size_recommendation,neutral,2,2,size_recommendation,0.9994498
+gen_06327,min bb 74 tb 167 ambil m pas,size_recommendation,neutral,2,2,size_recommendation,0.9994382
+gen_06342,min tinggi 166 bb 56 ambil m aja,size_recommendation,neutral,2,2,size_recommendation,0.9994425
+gen_06346,kak tinggi 164 bb 54 pake s aja,size_recommendation,neutral,2,2,size_recommendation,0.9994407
+gen_06361,kak bb 90 tb 179 pake xl aja,size_recommendation,neutral,2,2,size_recommendation,0.9994522
+gen_06365,bang bb 80 tb 173 mending l aman,size_recommendation,neutral,2,2,size_recommendation,0.9994074
+gen_06369,min bb 85 tb 166 ambil l pas,size_recommendation,neutral,2,2,size_recommendation,0.9994185
+gen_06378,min tinggi 170 bb 68 ambil l cukup,size_recommendation,neutral,2,2,size_recommendation,0.9991947
+gen_06379,kak bb 72 tb 163 pake m aja,size_recommendation,neutral,2,2,size_recommendation,0.9994456
+gen_06387,min bb 67 tb 162 ambil m cukup,size_recommendation,neutral,2,2,size_recommendation,0.9994393
+gen_06390,min tinggi 166 bb 57 ambil m aja,size_recommendation,neutral,2,2,size_recommendation,0.9994413
+gen_06400,kak tb 173 bb 67 pake l aman,size_recommendation,neutral,2,2,size_recommendation,0.9994173
+gen_06406,kak tinggi 172 bb 69 pake l cukup,size_recommendation,neutral,2,2,size_recommendation,0.99929285
+gen_06410,bang tinggi 164 bb 56 mending m cukup,size_recommendation,neutral,2,2,size_recommendation,0.99940515
+gen_06412,kak tb 176 bb 69 pake l cukup,size_recommendation,neutral,2,2,size_recommendation,0.99937266
+gen_06415,kak bb 81 tb 171 pake l aman,size_recommendation,neutral,2,2,size_recommendation,0.99941754
+gen_06426,bang bb 84 tnggi 175 kalo gua ambil l aman,size_recommendation,neutral,2,2,size_recommendation,0.9989435
+gen_06428,"bang bb 68 tinggi 164 gua sarankan s atau m, m aja lah",size_recommendation,neutral,2,2,size_recommendation,0.999383
+gen_06432,bang tb 169 bb 66 kalo gua m aja udah pas,size_recommendation,neutral,2,2,size_recommendation,0.9994487
+gen_06439,kak tb 172 bb 64 pake m aja aman,size_recommendation,neutral,2,2,size_recommendation,0.99945134
+gen_06453,kak bb 72 tb 167 m aja aman kok,size_recommendation,neutral,2,2,size_recommendation,0.99945277
+gen_06493,kak tb 171 bb 67 m pake aja? m aja aman,size_recommendation,neutral,2,2,size_recommendation,0.9994475
+gen_06497,kak tinggi 173 bb 73 pake l aja,size_recommendation,neutral,2,2,size_recommendation,0.99943906
+gen_06499,kak tb 165 bb 61 pake m aja,size_recommendation,neutral,2,2,size_recommendation,0.99944514
+gen_06511,kak tinggi 171 bb 66 pake m aja aman,size_recommendation,neutral,2,2,size_recommendation,0.9994493
+gen_06513,kak bb 70 tinggi 162 m aja udah pas,size_recommendation,neutral,2,2,size_recommendation,0.99944717
+gen_06527,kak tinggi 173 bb 71 mending l aja,size_recommendation,neutral,2,2,size_recommendation,0.99942905
+gen_06536,bang height 168 bb 63 m aja udah aman,size_recommendation,negative,2,2,size_recommendation,0.99943775
+gen_06572,bang bb 77 tb 170 mending m aja,size_recommendation,neutral,2,2,size_recommendation,0.9994523
+gen_06582,min bb 67 tnggi 160 m aja cukup,size_recommendation,neutral,2,2,size_recommendation,0.99943715
+gen_06588,kak bb 79 tnggi 175 l aja,size_recommendation,neutral,2,2,size_recommendation,0.9994382
+gen_06592,kak tinggi 173 bb 69 pake l aja,size_recommendation,positive,2,2,size_recommendation,0.99943703
+gen_06613,kak bb 75 tb 174 mending m aja,size_recommendation,neutral,2,2,size_recommendation,0.99945205
+gen_06638,bang bb 68 tinggi 161 m aja,size_recommendation,neutral,2,2,size_recommendation,0.9994454
+gen_06647,min bb 79 tnggi 172 m aja,size_recommendation,neutral,2,2,size_recommendation,0.9994504
+gen_06662,"bang tinggi 172 bb 68 mending m atau l, m aja aman",size_recommendation,neutral,2,2,size_recommendation,0.99943477
+gen_06673,kak tb 168 bb 59 buat kaos m aja,size_recommendation,neutral,2,2,size_recommendation,0.99945194
+gen_06698,bang tb 178 bb 75 buat hoodie l aja,size_recommendation,neutral,2,2,size_recommendation,0.9994374
+gen_06717,kak bb 71 tnggi 161 buat kaos m aja,size_recommendation,neutral,2,2,size_recommendation,0.9994584
+gen_06728,min tinggi 165 bb 60 buat jogger m aja,size_recommendation,neutral,2,2,size_recommendation,0.9994425
+gen_06732,min tb 173 bb 69 buat sweeter l aja,size_recommendation,neutral,2,2,size_recommendation,0.9994522
+gen_06743,kak bb 90 tnggi 177 buat kemeja xl aja,size_recommendation,neutral,2,2,size_recommendation,0.9994543
+gen_06756,min bb 74 tnggi 167 buat kemeja m aja,size_recommendation,positive,2,2,size_recommendation,0.9994522
+gen_06758,bang bb 88 tnggi 179 buat hoodie xl aja,size_recommendation,neutral,2,2,size_recommendation,0.9994543
+gen_06764,min bb 63 tnggi 159 buat kaos s aja,size_recommendation,neutral,2,2,size_recommendation,0.999453
+gen_06766,bang bb 76 tnggi 172 buat sweeter m aja,size_recommendation,neutral,2,2,size_recommendation,0.9994522
+gen_06767,kak bb 86 tnggi 174 buat hoodie m aja,size_recommendation,neutral,2,2,size_recommendation,0.9994487
+gen_06768,min bb 52 tnggi 149 buat kaos s aja,size_recommendation,neutral,2,2,size_recommendation,0.999453
+gen_06775,kak bb 78 tnggi 175 buat kaos m aja,size_recommendation,neutral,2,2,size_recommendation,0.99945396
+gen_06813,"kak bb 92 tnggi 181, xl aja udah pas",size_recommendation,neutral,2,2,size_recommendation,0.9994584
+gen_06818,"bang kalo bb 76 tnggi 171, m aja udah pas",size_recommendation,neutral,2,2,size_recommendation,0.9994374
+gen_06826,"bang kalo tinggi 172 bb 63, m aja aman",size_recommendation,neutral,2,2,size_recommendation,0.99944586
+gen_06847,"kak bb 70 tinggi 165, m aja udah pas",size_recommendation,neutral,2,2,size_recommendation,0.9994498
+gen_06849,"kak tb 177 bb 71, l aja aman",size_recommendation,neutral,2,2,size_recommendation,0.9994531
+gen_06850,"bang kalo bb 83 tnggi 176, l aja sih",size_recommendation,neutral,2,2,size_recommendation,0.99939597
+gen_06858,"bang kalo tinggi 169 bb 66, m aja deh",size_recommendation,neutral,2,2,size_recommendation,0.99943
+gen_06866,"bang kalo bb 84 tnggi 171, l aja aman",size_recommendation,neutral,2,2,size_recommendation,0.9994313
+gen_06876,"min kalo bb 82 tnggi 172, l aja deh",size_recommendation,neutral,2,2,size_recommendation,0.9994199
+gen_06885,"kak bb 85 tnggi 173, l aja aman",size_recommendation,negative,2,2,size_recommendation,0.9994498
+gen_06893,"min kalo 172 cm 68 kg, m aja aman",size_recommendation,neutral,2,2,size_recommendation,0.9994289
+gen_06910,"kak 168 cm 63 kg, m aja cukup",size_recommendation,neutral,2,2,size_recommendation,0.999445
+gen_06911,"bang kalo 173 cm 67 kg, m aja deh",size_recommendation,neutral,2,2,size_recommendation,0.99942255
+gen_06920,"kak 174 cm 68 kg, l aja udah pas",size_recommendation,neutral,2,2,size_recommendation,0.99942195
+gen_06921,"min kalo 167 cm 59 kg, m aja aman",size_recommendation,neutral,2,2,size_recommendation,0.99943286
+gen_06935,"bang kalo 172 cm 65 kg, m aja aman",size_recommendation,neutral,2,2,size_recommendation,0.9994356
+gen_06940,"kak 174 cm 70 kg, l aja biar pas",size_recommendation,neutral,2,2,size_recommendation,0.99943596
+gen_06957,"min kalo 169 cm 62 kg, m aja aman",size_recommendation,positive,2,2,size_recommendation,0.99943036
+gen_06960,"kak 173 cm 66 kg, m aja udah pas",size_recommendation,neutral,2,2,size_recommendation,0.9994326
+gen_06961,"min kalo 181 cm 82 kg, xl aja aman",size_recommendation,neutral,2,2,size_recommendation,0.999426
+gen_06966,"kak 163 cm 56 kg, m aja cukup",size_recommendation,neutral,2,2,size_recommendation,0.9994355
+gen_06978,"bang kalo 175 cm 69 kg, l aja udah pas",size_recommendation,neutral,2,2,size_recommendation,0.9994155
+gen_07000,"min kalo 162 cm 53 kg, m aja cukup nyaman",size_recommendation,neutral,2,2,size_recommendation,0.999421
+gen_07010,kak putih ready?,stock_availability,neutral,5,3,color_inquiry,0.99960726
+gen_07022,kak hoodie etalase 4 msh ready?,stock_availability,neutral,5,5,stock_availability,0.99950266
+gen_07044,kapan restock kaos hitam bang,stock_availability,neutral,5,5,stock_availability,0.99941015
+gen_07056,warna hijau stok msh ad min,stock_availability,neutral,5,5,stock_availability,0.999532
+gen_07064,msh ad yg merah ukuran m kak?,stock_availability,neutral,5,5,stock_availability,0.999466
+gen_07070,kak 26 warna cream masih ad?,stock_availability,neutral,5,5,stock_availability,0.99951136
+gen_07074,kak ungu etalase 28 masih ad?,stock_availability,neutral,5,5,stock_availability,0.9995177
+gen_07082,kak size l yg biru msh ad?,stock_availability,neutral,5,5,stock_availability,0.9995054
+gen_07083,warna hitam msh ad ga ka?,stock_availability,neutral,5,5,stock_availability,0.9995432
+gen_07093,warna cream msh ad ka?,stock_availability,neutral,5,5,stock_availability,0.9995407
+gen_07112,warna abu2 msh ready min,stock_availability,neutral,5,5,stock_availability,0.9995378
+gen_07127,warna biru msh ready gk,stock_availability,neutral,5,5,stock_availability,0.9995453
+gen_07140,eta 25 yg item msh ad kak,stock_availability,neutral,5,5,stock_availability,0.99951696
+gen_07157,kak 12 warna hijau msh ad gk,stock_availability,neutral,5,5,stock_availability,0.9995454
+gen_07160,eta 14 yg coklat abis belum kak,stock_availability,neutral,5,5,stock_availability,0.9994956
+gen_07183,kak 6 yg biru stok msh ad?,stock_availability,neutral,5,5,stock_availability,0.9995448
+gen_07192,eta 15 yg coklat abis blm bang,stock_availability,neutral,5,5,stock_availability,0.99951184
+gen_07201,kak 24 yg hijau msh ad min,stock_availability,neutral,5,5,stock_availability,0.9995309
+gen_07203,kak 26 yg putih msh ad?,stock_availability,neutral,5,5,stock_availability,0.99954116
+gen_07212,eta 5 yg hijau stok msh ad kak,stock_availability,neutral,5,5,stock_availability,0.99950504
+gen_07215,kak 8 yg putih stok msh ad bang,stock_availability,neutral,5,5,stock_availability,0.99954516
+gen_07218,warna item etalase 11 ready gak min,stock_availability,neutral,5,5,stock_availability,0.9995129
+gen_07224,eta 17 yg coklat msh ad kak,stock_availability,neutral,5,5,stock_availability,0.99951756
+gen_07227,kak 20 yg abu2 stok msh ad bang,stock_availability,neutral,5,5,stock_availability,0.99954456
+gen_07228,eta 21 yg putih msh ready kak,stock_availability,neutral,5,5,stock_availability,0.99953413
+gen_07241,stok kemeja item masih aman bang?,stock_availability,neutral,5,5,stock_availability,0.999527
+gen_07248,stok polo hijau masih ad bang?,stock_availability,neutral,5,5,stock_availability,0.99954885
+gen_07269,kak jogger hitam stok msh aman?,stock_availability,positive,5,5,stock_availability,0.9995394
+gen_07289,kak kemeja putih etalase 5 msh ad gak,stock_availability,neutral,5,5,stock_availability,0.99948275
+gen_07310,kemeja flanel coklat msh ready kak,stock_availability,neutral,5,5,stock_availability,0.99954164
+gen_07313,kak tshirt cream etalase 26 msh ready?,stock_availability,neutral,5,5,stock_availability,0.9995084
+gen_07317,jogger cream masih ready gk min,stock_availability,neutral,5,5,stock_availability,0.9995296
+gen_07322,kak jeans biru 30 etalase 4 msh ad?,stock_availability,neutral,5,5,stock_availability,0.99951565
+gen_07323,polo hijau masih ad gk kak,stock_availability,neutral,5,5,stock_availability,0.999548
+gen_07326,sweater navy size m msh ad ka,stock_availability,neutral,5,5,stock_availability,0.9995382
+gen_07352,kak celana cargo abu msh ready?,stock_availability,neutral,5,5,stock_availability,0.9995359
+gen_07355,jeans biru 34 stok msh aman ka,stock_availability,neutral,5,5,stock_availability,0.99949336
+gen_07358,kak kemeja kotak2 item etalase 8 msh ad?,stock_availability,neutral,5,5,stock_availability,0.99950564
+gen_07362,kak celana chino cream msh ready?,stock_availability,neutral,5,5,stock_availability,0.9995364
+gen_07371,tee cream etalase 20 msh ad min,stock_availability,neutral,5,5,stock_availability,0.99950147
+gen_07376,kak tshirt item size xl msh ad?,stock_availability,neutral,5,5,stock_availability,0.9995333
+gen_07386,kak polo cream stok msh aman min,stock_availability,neutral,5,5,stock_availability,0.9995334
+gen_07389,jeans 32 item msh ad gak ka,stock_availability,neutral,5,5,stock_availability,0.99953294
+gen_07396,kak tee navy msh ready?,stock_availability,neutral,5,5,stock_availability,0.99953675
+gen_07411,kak yang abu2 ini ready ngga?,stock_availability,neutral,5,5,stock_availability,0.9939917
+gen_07415,kak yang size 29 msh ready gak?,stock_availability,neutral,5,5,stock_availability,0.9995233
+gen_07434,min yang coklat ready gak sekarang?,stock_availability,neutral,5,5,stock_availability,0.99951947
+gen_07441,kak yang cream ini msh ad gak?,stock_availability,neutral,5,5,stock_availability,0.9995358
+gen_07443,kak yang merah msh ready ngga?,stock_availability,neutral,5,5,stock_availability,0.9995546
+gen_07447,kak yang pink msh ready ngga?,stock_availability,neutral,5,5,stock_availability,0.99955326
+gen_07448,bang yang item ini msh ad?,stock_availability,neutral,5,5,stock_availability,0.9995284
+gen_07449,kak yang abu2 msh ad kan?,stock_availability,neutral,5,5,stock_availability,0.99954706
+gen_07462,kak yang ungu msh ad ga?,stock_availability,neutral,5,5,stock_availability,0.99955124
+gen_07466,bang yang biru msh ready?,stock_availability,neutral,5,5,stock_availability,0.9995524
+gen_07468,min yang abu2 stok msh ad?,stock_availability,neutral,5,5,stock_availability,0.99954754
+gen_07481,bang yang cream msh ad?,stock_availability,neutral,5,5,stock_availability,0.999542
+gen_07489,kak yang cream msh ready gak?,stock_availability,neutral,5,5,stock_availability,0.9995307
+gen_07500,bang yang putih msh ad?,stock_availability,neutral,5,5,stock_availability,0.9995447
+gen_07512,min yang coklat msh ready gk?,stock_availability,neutral,5,5,stock_availability,0.9995503
+gen_07520,bang yang hijau msh ad?,stock_availability,neutral,5,5,stock_availability,0.99954236
+gen_07530,min yang item msh ready gk?,stock_availability,negative,5,5,stock_availability,0.9995529
+gen_07536,min yang hijau stok msh ad?,stock_availability,positive,5,5,stock_availability,0.9995472
+gen_07537,kak yang coklat msh ready gak?,stock_availability,neutral,5,5,stock_availability,0.999539
+gen_07552,kak yang ungu msh ready ngga?,stock_availability,neutral,5,5,stock_availability,0.9995559
+gen_07594,"kak yg navy msh ad gak, masih ada semua size?",stock_availability,neutral,5,5,stock_availability,0.9995453
+gen_07600,"kak yg biru msh ad gak, hari minggu liat di FYP",stock_availability,neutral,5,5,stock_availability,0.9994985
+gen_07604,"kak yg pink msh ad ga, mau beliin mama",stock_availability,neutral,5,5,stock_availability,0.9995191
+gen_07605,"min yg abu2 msh ad gak, udah restock blm?",stock_availability,neutral,5,5,stock_availability,0.9995455
+gen_07615,"bang yg item msh ready gak, udah lama banget cari",stock_availability,neutral,5,5,stock_availability,0.999532
+gen_07653,"min yg ungu msh ad ga, tgl berapa habisnya",stock_availability,neutral,5,5,stock_availability,0.99951196
+gen_07666,"kak yg merah msh ready gak, mau cus ke TKP",stock_availability,neutral,5,5,stock_availability,0.9995363
+gen_07703,"bang yg item msh ad gak, sempet kelewatan live",stock_availability,neutral,5,5,stock_availability,0.99949634
+gen_07706,"kak yg coklat msh ad gak, besok pagi bisa?",stock_availability,neutral,5,5,stock_availability,0.9995253
+gen_07716,"kak yg navy msh ad ga, kapan sih restock",stock_availability,neutral,5,5,stock_availability,0.99952435
+gen_07717,"min yg coklat msh ready gak, mau beli pas live",stock_availability,neutral,5,5,stock_availability,0.9994929
+gen_07718,"kak yg biru msh ad gak, udah bisa dipesan?",stock_availability,negative,5,5,stock_availability,0.9995328
+gen_07751,min merah msh ready?,stock_availability,neutral,5,5,stock_availability,0.99948174
+gen_07769,kak 21 msh ready?,stock_availability,neutral,5,5,stock_availability,0.9995478
+gen_07789,kak 19 msh ready?,stock_availability,neutral,5,5,stock_availability,0.99954766
+gen_07805,min pink msh ready?,stock_availability,neutral,5,5,stock_availability,0.9995227
+gen_07810,eta 11 msh full?,stock_availability,neutral,5,5,stock_availability,0.9995097
+gen_07824,eta 21 msh full?,stock_availability,neutral,5,5,stock_availability,0.99951065
+gen_07838,kak 3 abis blm?,stock_availability,neutral,5,5,stock_availability,0.99950564
+gen_07839,eta 6 msh full?,stock_availability,neutral,5,5,stock_availability,0.9994929
+gen_07852,kak 5 abis blm?,stock_availability,neutral,5,5,stock_availability,0.9995301
+gen_07858,kak 28 msh ready?,stock_availability,neutral,5,5,stock_availability,0.9995448
+gen_07870,kak yang navy ada stok gak?,stock_availability,neutral,5,5,stock_availability,0.9994654
+gen_07873,bang stok yang cream msh ad ga?,stock_availability,neutral,5,5,stock_availability,0.9995402
+gen_07875,kak yang pink udah abis blm?,stock_availability,neutral,5,5,stock_availability,0.99953437
+gen_07876,bang yang ungu msh ad gak?,stock_availability,neutral,5,5,stock_availability,0.9995461
+gen_07878,min yang abu2 ready gak?,stock_availability,neutral,5,5,stock_availability,0.99943763
+gen_07890,min yang item msh ready gak?,stock_availability,neutral,5,5,stock_availability,0.99954885
+gen_07909,bang yang pink msh ready gak?,stock_availability,neutral,5,5,stock_availability,0.9995419
+gen_07914,bang yang cream msh ad kan?,stock_availability,neutral,5,5,stock_availability,0.9995455
+gen_07932,min yang abu2 msh ad kan?,stock_availability,neutral,5,5,stock_availability,0.9995454
+gen_07934,min yang merah msh ready nggak?,stock_availability,neutral,5,5,stock_availability,0.9995591
+gen_07940,bang yang abu2 msh ready nggak?,stock_availability,neutral,5,5,stock_availability,0.9995555
+gen_07944,bang yang pink msh ready nggak?,stock_availability,neutral,5,5,stock_availability,0.9995547
+gen_07962,min kaos putih ready berapa biji?,stock_availability,neutral,5,5,stock_availability,0.9991605
+gen_07967,bang kaos hijau ada ready?,stock_availability,neutral,5,5,stock_availability,0.9995146
+gen_07984,bang kemeja coklat ready ga?,stock_availability,neutral,5,5,stock_availability,0.9995223
+gen_07989,kak kemeja biru stok ready ga?,stock_availability,neutral,5,5,stock_availability,0.99953294
+gen_07994,min kemeja toska ada ka ready?,stock_availability,neutral,5,5,stock_availability,0.9994149
+gen_08010,kak hoodie merah stok ada ga?,stock_availability,neutral,5,5,stock_availability,0.99952567
+gen_08014,bang hoodie sage ada ready stok?,stock_availability,neutral,5,5,stock_availability,0.9995309
+gen_08030,kak sweater krem ready stoknya?,stock_availability,positive,5,5,stock_availability,0.99953175
+gen_08034,bang sweater mustard stok ready?,stock_availability,neutral,5,5,stock_availability,0.99953866
+gen_08042,kak jogger coklat stock ready?,stock_availability,neutral,5,5,stock_availability,0.99952674
+gen_08058,min celana navy ready stock?,stock_availability,neutral,5,5,stock_availability,0.9995357
+gen_08070,min celana toska ready stock?,stock_availability,neutral,5,5,stock_availability,0.9995332
+gen_08090,kak kaos polos sage ready stock?,stock_availability,neutral,5,5,stock_availability,0.9995254
+gen_08113,kak kaos maroon masih ada?,stock_availability,neutral,5,5,stock_availability,0.9989504
+gen_08126,bang kemeja krem ready kah?,stock_availability,neutral,5,5,stock_availability,0.99950624
+gen_08137,kak hoodie cream ready lagi?,stock_availability,neutral,5,5,stock_availability,0.99953556
+gen_08142,min hoodie biru ready lagi ga?,stock_availability,neutral,5,5,stock_availability,0.9995401
+gen_08152,kak sweater hitam stok ada?,stock_availability,neutral,5,5,stock_availability,0.9995179
+gen_08184,min jogger army stok ada?,stock_availability,neutral,5,5,stock_availability,0.9995322
+gen_08203,kak celana army stok ada?,stock_availability,neutral,5,5,stock_availability,0.999503
+gen_08210,bang kaos polos putih stok ada?,stock_availability,neutral,5,5,stock_availability,0.9995258
+gen_08221,kak kaos polos krem stok ada?,stock_availability,neutral,5,5,stock_availability,0.9995254
+gen_08224,kak kaos polos sage ready lagi?,stock_availability,neutral,5,5,stock_availability,0.99952996
+gen_08235,bang kaos pink ready ga stock?,stock_availability,neutral,5,5,stock_availability,0.9995171
+gen_08243,kak kaos sage ready ngga?,stock_availability,neutral,5,5,stock_availability,0.9995049
+gen_08247,bang kaos item ready ga stock?,stock_availability,neutral,5,5,stock_availability,0.99952555
+gen_08248,min kaos hitam ready ga stok?,stock_availability,neutral,5,5,stock_availability,0.99950147
