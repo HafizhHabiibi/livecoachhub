@@ -22,6 +22,8 @@ BASE_MODEL = "Qwen/Qwen2.5-1.5B-Instruct"
 ADAPTER_DIR = "livecoach-qlora-adapter"
 
 # Prompt uji -- kombinasi baru yang tidak persis ada di dataset training
+# [19 Agt 2026] selected_action/audience_state di bawah disamakan ke enum resmi
+# dokumen (Section 4.2/11) -- lihat DECISIONS_LOG.md di root folder Lomba.
 EVAL_CASES = [
     {
         "selected_action": "SHOW_SIZE_GUIDE",
@@ -34,8 +36,8 @@ EVAL_CASES = [
         "max_words": 30,
     },
     {
-        "selected_action": "EXPLAIN_MATERIAL",
-        "audience_state": "MATERIAL_SAFETY_CONCERN",
+        "selected_action": "EXPLAIN_PRODUCT_DETAIL",
+        "audience_state": "PRODUCT_INFO_GAP",
         "evidence_comments": ["ini bahannya panas ga buat cuaca jakarta"],
         "product_facts": [
             {"fact_id": "FACT-TS01-MATERIAL-002", "value": "Kain tidak nerawang, gramasi 180 gsm, rajutan single knit rapat sehingga tidak mudah melar."}
@@ -45,8 +47,8 @@ EVAL_CASES = [
     },
     {
         # sengaja fact yang dibutuhkan TIDAK diberikan -- harus needs_fallback=true
-        "selected_action": "CONFIRM_STOCK_COLOR",
-        "audience_state": "STOCK_COLOR_CONCERN",
+        "selected_action": "CONFIRM_STOCK",
+        "audience_state": "STOCK_FRICTION",
         "evidence_comments": ["ada warna pink ga kak"],
         "product_facts": [],
         "tone": "informatif",

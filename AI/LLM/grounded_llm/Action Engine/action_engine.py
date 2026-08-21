@@ -14,9 +14,20 @@ Kontrak output selaras dengan bagian 10.4 dan 11 dokumen spesifikasi:
 - ActionDecision: selected_action, action_score, required_fact_types
 
 CATATAN INTEGRASI (perlu dikonfirmasi ke M2/SCR-2):
-`source_intents` di action_rules.json (SIZE_VARIANT, STOCK_QUERY, dst) adalah
-taksonomi intent yang DIUSULKAN M3 -- perlu disamakan dengan intent asli
-yang benar-benar dikeluarkan model IndoBERTweet milik M2.
+`source_intents` di action_rules.json sekarang memakai Intent enum RESMI dari
+dokumen Section 4.1 (PRICE_PROMO, SIZE_VARIANT, STOCK_AVAILABILITY,
+PRODUCT_DETAIL, dst) -- tetap perlu dikonfirmasi ke M2/SCR-2 karena itu output
+asli model IndoBERTweet milik mereka, kode M3 belum pernah melihat kode M2
+secara langsung.
+
+RIWAYAT PERBAIKAN (lihat DECISIONS_LOG.md di root folder Lomba untuk detail):
+action_rules.json sebelumnya (v1) memakai audience_state/selected_action
+custom (mis. STOCK_COLOR_CONCERN, MATERIAL_SAFETY_CONCERN, SHOW_PROMO_INFO)
+yang TIDAK cocok dengan enum resmi di Section 4.2 & 11 dokumen spesifikasi.
+Per 19 Agustus 2026 ditulis ulang (v2) supaya persis memakai 8 enum resmi;
+4 dari 8 pasang audience_state/selected_action sudah aktif (SIZE_FRICTION,
+STOCK_FRICTION, PRODUCT_INFO_GAP, PRICE_FRICTION), 3 sisanya sengaja ditunda
+(lihat key "not_yet_implemented" di action_rules.json).
 """
 
 from __future__ import annotations
@@ -187,7 +198,7 @@ if __name__ == "__main__":
             evidence_comment_ids=["CMT-018", "CMT-014"],
         ),
         WindowIntentSignal(
-            intent="PRICE_QUERY",
+            intent="PRICE_PROMO",
             support_count=1,
             avg_confidence=0.6,
             evidence_comment_ids=["CMT-020"],

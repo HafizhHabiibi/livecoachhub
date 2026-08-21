@@ -14,6 +14,15 @@ Kebijakan yang dipakai (hasil keputusan bareng):
    panjang/harga/gsm/persentase), LONGGAR untuk angka kecil lain yang
    tidak melekat ke satuan tersebut (misal "2 orang nanya").
 3. Toleransi panjang: max_words + 20%. Lewat dari itu baru gagal.
+
+CATATAN PERLU DIKONFIRMASI KE KETUA/M1 (bukan diputuskan sepihak di sini):
+Dokumen spesifikasi punya 2 definisi ValidationStatus yang berbeda di 2 bagian:
+- Section 7.5 & contoh payload 10.4 -> validation_status: "PASSED" atau "FALLBACK"
+- Section 11 (Enum Registry) -> ValidationStatus: PASSED | FAILED | NOT_RUN
+Modul ini mengikuti Section 7.5/10.4 (PASSED/FALLBACK) karena itu yang dipakai di
+contoh JSON response nyata dan di komponen Coach Card. Perlu diklarifikasi ke
+ketua (M1/SCR-1) mana yang jadi acuan final sebelum schema_version dinaikkan
+resmi -- lihat DECISIONS_LOG.md di root folder Lomba.
 """
 
 from __future__ import annotations
@@ -24,7 +33,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Callable, List, Optional
 
-FACTS_PATH = Path(__file__).parent / "product_facts_v2.json"
+FACTS_PATH = Path(__file__).parent.parent / "Knowledge Base" / "product_facts_v2.json"
 
 with open(FACTS_PATH, "r", encoding="utf-8") as f:
     _facts_raw = json.load(f)["facts"]
@@ -36,10 +45,13 @@ ALL_FACTS = {f["fact_id"]: f["value"] for f in _facts_raw}
 # ---------------------------------------------------------------------------
 
 ACTION_FALLBACK_TEMPLATES = {
+    # [19 Agt 2026] Key disamakan ke selected_action RESMI (Section 4.2 dokumen) --
+    # lihat DECISIONS_LOG.md di root. HANDLE_OBJECTION, EXPLAIN_SHIPPING, GUIDE_CHECKOUT
+    # belum ditambahkan di sini karena action_rules.json belum mengaktifkan state-nya.
     "SHOW_SIZE_GUIDE": "Untuk memastikan ukuran yang pas, boleh cek size chart lengkap di halaman produk ya kak, atau tanya admin biar gak salah pilih.",
-    "CONFIRM_STOCK_COLOR": "Untuk stok/warna spesifik itu, admin akan konfirmasi ya kak, biar datanya pasti.",
-    "EXPLAIN_MATERIAL": "Untuk detail bahan lebih spesifik, boleh cek deskripsi produk lengkap atau tanya admin ya kak.",
-    "SHOW_PROMO_INFO": "Untuk info harga/promo paling update, boleh cek langsung di halaman checkout ya kak.",
+    "CONFIRM_STOCK": "Untuk stok/warna spesifik itu, admin akan konfirmasi ya kak, biar datanya pasti.",
+    "EXPLAIN_PRODUCT_DETAIL": "Untuk detail produk lebih spesifik, boleh cek deskripsi produk lengkap atau tanya admin ya kak.",
+    "EXPLAIN_PRICE_PROMO": "Untuk info harga/promo paling update, boleh cek langsung di halaman checkout ya kak.",
     "NO_ACTION": "Terima kasih sudah nonton, kalau ada pertanyaan produk boleh tulis di kolom komentar ya!",
 }
 
