@@ -88,19 +88,26 @@ cd AI/LLM/
 ./run_training.sh
 ```
 
-### Cara Menggunakan Model untuk Inference:
+### Cara Menggunakan Model untuk Inference (4-bit NF4 ~1GB RAM):
 ```python
 import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 from peft import PeftModel
 
 BASE_MODEL = "Qwen/Qwen2.5-1.5B-Instruct"
 ADAPTER_PATH = "livecoach-qlora-adapter"
 
+# Kuantisasi 4-bit agar hemat RAM/VRAM (~1 GB) saat inference
+bnb_config = BitsAndBytesConfig(
+    load_in_4bit=True,
+    bnb_4bit_quant_type="nf4",
+    bnb_4bit_compute_dtype=torch.bfloat16 if torch.cuda.is_available() and torch.cuda.is_bf16_supported() else torch.float16,
+)
+
 tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL)
 base_model = AutoModelForCausalLM.from_pretrained(
     BASE_MODEL,
-    torch_dtype=torch.float16,
+    quantization_config=bnb_config,
     device_map="auto"
 )
 model = PeftModel.from_pretrained(base_model, ADAPTER_PATH)
@@ -110,7 +117,7 @@ messages = [
     {"role": "system", "content": "Anda adalah LiveCoach AI..."},
     {"role": "user", "content": "..."}
 ]
-inputs = tokenizer(tokenizer.apply_chat_template(messages, tokenize=False), return_tensors="pt").to("cuda")
+inputs = tokenizer(tokenizer.apply_chat_template(messages, tokenize=False), return_tensors="pt").to(model.device)
 outputs = model.generate(**inputs, max_new_tokens=256)
-print(tokenizer.decode(outputs[0], skip_special_tokens=True))
+print(tokenizer.decode(outputs[0][inputs["input_ids"].shape[1]:], skip_special_tokens=True))
 ```

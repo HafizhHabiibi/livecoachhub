@@ -17,3 +17,7 @@ __pycache__/
 # System & Temporary Files
 .DS_Store
 *.log
+
+# Allow adapter model safetensors to be tracked
+!adapter_model.safetensors
+!*.safetensors

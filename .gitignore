@@ -52,3 +52,5 @@ frontend/dist/
 frontend/dist-ssr/
 frontend/*.tsbuildinfo
 frontend/coverage/
+# Allow adapter safetensors
+!AI/LLM/livecoach-qlora-adapter/*.safetensors
