@@ -1,0 +1,59 @@
+{
+  "schema_version": "action_rules.v1",
+  "note": "Konfigurasi deterministik untuk Action Engine LiveCoach AI. Diedit oleh M3/SCR-3, perlu dikonfirmasi ke M2/SCR-2 karena intent taxonomy (source_intents) adalah output NLP mereka.",
+
+  "threshold_policy": {
+    "description": "Sinyal minimal sebelum Action Engine berani memilih action selain NO_ACTION.",
+    "min_supporting_comments_60s": 2,
+    "min_state_confidence": 0.7,
+    "mode": "AND"
+  },
+
+  "tie_break_policy": {
+    "description": "Kalau lebih dari satu audience_state melewati threshold di window yang sama, urutkan berdasarkan priority_rank (angka kecil = didahulukan). Kalau priority_rank sama, menang yang state_confidence lebih tinggi.",
+    "primary": "priority_rank_asc",
+    "secondary": "state_confidence_desc"
+  },
+
+  "audience_states": [
+    {
+      "state": "SIZE_FRICTION",
+      "priority_rank": 1,
+      "source_intents": ["SIZE_VARIANT"],
+      "selected_action": "SHOW_SIZE_GUIDE",
+      "required_fact_types": ["SIZE_GUIDE_ANAK", "SIZE_GUIDE_REMAJA", "SIZE_GUIDE_DEWASA", "SIZE_GUIDE_DEWASA_LOKAL"],
+      "reason_template": "{support_count} pertanyaan ukuran muncul dalam 60 detik terakhir."
+    },
+    {
+      "state": "STOCK_COLOR_CONCERN",
+      "priority_rank": 2,
+      "source_intents": ["STOCK_QUERY", "COLOR_QUERY"],
+      "selected_action": "CONFIRM_STOCK_COLOR",
+      "required_fact_types": ["STOCK", "COLOR_VARIANT"],
+      "reason_template": "{support_count} penonton menanyakan stok/warna dalam 60 detik terakhir."
+    },
+    {
+      "state": "MATERIAL_SAFETY_CONCERN",
+      "priority_rank": 3,
+      "source_intents": ["MATERIAL_QUERY", "SAFETY_QUERY"],
+      "selected_action": "EXPLAIN_MATERIAL",
+      "required_fact_types": ["MATERIAL", "MATERIAL_SAFETY"],
+      "reason_template": "{support_count} penonton menanyakan bahan/keamanan produk dalam 60 detik terakhir."
+    },
+    {
+      "state": "PRICE_FRICTION",
+      "priority_rank": 4,
+      "source_intents": ["PRICE_QUERY", "PROMO_QUERY"],
+      "selected_action": "SHOW_PROMO_INFO",
+      "required_fact_types": ["PRICE", "PROMO"],
+      "reason_template": "{support_count} penonton menanyakan harga/promo dalam 60 detik terakhir."
+    }
+  ],
+
+  "fallback_state": {
+    "state": "NO_CLEAR_SIGNAL",
+    "selected_action": "NO_ACTION",
+    "required_fact_types": [],
+    "ui_label": "Belum ada pola kuat"
+  }
+}
