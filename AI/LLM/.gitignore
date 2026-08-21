@@ -1,0 +1,19 @@
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+
+# Intermediate Checkpoints (hemat storage, tidak perlu di-push)
+livecoach-qlora-adapter/checkpoint-*
+checkpoint-*
+
+# Python & Cache
+__pycache__/
+*.py[cod]
+*$py.class
+.cache/
+
+# System & Temporary Files
+.DS_Store
+*.log
