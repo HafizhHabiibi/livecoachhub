@@ -1,0 +1,70 @@
+version: '3.8'
+
+# ============================================================
+# LiveCoach AI — Docker Compose
+# Jalankan dengan: docker compose up --build
+# Buka browser: http://localhost:3000
+# ============================================================
+
+services:
+
+  # --- Frontend (React + TypeScript) ---
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development        # Ganti ke 'production' untuk build final
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app                   # Hot reload saat development
+      - /app/node_modules        # Jangan mount node_modules dari host
+    environment:
+      - NODE_ENV=development
+      - VITE_API_BASE_URL=http://localhost:8000
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  # --- Backend (placeholder — diisi oleh tim backend) ---
+  # Uncomment dan sesuaikan saat backend sudah siap
+  backend:
+    image: python:3.11-slim      # Placeholder — ganti dengan build backend
+    working_dir: /app
+    # build:
+    #   context: ../livecoach-be
+    #   dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+    # volumes:
+    #   - ../livecoach-be:/app
+    # env_file:
+    #   - ../livecoach-be/.env
+    command: >
+      sh -c "pip install fastapi uvicorn --quiet &&
+             python -c \"
+import uvicorn
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
+app = FastAPI()
+app.add_middleware(CORSMiddleware, allow_origins=['*'], allow_methods=['*'], allow_headers=['*'])
+
+@app.get('/health')
+def health():
+    return {'status': 'READY', 'services': {'api': 'READY', 'nlp_model': 'READY', 'llm_model': 'READY'}}
+
+@app.get('/api/v1/demo-config')
+def demo_config():
+    return {
+        'schema_version': 'demo_config.v1',
+        'product': {'product_id': 'TSHIRT-01', 'display_name': 'Essential Cotton T-Shirt'},
+        'replay': {'window_seconds': 60, 'speed': 1},
+        'models': {'nlp': 'indobertweet-livecoach-v1.0', 'llm': 'livecoach-grounded-v1.0'}
+    }
+
+uvicorn.run(app, host='0.0.0.0', port=8000)
+\""
+    restart: unless-stopped
