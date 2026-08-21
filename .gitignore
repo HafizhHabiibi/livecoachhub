@@ -54,3 +54,7 @@ frontend/*.tsbuildinfo
 frontend/coverage/
 # Allow adapter safetensors
 !AI/LLM/livecoach-qlora-adapter/*.safetensors
+
+# Allow adapter safetensors
+!AI/LLM/livecoach-qlora-adapter/*.safetensors
+!AI/LLM/grounded_llm/LLM dengan QLoRA/livecoach-qlora-adapter/*.safetensors
