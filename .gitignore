@@ -43,3 +43,12 @@ outputs/
 # Misc
 *.log
 .gemini/
+
+# Frontend
+frontend/node_modules/
+frontend/.env
+frontend/.env.local
+frontend/dist/
+frontend/dist-ssr/
+frontend/*.tsbuildinfo
+frontend/coverage/
