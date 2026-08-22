@@ -294,7 +294,7 @@ def generate(req: GenerateRequest):
 def main():
     ap = argparse.ArgumentParser(description="LiveCoach LLM QLoRA Service")
     ap.add_argument("--port", type=int, default=8020, help="Port (default: 8020)")
-    ap.add_argument("--host", default="127.0.0.1", help="Host (default: 127.0.0.1)")
+    ap.add_argument("--host", default="0.0.0.0", help="Host (default: 0.0.0.0)")
     args = ap.parse_args()
 
     # Pre-load model agar health check langsung ready

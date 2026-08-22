@@ -80,7 +80,44 @@ graph TD
 
 ---
 
-## 🛠️ 4. Cara Menjalankan Pelatihan & Inference
+## 🛠️ 4. Cara Menjalankan
+
+### Via Docker (Recommended — bagian dari full stack)
+
+```bash
+# Dari root repo
+docker compose up --build llm
+# Service tersedia di http://localhost:8020
+```
+
+### Via Python langsung (development)
+
+```bash
+cd AI/LLM
+pip install -r grounded_llm/LLM\ dengan\ QLoRA/requirements_qlora.txt
+python serve_llm.py --host 0.0.0.0 --port 8020
+```
+
+### Inference Service Endpoints
+
+| Method | Path | Deskripsi |
+|--------|------|-----------|
+| GET | `/health` | Status model, device, load time |
+| POST | `/generate` | Generate seller script dari action + facts |
+
+#### Contoh request `/generate`:
+```json
+{
+  "input": {
+    "selected_action": "SHOW_SIZE_GUIDE",
+    "audience_state": "SIZE_FRICTION",
+    "evidence_comments": ["bb 55 ambil m atau l?"],
+    "product_facts": [{"fact_id": "FACT-TS01-SIZE-M", "value": "..."}],
+    "tone": "santai",
+    "max_words": 35
+  }
+}
+```
 
 ### Cara Menjalankan Training:
 ```bash
@@ -88,7 +125,7 @@ cd AI/LLM/
 ./run_training.sh
 ```
 
-### Cara Menggunakan Model untuk Inference (4-bit NF4 ~1GB RAM):
+### Cara Menggunakan Model untuk Inference langsung (4-bit NF4 ~1GB RAM):
 ```python
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
