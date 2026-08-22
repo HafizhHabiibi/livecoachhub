@@ -13,7 +13,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     rm -rf /var/lib/apt/lists/*
 
 # Inference requirements (dari grounded_llm/LLM dengan QLoRA/)
-COPY grounded_llm/LLM\ dengan\ QLoRA/requirements_qlora.txt requirements.txt
+# JSON array form wajib untuk path dengan spasi (agar kompatibel Windows + BuildKit)
+COPY ["grounded_llm/LLM dengan QLoRA/requirements_qlora.txt", "requirements.txt"]
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy semua source (serve_llm.py, inference.py, adapter, system_prompt, dll)
