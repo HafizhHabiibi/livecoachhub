@@ -154,14 +154,12 @@ def health_check():
         "status": overall,
         "services": {
             "api": "READY",
-            "nlp_model": {
-                "status": "READY" if nlp_ready else "DEGRADED",
-                "provider": "IndoBERT" if nlp_ready else "Heuristic Fallback",
-            },
-            "llm_model": {
-                "status": "READY" if llm_ready else "DEGRADED",
-                "provider": "QLoRA" if llm_ready else "Template Fallback",
-            },
+            "nlp_model": "READY" if nlp_ready else "DEGRADED",
+            "llm_model": "READY" if llm_ready else "DEGRADED",
+        },
+        "provider": {
+            "nlp": "IndoBERT" if nlp_ready else "Heuristic Fallback",
+            "llm": "QLoRA" if llm_ready else "Template Fallback",
         },
     }
 
