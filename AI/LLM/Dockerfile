@@ -26,9 +26,10 @@ RUN python -m pip install --no-cache-dir --upgrade pip
 COPY ["grounded_llm/LLM dengan QLoRA/requirements_qlora.txt", "requirements.txt"]
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Install PyTorch dengan CUDA support + runtime deps untuk serve_llm.py
+# Install PyTorch 2.4.1 dengan CUDA 12.1 + runtime deps untuk serve_llm.py
+# Pin torch==2.4.1 agar kompatibel dengan bitsandbytes==0.50.x dan transformers==4.46.2
 RUN pip install --no-cache-dir \
-    torch --index-url https://download.pytorch.org/whl/cu121 && \
+    torch==2.4.1 --index-url https://download.pytorch.org/whl/cu121 && \
     pip install --no-cache-dir fastapi uvicorn pydantic huggingface_hub
 
 # Copy semua source (serve_llm.py, inference.py, system_prompt, dll)
