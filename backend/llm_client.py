@@ -71,8 +71,8 @@ def _check_llm_health() -> bool:
 
 
 def is_llm_available() -> bool:
-    """Return status LLM service. Cache hasil terakhir."""
-    if _llm_available is None:
+    """Return status LLM service. Re-check jika sebelumnya unavailable."""
+    if _llm_available is None or _llm_available is False:
         return _check_llm_health()
     return _llm_available
 
