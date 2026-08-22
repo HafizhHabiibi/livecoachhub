@@ -43,13 +43,25 @@ def download_nlp():
         local_dir_use_symlinks=False,
     )
 
-    # Verifikasi
-    model_file = NLP_MODEL_DIR / "model.safetensors"
-    if model_file.exists():
-        size_mb = model_file.stat().st_size / (1024 * 1024)
-        print(f"✅ NLP model downloaded ({size_mb:.0f} MB)")
-    else:
-        print("⚠️  model.safetensors tidak ditemukan — cek repo HuggingFace")
+    # Verifikasi — GAGAL keras jika download tidak lengkap (C-10)
+    config_file = NLP_MODEL_DIR / "config.json"
+    if not config_file.exists():
+        raise FileNotFoundError(
+            f"❌ GAGAL: config.json tidak ditemukan di {NLP_MODEL_DIR}.\n"
+            f"   Model belum terdownload dengan benar dari {NLP_REPO_ID}."
+        )
+    # Cek model weights (bisa .safetensors atau .bin)
+    has_weights = (
+        (NLP_MODEL_DIR / "model.safetensors").exists()
+        or (NLP_MODEL_DIR / "pytorch_model.bin").exists()
+    )
+    if not has_weights:
+        raise FileNotFoundError(
+            f"❌ GAGAL: Model weights tidak ditemukan di {NLP_MODEL_DIR}.\n"
+            f"   Download mungkin incomplete."
+        )
+    size_mb = sum(f.stat().st_size for f in NLP_MODEL_DIR.iterdir() if f.is_file()) / (1024 * 1024)
+    print(f"✅ NLP model downloaded dan terverifikasi ({size_mb:.0f} MB)")
 
 
 def download_llm():
@@ -67,13 +79,21 @@ def download_llm():
         local_dir_use_symlinks=False,
     )
 
-    # Verifikasi
+    # Verifikasi — GAGAL keras jika download tidak lengkap (C-10)
     adapter_file = LLM_ADAPTER_DIR / "adapter_model.safetensors"
-    if adapter_file.exists():
-        size_mb = adapter_file.stat().st_size / (1024 * 1024)
-        print(f"✅ LLM adapter downloaded ({size_mb:.1f} MB)")
-    else:
-        print("⚠️  adapter_model.safetensors tidak ditemukan — cek repo HuggingFace")
+    config_file = LLM_ADAPTER_DIR / "adapter_config.json"
+    if not config_file.exists():
+        raise FileNotFoundError(
+            f"❌ GAGAL: adapter_config.json tidak ditemukan di {LLM_ADAPTER_DIR}.\n"
+            f"   Adapter belum terdownload dengan benar dari {LLM_REPO_ID}."
+        )
+    if not adapter_file.exists():
+        raise FileNotFoundError(
+            f"❌ GAGAL: adapter_model.safetensors tidak ditemukan di {LLM_ADAPTER_DIR}.\n"
+            f"   Download mungkin incomplete."
+        )
+    size_mb = adapter_file.stat().st_size / (1024 * 1024)
+    print(f"✅ LLM adapter downloaded dan terverifikasi ({size_mb:.1f} MB)")
 
 
 def main():
