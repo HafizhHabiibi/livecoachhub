@@ -14,8 +14,11 @@ from pathlib import Path
 # Paths
 # ---------------------------------------------------------------------------
 
-# Root project (satu level di atas backend/)
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
+# Root project
+# Di Docker: config.py ada di /app/config.py, AI di-mount di /app/AI
+# Di lokal:  config.py ada di backend/config.py, AI di ../AI
+# Gunakan env var PROJECT_ROOT jika ada, fallback ke parent.parent (lokal)
+PROJECT_ROOT = Path(os.getenv("PROJECT_ROOT", str(Path(__file__).resolve().parent.parent)))
 
 # AI subproject paths
 AI_DIR = PROJECT_ROOT / "AI"

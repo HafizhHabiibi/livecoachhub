@@ -27,6 +27,16 @@ COPY fine-tuned-indobert/ ./fine-tuned-indobert/
 # ROOT = /app/fine-tuned-indobert → ROOT.parent = /app
 COPY data/ ./data/
 
+# Download model weights dari HuggingFace (gitignored, tidak ada di repo)
+# Model di-cache di Docker layer agar tidak download ulang setiap rebuild
+RUN python -c "\
+from huggingface_hub import snapshot_download; \
+snapshot_download( \
+    repo_id='HafizhHabiibi/livecoach-indobert-intent', \
+    local_dir='/app/fine-tuned-indobert/outputs/models/indobert-intent/run1/best', \
+    local_dir_use_symlinks=False \
+)"
+
 WORKDIR /app/fine-tuned-indobert
 
 EXPOSE 8010

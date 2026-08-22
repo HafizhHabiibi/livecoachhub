@@ -17,8 +17,20 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY ["grounded_llm/LLM dengan QLoRA/requirements_qlora.txt", "requirements.txt"]
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy semua source (serve_llm.py, inference.py, adapter, system_prompt, dll)
+# Runtime deps untuk serve_llm.py (tidak ada di requirements_qlora.txt yang hanya berisi training deps)
+RUN pip install --no-cache-dir torch fastapi uvicorn pydantic huggingface_hub
+
+# Copy semua source (serve_llm.py, inference.py, system_prompt, dll)
 COPY . .
+
+# Download QLoRA adapter dari HuggingFace (model weights bisa tidak lengkap di repo)
+RUN python -c "\
+from huggingface_hub import snapshot_download; \
+snapshot_download( \
+    repo_id='HafizhHabiibi/livecoach-qlora-adapter', \
+    local_dir='/app/livecoach-qlora-adapter', \
+    local_dir_use_symlinks=False \
+)"
 
 EXPOSE 8020
 

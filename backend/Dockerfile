@@ -19,6 +19,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy seluruh backend source
 COPY . .
 
+# Set PROJECT_ROOT agar config.py resolve path AI/ dan data/ dengan benar
+# (AI di-mount di /app/AI via docker-compose volume)
+ENV PROJECT_ROOT=/app
+
 EXPOSE 8000
 
 # Healthcheck agar Docker Compose tahu service ready
