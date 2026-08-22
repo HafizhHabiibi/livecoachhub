@@ -308,3 +308,35 @@ export async function resetSession(
   });
   return parseOrThrow(SessionResetResponseSchema, raw, 'POST /api/v1/session/reset');
 }
+
+export interface SessionCardResponse {
+  session_id: string;
+  is_generating: boolean;
+  pending_action: string | null;
+  coach_card: import('@/contracts/livecoach').CoachCard | null;
+  pipeline_status: string;
+  gen_latency?: number | null;
+}
+
+/**
+ * GET /api/v1/session/card
+ * Polling endpoint untuk mendapatkan Coach Card yang di-generate asinkron oleh LLM.
+ */
+export async function getSessionCard(
+  sessionId: string,
+): Promise<SessionCardResponse> {
+  if (isMockMode()) {
+    return {
+      session_id: sessionId,
+      is_generating: false,
+      pending_action: null,
+      coach_card: null,
+      pipeline_status: 'WAITING_SIGNAL',
+    };
+  }
+
+  const raw = await apiFetch<SessionCardResponse>(
+    `/api/v1/session/card?session_id=${encodeURIComponent(sessionId)}`,
+  );
+  return raw;
+}

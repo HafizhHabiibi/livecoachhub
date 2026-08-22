@@ -49,6 +49,8 @@ class SessionState:
     pending_llm_action: Optional[str] = None
     # Coach card yang sudah selesai di-generate, siap dikirim ke frontend
     ready_coach_card: Optional[Any] = field(default=None, repr=False)
+    # Kartu terakhir yang aktif di sesi (tidak di-reset saat ready_coach_card diambil)
+    latest_coach_card: Optional[Any] = field(default=None, repr=False)
     # Pipeline status untuk ready_coach_card ("CARD_READY" atau "FALLBACK")
     ready_pipeline_status: Optional[str] = None
     # Latency dari LLM generation

@@ -51,7 +51,7 @@ from models import (
     PipelineResult,
 )
 from session import session_manager
-from orchestrator import run_pipeline
+from orchestrator import run_pipeline, get_session_card
 import nlp_client
 import llm_client
 
@@ -295,3 +295,28 @@ def reset_session(req: SessionResetRequest):
         "session_id": req.session_id,
         "status": "RESET",
     }
+
+
+# ---------------------------------------------------------------------------
+# Endpoint 6: GET /api/v1/session/card — Card polling untuk async LLM
+# ---------------------------------------------------------------------------
+
+@app.get("/api/v1/session/card")
+def get_session_card_endpoint(session_id: str):
+    """Ambil Coach Card yang di-generate oleh LLM di background.
+
+    Dipanggil secara polling oleh frontend untuk mendapatkan Coach Card
+    terbaru tanpa harus menunggu/mengirim komentar baru.
+    """
+    session = session_manager.get(session_id)
+    if session is None:
+        raise HTTPException(
+            status_code=404,
+            detail=f"Session tidak ditemukan: {session_id}",
+        )
+
+    card_data = get_session_card(session_id)
+    if card_data.get("coach_card") and hasattr(card_data["coach_card"], "model_dump"):
+        card_data["coach_card"] = card_data["coach_card"].model_dump()
+
+    return card_data

@@ -188,6 +188,7 @@ def _check_and_collect_llm_result(session: SessionState) -> None:
     try:
         result = future.result(timeout=0)
         session.ready_coach_card = result["coach_card"]
+        session.latest_coach_card = result["coach_card"]
         session.ready_pipeline_status = result["pipeline_status"]
         session.ready_gen_latency = result["gen_latency"]
         logger.info(
@@ -216,6 +217,39 @@ def _cancel_pending_llm(session: SessionState) -> None:
         )
         session.pending_llm_future = None
         session.pending_llm_action = None
+
+
+def get_session_card(session_id: str) -> dict:
+    """Ambil status dan Coach Card dari session (untuk polling/check async)."""
+    session = session_manager.get(session_id)
+    if session is None:
+        raise ValueError(f"Session not found: {session_id}")
+
+    # Check dan kumpulkan hasil jika background task sudah selesai
+    _check_and_collect_llm_result(session)
+
+    is_generating = (
+        session.pending_llm_future is not None
+        and not session.pending_llm_future.done()
+    )
+
+    card = session.ready_coach_card or session.latest_coach_card
+    status = session.ready_pipeline_status or ("CARD_READY" if card is not None else "WAITING_SIGNAL")
+    latency = session.ready_gen_latency
+
+    # Clear ready flag setelah diambil
+    session.ready_coach_card = None
+    session.ready_pipeline_status = None
+    session.ready_gen_latency = None
+
+    return {
+        "session_id": session_id,
+        "is_generating": is_generating,
+        "pending_action": session.pending_llm_action if is_generating else None,
+        "coach_card": card,
+        "pipeline_status": status,
+        "gen_latency": latency,
+    }
 
 
 # ---------------------------------------------------------------------------
@@ -342,35 +376,48 @@ def run_pipeline(
 
     # ===== TAHAP 10: JIKA ADA ACTION → KICK OFF ASYNC LLM =====
     if decision_out.selected_action != "NO_ACTION":
-        # Cancel LLM sebelumnya jika masih pending (action baru lebih relevan)
-        _cancel_pending_llm(session)
-
-        # Siapkan context untuk LLM
-        product_facts = get_facts(decision_out.required_fact_types)
-        evidence_texts = _get_evidence_texts(session, snapshot_out.evidence_comment_ids)
-        situation = _build_situation(snapshot_out.audience_state, snapshot_out.support_count)
-
-        # Kick off LLM di background thread
-        future = _llm_executor.submit(
-            _run_llm_background,
-            selected_action=decision_out.selected_action,
-            audience_state=snapshot_out.audience_state,
-            evidence_texts=evidence_texts,
-            product_facts=product_facts,
-            urgency=urgency,
-            situation=situation,
-            support_count=snapshot_out.support_count,
-            state_confidence=snapshot_out.state_confidence,
-            evidence_comment_ids=snapshot_out.evidence_comment_ids,
-            session_id=session_id,
+        # Jika LLM sedang jalan untuk action yang SAMA, biarkan selesai (jangan cancel & jangan restart)
+        is_same_running = (
+            session.pending_llm_future is not None
+            and not session.pending_llm_future.done()
+            and session.pending_llm_action == decision_out.selected_action
         )
-        session.pending_llm_future = future
-        session.pending_llm_action = decision_out.selected_action
 
-        logger.info(
-            "LLM async dimulai untuk session=%s action=%s",
-            session_id, decision_out.selected_action,
-        )
+        if is_same_running:
+            logger.info(
+                "LLM async untuk session=%s action=%s sedang berjalan, melanjutkan task yang ada",
+                session_id, decision_out.selected_action,
+            )
+        else:
+            # Cancel LLM sebelumnya jika aksi berubah
+            _cancel_pending_llm(session)
+
+            # Siapkan context untuk LLM
+            product_facts = get_facts(decision_out.required_fact_types)
+            evidence_texts = _get_evidence_texts(session, snapshot_out.evidence_comment_ids)
+            situation = _build_situation(snapshot_out.audience_state, snapshot_out.support_count)
+
+            # Kick off LLM di background thread
+            future = _llm_executor.submit(
+                _run_llm_background,
+                selected_action=decision_out.selected_action,
+                audience_state=snapshot_out.audience_state,
+                evidence_texts=evidence_texts,
+                product_facts=product_facts,
+                urgency=urgency,
+                situation=situation,
+                support_count=snapshot_out.support_count,
+                state_confidence=snapshot_out.state_confidence,
+                evidence_comment_ids=snapshot_out.evidence_comment_ids,
+                session_id=session_id,
+            )
+            session.pending_llm_future = future
+            session.pending_llm_action = decision_out.selected_action
+
+            logger.info(
+                "LLM async dimulai untuk session=%s action=%s",
+                session_id, decision_out.selected_action,
+            )
 
     # ===== RETURN FAST RESPONSE (tanpa menunggu LLM) =====
     total_latency = round((time.time() - t_start) * 1000, 1)

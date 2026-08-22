@@ -27,6 +27,7 @@ import {
   startSession,
   analyzeComment,
   resetSession,
+  getSessionCard,
   ApiError,
 } from '@/services/livecoachApi';
 import { canTransition } from '@/features/replay/replayState';
@@ -99,7 +100,7 @@ export function useReplayController(): ReplayController {
   // ============================================================
 
   function transition(to: ReplayUiState) {
-    setUiState((prev) => {
+    setUiState((prev: ReplayUiState) => {
       if (!canTransition(prev, to)) {
         console.warn(`[Replay] Transisi tidak valid: ${prev} → ${to}`);
         return prev;
@@ -179,6 +180,45 @@ export function useReplayController(): ReplayController {
     void init();
     return () => { cancelled = true; };
   }, []);
+
+  // ============================================================
+  // BACKGROUND CARD POLLER
+  // Polling Coach Card dari LLM asinkron selama replay aktif atau setelah FINISHED
+  // ============================================================
+
+  useEffect(() => {
+    if (!sessionId) return;
+    if (uiState === 'EMPTY' || uiState === 'FILE_READY') return;
+
+    let isSubscribed = true;
+    const interval = setInterval(async () => {
+      if (!isSubscribed || sessionIdRef.current !== sessionId) return;
+
+      try {
+        const cardData = await getSessionCard(sessionId);
+        if (!isSubscribed || sessionIdRef.current !== sessionId) return;
+
+        if (cardData && cardData.coach_card) {
+          setLatestResult((prev: PipelineResult | null) => {
+            if (!prev) return prev;
+            return {
+              ...prev,
+              coach_card: cardData.coach_card,
+              pipeline_status: (cardData.pipeline_status as any) || 'CARD_READY',
+            };
+          });
+        }
+      } catch (err) {
+        // Polling error silent
+        console.debug('[Card Poller] Poll check:', err);
+      }
+    }, 1500);
+
+    return () => {
+      isSubscribed = false;
+      clearInterval(interval);
+    };
+  }, [sessionId, uiState]);
 
   // ============================================================
   // SLEEP dengan support pause dan abort (cancel)
@@ -288,9 +328,18 @@ export function useReplayController(): ReplayController {
         break;
       }
 
-      // --- Update UI dengan hasil ---
-      setLatestResult(result);
-      setProcessedComments((prev) => {
+      // --- Update UI dengan hasil (pertahankan coach_card aktif jika ada) ---
+      setLatestResult((prev: PipelineResult | null) => {
+        const effectiveCoachCard = result.coach_card ?? prev?.coach_card ?? null;
+        return {
+          ...result,
+          coach_card: effectiveCoachCard,
+          pipeline_status: result.coach_card
+            ? result.pipeline_status
+            : (effectiveCoachCard ? 'CARD_READY' : result.pipeline_status),
+        };
+      });
+      setProcessedComments((prev: ProcessedComment[]) => {
         const newEntry: ProcessedComment = {
           entry: comment,
           nlp: result.nlp_prediction,
