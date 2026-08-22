@@ -1,7 +1,12 @@
 version: '3.8'
 
 # ============================================================
-# LiveCoach AI — Docker Compose
+# ⚠️  FILE INI HANYA UNTUK DEVELOPMENT FRONTEND STANDALONE.
+# ⚠️  Untuk menjalankan FULL STACK, gunakan docker-compose.yml
+# ⚠️  di ROOT REPO (livecoachhub/docker-compose.yml).
+# ⚠️  Jangan gunakan file ini untuk demo/submission.
+# ============================================================
+# LiveCoach AI — Docker Compose (Frontend Dev Standalone)
 # Jalankan dengan: docker compose up --build
 # Buka browser: http://localhost:3000
 # ============================================================
