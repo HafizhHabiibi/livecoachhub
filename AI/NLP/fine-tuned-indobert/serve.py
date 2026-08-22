@@ -98,10 +98,11 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--run", default="run1")
     ap.add_argument("--port", type=int, default=8010)
+    ap.add_argument("--host", default="0.0.0.0", help="Bind address (default: 0.0.0.0)")
     args = ap.parse_args()
     _load(args.run)
-    print(f"model '{args.run}' dimuat. jalankan server di :{args.port}")
-    uvicorn.run(app, host="127.0.0.1", port=args.port)
+    print(f"model '{args.run}' dimuat. jalankan server di {args.host}:{args.port}")
+    uvicorn.run(app, host=args.host, port=args.port)
 
 
 if __name__ == "__main__":
