@@ -51,7 +51,7 @@ import {
 // ============================================================
 
 const BASE_URL = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8000';
-const ANALYZE_TIMEOUT_MS = 15_000; // 15 detik — Spesifikasi Bagian 12
+const ANALYZE_TIMEOUT_MS = 60_000; // 60 detik — dinaikkan untuk GPU lokal & validator retry
 
 // Counter untuk mock sequence
 let mockSequenceIndex = 0;
