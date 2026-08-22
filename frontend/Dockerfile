@@ -21,6 +21,9 @@ CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
 # --- Stage 3: Build untuk production ---
 FROM base AS builder
 COPY . .
+# Set API URL ke empty string agar frontend gunakan relative URL via Nginx proxy
+# (Nginx proxy /api/ dan /health ke http://backend:8000)
+ENV VITE_API_BASE_URL=""
 RUN npm run build
 
 # --- Stage 4: Production server (Nginx ringan) ---
