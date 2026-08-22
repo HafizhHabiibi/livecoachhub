@@ -138,6 +138,7 @@ def health_check():
     """Cek status backend dan dependensi (NLP, LLM).
 
     Dipanggil frontend saat halaman /demo dibuka.
+    Menampilkan provenance per service: AI asli vs fallback.
     """
     nlp_ready = nlp_client.is_nlp_available()
     llm_ready = llm_client.is_llm_available()
@@ -145,9 +146,6 @@ def health_check():
     # Status keseluruhan
     if nlp_ready and llm_ready:
         overall = "READY"
-    elif not nlp_ready and not llm_ready:
-        # Masih bisa jalan dengan fallback
-        overall = "DEGRADED"
     else:
         overall = "DEGRADED"
 
@@ -156,8 +154,14 @@ def health_check():
         "status": overall,
         "services": {
             "api": "READY",
-            "nlp_model": "READY" if nlp_ready else "DEGRADED",
-            "llm_model": "READY" if llm_ready else "DEGRADED",
+            "nlp_model": {
+                "status": "READY" if nlp_ready else "DEGRADED",
+                "provider": "IndoBERT" if nlp_ready else "Heuristic Fallback",
+            },
+            "llm_model": {
+                "status": "READY" if llm_ready else "DEGRADED",
+                "provider": "QLoRA" if llm_ready else "Template Fallback",
+            },
         },
     }
 
@@ -237,6 +241,7 @@ def analyze_comment(req: CommentAnalyzeRequest):
         result = run_pipeline(
             session_id=req.session_id,
             comment_id=req.comment_id,
+            user_id=req.user_id,
             timestamp_ms=req.timestamp_ms,
             text=req.text,
         )

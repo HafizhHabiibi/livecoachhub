@@ -59,6 +59,7 @@ class SessionStartRequest(BaseModel):
 class CommentAnalyzeRequest(BaseModel):
     session_id: str
     comment_id: str
+    user_id: str = ""
     timestamp_ms: int
     text: str
 

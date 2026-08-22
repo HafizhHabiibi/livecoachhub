@@ -96,6 +96,7 @@ def _determine_urgency(canonical_signal: str, confidence: float) -> str:
 def run_pipeline(
     session_id: str,
     comment_id: str,
+    user_id: str,
     timestamp_ms: int,
     text: str,
 ) -> PipelineResult:
@@ -126,9 +127,9 @@ def run_pipeline(
     cleaned_text = normalize(text)
 
     # ===== TAHAP 2: SPAM/DUPLICATE FILTER =====
-    # User ID: gunakan comment_id prefix sebagai pseudo-user
-    # (di production, user_id datang dari scraper)
-    user_id = f"USR-{comment_id}"
+    # Gunakan user_id dari replay data; fallback ke comment_id jika kosong
+    if not user_id:
+        user_id = f"USR-{comment_id}"
     count_in_window = should_count_in_window(session, user_id, cleaned_text, timestamp_ms)
 
     # ===== TAHAP 3: NLP INTENT CLASSIFICATION =====
