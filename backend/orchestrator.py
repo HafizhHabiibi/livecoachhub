@@ -1,10 +1,15 @@
 """
 LiveCoachHub Backend — Pipeline Orchestrator
 
-Menyambung semua modul pipeline menjadi satu alur sinkron:
+Menyambung semua modul pipeline menjadi satu alur:
   Comment → Preprocess → Spam Filter → NLP → Taxonomy Adapt
   → Rolling Window → Priority Detect → Action Engine → Fact Retrieval
-  → LLM Generate → Validate → PipelineResult
+  → LLM Generate (ASYNC) → Validate → PipelineResult
+
+ARSITEKTUR ASYNC LLM:
+  - Fase Cepat (setiap komentar, ~100ms): NLP → Window → Action Engine
+  - Fase LLM (background thread): Fact Retrieval → LLM → Validate
+  - Coach Card dikirim pada response komentar berikutnya setelah LLM selesai.
 
 Sesuai PROJECT.MD Bagian 5 dan Definition of Done Bagian 10:
 "Seluruh pipeline berjalan tanpa hand-off manual antaranggota."
@@ -18,6 +23,7 @@ from __future__ import annotations
 import json
 import logging
 import time
+from concurrent.futures import ThreadPoolExecutor, Future
 from typing import List, Optional
 
 from config import (
@@ -51,6 +57,9 @@ import llm_client
 from validator.bridge import validate_output, run_with_retry, get_fallback_template
 
 logger = logging.getLogger(__name__)
+
+# Thread pool untuk async LLM — 1 worker cukup karena LLM service singlethreaded
+_llm_executor = ThreadPoolExecutor(max_workers=1, thread_name_prefix="llm-async")
 
 
 # ---------------------------------------------------------------------------
@@ -93,6 +102,126 @@ def _determine_urgency(canonical_signal: str, confidence: float) -> str:
     return "NORMAL"
 
 
+# ---------------------------------------------------------------------------
+# Async LLM — background generation
+# ---------------------------------------------------------------------------
+
+def _run_llm_background(
+    selected_action: str,
+    audience_state: str,
+    evidence_texts: List[str],
+    product_facts: List[dict],
+    urgency: str,
+    situation: str,
+    support_count: int,
+    state_confidence: float,
+    evidence_comment_ids: List[str],
+    session_id: str,
+) -> dict:
+    """Jalankan LLM generate + validate di background thread.
+
+    Return dict berisi coach_card data, pipeline_status, dan gen_latency.
+    Fungsi ini dipanggil oleh ThreadPoolExecutor.
+    """
+    t_gen_start = time.time()
+
+    llm_input = llm_client.build_llm_input(
+        selected_action=selected_action,
+        audience_state=audience_state,
+        evidence_comments=evidence_texts,
+        product_facts=product_facts,
+        tone=DEFAULT_TONE,
+        max_words=MAX_WORDS,
+    )
+
+    # Generate → validate → retry → fallback
+    validation_result = run_with_retry(
+        generate_fn=llm_client.generate,
+        input_payload=llm_input,
+        selected_action=selected_action,
+    )
+
+    t_gen_end = time.time()
+    gen_latency = round((t_gen_end - t_gen_start) * 1000, 1)
+
+    response_data = validation_result.response or {}
+    is_passed = validation_result.validation_status == "PASSED"
+    is_fallback = not is_passed
+    pipeline_status = "CARD_READY" if is_passed else "FALLBACK"
+    fe_validation_status = "PASSED" if is_passed else "FAILED"
+
+    coach_card = CoachCard(
+        priority=urgency,
+        situation=situation,
+        selected_action=selected_action,
+        reason=f"{support_count} pertanyaan terkait / {WINDOW_SECONDS} detik",
+        evidence_comment_ids=evidence_comment_ids[:3],
+        suggested_response=response_data.get("response_text", get_fallback_template(selected_action)),
+        confidence=state_confidence,
+        validation_status=fe_validation_status,
+        fallback_used=is_fallback,
+        used_fact_ids=response_data.get("used_fact_ids", []),
+    )
+
+    logger.info(
+        "LLM async selesai untuk session=%s action=%s status=%s (%.0fms)",
+        session_id, selected_action, pipeline_status, gen_latency,
+    )
+
+    return {
+        "coach_card": coach_card,
+        "pipeline_status": pipeline_status,
+        "gen_latency": gen_latency,
+    }
+
+
+def _check_and_collect_llm_result(session: SessionState) -> None:
+    """Cek apakah background LLM sudah selesai, simpan hasilnya ke session."""
+    if session.pending_llm_future is None:
+        return
+
+    future = session.pending_llm_future
+    if not future.done():
+        return  # Masih jalan, skip
+
+    # LLM selesai — ambil hasilnya
+    try:
+        result = future.result(timeout=0)
+        session.ready_coach_card = result["coach_card"]
+        session.ready_pipeline_status = result["pipeline_status"]
+        session.ready_gen_latency = result["gen_latency"]
+        logger.info(
+            "Coach card ready untuk session=%s action=%s",
+            session.session_id, session.pending_llm_action,
+        )
+    except Exception as e:
+        logger.exception("LLM background error: %s", e)
+        # Fallback jika LLM error
+        session.ready_coach_card = None
+        session.ready_pipeline_status = None
+        session.ready_gen_latency = None
+
+    # Clear pending state
+    session.pending_llm_future = None
+    session.pending_llm_action = None
+
+
+def _cancel_pending_llm(session: SessionState) -> None:
+    """Cancel pending LLM jika ada (action baru lebih relevan)."""
+    if session.pending_llm_future is not None:
+        session.pending_llm_future.cancel()
+        logger.info(
+            "Cancelled pending LLM untuk session=%s action=%s",
+            session.session_id, session.pending_llm_action,
+        )
+        session.pending_llm_future = None
+        session.pending_llm_action = None
+
+
+# ---------------------------------------------------------------------------
+# Main Pipeline
+# ---------------------------------------------------------------------------
+
 def run_pipeline(
     session_id: str,
     comment_id: str,
@@ -102,7 +231,10 @@ def run_pipeline(
 ) -> PipelineResult:
     """Jalankan seluruh pipeline untuk satu komentar.
 
-    Ini adalah fungsi utama yang mengorkestrasi semua modul.
+    ARSITEKTUR ASYNC:
+    - Fase Cepat (sinkron): NLP → Window → Action Engine (~100ms)
+    - Fase LLM (async): Generate di background thread
+    - Coach Card dikirim saat LLM selesai (pada response komentar berikutnya)
 
     Args:
         session_id: ID session aktif.
@@ -123,11 +255,13 @@ def run_pipeline(
     # Increment processed count
     processed_count = session_manager.increment_count(session_id)
 
+    # --- Cek apakah LLM background sudah selesai ---
+    _check_and_collect_llm_result(session)
+
     # ===== TAHAP 1: PREPROCESSING =====
     cleaned_text = normalize(text)
 
     # ===== TAHAP 2: SPAM/DUPLICATE FILTER =====
-    # Gunakan user_id dari replay data; fallback ke comment_id jika kosong
     if not user_id:
         user_id = f"USR-{comment_id}"
     count_in_window = should_count_in_window(session, user_id, cleaned_text, timestamp_ms)
@@ -182,84 +316,74 @@ def run_pipeline(
     snapshot_out.high_readiness_count = session.high_readiness_count
     snapshot_out.priority_count = session.priority_count
 
-    # ===== TAHAP 9-10: JIKA NO_ACTION → WAITING_SIGNAL =====
-    if decision_out.selected_action == "NO_ACTION":
+    # ===== TAHAP 9: CEK READY COACH CARD (dari LLM sebelumnya) =====
+    # Jika ada coach card yang sudah selesai di-generate, sertakan di response ini
+    if session.ready_coach_card is not None:
+        coach_card = session.ready_coach_card
+        pipeline_status = session.ready_pipeline_status or "CARD_READY"
+        gen_latency = session.ready_gen_latency
+
+        # Clear — sudah dikirim
+        session.ready_coach_card = None
+        session.ready_pipeline_status = None
+        session.ready_gen_latency = None
+
         total_latency = round((time.time() - t_start) * 1000, 1)
         return PipelineResult(
             session_id=session_id,
-            pipeline_status="WAITING_SIGNAL",
+            pipeline_status=pipeline_status,
             processed_count=processed_count,
             nlp_prediction=nlp_prediction,
             audience_snapshot=snapshot_out,
             action_decision=decision_out,
-            coach_card=None,
-            latency_ms=LatencyMs(nlp=nlp_latency, total=total_latency),
+            coach_card=coach_card,
+            latency_ms=LatencyMs(nlp=nlp_latency, generation=gen_latency, total=total_latency),
         )
 
-    # ===== TAHAP 9: FACT RETRIEVAL =====
-    product_facts = get_facts(decision_out.required_fact_types)
+    # ===== TAHAP 10: JIKA ADA ACTION → KICK OFF ASYNC LLM =====
+    if decision_out.selected_action != "NO_ACTION":
+        # Cancel LLM sebelumnya jika masih pending (action baru lebih relevan)
+        _cancel_pending_llm(session)
 
-    # ===== TAHAP 10: LLM GENERATE =====
-    t_gen_start = time.time()
+        # Siapkan context untuk LLM
+        product_facts = get_facts(decision_out.required_fact_types)
+        evidence_texts = _get_evidence_texts(session, snapshot_out.evidence_comment_ids)
+        situation = _build_situation(snapshot_out.audience_state, snapshot_out.support_count)
 
-    # Kumpulkan evidence comments dari window
-    evidence_texts = _get_evidence_texts(session, snapshot_out.evidence_comment_ids)
+        # Kick off LLM di background thread
+        future = _llm_executor.submit(
+            _run_llm_background,
+            selected_action=decision_out.selected_action,
+            audience_state=snapshot_out.audience_state,
+            evidence_texts=evidence_texts,
+            product_facts=product_facts,
+            urgency=urgency,
+            situation=situation,
+            support_count=snapshot_out.support_count,
+            state_confidence=snapshot_out.state_confidence,
+            evidence_comment_ids=snapshot_out.evidence_comment_ids,
+            session_id=session_id,
+        )
+        session.pending_llm_future = future
+        session.pending_llm_action = decision_out.selected_action
 
-    llm_input = llm_client.build_llm_input(
-        selected_action=decision_out.selected_action,
-        audience_state=snapshot_out.audience_state,
-        evidence_comments=evidence_texts,
-        product_facts=product_facts,
-        tone=DEFAULT_TONE,
-        max_words=MAX_WORDS,
-    )
+        logger.info(
+            "LLM async dimulai untuk session=%s action=%s",
+            session_id, decision_out.selected_action,
+        )
 
-    # Gunakan validator bridge: generate → validate → retry → fallback
-    validation_result = run_with_retry(
-        generate_fn=llm_client.generate,
-        input_payload=llm_input,
-        selected_action=decision_out.selected_action,
-    )
-
-    t_gen_end = time.time()
-    gen_latency = round((t_gen_end - t_gen_start) * 1000, 1)
-
-    # ===== TAHAP 11: BUILD COACH CARD =====
-    response_data = validation_result.response or {}
-    is_passed = validation_result.validation_status == "PASSED"
-    is_fallback = not is_passed
-
-    # Tentukan pipeline_status
-    pipeline_status = "CARD_READY" if is_passed else "FALLBACK"
-
-    # Tentukan validation_status untuk frontend
-    # Frontend Zod menggunakan "PASSED" | "FAILED" | "NOT_RUN"
-    fe_validation_status = "PASSED" if is_passed else "FAILED"
-
-    coach_card = CoachCard(
-        priority=urgency,
-        situation=_build_situation(snapshot_out.audience_state, snapshot_out.support_count),
-        selected_action=decision_out.selected_action,
-        reason=f"{snapshot_out.support_count} pertanyaan terkait / {WINDOW_SECONDS} detik",
-        evidence_comment_ids=snapshot_out.evidence_comment_ids[:3],
-        suggested_response=response_data.get("response_text", get_fallback_template(decision_out.selected_action)),
-        confidence=snapshot_out.state_confidence,
-        validation_status=fe_validation_status,
-        fallback_used=is_fallback,
-        used_fact_ids=response_data.get("used_fact_ids", []),
-    )
-
+    # ===== RETURN FAST RESPONSE (tanpa menunggu LLM) =====
     total_latency = round((time.time() - t_start) * 1000, 1)
 
     return PipelineResult(
         session_id=session_id,
-        pipeline_status=pipeline_status,
+        pipeline_status="WAITING_SIGNAL",
         processed_count=processed_count,
         nlp_prediction=nlp_prediction,
         audience_snapshot=snapshot_out,
         action_decision=decision_out,
-        coach_card=coach_card,
-        latency_ms=LatencyMs(nlp=nlp_latency, generation=gen_latency, total=total_latency),
+        coach_card=None,
+        latency_ms=LatencyMs(nlp=nlp_latency, total=total_latency),
     )
 
 

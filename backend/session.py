@@ -12,7 +12,8 @@ from __future__ import annotations
 
 import uuid
 from dataclasses import dataclass, field
-from typing import Dict, List, Optional, Set, Tuple
+from typing import Any, Dict, List, Optional, Set, Tuple
+from concurrent.futures import Future
 
 
 @dataclass
@@ -40,6 +41,18 @@ class SessionState:
     # Last action (untuk cooldown di masa depan)
     last_action: Optional[str] = None
     last_action_time: Optional[int] = None
+
+    # --- Async LLM state ---
+    # Background thread yang sedang menjalankan LLM generate + validate
+    pending_llm_future: Optional[Future] = field(default=None, repr=False)
+    # Context dari action yang trigger LLM (untuk logging/debug)
+    pending_llm_action: Optional[str] = None
+    # Coach card yang sudah selesai di-generate, siap dikirim ke frontend
+    ready_coach_card: Optional[Any] = field(default=None, repr=False)
+    # Pipeline status untuk ready_coach_card ("CARD_READY" atau "FALLBACK")
+    ready_pipeline_status: Optional[str] = None
+    # Latency dari LLM generation
+    ready_gen_latency: Optional[float] = None
 
 
 class SessionManager:
