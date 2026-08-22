@@ -304,6 +304,58 @@ LLM service akan otomatis menggunakan template-based fallback.
 
 ---
 
+## 🎬 Panduan Demo
+
+Berikut langkah-langkah untuk menjalankan demo LiveCoachHub setelah semua service berjalan:
+
+### 1. Siapkan File Replay
+
+File demo sudah tersedia di repo:
+
+```
+data/replay/comments-demo.jsonl
+```
+
+File ini berisi **30 komentar** dari **19 user** yang mensimulasikan sesi live selling **~90 detik**, mencakup semua kategori intent:
+
+| Intent | Contoh Komentar |
+|--------|----------------|
+| `size_inquiry` | "bb 55 ambil m atau l kak?" |
+| `size_recommendation` | "aku TB 170 BB 65 cocok L atau XL?" |
+| `product_inquiry` | "bahannya apa kak? adem gak?" |
+| `color_inquiry` | "warnanya ada apa aja kak?" |
+| `price_inquiry` | "harganya berapa kak?" |
+| `stock_availability` | "yang hitam masih ready gak?" |
+| `purchase_intent` | "ok fix order navy L ya kak" |
+| `not_relevant` | "semangat kak jualan nya" |
+
+### 2. Jalankan Demo
+
+1. Buka **http://localhost:3000** di browser
+2. Pastikan status di header menunjukkan **"Sistem siap"** (hijau) atau **"Sistem terdegradasi"** (kuning)
+3. **Drag & drop** file `comments-demo.jsonl` ke area upload, atau klik untuk browse
+4. Klik tombol **▶ Start**
+5. Amati dashboard:
+   - **Kiri**: Progress replay dan komentar masuk
+   - **Kanan atas**: Stream komentar real-time dengan intent classification chips
+   - **Kanan tengah**: Audience snapshot (agregasi 60 detik)
+   - **Kanan bawah**: Seller script yang di-generate AI
+
+### 3. Kontrol Replay
+
+| Tombol | Fungsi |
+|--------|--------|
+| ▶ **Start** | Mulai replay |
+| ⏸ **Pause** | Jeda replay |
+| ▶ **Resume** | Lanjutkan dari jeda |
+| ↺ **Reset** | Reset dan mulai ulang |
+
+> [!TIP]
+> Juri juga bisa membuat file `.jsonl` sendiri dengan format yang sama untuk menguji skenario custom.
+> Setiap baris berisi: `{"comment_id": "...", "user_id": "...", "timestamp_ms": ..., "text": "..."}`
+
+---
+
 ## ✅ Verifikasi & Smoke Test
 
 ### Health Check
@@ -464,13 +516,16 @@ LiveCoachHub/
 
 ## 🎯 Skenario Demo
 
-Replay data (`data/replay/comments-demo.jsonl`) mensimulasikan sesi live selling **52 detik** dengan **8 komentar** dari **6 user**:
+Replay data (`data/replay/comments-demo.jsonl`) mensimulasikan sesi live selling **~90 detik** dengan **30 komentar** dari **19 user**:
 
 | # | Skenario | Trigger | Aksi Pipeline |
 |---|----------|---------|---------------|
-| 1 | **Size confusion** | Beberapa user bertanya ukuran | `SHOW_SIZE_GUIDE` |
-| 2 | **Purchase intent** | User menyatakan niat checkout | Priority Alert |
-| 3 | **Stock inquiry** | User bertanya ketersediaan warna | `CONFIRM_STOCK` |
+| 1 | **Size confusion** | Banyak user bertanya ukuran & rekomendasi | `SHOW_SIZE_GUIDE` |
+| 2 | **Product detail** | Pertanyaan bahan, fit, dan fitur produk | `EXPLAIN_PRODUCT_DETAIL` |
+| 3 | **Color & stock** | User bertanya warna dan ketersediaan | `CONFIRM_STOCK` |
+| 4 | **Price & promo** | Pertanyaan harga, diskon, ongkir | `EXPLAIN_PRICE_PROMO` |
+| 5 | **Purchase intent** | User menyatakan niat checkout/order | Priority Alert |
+| 6 | **Not relevant** | Sapaan, semangat, dan komentar umum | `NO_ACTION` |
 
 ---
 
