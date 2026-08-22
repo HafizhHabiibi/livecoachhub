@@ -1,5 +1,15 @@
 version: "3.8"
 
+# ============================================================
+# LiveCoachHub — Docker Compose (Full AI Stack)
+#
+# Jalankan:  docker compose up --build
+# Frontend:  http://localhost:3000
+# Backend:   http://localhost:8000
+# NLP:       http://localhost:8010
+# LLM:       http://localhost:8020
+# ============================================================
+
 services:
   # ---- Backend API (FastAPI) ----
   backend:
@@ -18,41 +28,60 @@ services:
       - nlp
     networks:
       - livecoach
+    restart: unless-stopped
 
   # ---- Frontend (Vite/React → Nginx) ----
   frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+      target: production
     ports:
       - "3000:80"
     depends_on:
       - backend
     networks:
       - livecoach
+    restart: unless-stopped
 
   # ---- NLP Service (IndoBERT) ----
   nlp:
     build:
-      context: ./AI/NLP/fine-tuned-indobert
-      dockerfile: Dockerfile
+      context: ./AI/NLP                    # Context = AI/NLP/ agar data/ bisa di-copy
+      dockerfile: fine-tuned-indobert/Dockerfile
     ports:
       - "8010:8010"
     volumes:
-      - ./AI/NLP/fine-tuned-indobert:/app
-    command: python serve.py --port 8010
+      - hf-cache-nlp:/root/.cache/huggingface   # Persist model cache
+    command: python serve.py --host 0.0.0.0 --port 8010
     networks:
       - livecoach
+    restart: unless-stopped
 
-  # ---- LLM Service (QLoRA) ----
-  # Uncomment ketika adapter sudah di-train
-  # llm:
-  #   build:
-  #     context: ./ai/grounded_llm
-  #   ports:
-  #     - "8020:8020"
-  #   networks:
-  #     - livecoach
+  # ---- LLM Service (Qwen2.5 + QLoRA) ----
+  llm:
+    build:
+      context: ./AI/LLM
+      dockerfile: Dockerfile
+    ports:
+      - "8020:8020"
+    volumes:
+      - hf-cache-llm:/root/.cache/huggingface   # Persist base model cache
+    command: python serve_llm.py --host 0.0.0.0 --port 8020
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    networks:
+      - livecoach
+    restart: unless-stopped
+
+volumes:
+  hf-cache-nlp:        # Cache NLP model agar tidak download ulang setiap restart
+  hf-cache-llm:        # Cache Qwen base model (~3 GB)
 
 networks:
   livecoach:
