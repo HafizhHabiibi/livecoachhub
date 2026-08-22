@@ -59,6 +59,8 @@ services:
     restart: unless-stopped
 
   # ---- LLM Service (Qwen2.5 + QLoRA) ----
+  # Tanpa GPU: otomatis fallback ke template-based seller script
+  # Dengan GPU: jalankan dengan docker-compose.gpu.yml (lihat README)
   llm:
     build:
       context: ./AI/LLM
@@ -68,13 +70,6 @@ services:
     volumes:
       - hf-cache-llm:/root/.cache/huggingface   # Persist base model cache
     command: python serve_llm.py --host 0.0.0.0 --port 8020
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [gpu]
     networks:
       - livecoach
     restart: unless-stopped

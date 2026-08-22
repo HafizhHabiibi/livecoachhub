@@ -271,65 +271,36 @@ docker run --rm --gpus all nvidia/cuda:12.2.0-base-ubuntu22.04 nvidia-smi
 
 </details>
 
-Jika perintah di atas menampilkan info GPU, setup sudah benar. Service `llm` di `docker-compose.yml` sudah dikonfigurasi otomatis:
+Jika perintah di atas menampilkan info GPU, jalankan dengan **GPU override**:
 
-```yaml
-deploy:
-  resources:
-    reservations:
-      devices:
-        - driver: nvidia
-          count: 1
-          capabilities: [gpu]
+```bash
+# Dengan GPU — gunakan file override tambahan
+docker compose -f docker-compose.yml -f docker-compose.gpu.yml up --build
 ```
 
 ---
 
 ## 💻 Menjalankan Tanpa GPU (Fallback Mode)
 
-Jika **tidak punya GPU NVIDIA**, service LLM akan gagal start karena konfigurasi GPU requirement. Ada dua opsi:
-
-### Opsi A — Docker Compose Override (Disarankan)
-
-Buat file `docker-compose.override.yml` di root project:
-
-```yaml
-# docker-compose.override.yml
-# Override untuk menjalankan tanpa GPU
-# File ini otomatis di-merge oleh Docker Compose
-
-services:
-  llm:
-    deploy:
-      resources:
-        reservations:
-          devices: []
-```
-
-Lalu jalankan seperti biasa:
+Tanpa GPU, cukup jalankan seperti biasa — **tidak perlu konfigurasi tambahan**:
 
 ```bash
 docker compose up --build
 ```
 
-### Opsi B — Jalankan Tanpa Service LLM
-
-```bash
-# Jalankan hanya backend, frontend, dan nlp
-docker compose up --build backend frontend nlp
-```
+LLM service akan otomatis menggunakan template-based fallback.
 
 ### Perbandingan Mode
 
 | Komponen | Dengan GPU (AI Penuh) | Tanpa GPU (Fallback) |
 |----------|----------------------|---------------------|
-| **NLP** | IndoBERT fine-tuned model | Keyword heuristic fallback |
+| **NLP** | IndoBERT fine-tuned model | IndoBERT fine-tuned model |
 | **LLM** | Qwen2.5 + QLoRA generates script | Template-based seller script |
 | **Health API** | Status: `READY` | Status: `DEGRADED` |
 
 > [!TIP]
 > Untuk demo dan development, fallback mode sudah cukup. Semua endpoint dan pipeline tetap berfungsi —
-> hanya kualitas output NLP dan LLM yang kurang optimal.
+> hanya kualitas output LLM yang kurang optimal.
 
 ---
 
