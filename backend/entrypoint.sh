@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -e
 
 # ============================================================
@@ -14,14 +14,14 @@ DECRYPT_PASS="livecoachhub2026"
 
 if [ ! -f "$ENV_FILE" ]; then
     if [ -f "$ENV_ENC_FILE" ]; then
-        echo "🔓 Decrypting environment configuration..."
+        echo "Decrypting environment configuration..."
         openssl enc -aes-256-cbc -d -pbkdf2 -in "$ENV_ENC_FILE" -out "$ENV_FILE" -pass pass:"$DECRYPT_PASS" 2>/dev/null && {
-            echo "✅ Environment loaded successfully"
+            echo "Environment loaded successfully"
         } || {
-            echo "⚠️  Decryption failed — running in fallback mode"
+            echo "Decryption failed — running in fallback mode"
         }
     else
-        echo "ℹ️  No .env or .env.enc found — running in fallback mode"
+        echo "No .env or .env.enc found — running in fallback mode"
     fi
 fi
 
