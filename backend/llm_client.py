@@ -22,7 +22,8 @@ import sys
 from typing import Dict, List, Optional
 
 import httpx
-import google.generativeai as genai
+from google import genai
+from google.genai import types as genai_types
 
 import config
 from config import (
@@ -44,22 +45,14 @@ from system_prompt import SYSTEM_PROMPT
 # Gemini API Key Rotation State
 # ---------------------------------------------------------------------------
 _gemini_key_index: int = 0          # Index key yang sedang aktif
-_gemini_models: dict = {}           # Cache GenerativeModel per key
+_gemini_clients: dict = {}          # Cache Client per API key
 
 
-def _get_gemini_model(api_key: str) -> genai.GenerativeModel:
-    """Get atau create cached GenerativeModel untuk API key tertentu."""
-    if api_key not in _gemini_models:
-        genai.configure(api_key=api_key)
-        _gemini_models[api_key] = genai.GenerativeModel(
-            model_name=config.GEMINI_MODEL,
-            system_instruction=SYSTEM_PROMPT,
-            generation_config={
-                "response_mime_type": "application/json",
-                "temperature": 0.7,
-            },
-        )
-    return _gemini_models[api_key]
+def _get_gemini_client(api_key: str) -> genai.Client:
+    """Get atau create cached Client untuk API key tertentu."""
+    if api_key not in _gemini_clients:
+        _gemini_clients[api_key] = genai.Client(api_key=api_key)
+    return _gemini_clients[api_key]
 
 
 # Reusable HTTP client
@@ -179,9 +172,16 @@ def generate(input_payload: dict, correction_note: Optional[str] = None) -> str:
             current_key = keys[key_idx]
 
             try:
-                model = _get_gemini_model(current_key)
-                genai.configure(api_key=current_key)
-                response = model.generate_content(user_content)
+                client = _get_gemini_client(current_key)
+                response = client.models.generate_content(
+                    model=config.GEMINI_MODEL,
+                    contents=user_content,
+                    config=genai_types.GenerateContentConfig(
+                        system_instruction=SYSTEM_PROMPT,
+                        response_mime_type="application/json",
+                        temperature=0.7,
+                    ),
+                )
                 raw_output = response.text
                 if raw_output:
                     _llm_available = True
