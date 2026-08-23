@@ -293,7 +293,7 @@ export default function ReplayInputPanel({
       {/* Health info */}
       {health && health.status === 'DEGRADED' && (
         <div style={{ fontSize: 'var(--text-xs)', color: 'var(--color-warning)', textAlign: 'center' }}>
-          Mode Terdegradasi — Menggunakan fallback
+          Mode Cepat — Respons template bawaan aktif
         </div>
       )}
       {health && health.status === 'OFFLINE' && (

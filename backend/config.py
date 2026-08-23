@@ -20,8 +20,8 @@ from dotenv import load_dotenv
 # Di lokal:  config.py ada di backend/config.py, AI di ../AI
 # Gunakan env var PROJECT_ROOT jika ada, fallback ke parent.parent (lokal)
 PROJECT_ROOT = Path(os.getenv("PROJECT_ROOT", str(Path(__file__).resolve().parent.parent)))
-# Load env variables from root .env
-load_dotenv(PROJECT_ROOT / ".env", override=True)
+# Load env variables from root .env (override=False agar env var Docker Compose tidak tertimpa)
+load_dotenv(PROJECT_ROOT / ".env", override=False)
 
 # AI subproject paths
 AI_DIR = PROJECT_ROOT / "AI"
@@ -55,8 +55,13 @@ LLM_SERVICE_URL = os.getenv("LLM_SERVICE_URL", "http://localhost:8020")
 
 # LLM configuration (gemini | qlora)
 LLM_PROVIDER = os.getenv("LLM_PROVIDER", "gemini").lower()
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
-GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.0-flash")
+
+# Support multi-key rotation: GEMINI_API_KEYS (comma-separated) atau GEMINI_API_KEY (single)
+_raw_keys = os.getenv("GEMINI_API_KEYS", "") or os.getenv("GEMINI_API_KEY", "")
+GEMINI_API_KEYS: list[str] = [k.strip() for k in _raw_keys.split(",") if k.strip()]
+# Backward compatibility
+GEMINI_API_KEY = GEMINI_API_KEYS[0] if GEMINI_API_KEYS else ""
 
 # ---------------------------------------------------------------------------
 # Pipeline Settings

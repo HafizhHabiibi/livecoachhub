@@ -9,7 +9,7 @@
 [![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688?style=for-the-badge&logo=fastapi&logoColor=white)]()
 [![React](https://img.shields.io/badge/React-Frontend-61DAFB?style=for-the-badge&logo=react&logoColor=black)]()
 
-Sistem real-time yang membaca komentar audiens, mengidentifikasi pola/intent menggunakan **IndoBERT fine-tuned**, lalu memberikan **recommended action** dan **suggested seller script** melalui **Qwen2.5 + QLoRA** yang di-ground pada fakta produk.
+Sistem real-time yang membaca komentar audiens, mengidentifikasi pola/intent menggunakan **IndoBERT fine-tuned**, lalu memberikan **recommended action** dan **suggested seller script** melalui **LLM dual-mode** (Gemini API / Qwen2.5 + QLoRA) yang di-ground pada fakta produk.
 
 </div>
 
@@ -41,12 +41,13 @@ Sistem real-time yang membaca komentar audiens, mengidentifikasi pola/intent men
 | Fitur | Deskripsi |
 |-------|-----------|
 | 🧠 **NLP Intent Classification** | IndoBERT fine-tuned mengklasifikasikan intent komentar ke 8 kelas |
-| 🤖 **Grounded LLM Generation** | Qwen2.5-1.5B + QLoRA menghasilkan seller script yang di-ground pada fakta produk |
+| 🤖 **Dual-Mode LLM Generation** | **Gemini API** (cloud) atau **Qwen2.5 + QLoRA** (local GPU) menghasilkan seller script yang di-ground pada fakta produk |
+| 🔄 **Auto-Rotation API Key** | Rotasi otomatis antar multi API key saat rate limit — demo tanpa gangguan |
 | 📊 **Rolling Window Analytics** | Agregasi sinyal audiens per 60 detik untuk mendeteksi tren |
 | 🚨 **Priority Alert System** | Deteksi komentar high-value (purchase intent, complaint) secara real-time |
 | 🛡️ **Spam Filter** | Filtrasi spam dan duplikat sebelum diproses NLP |
 | ✅ **Output Validator** | Verifikasi JSON, grounding, dan fallback otomatis |
-| 📦 **Dockerized Full Stack** | Satu command untuk menjalankan 4 service (frontend, backend, NLP, LLM) |
+| 📦 **Dockerized Full Stack** | Satu command untuk menjalankan semua service |
 
 ---
 
@@ -64,7 +65,8 @@ Comment → Preprocessing → Spam Filter → NLP (IndoBERT)
 | Komponen | Model / Teknik | Fungsi |
 |----------|----------------|--------|
 | **NLP** | IndoBERT fine-tuned | Klasifikasi intent komentar (8 kelas) |
-| **LLM** | Qwen2.5-1.5B + QLoRA | Generate seller script yang grounded |
+| **LLM (Cloud)** | Gemini API (gemini-2.0-flash) | Generate seller script — default, tanpa GPU |
+| **LLM (Local)** | Qwen2.5-1.5B + QLoRA | Generate seller script — opsional, butuh GPU |
 | **Validator** | Rule-based | Verifikasi JSON, grounding, fallback |
 | **Action Engine** | Threshold + priority | Pilih tindakan berdasarkan audience state |
 
@@ -79,10 +81,12 @@ Comment → Preprocessing → Spam Filter → NLP (IndoBERT)
 │  │  (Nginx:80)  │───▶│  (FastAPI:    │───▶│  (IndoBERT: 8010)  │    │
 │  │  :3000→:80   │    │   8000)       │    └────────────────────┘    │
 │  └──────────────┘    │               │                               │
-│                      │               │    ┌────────────────────┐    │
-│                      │               │───▶│    LLM Service      │    │
-│                      └───────────────┘    │ (Qwen2.5+QLoRA:    │    │
-│                                           │  8020) [GPU]        │    │
+│                      │  LLM Client   │──▶  ☁️ Gemini API (default)  │
+│                      │  (dual-mode)  │                               │
+│                      └───────────────┘    ┌────────────────────┐    │
+│                                           │  🤖 QLoRA Service   │    │
+│                          (opsional) ◀─────│ (Qwen2.5: 8020)    │    │
+│                                           │ [profile: qlora]   │    │
 │  Volumes:                                 └────────────────────┘    │
 │    hf-cache-nlp → /root/.cache/huggingface (NLP model cache)        │
 │    hf-cache-llm → /root/.cache/huggingface (LLM model cache)        │
@@ -104,7 +108,7 @@ Comment → Preprocessing → Spam Filter → NLP (IndoBERT)
 | **GPU** _(opsional)_ | NVIDIA dengan CUDA (untuk LLM service penuh) |
 
 > [!NOTE]
-> **Tanpa GPU**: Sistem tetap berjalan — NLP menggunakan keyword heuristic fallback, LLM menggunakan template fallback. Untuk demo penuh dengan AI, GPU NVIDIA diperlukan.
+> **Tanpa GPU**: Sistem tetap berjalan penuh menggunakan **Gemini API** (default). GPU hanya diperlukan jika ingin menggunakan mode **QLoRA local**.
 
 ### Khusus Windows
 
@@ -280,7 +284,7 @@ docker compose -f docker-compose.yml -f docker-compose.gpu.yml up --build
 
 ---
 
-## 💻 Menjalankan Tanpa GPU (Fallback Mode)
+## 💻 Menjalankan Tanpa GPU (Default — Gemini API)
 
 Tanpa GPU, cukup jalankan seperti biasa — **tidak perlu konfigurasi tambahan**:
 
@@ -288,19 +292,30 @@ Tanpa GPU, cukup jalankan seperti biasa — **tidak perlu konfigurasi tambahan**
 docker compose up --build
 ```
 
-LLM service akan otomatis menggunakan template-based fallback.
+Backend secara default menggunakan **Gemini API** sebagai LLM provider. API key di-download otomatis saat pertama kali start.
+
+### Mode QLoRA (Butuh GPU NVIDIA)
+
+Jika ingin menggunakan QLoRA local (Qwen2.5 + adapter), aktifkan profile `qlora`:
+
+```bash
+# Dengan GPU + QLoRA
+docker compose --profile qlora -f docker-compose.yml -f docker-compose.gpu.yml up --build
+```
 
 ### Perbandingan Mode
 
-| Komponen | Dengan GPU (AI Penuh) | Tanpa GPU (Fallback) |
-|----------|----------------------|---------------------|
-| **NLP** | IndoBERT fine-tuned model | IndoBERT fine-tuned model |
-| **LLM** | Qwen2.5 + QLoRA generates script | Template-based seller script |
-| **Health API** | Status: `READY` | Status: `DEGRADED` |
+| Komponen | Gemini API (Default) | QLoRA (Opsional) | Template Fallback |
+|----------|---------------------|------------------|-------------------|
+| **LLM Provider** | ☁️ Google Gemini | 🤖 Qwen2.5 + QLoRA | 📝 Template bawaan |
+| **Kebutuhan** | Internet + API Key | GPU NVIDIA (4GB+ VRAM) | Tidak ada |
+| **Kecepatan** | ~1-3 detik | ~5-15 detik | Instan |
+| **Kualitas Output** | Tinggi | Menengah | Dasar |
+| **Docker Profile** | Default | `--profile qlora` | Otomatis jika LLM gagal |
+| **Health Status** | `READY` | `READY` | `DEGRADED` |
 
 > [!TIP]
-> Untuk demo dan development, fallback mode sudah cukup. Semua endpoint dan pipeline tetap berfungsi —
-> hanya kualitas output LLM yang kurang optimal.
+> Untuk demo dan evaluasi, mode **Gemini API (default)** sudah memberikan pengalaman AI penuh tanpa perlu GPU.
 
 ---
 

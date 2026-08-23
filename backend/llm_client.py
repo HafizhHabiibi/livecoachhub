@@ -1,16 +1,17 @@
 """
 LiveCoachHub Backend — LLM Client
 
-Client untuk memanggil QLoRA LLM service atau menggunakan
-template-based fallback jika model belum tersedia.
+Client dual-mode untuk memanggil Gemini API atau QLoRA LLM service,
+dengan template-based fallback jika keduanya tidak tersedia.
 
 Sesuai PROJECT.MD Bagian 5 Tahap 8:
 "Action/state, evidence comments, product facts, tone, dan max_words
 dikirim ke LLM. Model menghasilkan seller script yang grounded."
 
-Dua mode operasi:
-- Mode 1 (QLoRA service): HTTP POST ke LLM service
-- Mode 2 (Template fallback): Gunakan ACTION_FALLBACK_TEMPLATES
+Tiga mode operasi:
+- Mode 1 (Gemini API): Cloud LLM dengan auto-rotation multi API key
+- Mode 2 (QLoRA service): HTTP POST ke local LLM service
+- Mode 3 (Template fallback): Gunakan ACTION_FALLBACK_TEMPLATES
 """
 
 from __future__ import annotations
@@ -39,9 +40,27 @@ if _qlora_dir_str not in sys.path:
     sys.path.insert(0, _qlora_dir_str)
 from system_prompt import SYSTEM_PROMPT
 
-# Konfigurasi API Key untuk Gemini jika mode aktif
-if config.LLM_PROVIDER == "gemini" and config.GEMINI_API_KEY:
-    genai.configure(api_key=config.GEMINI_API_KEY)
+# ---------------------------------------------------------------------------
+# Gemini API Key Rotation State
+# ---------------------------------------------------------------------------
+_gemini_key_index: int = 0          # Index key yang sedang aktif
+_gemini_models: dict = {}           # Cache GenerativeModel per key
+
+
+def _get_gemini_model(api_key: str) -> genai.GenerativeModel:
+    """Get atau create cached GenerativeModel untuk API key tertentu."""
+    if api_key not in _gemini_models:
+        genai.configure(api_key=api_key)
+        _gemini_models[api_key] = genai.GenerativeModel(
+            model_name=config.GEMINI_MODEL,
+            system_instruction=SYSTEM_PROMPT,
+            generation_config={
+                "response_mime_type": "application/json",
+                "temperature": 0.7,
+            },
+        )
+    return _gemini_models[api_key]
+
 
 # Reusable HTTP client
 _client = httpx.Client(timeout=30.0)
@@ -93,8 +112,8 @@ def is_llm_available() -> bool:
     global _llm_available
 
     if config.LLM_PROVIDER == "gemini":
-        # Untuk Gemini API, ketersediaan tergantung pada adanya API Key
-        _llm_available = bool(config.GEMINI_API_KEY)
+        # Untuk Gemini API, ketersediaan tergantung pada adanya minimal 1 API Key
+        _llm_available = len(config.GEMINI_API_KEYS) > 0
         return _llm_available
 
     if _llm_available is None or _llm_available is False:
@@ -138,40 +157,54 @@ def generate(input_payload: dict, correction_note: Optional[str] = None) -> str:
     Returns:
         Raw JSON string — output LLM atau template fallback.
     """
-    global _llm_available
+    global _llm_available, _gemini_key_index
 
     # ---------------------------------------------------------
-    # Mode 1: Gemini API
+    # Mode 1: Gemini API (dengan auto-rotation multi key)
     # ---------------------------------------------------------
     if config.LLM_PROVIDER == "gemini":
-        if not config.GEMINI_API_KEY:
-            logger.warning("GEMINI_API_KEY belum disetel di .env, menggunakan template fallback")
+        if not config.GEMINI_API_KEYS:
+            logger.warning("GEMINI_API_KEYS belum disetel di .env, menggunakan template fallback")
             _llm_available = False
             return _generate_template_fallback(input_payload)
 
-        try:
-            genai.configure(api_key=config.GEMINI_API_KEY)
-            model = genai.GenerativeModel(
-                model_name=config.GEMINI_MODEL,
-                system_instruction=SYSTEM_PROMPT,
-                generation_config={
-                    "response_mime_type": "application/json",
-                    "temperature": 0.7,
-                },
-            )
-            user_content = json.dumps(input_payload, ensure_ascii=False)
-            if correction_note:
-                user_content += f"\n\n[KOREKSI]: {correction_note}"
+        user_content = json.dumps(input_payload, ensure_ascii=False)
+        if correction_note:
+            user_content += f"\n\n[KOREKSI]: {correction_note}"
 
-            response = model.generate_content(user_content)
-            raw_output = response.text
-            if raw_output:
-                _llm_available = True
-                return raw_output
-        except Exception as e:
-            logger.warning("Gemini API call failed, using template fallback: %s", e)
-            _llm_available = False
-            return _generate_template_fallback(input_payload)
+        # Coba setiap key mulai dari key yang sedang aktif
+        keys = config.GEMINI_API_KEYS
+        for attempt in range(len(keys)):
+            key_idx = (_gemini_key_index + attempt) % len(keys)
+            current_key = keys[key_idx]
+
+            try:
+                model = _get_gemini_model(current_key)
+                genai.configure(api_key=current_key)
+                response = model.generate_content(user_content)
+                raw_output = response.text
+                if raw_output:
+                    _llm_available = True
+                    _gemini_key_index = key_idx  # Ingat key yang berhasil
+                    return raw_output
+            except Exception as e:
+                error_str = str(e).lower()
+                # Rotate ke key berikutnya jika rate limit / quota exceeded
+                if "429" in error_str or "quota" in error_str or "rate" in error_str:
+                    logger.warning(
+                        "Gemini key %d/%d rate limited, rotating to next key: %s",
+                        key_idx + 1, len(keys), e
+                    )
+                    _gemini_key_index = (key_idx + 1) % len(keys)
+                    continue
+                else:
+                    logger.warning("Gemini API error (non-rate-limit): %s", e)
+                    break  # Error lain, langsung fallback
+
+        # Semua key gagal
+        logger.warning("All %d Gemini API keys exhausted, using template fallback", len(keys))
+        _llm_available = False
+        return _generate_template_fallback(input_payload)
 
     # ---------------------------------------------------------
     # Mode 2: Local QLoRA Service

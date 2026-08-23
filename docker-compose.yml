@@ -24,6 +24,9 @@ services:
     environment:
       - NLP_SERVICE_URL=http://nlp:8010
       - LLM_SERVICE_URL=http://llm:8020
+      # URL Secret Gist untuk auto-download .env (zero-config demo)
+      # Ganti dengan URL raw Secret Gist Anda setelah dibuat
+      - ENV_GIST_URL=https://gist.githubusercontent.com/HafizhHabiibi/31a94c2b7c8339df142ddc673b1a9ab3/raw/99b37f8f130232adcb65501765def80e793f8a72/.env
     depends_on:
       - nlp
     networks:
@@ -58,10 +61,12 @@ services:
       - livecoach
     restart: unless-stopped
 
-  # ---- LLM Service (Qwen2.5 + QLoRA) ----
-  # Tanpa GPU: otomatis fallback ke template-based seller script
-  # Dengan GPU: jalankan dengan docker-compose.gpu.yml (lihat README)
+  # ---- LLM Service (Qwen2.5 + QLoRA) — Opsional ----
+  # Hanya dijalankan jika LLM_PROVIDER=qlora (butuh GPU NVIDIA)
+  # Aktifkan dengan: docker compose --profile qlora up --build
+  # Default (tanpa --profile): menggunakan Gemini API, service ini TIDAK jalan
   llm:
+    profiles: ["qlora"]
     build:
       context: ./AI/LLM
       dockerfile: Dockerfile
