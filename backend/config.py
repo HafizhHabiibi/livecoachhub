@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
+from dotenv import load_dotenv
 
 # ---------------------------------------------------------------------------
 # Paths
@@ -19,6 +20,8 @@ from pathlib import Path
 # Di lokal:  config.py ada di backend/config.py, AI di ../AI
 # Gunakan env var PROJECT_ROOT jika ada, fallback ke parent.parent (lokal)
 PROJECT_ROOT = Path(os.getenv("PROJECT_ROOT", str(Path(__file__).resolve().parent.parent)))
+# Load env variables from root .env
+load_dotenv(PROJECT_ROOT / ".env", override=True)
 
 # AI subproject paths
 AI_DIR = PROJECT_ROOT / "AI"
@@ -49,6 +52,11 @@ REPLAY_DIR = DATA_DIR / "replay"
 
 NLP_SERVICE_URL = os.getenv("NLP_SERVICE_URL", "http://localhost:8010")
 LLM_SERVICE_URL = os.getenv("LLM_SERVICE_URL", "http://localhost:8020")
+
+# LLM configuration (gemini | qlora)
+LLM_PROVIDER = os.getenv("LLM_PROVIDER", "gemini").lower()
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
+GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
 
 # ---------------------------------------------------------------------------
 # Pipeline Settings

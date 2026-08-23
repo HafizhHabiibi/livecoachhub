@@ -17,13 +17,31 @@ from __future__ import annotations
 
 import json
 import logging
+import sys
 from typing import Dict, List, Optional
 
 import httpx
+import google.generativeai as genai
 
-from config import LLM_SERVICE_URL, MAX_WORDS, DEFAULT_TONE
+import config
+from config import (
+    LLM_SERVICE_URL,
+    MAX_WORDS,
+    DEFAULT_TONE,
+    QLORA_DIR,
+)
 
 logger = logging.getLogger(__name__)
+
+# Tambahkan path QLoRA untuk mengimpor system prompt resmi
+_qlora_dir_str = str(QLORA_DIR)
+if _qlora_dir_str not in sys.path:
+    sys.path.insert(0, _qlora_dir_str)
+from system_prompt import SYSTEM_PROMPT
+
+# Konfigurasi API Key untuk Gemini jika mode aktif
+if config.LLM_PROVIDER == "gemini" and config.GEMINI_API_KEY:
+    genai.configure(api_key=config.GEMINI_API_KEY)
 
 # Reusable HTTP client
 _client = httpx.Client(timeout=30.0)
@@ -72,6 +90,13 @@ def _check_llm_health() -> bool:
 
 def is_llm_available() -> bool:
     """Return status LLM service. Re-check jika sebelumnya unavailable."""
+    global _llm_available
+
+    if config.LLM_PROVIDER == "gemini":
+        # Untuk Gemini API, ketersediaan tergantung pada adanya API Key
+        _llm_available = bool(config.GEMINI_API_KEY)
+        return _llm_available
+
     if _llm_available is None or _llm_available is False:
         return _check_llm_health()
     return _llm_available
@@ -103,7 +128,7 @@ def build_llm_input(
 def generate(input_payload: dict, correction_note: Optional[str] = None) -> str:
     """Generate response dari LLM.
 
-    Mencoba memanggil QLoRA service terlebih dahulu.
+    Mencoba memanggil provider yang aktif (Gemini API atau QLoRA service).
     Jika gagal, return template fallback sebagai valid JSON.
 
     Args:
@@ -115,7 +140,42 @@ def generate(input_payload: dict, correction_note: Optional[str] = None) -> str:
     """
     global _llm_available
 
-    # Coba panggil LLM service
+    # ---------------------------------------------------------
+    # Mode 1: Gemini API
+    # ---------------------------------------------------------
+    if config.LLM_PROVIDER == "gemini":
+        if not config.GEMINI_API_KEY:
+            logger.warning("GEMINI_API_KEY belum disetel di .env, menggunakan template fallback")
+            _llm_available = False
+            return _generate_template_fallback(input_payload)
+
+        try:
+            genai.configure(api_key=config.GEMINI_API_KEY)
+            model = genai.GenerativeModel(
+                model_name=config.GEMINI_MODEL,
+                system_instruction=SYSTEM_PROMPT,
+                generation_config={
+                    "response_mime_type": "application/json",
+                    "temperature": 0.7,
+                },
+            )
+            user_content = json.dumps(input_payload, ensure_ascii=False)
+            if correction_note:
+                user_content += f"\n\n[KOREKSI]: {correction_note}"
+
+            response = model.generate_content(user_content)
+            raw_output = response.text
+            if raw_output:
+                _llm_available = True
+                return raw_output
+        except Exception as e:
+            logger.warning("Gemini API call failed, using template fallback: %s", e)
+            _llm_available = False
+            return _generate_template_fallback(input_payload)
+
+    # ---------------------------------------------------------
+    # Mode 2: Local QLoRA Service
+    # ---------------------------------------------------------
     try:
         body = {"input": input_payload}
         if correction_note:
@@ -128,7 +188,6 @@ def generate(input_payload: dict, correction_note: Optional[str] = None) -> str:
         if resp.status_code == 200:
             _llm_available = True
             data = resp.json()
-            # LLM service mengembalikan raw text atau JSON
             raw_output = data.get("output", data.get("response", ""))
             if raw_output:
                 return raw_output

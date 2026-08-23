@@ -38,9 +38,9 @@ export default function ReplayInputPanel({
   const inputRef = useRef<HTMLInputElement>(null);
   const isDraggingRef = useRef(false);
 
-  const healthReady = health?.status === 'READY';
+  const healthAvailable = health?.status === 'READY' || health?.status === 'DEGRADED';
   const fileValid = file !== null && isFileValid(file);
-  const btn = getButtonVisibility(uiState, healthReady, fileValid);
+  const btn = getButtonVisibility(uiState, healthAvailable, fileValid);
 
   // Progress bar
   const total = file?.comments.length ?? 0;
@@ -291,9 +291,14 @@ export default function ReplayInputPanel({
       </div>
 
       {/* Health info */}
-      {health && health.status !== 'READY' && (
+      {health && health.status === 'DEGRADED' && (
         <div style={{ fontSize: 'var(--text-xs)', color: 'var(--color-warning)', textAlign: 'center' }}>
-          Backend {health.status === 'DEGRADED' ? 'terdegradasi' : 'offline'} — Start tidak tersedia
+          Mode Terdegradasi — Menggunakan fallback
+        </div>
+      )}
+      {health && health.status === 'OFFLINE' && (
+        <div style={{ fontSize: 'var(--text-xs)', color: 'var(--color-critical)', textAlign: 'center' }}>
+          Backend offline — Start tidak tersedia
         </div>
       )}
     </aside>

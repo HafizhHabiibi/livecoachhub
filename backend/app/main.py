@@ -29,6 +29,7 @@ _backend_dir = str(Path(__file__).resolve().parent.parent)
 if _backend_dir not in sys.path:
     sys.path.insert(0, _backend_dir)
 
+import config
 from config import (
     PRODUCT_ID,
     PRODUCT_DISPLAY_NAME,
@@ -149,6 +150,12 @@ def health_check():
     else:
         overall = "DEGRADED"
 
+    llm_provider_name = (
+        ("Gemini API" if config.LLM_PROVIDER == "gemini" else "QLoRA")
+        if llm_ready
+        else "Template Fallback"
+    )
+
     return {
         "schema_version": SCHEMA_HEALTH,
         "status": overall,
@@ -159,7 +166,7 @@ def health_check():
         },
         "provider": {
             "nlp": "IndoBERT" if nlp_ready else "Heuristic Fallback",
-            "llm": "QLoRA" if llm_ready else "Template Fallback",
+            "llm": llm_provider_name,
         },
     }
 

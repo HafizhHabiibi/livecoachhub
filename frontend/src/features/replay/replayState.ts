@@ -18,13 +18,13 @@ import type { ReplayUiState } from '@/contracts/livecoach';
  * Dipakai untuk guard di useReplayController.
  */
 export const VALID_TRANSITIONS: Record<ReplayUiState, ReplayUiState[]> = {
-  EMPTY:     ['FILE_READY'],
+  EMPTY: ['FILE_READY'],
   FILE_READY: ['EMPTY', 'STARTING'],
-  STARTING:  ['RUNNING', 'ERROR'],
-  RUNNING:   ['PAUSED', 'FINISHED', 'ERROR'],
-  PAUSED:    ['RUNNING', 'FILE_READY', 'ERROR'],   // FILE_READY = setelah reset
-  FINISHED:  ['FILE_READY'],                        // FILE_READY = setelah reset
-  ERROR:     ['FILE_READY'],                        // FILE_READY = setelah reset/retry
+  STARTING: ['RUNNING', 'ERROR'],
+  RUNNING: ['PAUSED', 'FINISHED', 'ERROR'],
+  PAUSED: ['RUNNING', 'FILE_READY', 'ERROR'],   // FILE_READY = setelah reset
+  FINISHED: ['FILE_READY'],                        // FILE_READY = setelah reset
+  ERROR: ['FILE_READY'],                        // FILE_READY = setelah reset/retry
 };
 
 export function canTransition(
@@ -48,12 +48,12 @@ export interface ButtonVisibility {
 
 /**
  * Tentukan tombol mana yang tampil dan aktif berdasarkan state.
- * isHealthReady: true jika GET /health status === 'READY'
+ * isHealthAvailable: true jika GET /health status === 'READY' atau 'DEGRADED'
  * isFileValid: true jika file .jsonl lolos validasi
  */
 export function getButtonVisibility(
   state: ReplayUiState,
-  isHealthReady: boolean,
+  isHealthAvailable: boolean,
   isFileValid: boolean,
 ): ButtonVisibility {
   switch (state) {
@@ -72,8 +72,8 @@ export function getButtonVisibility(
         showPause: false,
         showResume: false,
         showReset: false,
-        // Start disabled jika health belum Ready atau file belum valid
-        startDisabled: !isHealthReady || !isFileValid,
+        // Start disabled jika backend offline (bukan READY atau DEGRADED) atau file belum valid
+        startDisabled: !isHealthAvailable || !isFileValid,
       };
 
     case 'STARTING':
@@ -138,55 +138,55 @@ import type {
 } from '@/contracts/livecoach';
 
 export const AUDIENCE_STATE_LABELS: Record<AudienceState, string> = {
-  PRICE_FRICTION:    'Pertanyaan Harga & Promo',
-  SIZE_FRICTION:     'Pertanyaan Ukuran & Varian',
-  STOCK_FRICTION:    'Pertanyaan Ketersediaan Stok',
-  PRODUCT_INFO_GAP:  'Pertanyaan Detail Produk',
+  PRICE_FRICTION: 'Pertanyaan Harga & Promo',
+  SIZE_FRICTION: 'Pertanyaan Ukuran & Varian',
+  STOCK_FRICTION: 'Pertanyaan Ketersediaan Stok',
+  PRODUCT_INFO_GAP: 'Pertanyaan Detail Produk',
   SHIPPING_FRICTION: 'Pertanyaan Pengiriman',
-  OBJECTION_SPIKE:   'Banyak Keberatan',
-  PURCHASE_MOMENT:   'Momen Checkout',
-  NO_CLEAR_SIGNAL:   'Belum ada pola kuat',
+  OBJECTION_SPIKE: 'Banyak Keberatan',
+  PURCHASE_MOMENT: 'Momen Checkout',
+  NO_CLEAR_SIGNAL: 'Belum ada pola kuat',
 };
 
 export const SELECTED_ACTION_LABELS: Record<SelectedAction, string> = {
-  EXPLAIN_PRICE_PROMO:    'Jelaskan Harga & Promo',
-  SHOW_SIZE_GUIDE:        'Tampilkan Panduan Ukuran',
-  CONFIRM_STOCK:          'Konfirmasi Ketersediaan Stok',
+  EXPLAIN_PRICE_PROMO: 'Jelaskan Harga & Promo',
+  SHOW_SIZE_GUIDE: 'Tampilkan Panduan Ukuran',
+  CONFIRM_STOCK: 'Konfirmasi Ketersediaan Stok',
   EXPLAIN_PRODUCT_DETAIL: 'Jelaskan Detail Produk',
-  EXPLAIN_SHIPPING:       'Jelaskan Pengiriman',
-  HANDLE_OBJECTION:       'Tangani Keberatan',
-  GUIDE_CHECKOUT:         'Arahkan ke Checkout',
-  NO_ACTION:              'Belum Ada Tindakan',
+  EXPLAIN_SHIPPING: 'Jelaskan Pengiriman',
+  HANDLE_OBJECTION: 'Tangani Keberatan',
+  GUIDE_CHECKOUT: 'Arahkan ke Checkout',
+  NO_ACTION: 'Belum Ada Tindakan',
 };
 
 export const INTENT_LABELS: Record<CommentIntent, string> = {
-  PRICE_PROMO:          'Harga/Promo',
-  SIZE_VARIANT:         'Ukuran/Varian',
-  STOCK_AVAILABILITY:   'Stok',
-  PRODUCT_DETAIL:       'Detail Produk',
-  SHIPPING:             'Pengiriman',
-  PURCHASE_INTENT:      'Minat Beli',
-  OBJECTION_COMPLAINT:  'Keberatan',
-  IRRELEVANT_SPAM:      'Tidak Relevan',
+  PRICE_PROMO: 'Harga/Promo',
+  SIZE_VARIANT: 'Ukuran/Varian',
+  STOCK_AVAILABILITY: 'Stok',
+  PRODUCT_DETAIL: 'Detail Produk',
+  SHIPPING: 'Pengiriman',
+  PURCHASE_INTENT: 'Minat Beli',
+  OBJECTION_COMPLAINT: 'Keberatan',
+  IRRELEVANT_SPAM: 'Tidak Relevan',
 };
 
 export const READINESS_LABELS: Record<Readiness, string> = {
-  LOW:    'Belum siap beli',
+  LOW: 'Belum siap beli',
   MEDIUM: 'Mulai tertarik',
-  HIGH:   'Siap beli',
+  HIGH: 'Siap beli',
 };
 
 export const URGENCY_LABELS: Record<Urgency, string> = {
-  NORMAL:   'Normal',
+  NORMAL: 'Normal',
   PRIORITY: 'Prioritas',
   CRITICAL: 'Kritis',
 };
 
 export const PIPELINE_STATUS_LABELS: Record<PipelineStatus, string> = {
   WAITING_SIGNAL: 'Belum ada sinyal kuat',
-  CARD_READY:     'Rekomendasi siap',
-  FALLBACK:       'Respons aman digunakan',
-  ERROR:          'Rekomendasi belum dapat dibuat',
+  CARD_READY: 'Rekomendasi siap',
+  FALLBACK: 'Respons aman digunakan',
+  ERROR: 'Rekomendasi belum dapat dibuat',
 };
 
 // ============================================================
