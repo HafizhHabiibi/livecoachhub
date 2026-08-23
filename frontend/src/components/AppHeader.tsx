@@ -1,9 +1,6 @@
-/**
- * AppHeader — header aplikasi
- * Spesifikasi Bagian 7.1: health status dot + nama model
- */
-
-import type { HealthResponse, DemoConfig } from '@/contracts/livecoach';
+import type { DemoConfig, HealthResponse } from '@/contracts/livecoach';
+import { formatElapsed } from '@/features/replay/replayState';
+import Icon from '@/components/Icon';
 
 interface AppHeaderProps {
   health: HealthResponse | null;
@@ -12,126 +9,42 @@ interface AppHeaderProps {
   elapsedMs: number;
 }
 
-function HealthDot({ status }: { status: HealthResponse['status'] | undefined }) {
-  const color =
-    status === 'READY'    ? '#16a34a' :
-    status === 'DEGRADED' ? '#d97706' :
-    status === 'OFFLINE'  ? '#dc2626' : '#94a3b8';
-
-  const label =
-    status === 'READY'    ? 'Sistem siap' :
-    status === 'DEGRADED' ? 'Sistem terdegradasi' :
-    status === 'OFFLINE'  ? 'Sistem offline' : 'Memeriksa status...';
-
-  return (
-    <span
-      title={label}
-      aria-label={label}
-      style={{
-        display: 'inline-flex',
-        alignItems: 'center',
-        gap: 'var(--space-1)',
-        fontSize: 'var(--text-xs)',
-        color: 'var(--color-muted)',
-      }}
-    >
-      <span
-        style={{
-          width: 8,
-          height: 8,
-          borderRadius: '50%',
-          background: color,
-          display: 'inline-block',
-          flexShrink: 0,
-        }}
-        aria-hidden="true"
-      />
-      {label}
-    </span>
-  );
-}
-
-function formatElapsed(ms: number): string {
-  const s = Math.floor(ms / 1000);
-  const m = Math.floor(s / 60);
-  const sec = s % 60;
-  return `${String(m).padStart(2, '0')}:${String(sec).padStart(2, '0')}`;
-}
+const HEALTH_LABELS: Record<HealthResponse['status'], string> = {
+  READY: 'Sistem siap',
+  DEGRADED: 'Mode terbatas',
+  OFFLINE: 'Sistem offline',
+};
 
 export default function AppHeader({ health, config, sessionId, elapsedMs }: AppHeaderProps) {
+  const healthLabel = health ? HEALTH_LABELS[health.status] : 'Memeriksa sistem';
+
   return (
-    <header
-      style={{
-        height: 'var(--header-height)',
-        background: 'var(--color-surface)',
-        borderBottom: '1px solid var(--color-border)',
-        display: 'flex',
-        alignItems: 'center',
-        padding: '0 var(--space-6)',
-        gap: 'var(--space-4)',
-        position: 'sticky',
-        top: 0,
-        zIndex: 10,
-      }}
-    >
-      {/* Logo + nama */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)', flexShrink: 0 }}>
-        <span style={{ fontSize: '1.25rem' }} aria-hidden="true">🎯</span>
-        <span style={{ fontWeight: 'var(--weight-semibold)', color: 'var(--color-ink)', fontSize: 'var(--text-base)' }}>
-          LiveCoach AI
-        </span>
-        <span
-          style={{
-            fontSize: 'var(--text-xs)',
-            background: 'var(--color-info-bg)',
-            color: 'var(--color-info)',
-            padding: '1px 6px',
-            borderRadius: 'var(--radius-full)',
-            fontWeight: 'var(--weight-medium)',
-          }}
-        >
-          DEMO
+    <header className="app-header">
+      <div className="brand-lockup">
+        <span className="brand-mark"><Icon name="activity" size={16} /></span>
+        <span className="brand-name">LiveCoach</span>
+        <span className="brand-edition">AI Live Desk</span>
+      </div>
+
+      <div className="header-product">
+        <span className="product-label">
+          Produk aktif&nbsp;·&nbsp; <strong>{config?.product.display_name ?? 'Memuat konfigurasi…'}</strong>
         </span>
       </div>
 
-      {/* Produk */}
-      {config && (
-        <span style={{ fontSize: 'var(--text-sm)', color: 'var(--color-muted)', flexShrink: 0 }}>
-          {config.product.display_name}
+      <div className="header-meta">
+        {sessionId && (
+          <span className="session-clock" aria-label={`Waktu replay: ${formatElapsed(elapsedMs)}`}>
+            <Icon name="clock" size={13} />
+            {formatElapsed(elapsedMs)}
+          </span>
+        )}
+        {config && <span className="model-label" title={config.models.nlp}>{config.models.nlp}</span>}
+        <span className="system-status" title={healthLabel}>
+          <span className="status-dot" data-status={health?.status} aria-hidden="true" />
+          <span>{healthLabel}</span>
         </span>
-      )}
-
-      {/* Spacer */}
-      <div style={{ flex: 1 }} />
-
-      {/* Elapsed clock */}
-      {sessionId && (
-        <span
-          aria-label={`Waktu replay: ${formatElapsed(elapsedMs)}`}
-          style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: 'var(--text-sm)',
-            color: 'var(--color-ink)',
-            background: 'var(--color-bg)',
-            padding: '2px 8px',
-            borderRadius: 'var(--radius-sm)',
-            border: '1px solid var(--color-border)',
-            flexShrink: 0,
-          }}
-        >
-          {formatElapsed(elapsedMs)}
-        </span>
-      )}
-
-      {/* Model info */}
-      {config && (
-        <span style={{ fontSize: 'var(--text-xs)', color: 'var(--color-muted)', flexShrink: 0 }}>
-          {config.models.nlp}
-        </span>
-      )}
-
-      {/* Health dot */}
-      <HealthDot status={health?.status} />
+      </div>
     </header>
   );
 }

@@ -1,12 +1,8 @@
-/**
- * ReplayInputPanel — kolom kiri
- * Spesifikasi Bagian 7.2: dropzone + file summary + tombol kontrol
- */
-
-import { useRef, useCallback } from 'react';
-import type { ParsedReplayFile, ReplayUiState, HealthResponse } from '@/contracts/livecoach';
-import { parseJsonlFile, isFileValid, getFileSummaryText } from '@/features/replay/jsonlParser';
-import { getButtonVisibility, formatFileSize } from '@/features/replay/replayState';
+import { useRef, useState } from 'react';
+import type { HealthResponse, ParsedReplayFile, ReplayUiState } from '@/contracts/livecoach';
+import { getFileSummaryText, isFileValid, parseJsonlFile } from '@/features/replay/jsonlParser';
+import { formatFileSize, getButtonVisibility } from '@/features/replay/replayState';
+import Icon from '@/components/Icon';
 
 interface ReplayInputPanelProps {
   uiState: ReplayUiState;
@@ -36,271 +32,128 @@ export default function ReplayInputPanel({
   errorMessage,
 }: ReplayInputPanelProps) {
   const inputRef = useRef<HTMLInputElement>(null);
-  const isDraggingRef = useRef(false);
-
+  const [isDragging, setIsDragging] = useState(false);
   const healthAvailable = health?.status === 'READY' || health?.status === 'DEGRADED';
   const fileValid = file !== null && isFileValid(file);
-  const btn = getButtonVisibility(uiState, healthAvailable, fileValid);
-
-  // Progress bar
+  const buttons = getButtonVisibility(uiState, healthAvailable, fileValid);
   const total = file?.comments.length ?? 0;
   const progress = total > 0 ? Math.round((currentIndex / total) * 100) : 0;
 
-  async function handleFile(f: File) {
-    if (!f.name.endsWith('.jsonl')) {
+  async function handleFile(selected: File) {
+    if (!selected.name.toLowerCase().endsWith('.jsonl')) {
       onFileLoaded({
-        filename: f.name,
-        sizeBytes: f.size,
+        filename: selected.name,
+        sizeBytes: selected.size,
         comments: [],
         durationMs: 0,
         errors: [{ line: 0, message: 'File harus berformat .jsonl' }],
       });
       return;
     }
-    const parsed = await parseJsonlFile(f);
-    onFileLoaded(parsed);
+    onFileLoaded(await parseJsonlFile(selected));
   }
 
-  const handleInputChange = useCallback(async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const f = e.target.files?.[0];
-    if (f) await handleFile(f);
-    // Reset input agar file yang sama bisa dipilih ulang
-    if (inputRef.current) inputRef.current.value = '';
-  }, []);
-
-  const handleDrop = useCallback(async (e: React.DragEvent) => {
-    e.preventDefault();
-    isDraggingRef.current = false;
-    const f = e.dataTransfer.files?.[0];
-    if (f) await handleFile(f);
-  }, []);
-
-  const handleDragOver = useCallback((e: React.DragEvent) => {
-    e.preventDefault();
-    isDraggingRef.current = true;
-  }, []);
-
   return (
-    <aside
-      style={{
-        width: 'var(--col-left)',
-        minWidth: 260,
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 'var(--space-4)',
-        padding: 'var(--space-4)',
-        background: 'var(--color-surface)',
-        borderRight: '1px solid var(--color-border)',
-        overflowY: 'auto',
-      }}
-    >
-      <h2 style={{ fontSize: 'var(--text-sm)', fontWeight: 'var(--weight-semibold)', color: 'var(--color-ink)' }}>
-        Replay File
-      </h2>
+    <aside className="control-rail" aria-label="Kontrol replay">
+      <div className="rail-intro">
+        <p className="rail-kicker">Sumber sesi</p>
+        <h2 className="rail-title">Replay komentar</h2>
+        <p className="rail-copy">Jalankan rekaman komentar untuk melihat sinyal audiens dan arahan host secara berurutan.</p>
+      </div>
 
-      {/* Dropzone */}
-      <div
-        role="button"
-        tabIndex={0}
-        aria-label="Upload file replay komentar .jsonl"
-        aria-describedby="dropzone-hint"
-        onClick={() => inputRef.current?.click()}
-        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') inputRef.current?.click(); }}
-        onDrop={handleDrop}
-        onDragOver={handleDragOver}
-        onDragLeave={() => { isDraggingRef.current = false; }}
-        style={{
-          border: '2px dashed var(--color-border)',
-          borderRadius: 'var(--radius-md)',
-          padding: 'var(--space-6) var(--space-4)',
-          textAlign: 'center',
-          cursor: 'pointer',
-          transition: 'border-color var(--transition-fast), background var(--transition-fast)',
-          background: 'var(--color-bg)',
-        }}
-        onMouseEnter={(e) => {
-          (e.currentTarget as HTMLDivElement).style.borderColor = 'var(--color-primary)';
-        }}
-        onMouseLeave={(e) => {
-          (e.currentTarget as HTMLDivElement).style.borderColor = 'var(--color-border)';
-        }}
-      >
-        <div style={{ fontSize: '2rem', marginBottom: 'var(--space-2)' }} aria-hidden="true">📂</div>
-        <p style={{ fontSize: 'var(--text-sm)', color: 'var(--color-ink)', fontWeight: 'var(--weight-medium)', marginBottom: 4 }}>
-          Pilih atau drop file
-        </p>
-        <p id="dropzone-hint" style={{ fontSize: 'var(--text-xs)', color: 'var(--color-muted)' }}>
-          Format: .jsonl
-        </p>
+      <div className="rail-upload">
+        <button
+          type="button"
+          className="dropzone"
+          data-dragging={isDragging}
+          aria-describedby="dropzone-hint"
+          onClick={() => inputRef.current?.click()}
+          onDragEnter={(event) => { event.preventDefault(); setIsDragging(true); }}
+          onDragOver={(event) => event.preventDefault()}
+          onDragLeave={() => setIsDragging(false)}
+          onDrop={(event) => {
+            event.preventDefault();
+            setIsDragging(false);
+            const selected = event.dataTransfer.files?.[0];
+            if (selected) void handleFile(selected);
+          }}
+        >
+          <span className="dropzone-icon"><Icon name="upload" size={15} /></span>
+          <span>
+            <strong>Pilih file replay</strong>
+            <span id="dropzone-hint">JSONL · klik atau letakkan di sini</span>
+          </span>
+        </button>
         <input
           ref={inputRef}
+          className="sr-only"
           type="file"
           accept=".jsonl"
-          onChange={handleInputChange}
-          style={{ display: 'none' }}
+          tabIndex={-1}
           aria-hidden="true"
+          onChange={(event) => {
+            const selected = event.target.files?.[0];
+            if (selected) void handleFile(selected);
+            event.target.value = '';
+          }}
         />
       </div>
 
-      {/* File summary */}
       {file && (
-        <div
-          style={{
-            background: 'var(--color-bg)',
-            border: `1px solid ${isFileValid(file) ? 'var(--color-border)' : 'var(--color-critical)'}`,
-            borderRadius: 'var(--radius-md)',
-            padding: 'var(--space-3)',
-            fontSize: 'var(--text-xs)',
-          }}
-        >
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
-            <span style={{ fontWeight: 'var(--weight-medium)', color: 'var(--color-ink)', wordBreak: 'break-all' }}>
-              {file.filename}
-            </span>
-            <span style={{ color: 'var(--color-muted)', flexShrink: 0, marginLeft: 8 }}>
-              {formatFileSize(file.sizeBytes)}
-            </span>
+        <div className="file-summary" data-valid={fileValid}>
+          <div className="file-heading">
+            <span className="file-name" title={file.filename}>{file.filename}</span>
+            <span className="file-size">{formatFileSize(file.sizeBytes)}</span>
           </div>
-
-          <p style={{ color: isFileValid(file) ? 'var(--color-muted)' : 'var(--color-critical)', marginBottom: 4 }}>
-            {getFileSummaryText(file)}
-          </p>
-
-          {/* Error list */}
+          <p className="file-state">{getFileSummaryText(file)}</p>
           {file.errors.length > 0 && (
-            <ul style={{ margin: 0, padding: '0 0 0 16px', color: 'var(--color-critical)', lineHeight: 1.6 }}>
-              {file.errors.map((err, i) => (
-                <li key={i}>{err.message}</li>
-              ))}
+            <ul className="file-errors">
+              {file.errors.map((error, index) => <li key={`${error.line}-${index}`}>{error.message}</li>)}
             </ul>
           )}
         </div>
       )}
 
-      {/* Progress bar */}
       {(uiState === 'RUNNING' || uiState === 'PAUSED' || uiState === 'FINISHED') && total > 0 && (
-        <div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 'var(--text-xs)', color: 'var(--color-muted)', marginBottom: 4 }}>
-            <span>{currentIndex} / {total} komentar</span>
+        <div className="replay-progress">
+          <div className="progress-labels">
+            <span>{currentIndex} dari {total} komentar</span>
             <span>{progress}%</span>
           </div>
-          <div
-            role="progressbar"
-            aria-valuenow={progress}
-            aria-valuemin={0}
-            aria-valuemax={100}
-            aria-label="Progress replay"
-            style={{ height: 6, background: 'var(--color-border)', borderRadius: 'var(--radius-full)', overflow: 'hidden' }}
-          >
-            <div
-              style={{
-                width: `${progress}%`,
-                height: '100%',
-                background: uiState === 'FINISHED' ? '#16a34a' : 'var(--color-primary)',
-                borderRadius: 'var(--radius-full)',
-                transition: 'width var(--transition-normal)',
-              }}
-            />
+          <div className="progress-track" role="progressbar" aria-label="Progress replay" aria-valuenow={progress} aria-valuemin={0} aria-valuemax={100}>
+            <div className="progress-fill" data-finished={uiState === 'FINISHED'} style={{ width: `${progress}%` }} />
           </div>
         </div>
       )}
 
-      {/* Error dari controller (timeout dll) */}
-      {errorMessage && uiState === 'PAUSED' && (
-        <div style={{ fontSize: 'var(--text-xs)', color: 'var(--color-warning)', background: 'var(--color-warning-bg)', padding: 'var(--space-2) var(--space-3)', borderRadius: 'var(--radius-sm)' }}>
-          {errorMessage}
-        </div>
-      )}
+      {errorMessage && uiState === 'PAUSED' && <div className="rail-alert">{errorMessage}</div>}
 
-      {/* Tombol kontrol */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)', marginTop: 'auto' }}>
-        {btn.showStart && (
-          <button
-            onClick={onStart}
-            disabled={btn.startDisabled}
-            aria-disabled={btn.startDisabled}
-            style={{
-              padding: 'var(--space-2) var(--space-4)',
-              background: btn.startDisabled ? 'var(--color-border)' : 'var(--color-primary)',
-              color: btn.startDisabled ? 'var(--color-muted)' : '#fff',
-              borderRadius: 'var(--radius-md)',
-              fontWeight: 'var(--weight-medium)',
-              fontSize: 'var(--text-sm)',
-              transition: 'opacity var(--transition-fast)',
-            }}
-          >
-            {uiState === 'STARTING' ? 'Memulai…' : '▶ Mulai Replay'}
+      <div className="rail-actions">
+        {buttons.showStart && (
+          <button type="button" className="button button-primary" onClick={onStart} disabled={buttons.startDisabled}>
+            <span className="button-content"><Icon name="play" size={14} />{uiState === 'STARTING' ? 'Memulai sesi…' : 'Mulai replay'}</span>
           </button>
         )}
-
-        {btn.showPause && (
-          <button
-            onClick={onPause}
-            style={{
-              padding: 'var(--space-2) var(--space-4)',
-              background: 'var(--color-warning-bg)',
-              color: 'var(--color-warning)',
-              borderRadius: 'var(--radius-md)',
-              fontWeight: 'var(--weight-medium)',
-              fontSize: 'var(--text-sm)',
-              border: '1px solid var(--color-warning)',
-            }}
-          >
-            ⏸ Jeda
+        {buttons.showPause && (
+          <button type="button" className="button button-warning" onClick={onPause}>
+            <span className="button-content"><Icon name="pause" size={14} />Jeda replay</span>
           </button>
         )}
-
-        {btn.showResume && (
-          <button
-            onClick={uiState === 'PAUSED' && errorMessage ? retryAfterError : onResume}
-            style={{
-              padding: 'var(--space-2) var(--space-4)',
-              background: 'var(--color-primary)',
-              color: '#fff',
-              borderRadius: 'var(--radius-md)',
-              fontWeight: 'var(--weight-medium)',
-              fontSize: 'var(--text-sm)',
-            }}
-          >
-            {errorMessage ? '↺ Coba Lagi' : '▶ Lanjutkan'}
+        {buttons.showResume && (
+          <button type="button" className="button button-primary" onClick={errorMessage ? retryAfterError : onResume}>
+            <span className="button-content"><Icon name={errorMessage ? 'reset' : 'play'} size={14} />{errorMessage ? 'Coba komentar ini lagi' : 'Lanjutkan replay'}</span>
           </button>
         )}
-
-        {btn.showReset && (
-          <button
-            onClick={onReset}
-            style={{
-              padding: 'var(--space-2) var(--space-4)',
-              background: 'transparent',
-              color: 'var(--color-muted)',
-              borderRadius: 'var(--radius-md)',
-              fontWeight: 'var(--weight-medium)',
-              fontSize: 'var(--text-sm)',
-              border: '1px solid var(--color-border)',
-            }}
-          >
-            ↺ Reset
+        {buttons.showReset && (
+          <button type="button" className="button button-quiet" onClick={onReset}>
+            <span className="button-content"><Icon name="reset" size={14} />Reset sesi</span>
           </button>
-        )}
-
-        {uiState === 'FINISHED' && (
-          <p style={{ fontSize: 'var(--text-xs)', color: '#16a34a', textAlign: 'center', fontWeight: 'var(--weight-medium)' }}>
-            ✓ Replay selesai
-          </p>
         )}
       </div>
 
-      {/* Health info */}
-      {health && health.status === 'DEGRADED' && (
-        <div style={{ fontSize: 'var(--text-xs)', color: 'var(--color-warning)', textAlign: 'center' }}>
-          Mode Cepat — Respons template bawaan aktif
-        </div>
-      )}
-      {health && health.status === 'OFFLINE' && (
-        <div style={{ fontSize: 'var(--text-xs)', color: 'var(--color-critical)', textAlign: 'center' }}>
-          Backend offline — Start tidak tersedia
-        </div>
-      )}
+      {uiState === 'FINISHED' && <p className="rail-footnote" data-tone="success">Replay selesai · data sesi tetap dapat ditinjau</p>}
+      {health?.status === 'DEGRADED' && <p className="rail-footnote" data-tone="warning">Mode terbatas aktif · respons aman dapat digunakan</p>}
+      {health?.status === 'OFFLINE' && <p className="rail-footnote" data-tone="error">Backend tidak terhubung · replay belum dapat dimulai</p>}
     </aside>
   );
 }

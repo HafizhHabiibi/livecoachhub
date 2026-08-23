@@ -407,7 +407,7 @@ export function useReplayController(): ReplayController {
   }, []);
 
   /** Dipanggil saat tombol Start ditekan */
-  const start = useCallback(async () => {
+  async function start() {
     const currentFile = fileRef.current;
     if (!currentFile || currentFile.comments.length === 0) return;
     if (!config) return;
@@ -442,7 +442,7 @@ export function useReplayController(): ReplayController {
         setErrorMessage('Gagal memulai sesi. Coba lagi.');
       }
     }
-  }, [config]);
+  }
 
   /** Dipanggil saat tombol Pause ditekan */
   const pause = useCallback(() => {
@@ -452,7 +452,7 @@ export function useReplayController(): ReplayController {
   }, []);
 
   /** Dipanggil saat tombol Resume ditekan */
-  const resume = useCallback(() => {
+  function resume() {
     const currentFile = fileRef.current;
     const activeSessionId = sessionIdRef.current;
 
@@ -468,7 +468,7 @@ export function useReplayController(): ReplayController {
       activeSessionId,
       currentFile,
     );
-  }, []);
+  }
 
   /** Dipanggil saat tombol Reset ditekan */
   const reset = useCallback(async () => {
@@ -519,7 +519,7 @@ export function useReplayController(): ReplayController {
    * Retry setelah timeout — kirim komentar yang SAMA lagi.
    * Spesifikasi Bagian 12: "Retry mengirim comment_id yang sama sekali lagi"
    */
-  const retryAfterError = useCallback(async () => {
+  async function retryAfterError() {
     const currentFile = fileRef.current;
     const activeSessionId = sessionIdRef.current;
 
@@ -536,7 +536,7 @@ export function useReplayController(): ReplayController {
       activeSessionId,
       currentFile,
     );
-  }, []);
+  }
 
   // ============================================================
   // RETURN
