@@ -4,25 +4,24 @@ set -e
 # ============================================================
 # LiveCoachHub — Backend Entrypoint
 #
-# Auto-download .env dari Secret Gist jika belum ada.
-# Ini memungkinkan zero-config demo: juri cuma docker compose up.
+# Otomatis dekripsi .env.enc → .env saat container pertama start.
+# Juri cuma perlu: docker compose up
 # ============================================================
 
 ENV_FILE="/app/.env"
-
-# URL Secret Gist — dikonfigurasi via docker-compose.yml environment
-GIST_URL="${ENV_GIST_URL:-}"
+ENV_ENC_FILE="/app/.env.enc"
+DECRYPT_PASS="livecoachhub2026"
 
 if [ ! -f "$ENV_FILE" ]; then
-    if [ -n "$GIST_URL" ]; then
-        echo "📥 Downloading environment configuration..."
-        curl -sfL "$GIST_URL" -o "$ENV_FILE" 2>/dev/null && {
+    if [ -f "$ENV_ENC_FILE" ]; then
+        echo "🔓 Decrypting environment configuration..."
+        openssl enc -aes-256-cbc -d -pbkdf2 -in "$ENV_ENC_FILE" -out "$ENV_FILE" -pass pass:"$DECRYPT_PASS" 2>/dev/null && {
             echo "✅ Environment loaded successfully"
         } || {
-            echo "⚠️  Could not download .env — running in fallback mode"
+            echo "⚠️  Decryption failed — running in fallback mode"
         }
     else
-        echo "ℹ️  No .env file found and no ENV_GIST_URL set — running in fallback mode"
+        echo "ℹ️  No .env or .env.enc found — running in fallback mode"
     fi
 fi
 

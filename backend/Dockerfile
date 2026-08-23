@@ -7,9 +7,9 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-# System deps yang dibutuhkan httpx/uvicorn
+# System deps yang dibutuhkan httpx/uvicorn + openssl untuk decrypt .env.enc
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    curl && \
+    curl openssl && \
     rm -rf /var/lib/apt/lists/*
 
 # Install Python deps dulu (cached layer terpisah dari source)

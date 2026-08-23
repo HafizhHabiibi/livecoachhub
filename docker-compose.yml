@@ -24,9 +24,6 @@ services:
     environment:
       - NLP_SERVICE_URL=http://nlp:8010
       - LLM_SERVICE_URL=http://llm:8020
-      # URL Secret Gist untuk auto-download .env (zero-config demo)
-      # Ganti dengan URL raw Secret Gist Anda setelah dibuat
-      - ENV_GIST_URL=https://gist.githubusercontent.com/HafizhHabiibi/31a94c2b7c8339df142ddc673b1a9ab3/raw/99b37f8f130232adcb65501765def80e793f8a72/.env
     depends_on:
       - nlp
     networks:
