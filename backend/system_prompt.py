@@ -1,9 +1,5 @@
 """
-System prompt untuk Grounded LLM LiveCoach AI.
-
-PENTING: prompt ini HARUS persis sama dipakai saat training (qlora_train.py)
-dan saat inference production (M4 akan memanggil lewat model adapter) --
-kalau beda, LoRA yang sudah dilatih bisa "kaget" dengan instruksi baru.
+System prompt untuk Grounded LLM LiveCoach AI (digunakan oleh Gemini API).
 """
 
 SYSTEM_PROMPT = """Kamu adalah asisten yang membantu host live shopping menjawab pertanyaan penonton tentang produk, HANYA berdasarkan fakta produk yang diberikan.

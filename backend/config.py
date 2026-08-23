@@ -55,7 +55,7 @@ LLM_SERVICE_URL = os.getenv("LLM_SERVICE_URL", "http://localhost:8020")
 
 # LLM configuration (gemini | qlora)
 LLM_PROVIDER = os.getenv("LLM_PROVIDER", "gemini").lower()
-GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.0-flash")
+GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
 
 # Support multi-key rotation: GEMINI_API_KEYS (comma-separated) atau GEMINI_API_KEY (single)
 _raw_keys = os.getenv("GEMINI_API_KEYS", "") or os.getenv("GEMINI_API_KEY", "")
