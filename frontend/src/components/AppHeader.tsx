@@ -1,6 +1,7 @@
 import type { DemoConfig, HealthResponse } from '@/contracts/livecoach';
 import { formatElapsed } from '@/features/replay/replayState';
 import Icon from '@/components/Icon';
+import { describeHealth } from '@/features/replay/systemHealth';
 
 interface AppHeaderProps {
   health: HealthResponse | null;
@@ -9,14 +10,8 @@ interface AppHeaderProps {
   elapsedMs: number;
 }
 
-const HEALTH_LABELS: Record<HealthResponse['status'], string> = {
-  READY: 'Sistem siap',
-  DEGRADED: 'Mode terbatas',
-  OFFLINE: 'Sistem offline',
-};
-
 export default function AppHeader({ health, config, sessionId, elapsedMs }: AppHeaderProps) {
-  const healthLabel = health ? HEALTH_LABELS[health.status] : 'Memeriksa sistem';
+  const healthPresentation = describeHealth(health);
 
   return (
     <header className="app-header">
@@ -40,9 +35,9 @@ export default function AppHeader({ health, config, sessionId, elapsedMs }: AppH
           </span>
         )}
         {config && <span className="model-label" title={config.models.nlp}>{config.models.nlp}</span>}
-        <span className="system-status" title={healthLabel}>
+        <span className="system-status" title={healthPresentation.detail} data-tone={healthPresentation.tone}>
           <span className="status-dot" data-status={health?.status} aria-hidden="true" />
-          <span>{healthLabel}</span>
+          <span>{healthPresentation.label}</span>
         </span>
       </div>
     </header>

@@ -37,7 +37,7 @@ export default function DemoPage() {
             message={controller.errorMessage}
             type="error"
             onDismiss={controller.dismissError}
-            onRetry={controller.uiState === 'ERROR' ? controller.retryAfterError : undefined}
+            onRetry={controller.uiState === 'ERROR' && controller.canRetryError ? controller.retryAfterError : undefined}
           />
         </div>
       )}
@@ -55,6 +55,8 @@ export default function DemoPage() {
           onReset={controller.reset}
           retryAfterError={controller.retryAfterError}
           errorMessage={controller.uiState === 'PAUSED' ? controller.errorMessage : null}
+          isHealthRefreshing={controller.isHealthRefreshing}
+          onRefreshHealth={controller.refreshHealth}
         />
 
         <section className="live-workspace" aria-label="Live operations desk">
@@ -74,7 +76,11 @@ export default function DemoPage() {
 
           <div className="operations-grid">
             <CommentStream comments={controller.processedComments} />
-            <CoachCard result={controller.latestResult} />
+            <CoachCard
+              result={controller.latestResult}
+              isGenerating={controller.isGenerating}
+              pendingAction={controller.pendingAction}
+            />
           </div>
 
           <DecisionDetails result={controller.latestResult} />

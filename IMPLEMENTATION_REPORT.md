@@ -1,7 +1,7 @@
 # Report Implementasi Prioritas LiveCoachHub
 
 **Tanggal:** 24 Agustus 2026  
-**Scope:** provenance/fallback LLM, user identity, unique-user trend, evidence LLM, idempotency, smoke test, dan regression test  
+**Scope:** provenance/fallback LLM, user identity, unique-user trend, evidence LLM, idempotency, frontend reliability, smoke test, dan regression test
 **Status:** **IMPLEMENTED — menunggu re-validasi full Docker E2E pada Windows + Docker Desktop**
 
 ## 1. Ringkasan Hasil
@@ -15,7 +15,9 @@ Paket prioritas kompetisi telah diimplementasikan. Perubahan utama:
 5. Retry `comment_id` yang sama tidak lagi menggandakan state.
 6. Polling mempertahankan status `FALLBACK`; status tidak berubah menjadi `CARD_READY` pada polling berikutnya.
 7. Smoke test tidak lagi berhenti pada check pertama dan sekarang memeriksa provenance.
-8. Dua belas regression test baru ditambahkan dan seluruhnya lulus.
+8. Health frontend sekarang pulih setelah Gemini terverifikasi dan provenance card tampil eksplisit.
+9. Polling, retry, dan validasi file replay diperketat.
+10. Delapan belas regression test berjalan dan seluruhnya lulus.
 
 ## 2. Status Prioritas
 
@@ -25,7 +27,8 @@ Paket prioritas kompetisi telah diimplementasikan. Perubahan utama:
 | COR-01 — `user_id` end-to-end | SELESAI | Field wajib di type, Zod, request, backend replay |
 | Unique-user Action Engine | SELESAI | Minimum 2 user unik sebelum action |
 | QA-01 — Smoke test | SELESAI | Counter aman terhadap `set -e`; flow tidak berhenti dini |
-| Regression tests | SELESAI | 12/12 test lulus |
+| Frontend reliability | SELESAI | Health refresh, typed polling, retry, generation state, input guard |
+| Regression tests | SELESAI | 18/18 test lulus |
 | COR-04 — Evidence text | SELESAI | Window menyimpan dan mengambil teks evidence |
 | Retry idempotency | SELESAI | Hasil per `comment_id` di-cache per session |
 | Session concurrency minimum | SELESAI | Analyze dan polling memakai lock per session |
@@ -136,6 +139,12 @@ Test yang lulus:
 10. Frontend tidak mempromosikan fallback lama menjadi `CARD_READY` saat komentar baru belum membawa card.
 11. Showcase replay memiliki contract valid dan urutan trigger phase yang benar.
 12. Polling Coach Card tidak mengakses `comment_id`; lookup idempotensi hanya berada di pipeline komentar.
+13. Response polling divalidasi Zod tanpa `as any`.
+14. Health membedakan Gemini belum diverifikasi, siap, dan mode fallback.
+15. Coach Card membedakan provenance Gemini, template berbasis KB, dan validator fallback.
+16. Retry hanya ditawarkan untuk error retryable dan transisi `ERROR` dapat pulih.
+17. Polling tidak memakai async interval dan berhenti setelah hasil final tersedia.
+18. Parser menolak timestamp menurun tanpa mengurutkan input secara diam-diam.
 
 Perintah:
 
@@ -143,13 +152,13 @@ Perintah:
 python3 -m unittest -v tests/test_core_regressions.py
 ```
 
-Hasil: **12 passed, 0 failed**.
+Hasil: **18 passed, 0 failed**.
 
 ## 5. Hasil Verifikasi
 
 | Pemeriksaan | Hasil |
 |---|---|
-| Regression test | PASS — 12/12 |
+| Regression test | PASS — 18/18 |
 | Python compileall | PASS |
 | Action rules JSON parse | PASS |
 | Frontend TypeScript type-check | PASS |
@@ -186,6 +195,8 @@ Acceptance criteria:
 Yang belum dikerjakan karena berada setelah prioritas kompetisi:
 
 - Lock dependency Python dan perbaikan warning TypeScript/ESLint.
+- Pecah `useReplayController` menjadi hook kecil dan migrasikan state utama ke reducer.
+- Tambahkan Vitest/React Testing Library setelah dependency tooling diselaraskan; invariant kritis saat ini dilindungi dependency-light regression tests.
 - TTL dan cleanup session.
 - State eksternal untuk multi-worker.
 - Perbaikan error contract 404/422.
@@ -249,3 +260,32 @@ Komentar shipping/COD juga tidak memiliki kelas khusus dalam taxonomy IndoBERT d
 Rekomendasi choreography tanpa mengubah engine: urutkan cluster dari priority terendah menuju tertinggi, yaitu **price -> product detail -> stock -> size -> purchase intent**. Dengan begitu, sinyal berprioritas lebih tinggi yang datang belakangan dapat menggantikan card sebelumnya meskipun semuanya masih berada dalam window 60 detik.
 
 Rekomendasi tersebut sudah diterapkan dalam `data/replay/comments-demo-showcase.jsonl`. File asli dipertahankan sebagai mixed-natural demo, sedangkan file baru menjadi demo deterministik untuk penjurian.
+
+## 10. Update Frontend Reliability dan Presentasi AI
+
+Perbaikan frontend setelah validasi runtime Docker Desktop:
+
+1. `/health` diambil ulang ketika Coach Card baru diterima, sehingga status awal `Gemini API (unverified)` tidak tertinggal setelah generation berhasil.
+2. Status header sekarang membedakan `Gemini belum diverifikasi`, `Sistem siap`, `Mode fallback`, gangguan NLP, dan backend offline.
+3. Operator dapat menjalankan health check ulang dari panel replay tanpa reload halaman.
+4. Coach Card menampilkan provenance yang tidak ambigu:
+   - `Gemini · Lolos validasi KB`
+   - `Template aman · Berbasis KB`
+   - `Fallback aman · Output Gemini ditolak`
+5. Response `/api/v1/session/card` memiliki schema Zod penuh; `pipeline_status as any` dihapus dan invariant `fallback_used` diperiksa terhadap provider.
+6. `is_generating` dan `pending_action` sekarang terlihat di UI. Kartu lama diberi keterangan jika rekomendasi baru sedang disiapkan.
+7. Poller memakai recursive timeout agar request tidak overlap dan berhenti saat replay selesai serta generation final sudah terkumpul.
+8. Retry menghormati `retryable`. Kegagalan start dapat kembali ke `STARTING`, sedangkan kegagalan komentar dapat kembali ke `RUNNING`.
+9. File replay dibatasi 5 MB/10.000 komentar, mempertahankan nomor baris asli, dan menolak timestamp menurun.
+
+Verifikasi update frontend:
+
+| Pemeriksaan | Hasil |
+|---|---|
+| TypeScript type-check | PASS |
+| ESLint | PASS; warning kompatibilitas versi existing tetap non-blocking |
+| Vite production build | PASS |
+| Regression tests | PASS — 18/18 |
+| `git diff --check` | PASS |
+
+Full visual/runtime re-validation tetap perlu dilakukan dari clone Windows karena Docker Desktop tidak terhubung ke workspace WSL ini.

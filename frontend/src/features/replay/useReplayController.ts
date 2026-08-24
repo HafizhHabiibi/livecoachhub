@@ -20,6 +20,7 @@ import type {
   ProcessedComment,
   HealthResponse,
   DemoConfig,
+  SelectedAction,
 } from '@/contracts/livecoach';
 import {
   getHealth,
@@ -47,6 +48,10 @@ export interface ReplayController {
   errorMessage: string | null;
   config: DemoConfig | null;
   health: HealthResponse | null;
+  isHealthRefreshing: boolean;
+  isGenerating: boolean;
+  pendingAction: SelectedAction | null;
+  canRetryError: boolean;
   elapsedMs: number;                      // Untuk replay clock
 
   // --- Actions ---
@@ -57,6 +62,7 @@ export interface ReplayController {
   reset: () => Promise<void>;
   dismissError: () => void;
   retryAfterError: () => Promise<void>;
+  refreshHealth: () => Promise<void>;
 }
 
 // ============================================================
@@ -65,6 +71,21 @@ export interface ReplayController {
 
 const MAX_STREAM_COMMENTS = 5;       // Spesifikasi Bagian 7.3: max 5 komentar
 const INTER_COMMENT_DELAY_MS = 500;  // Jeda antar komentar saat tidak ada timestamp gap
+const CARD_POLL_INTERVAL_MS = 1500;
+
+const OFFLINE_HEALTH: HealthResponse = {
+  schema_version: 'health.v1',
+  status: 'OFFLINE',
+  services: {
+    api: 'OFFLINE',
+    nlp_model: 'OFFLINE',
+    llm_model: 'OFFLINE',
+  },
+  provider: {
+    nlp: 'Heuristic Fallback',
+    llm: 'Template Fallback',
+  },
+};
 
 // ============================================================
 // HOOK
@@ -82,6 +103,10 @@ export function useReplayController(): ReplayController {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [config, setConfig] = useState<DemoConfig | null>(null);
   const [health, setHealth] = useState<HealthResponse | null>(null);
+  const [isHealthRefreshing, setIsHealthRefreshing] = useState(false);
+  const [isGenerating, setIsGenerating] = useState(false);
+  const [pendingAction, setPendingAction] = useState<SelectedAction | null>(null);
+  const [canRetryError, setCanRetryError] = useState(false);
   const [elapsedMs, setElapsedMs] = useState(0);
 
   // --- Refs (tidak trigger re-render) ---
@@ -94,6 +119,7 @@ export function useReplayController(): ReplayController {
   const elapsedTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const elapsedStartRef = useRef(0);
   const elapsedAccRef = useRef(0);                       // Akumulasi elapsed saat pause
+  const lastCardSignatureRef = useRef<string | null>(null);
 
   // ============================================================
   // HELPERS
@@ -140,6 +166,17 @@ export function useReplayController(): ReplayController {
     setElapsedMs(0);
   }
 
+  const refreshHealth = useCallback(async () => {
+    setIsHealthRefreshing(true);
+    try {
+      setHealth(await getHealth());
+    } catch {
+      setHealth(OFFLINE_HEALTH);
+    } finally {
+      setIsHealthRefreshing(false);
+    }
+  }, []);
+
   // Cleanup timer saat unmount
   useEffect(() => {
     return () => {
@@ -155,29 +192,21 @@ export function useReplayController(): ReplayController {
     let cancelled = false;
 
     async function init() {
-      try {
-        const [h, c] = await Promise.all([getHealth(), getDemoConfig()]);
-        if (!cancelled) {
-          setHealth(h);
-          setConfig(c);
-        }
-      } catch {
-        // Health check gagal — bukan error fatal, UI akan tampilkan Offline
-        if (!cancelled) {
-          setHealth({
-            schema_version: 'health.v1',
-            status: 'OFFLINE',
-            services: {
-              api: 'OFFLINE',
-              nlp_model: 'OFFLINE',
-              llm_model: 'OFFLINE',
-            },
-            provider: {
-              nlp: 'Heuristic Fallback',
-              llm: 'Template Fallback',
-            },
-          });
-        }
+      setIsHealthRefreshing(true);
+      const [healthResult, configResult] = await Promise.allSettled([
+        getHealth(),
+        getDemoConfig(),
+      ]);
+      if (cancelled) return;
+
+      setHealth(healthResult.status === 'fulfilled' ? healthResult.value : OFFLINE_HEALTH);
+      setIsHealthRefreshing(false);
+
+      if (configResult.status === 'fulfilled') {
+        setConfig(configResult.value);
+      } else {
+        setErrorMessage('Konfigurasi demo gagal dimuat. Muat ulang halaman untuk mencoba lagi.');
+        setCanRetryError(false);
       }
     }
 
@@ -192,37 +221,67 @@ export function useReplayController(): ReplayController {
 
   useEffect(() => {
     if (!sessionId) return;
-    if (uiState === 'EMPTY' || uiState === 'FILE_READY') return;
+    if (!['RUNNING', 'PAUSED', 'FINISHED'].includes(uiState)) return;
 
     let isSubscribed = true;
-    const interval = setInterval(async () => {
+    let timer: ReturnType<typeof setTimeout> | null = null;
+
+    const scheduleNext = () => {
+      if (isSubscribed) timer = setTimeout(() => void poll(), CARD_POLL_INTERVAL_MS);
+    };
+
+    const poll = async () => {
       if (!isSubscribed || sessionIdRef.current !== sessionId) return;
 
       try {
         const cardData = await getSessionCard(sessionId);
         if (!isSubscribed || sessionIdRef.current !== sessionId) return;
 
-        if (cardData && cardData.coach_card) {
+        setIsGenerating(cardData.is_generating);
+        setPendingAction(cardData.pending_action);
+
+        if (cardData.coach_card) {
           setLatestResult((prev: PipelineResult | null) => {
             if (!prev) return prev;
             return {
               ...prev,
               coach_card: cardData.coach_card,
-              pipeline_status: (cardData.pipeline_status as any) || 'CARD_READY',
+              pipeline_status: cardData.pipeline_status,
             };
           });
+
+          const signature = [
+            cardData.coach_card.generation_provider,
+            cardData.coach_card.validation_status,
+            cardData.coach_card.selected_action,
+            cardData.coach_card.suggested_response,
+          ].join('|');
+          if (signature !== lastCardSignatureRef.current) {
+            lastCardSignatureRef.current = signature;
+            void refreshHealth();
+          }
         }
+
+        if (uiState !== 'FINISHED' || cardData.is_generating) scheduleNext();
       } catch (err) {
-        // Polling error silent
+        if (err instanceof ApiError && err.code === 'SESSION_NOT_FOUND') {
+          setErrorMessage(err.userMessage);
+          setCanRetryError(false);
+          transition('ERROR');
+          return;
+        }
         console.debug('[Card Poller] Poll check:', err);
+        if (uiState !== 'FINISHED') scheduleNext();
       }
-    }, 1500);
+    };
+
+    void poll();
 
     return () => {
       isSubscribed = false;
-      clearInterval(interval);
+      if (timer) clearTimeout(timer);
     };
-  }, [sessionId, uiState]);
+  }, [refreshHealth, sessionId, uiState]);
 
   // ============================================================
   // SLEEP dengan support pause dan abort (cancel)
@@ -314,14 +373,17 @@ export function useReplayController(): ReplayController {
             currentIndexRef.current = index;
             setCurrentIndex(index);
             setErrorMessage(err.userMessage);
+            setCanRetryError(true);
           } else {
             // Error lain → ERROR state
             transition('ERROR');
             setErrorMessage(err.userMessage);
+            setCanRetryError(err.retryable);
           }
         } else {
           transition('ERROR');
           setErrorMessage('Terjadi kesalahan yang tidak diketahui.');
+          setCanRetryError(false);
         }
         isRunningRef.current = false;
         return;
@@ -419,6 +481,7 @@ export function useReplayController(): ReplayController {
 
     transition('STARTING');
     setErrorMessage(null);
+    setCanRetryError(false);
     setProcessedComments([]);
     setLatestResult(null);
     currentIndexRef.current = 0;
@@ -443,8 +506,10 @@ export function useReplayController(): ReplayController {
       transition('ERROR');
       if (err instanceof ApiError) {
         setErrorMessage(err.userMessage);
+        setCanRetryError(err.retryable);
       } else {
         setErrorMessage('Gagal memulai sesi. Coba lagi.');
+        setCanRetryError(true);
       }
     }
   }
@@ -505,6 +570,10 @@ export function useReplayController(): ReplayController {
     setProcessedComments([]);
     setLatestResult(null);
     setErrorMessage(null);
+    setCanRetryError(false);
+    setIsGenerating(false);
+    setPendingAction(null);
+    lastCardSignatureRef.current = null;
 
     // Kembali ke FILE_READY jika file masih ada, atau EMPTY
     const currentFile = fileRef.current;
@@ -528,9 +597,15 @@ export function useReplayController(): ReplayController {
     const currentFile = fileRef.current;
     const activeSessionId = sessionIdRef.current;
 
-    if (!currentFile || !activeSessionId) return;
+    if (!currentFile || !canRetryError) return;
+
+    if (!activeSessionId) {
+      await start();
+      return;
+    }
 
     setErrorMessage(null);
+    setCanRetryError(false);
     isPausedRef.current = false;
     transition('RUNNING');
     startElapsedTimer();
@@ -557,6 +632,10 @@ export function useReplayController(): ReplayController {
     errorMessage,
     config,
     health,
+    isHealthRefreshing,
+    isGenerating,
+    pendingAction,
+    canRetryError,
     elapsedMs,
     loadFile,
     start,
@@ -565,5 +644,6 @@ export function useReplayController(): ReplayController {
     reset,
     dismissError,
     retryAfterError,
+    refreshHealth,
   };
 }

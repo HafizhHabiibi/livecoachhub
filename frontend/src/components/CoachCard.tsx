@@ -1,13 +1,15 @@
 import { useCallback, useState } from 'react';
-import type { PipelineResult } from '@/contracts/livecoach';
+import type { PipelineResult, SelectedAction } from '@/contracts/livecoach';
 import { SELECTED_ACTION_LABELS, URGENCY_LABELS, formatConfidence } from '@/features/replay/replayState';
 import Icon from '@/components/Icon';
 
 interface CoachCardProps {
   result: PipelineResult | null;
+  isGenerating?: boolean;
+  pendingAction?: SelectedAction | null;
 }
 
-export default function CoachCard({ result }: CoachCardProps) {
+export default function CoachCard({ result, isGenerating = false, pendingAction = null }: CoachCardProps) {
   const [copied, setCopied] = useState(false);
 
   const copyScript = useCallback(async (text: string) => {
@@ -33,9 +35,11 @@ export default function CoachCard({ result }: CoachCardProps) {
       <section className="module coach-module coach-waiting" aria-label="Arahan host" aria-live="polite">
         <div>
           <span className="waiting-visual"><Icon name={hasResult ? 'signal' : 'activity'} size={23} /></span>
-          <h2>{hasResult ? 'Membaca pola audiens' : 'Arahan host belum aktif'}</h2>
+          <h2>{isGenerating ? 'Menyusun arahan host' : hasResult ? 'Membaca pola audiens' : 'Arahan host belum aktif'}</h2>
           <p>
-            {hasResult
+            {isGenerating
+              ? `${pendingAction ? SELECTED_ACTION_LABELS[pendingAction] : 'Rekomendasi'} sedang disiapkan dan divalidasi.`
+              : hasResult
               ? 'Analisis berjalan. Arahan akan muncul ketika pola komentar cukup kuat untuk mendukung satu tindakan.'
               : 'Muat replay dan mulai sesi. LiveCoach akan menempatkan tindakan paling relevan di area ini.'}
           </p>
@@ -46,11 +50,13 @@ export default function CoachCard({ result }: CoachCardProps) {
   }
 
   const card = result.coach_card;
-  const validationLabel = card.validation_status === 'PASSED'
-    ? 'Tervalidasi fakta'
-    : card.validation_status === 'FAILED'
-      ? 'Respons aman · validasi gagal'
-      : 'Belum divalidasi';
+  const provenanceLabel = card.generation_provider === 'GEMINI'
+    ? card.validation_status === 'PASSED'
+      ? 'Gemini · Lolos validasi KB'
+      : 'Gemini · Validasi belum lulus'
+    : card.validation_status === 'PASSED'
+      ? 'Template aman · Berbasis KB'
+      : 'Fallback aman · Output Gemini ditolak';
 
   return (
     <section
@@ -73,7 +79,12 @@ export default function CoachCard({ result }: CoachCardProps) {
         </div>
       </header>
 
-      <div className="coach-body">
+        <div className="coach-body">
+        {isGenerating && (
+          <p className="coach-updating" role="status">
+            Arahan sebelumnya · {pendingAction ? SELECTED_ACTION_LABELS[pendingAction] : 'rekomendasi baru'} sedang disiapkan
+          </p>
+        )}
         <p className="coach-situation">{card.situation}</p>
         <p className="coach-reason">Sinyal pendukung: {card.reason}</p>
 
@@ -82,7 +93,7 @@ export default function CoachCard({ result }: CoachCardProps) {
         <div className="script-label-row">
           <p className="script-label">Ucapkan ke audiens</p>
           <span className="validation-label" data-status={card.validation_status}>
-            {card.generation_provider === 'GEMINI' ? 'Gemini' : 'Template'} · {validationLabel}
+            {provenanceLabel}
           </span>
         </div>
         <div className="host-script">

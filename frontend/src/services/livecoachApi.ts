@@ -25,6 +25,7 @@ import type {
   PipelineResult,
   SessionResetRequest,
   SessionResetResponse,
+  SessionCardResponse,
   ApiErrorCode,
 } from '@/contracts/livecoach';
 
@@ -34,6 +35,7 @@ import {
   SessionStartResponseSchema,
   PipelineResultSchema,
   SessionResetResponseSchema,
+  SessionCardResponseSchema,
   ApiErrorResponseSchema,
   parseOrThrow,
 } from '@/contracts/livecoachSchemas';
@@ -309,15 +311,6 @@ export async function resetSession(
   return parseOrThrow(SessionResetResponseSchema, raw, 'POST /api/v1/session/reset');
 }
 
-export interface SessionCardResponse {
-  session_id: string;
-  is_generating: boolean;
-  pending_action: string | null;
-  coach_card: import('@/contracts/livecoach').CoachCard | null;
-  pipeline_status: string;
-  gen_latency?: number | null;
-}
-
 /**
  * GET /api/v1/session/card
  * Polling endpoint untuk mendapatkan Coach Card yang di-generate asinkron oleh LLM.
@@ -332,11 +325,12 @@ export async function getSessionCard(
       pending_action: null,
       coach_card: null,
       pipeline_status: 'WAITING_SIGNAL',
+      gen_latency: null,
     };
   }
 
-  const raw = await apiFetch<SessionCardResponse>(
+  const raw = await apiFetch<unknown>(
     `/api/v1/session/card?session_id=${encodeURIComponent(sessionId)}`,
   );
-  return raw;
+  return parseOrThrow(SessionCardResponseSchema, raw, 'GET /api/v1/session/card');
 }

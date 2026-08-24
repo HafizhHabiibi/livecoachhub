@@ -66,6 +66,10 @@
 .status-dot[data-status='READY'] { background: var(--color-positive-bright); }
 .status-dot[data-status='DEGRADED'] { background: var(--color-warning-bright); }
 .status-dot[data-status='OFFLINE'] { background: var(--color-negative-bright); }
+.system-status[data-tone='neutral'] .status-dot { background: var(--color-muted); }
+.system-status[data-tone='success'] .status-dot { background: var(--color-positive-bright); }
+.system-status[data-tone='warning'] .status-dot { background: var(--color-warning-bright); }
+.system-status[data-tone='error'] .status-dot { background: var(--color-negative-bright); }
 
 .global-banner { max-width: var(--max-width); margin: var(--space-3) auto 0; padding: 0 var(--space-5); }
 .workspace {
@@ -147,6 +151,11 @@
 .rail-footnote { color: var(--color-muted); font-size: 10px; line-height: 1.5; text-align: center; }
 .rail-footnote[data-tone='warning'] { color: var(--color-warning); }
 .rail-footnote[data-tone='error'] { color: var(--color-negative); }
+.health-footnote { display: grid; gap: 5px; color: var(--color-muted); font-size: 10px; line-height: 1.45; text-align: center; }
+.health-footnote[data-tone='warning'] { color: var(--color-warning); }
+.health-footnote[data-tone='error'] { color: var(--color-negative); }
+.health-footnote button { justify-self: center; padding: 2px 0; color: currentcolor; background: transparent; border: 0; font: inherit; font-weight: var(--weight-semibold); text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
+.health-footnote button:disabled { cursor: wait; opacity: 0.65; }
 
 .live-workspace { min-width: 0; padding: var(--space-5); }
 .workspace-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-5); margin-bottom: var(--space-4); }
@@ -213,6 +222,7 @@
 .coach-header-main { min-width: 0; }
 .coach-eyebrow { color: var(--color-muted); font-size: 9px; font-weight: var(--weight-bold); letter-spacing: 0.1em; text-transform: uppercase; }
 .coach-action-label { margin-top: 2px; overflow: hidden; font-size: var(--text-xs); font-weight: var(--weight-semibold); text-overflow: ellipsis; white-space: nowrap; }
+.coach-updating { margin-bottom: var(--space-3); padding: 7px 9px; color: var(--color-live-strong); background: var(--color-live-soft); border-radius: var(--radius-sm); font-size: 10px; font-weight: var(--weight-medium); }
 .coach-confidence { gap: 6px; color: var(--color-muted); font-family: var(--font-mono); font-size: 10px; }
 .priority-label { color: var(--coach-accent); font-family: var(--font-sans); font-weight: var(--weight-semibold); }
 .fallback-label { color: var(--color-warning); font-family: var(--font-sans); font-weight: var(--weight-semibold); }

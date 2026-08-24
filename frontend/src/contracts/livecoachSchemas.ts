@@ -175,6 +175,23 @@ export const CoachCardSchema = z.object({
   generation_provider: GenerationProviderSchema,
   fallback_used: z.boolean(),
   used_fact_ids: z.array(z.string()),
+}).superRefine((card, context) => {
+  if (card.fallback_used !== (card.generation_provider === 'TEMPLATE')) {
+    context.addIssue({
+      code: z.ZodIssueCode.custom,
+      path: ['fallback_used'],
+      message: 'fallback_used harus konsisten dengan generation_provider',
+    });
+  }
+});
+
+export const SessionCardResponseSchema = z.object({
+  session_id: z.string().min(1),
+  is_generating: z.boolean(),
+  pending_action: SelectedActionSchema.nullable(),
+  coach_card: CoachCardSchema.nullable(),
+  pipeline_status: PipelineStatusSchema,
+  gen_latency: z.number().nonnegative().nullable(),
 });
 
 export const PipelineResultSchema = z.object({

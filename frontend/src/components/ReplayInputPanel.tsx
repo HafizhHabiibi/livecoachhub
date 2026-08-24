@@ -1,8 +1,9 @@
 import { useRef, useState } from 'react';
 import type { HealthResponse, ParsedReplayFile, ReplayUiState } from '@/contracts/livecoach';
-import { getFileSummaryText, isFileValid, parseJsonlFile } from '@/features/replay/jsonlParser';
+import { getFileSummaryText, isFileValid, MAX_REPLAY_FILE_BYTES, parseJsonlFile } from '@/features/replay/jsonlParser';
 import { formatFileSize, getButtonVisibility } from '@/features/replay/replayState';
 import Icon from '@/components/Icon';
+import { describeHealth } from '@/features/replay/systemHealth';
 
 interface ReplayInputPanelProps {
   uiState: ReplayUiState;
@@ -16,6 +17,8 @@ interface ReplayInputPanelProps {
   onReset: () => void;
   retryAfterError: () => void;
   errorMessage: string | null;
+  isHealthRefreshing: boolean;
+  onRefreshHealth: () => void;
 }
 
 export default function ReplayInputPanel({
@@ -30,14 +33,18 @@ export default function ReplayInputPanel({
   onReset,
   retryAfterError,
   errorMessage,
+  isHealthRefreshing,
+  onRefreshHealth,
 }: ReplayInputPanelProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [isDragging, setIsDragging] = useState(false);
+  const [isReadingFile, setIsReadingFile] = useState(false);
   const healthAvailable = health?.status === 'READY' || health?.status === 'DEGRADED';
   const fileValid = file !== null && isFileValid(file);
   const buttons = getButtonVisibility(uiState, healthAvailable, fileValid);
   const total = file?.comments.length ?? 0;
   const progress = total > 0 ? Math.round((currentIndex / total) * 100) : 0;
+  const healthPresentation = describeHealth(health);
 
   async function handleFile(selected: File) {
     if (!selected.name.toLowerCase().endsWith('.jsonl')) {
@@ -50,7 +57,23 @@ export default function ReplayInputPanel({
       });
       return;
     }
-    onFileLoaded(await parseJsonlFile(selected));
+    if (selected.size > MAX_REPLAY_FILE_BYTES) {
+      onFileLoaded({
+        filename: selected.name,
+        sizeBytes: selected.size,
+        comments: [],
+        durationMs: 0,
+        errors: [{ line: 0, message: 'Ukuran file melebihi batas 5 MB.' }],
+      });
+      return;
+    }
+
+    setIsReadingFile(true);
+    try {
+      onFileLoaded(await parseJsonlFile(selected));
+    } finally {
+      setIsReadingFile(false);
+    }
   }
 
   return (
@@ -67,6 +90,8 @@ export default function ReplayInputPanel({
           className="dropzone"
           data-dragging={isDragging}
           aria-describedby="dropzone-hint"
+          aria-busy={isReadingFile}
+          disabled={isReadingFile}
           onClick={() => inputRef.current?.click()}
           onDragEnter={(event) => { event.preventDefault(); setIsDragging(true); }}
           onDragOver={(event) => event.preventDefault()}
@@ -80,8 +105,8 @@ export default function ReplayInputPanel({
         >
           <span className="dropzone-icon"><Icon name="upload" size={15} /></span>
           <span>
-            <strong>Pilih file replay</strong>
-            <span id="dropzone-hint">JSONL · klik atau letakkan di sini</span>
+            <strong>{isReadingFile ? 'Membaca file…' : 'Pilih file replay'}</strong>
+            <span id="dropzone-hint">JSONL · maksimum 5 MB / 10.000 komentar</span>
           </span>
         </button>
         <input
@@ -152,8 +177,14 @@ export default function ReplayInputPanel({
       </div>
 
       {uiState === 'FINISHED' && <p className="rail-footnote" data-tone="success">Replay selesai · data sesi tetap dapat ditinjau</p>}
-      {health?.status === 'DEGRADED' && <p className="rail-footnote" data-tone="warning">Mode terbatas aktif · respons aman dapat digunakan</p>}
-      {health?.status === 'OFFLINE' && <p className="rail-footnote" data-tone="error">Backend tidak terhubung · replay belum dapat dimulai</p>}
+      {healthPresentation.tone !== 'success' && (
+        <div className="health-footnote" data-tone={healthPresentation.tone}>
+          <span>{healthPresentation.detail}</span>
+          <button type="button" onClick={onRefreshHealth} disabled={isHealthRefreshing}>
+            {isHealthRefreshing ? 'Memeriksa…' : 'Periksa ulang'}
+          </button>
+        </div>
+      )}
     </aside>
   );
 }

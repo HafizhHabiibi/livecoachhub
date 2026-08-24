@@ -116,6 +116,44 @@ class FrontendContractTests(unittest.TestCase):
         controller = (ROOT / "frontend" / "src" / "features" / "replay" / "useReplayController.ts").read_text(encoding="utf-8")
         self.assertIn("prev?.pipeline_status ?? result.pipeline_status", controller)
 
+    def test_session_card_polling_is_runtime_validated_without_any_cast(self):
+        schema = (ROOT / "frontend" / "src" / "contracts" / "livecoachSchemas.ts").read_text(encoding="utf-8")
+        api = (ROOT / "frontend" / "src" / "services" / "livecoachApi.ts").read_text(encoding="utf-8")
+        controller = (ROOT / "frontend" / "src" / "features" / "replay" / "useReplayController.ts").read_text(encoding="utf-8")
+        self.assertIn("SessionCardResponseSchema", schema)
+        self.assertIn("parseOrThrow(SessionCardResponseSchema", api)
+        self.assertNotIn("pipeline_status as any", controller)
+
+    def test_health_has_honest_unknown_and_fallback_labels(self):
+        presentation = (ROOT / "frontend" / "src" / "features" / "replay" / "systemHealth.ts").read_text(encoding="utf-8")
+        controller = (ROOT / "frontend" / "src" / "features" / "replay" / "useReplayController.ts").read_text(encoding="utf-8")
+        self.assertIn("Gemini belum diverifikasi", presentation)
+        self.assertIn("Mode fallback", presentation)
+        self.assertIn("void refreshHealth()", controller)
+
+    def test_coach_card_distinguishes_gemini_and_template_provenance(self):
+        card = (ROOT / "frontend" / "src" / "components" / "CoachCard.tsx").read_text(encoding="utf-8")
+        self.assertIn("Gemini · Lolos validasi KB", card)
+        self.assertIn("Template aman · Berbasis KB", card)
+        self.assertIn("Fallback aman · Output Gemini ditolak", card)
+
+    def test_retry_transition_and_retryable_flag_are_connected(self):
+        state = (ROOT / "frontend" / "src" / "features" / "replay" / "replayState.ts").read_text(encoding="utf-8")
+        page = (ROOT / "frontend" / "src" / "pages" / "DemoPage.tsx").read_text(encoding="utf-8")
+        self.assertIn("ERROR: ['STARTING', 'RUNNING', 'FILE_READY']", state)
+        self.assertIn("controller.canRetryError", page)
+
+    def test_finished_poller_stops_and_does_not_use_async_interval(self):
+        controller = (ROOT / "frontend" / "src" / "features" / "replay" / "useReplayController.ts").read_text(encoding="utf-8")
+        self.assertIn("uiState !== 'FINISHED' || cardData.is_generating", controller)
+        poller = controller.split("BACKGROUND CARD POLLER", 1)[1].split("SLEEP dengan support", 1)[0]
+        self.assertNotIn("setInterval(async", poller)
+
+    def test_replay_parser_rejects_descending_timestamps(self):
+        parser = (ROOT / "frontend" / "src" / "features" / "replay" / "jsonlParser.ts").read_text(encoding="utf-8")
+        self.assertIn("timestamp_ms harus berurutan naik", parser)
+        self.assertNotIn("comments.sort(", parser)
+
 
 class OrchestratorRegressionTests(unittest.TestCase):
     def test_comment_id_cache_is_only_checked_in_comment_pipeline(self):

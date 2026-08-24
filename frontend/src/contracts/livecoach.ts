@@ -186,6 +186,16 @@ export interface SessionResetResponse {
   status: 'RESET';
 }
 
+/** GET /api/v1/session/card response */
+export interface SessionCardResponse {
+  session_id: string;
+  is_generating: boolean;
+  pending_action: SelectedAction | null;
+  coach_card: CoachCard | null;
+  pipeline_status: PipelineStatus;
+  gen_latency: number | null;
+}
+
 /** Error response dari backend — Spesifikasi 10.6 */
 export interface ApiErrorResponse {
   schema_version: 'error.v1';

@@ -24,7 +24,7 @@ export const VALID_TRANSITIONS: Record<ReplayUiState, ReplayUiState[]> = {
   RUNNING: ['PAUSED', 'FINISHED', 'ERROR'],
   PAUSED: ['RUNNING', 'FILE_READY', 'ERROR'],   // FILE_READY = setelah reset
   FINISHED: ['FILE_READY'],                        // FILE_READY = setelah reset
-  ERROR: ['FILE_READY'],                        // FILE_READY = setelah reset/retry
+  ERROR: ['STARTING', 'RUNNING', 'FILE_READY'], // STARTING/RUNNING = retry sesuai operasi gagal
 };
 
 export function canTransition(

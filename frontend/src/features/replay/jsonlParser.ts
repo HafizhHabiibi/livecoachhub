@@ -16,6 +16,9 @@
 import { CommentEntrySchema } from '@/contracts/livecoachSchemas';
 import type { ParsedReplayFile, ParseError, CommentEntry } from '@/contracts/livecoach';
 
+export const MAX_REPLAY_FILE_BYTES = 5 * 1024 * 1024;
+export const MAX_REPLAY_ROWS = 10_000;
+
 // ============================================================
 // PARSER UTAMA
 // ============================================================
@@ -56,13 +59,37 @@ export function parseJsonlText(
   filename = 'unknown.jsonl',
   sizeBytes = 0,
 ): ParsedReplayFile {
-  const lines = text.split('\n').map((l) => l.trim()).filter(Boolean);
+  const lines = text
+    .split(/\r?\n/)
+    .map((content, index) => ({ content: content.trim(), lineNumber: index + 1 }))
+    .filter((line) => line.content.length > 0);
   const errors: ParseError[] = [];
   const comments: CommentEntry[] = [];
   const seenIds = new Set<string>();
+  const commentLineNumbers = new Map<string, number>();
 
   // Batas error yang ditampilkan — jangan flood UI dengan ratusan error
   const MAX_ERRORS = 10;
+
+  if (sizeBytes > MAX_REPLAY_FILE_BYTES) {
+    return {
+      filename,
+      sizeBytes,
+      comments: [],
+      durationMs: 0,
+      errors: [{ line: 0, message: 'Ukuran file melebihi batas 5 MB.' }],
+    };
+  }
+
+  if (lines.length > MAX_REPLAY_ROWS) {
+    return {
+      filename,
+      sizeBytes,
+      comments: [],
+      durationMs: 0,
+      errors: [{ line: 0, message: `File melebihi batas ${MAX_REPLAY_ROWS.toLocaleString('id-ID')} komentar.` }],
+    };
+  }
 
   if (lines.length === 0) {
     return {
@@ -75,7 +102,7 @@ export function parseJsonlText(
   }
 
   for (let i = 0; i < lines.length; i++) {
-    const lineNumber = i + 1;
+    const { content, lineNumber } = lines[i];
 
     // Batas error
     if (errors.length >= MAX_ERRORS) {
@@ -89,7 +116,7 @@ export function parseJsonlText(
     // 1. Cek JSON valid
     let raw: unknown;
     try {
-      raw = JSON.parse(lines[i]);
+      raw = JSON.parse(content);
     } catch {
       errors.push({
         line: lineNumber,
@@ -134,15 +161,25 @@ export function parseJsonlText(
     }
 
     seenIds.add(entry.comment_id);
+    commentLineNumbers.set(entry.comment_id, lineNumber);
     comments.push(entry);
   }
 
-  // 4. Sort berdasarkan timestamp_ms (spesifikasi: dikirim berurutan)
-  comments.sort((a, b) => a.timestamp_ms - b.timestamp_ms);
+  // 4. Tolak urutan timestamp menurun; jangan diam-diam mengubah input pengguna.
+  for (let i = 1; i < comments.length; i++) {
+    if (comments[i].timestamp_ms < comments[i - 1].timestamp_ms) {
+      const originalLine = commentLineNumbers.get(comments[i].comment_id) ?? 0;
+      errors.push({
+        line: originalLine,
+        message: `Baris ${originalLine}: timestamp_ms harus berurutan naik.`,
+      });
+      if (errors.length >= MAX_ERRORS) break;
+    }
+  }
 
   const durationMs =
     comments.length > 0
-      ? comments[comments.length - 1].timestamp_ms
+      ? Math.max(...comments.map((comment) => comment.timestamp_ms))
       : 0;
 
   return {

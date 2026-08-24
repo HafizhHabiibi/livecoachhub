@@ -5,7 +5,7 @@
 **Jenis review:** static code review, architecture review, configuration review, security review, pemeriksaan build lokal, serta konfirmasi runtime dari maintainer  
 **Status akhir:** **BELUM READY secara fungsional; distribusi secret merupakan accepted temporary risk untuk kebutuhan penjurian**
 
-> **Update implementasi 24 Agustus 2026:** COR-01, COR-02, QA-01, unique-user threshold, evidence text, dan idempotency minimum telah diperbaiki. Dua belas regression test lulus, termasuk regresi endpoint polling Coach Card. Lihat [`IMPLEMENTATION_REPORT.md`](IMPLEMENTATION_REPORT.md). Status terbaru: **ready for full Docker E2E re-validation** pada Windows + Docker Desktop.
+> **Update implementasi 24 Agustus 2026:** COR-01, COR-02, QA-01, unique-user threshold, evidence text, idempotency minimum, serta reliability frontend telah diperbaiki. Delapan belas regression test lulus. Lihat [`IMPLEMENTATION_REPORT.md`](IMPLEMENTATION_REPORT.md). Status terbaru: **ready for full Docker E2E re-validation** pada Windows + Docker Desktop.
 
 ## 1. Ringkasan Eksekutif
 
