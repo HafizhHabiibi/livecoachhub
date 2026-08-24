@@ -1,13 +1,13 @@
 # Dokumentasi Teknis LiveCoachHub
 
-Lihat [PROJECT.md](../PROJECT.md) untuk desain sistem terintegrasi.
+Lihat [README utama](../README.md) sebagai dokumentasi setup dan desain sistem terintegrasi.
 
 ## Arsitektur Pipeline
 
 ```
 Comment → Preprocessing → Spam Filter → NLP (IndoBERT)
-  → Taxonomy Adapter → Rolling Window 60s
-  → [Trend Lane] → Action Engine → Fact Retrieval → LLM (Gemini API) → Validator
+  → Taxonomy Adapter + Slot Extractor → Rolling Window 60s
+  → [Trend Lane] → Action Engine → Structured Fact Retrieval → LLM (Gemini API) → Validator
   → [Priority Lane] → Priority Alert
   → PipelineResult → Frontend
 ```

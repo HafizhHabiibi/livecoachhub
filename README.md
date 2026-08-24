@@ -2,437 +2,594 @@
 
 # LiveCoachHub
 
-**AI Decision-Support Copilot untuk Live Commerce**
+**AI decision-support copilot untuk live commerce**
 
 [![COMPFEST 18](https://img.shields.io/badge/COMPFEST_18-AI_Innovation_Challenge_2026-blue?style=for-the-badge)](https://compfest.id/)
 [![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://docs.docker.com/compose/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
 [![React](https://img.shields.io/badge/React-Frontend-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
 
-Sistem real-time yang membaca komentar audiens, mengidentifikasi pola/intent menggunakan **IndoBERT fine-tuned**, lalu memberikan **recommended action** dan **suggested seller script** melalui **Gemini API** yang di-ground pada fakta produk.
+LiveCoachHub membaca komentar audiens, mengklasifikasikan intent menggunakan IndoBERT fine-tuned, mengubahnya menjadi sinyal operasional, lalu memberi host satu recommended action dan seller script yang di-ground pada fakta produk.
 
 </div>
 
----
+## Daftar isi
 
-## 📋 Daftar Isi
+- [Fitur utama](#fitur-utama)
+- [Arsitektur](#arsitektur)
+- [Cara sistem mengambil keputusan](#cara-sistem-mengambil-keputusan)
+- [Prasyarat](#prasyarat)
+- [Quick start dengan Docker](#quick-start-dengan-docker)
+- [Menjalankan demo](#menjalankan-demo)
+- [Health check dan smoke test](#health-check-dan-smoke-test)
+- [Konfigurasi Gemini](#konfigurasi-gemini)
+- [Development lokal tanpa Docker](#development-lokal-tanpa-docker)
+- [API](#api)
+- [Struktur repository](#struktur-repository)
+- [Pengujian](#pengujian)
+- [Troubleshooting](#troubleshooting)
+- [Batasan MVP](#batasan-mvp)
 
-- [Fitur Utama](#-fitur-utama)
-- [Arsitektur Pipeline](#-arsitektur-pipeline)
-- [Prasyarat](#-prasyarat)
-- [Quick Start](#-quick-start)
-- [Skenario Demo](#-skenario-demo)
-- [Verifikasi & Smoke Test](#-verifikasi--smoke-test)
-- [Development Lokal](#-development-lokal-tanpa-docker)
-- [Struktur Repository](#-struktur-repository)
-- [API Endpoints](#-api-endpoints)
-- [Docker Commands Reference](#-docker-commands-reference)
-- [Troubleshooting](#-troubleshooting)
-- [Limitations](#-limitations)
-- [Referensi](#-referensi)
+## Fitur utama
 
----
+| Fitur | Implementasi |
+|---|---|
+| Intent classification | IndoBERT fine-tuned dengan delapan raw intent |
+| Semantic routing | Taxonomy Adapter mempertahankan perbedaan size, warna, stok, harga, produk, dan purchase intent |
+| Slot extraction | Rule-based extraction untuk size, warna, BB, TB, atribut produk, dan topik harga |
+| Rolling analytics | Window 60 detik dengan support, pengguna unik, confidence, evidence, timestamp, dan representative slots |
+| Action Engine | Deterministic dominance ranking, minimum dua pengguna unik, dan hysteresis |
+| Priority Lane | Purchase intent high-confidence ditampilkan sebagai alert terpisah |
+| Knowledge retrieval | Structured fact query dengan product, topic, dan slot filters |
+| Seller script | Gemini API menyusun respons dari action dan fakta terpilih |
+| Validation | Grounding fact ID/angka serta konsistensi action, warna, size, dan stok |
+| Safe fallback | Template berbasis Knowledge Base dengan provenance yang eksplisit |
+| Multi-key Gemini | Rotasi otomatis untuk jumlah API key yang dinamis |
+| Full-stack demo | React, FastAPI, IndoBERT service, Nginx, dan Docker Compose |
 
-## ✨ Fitur Utama
+## Arsitektur
 
-| Fitur | Deskripsi |
-|-------|-----------|
-| 🧠 **NLP Intent Classification** | IndoBERT fine-tuned mengklasifikasikan intent komentar ke 8 kelas |
-| 🤖 **Gemini API LLM Generation** | **Gemini API** menghasilkan seller script yang di-ground pada fakta produk |
-| 🔄 **Auto-Rotation API Key** | Rotasi otomatis antar multi Gemini API key saat rate limit — demo tanpa gangguan |
-| 📊 **Rolling Window Analytics** | Agregasi semantic signal per 60 detik dengan slot, evidence, dan minimum dua user unik |
-| 🚨 **Priority Alert System** | Deteksi purchase intent high-value secara terpisah dari tren utama |
-| 🛡️ **Spam Filter** | Filtrasi spam dan duplikat sebelum diproses NLP |
-| ✅ **Output Validator** | Verifikasi JSON, grounding, dan fallback otomatis |
-| 📦 **Dockerized Full Stack** | Satu command untuk menjalankan seluruh pipeline |
-
----
-
-## 🏗️ Arsitektur Pipeline
-
-```
-Comment → Preprocessing → Spam Filter → NLP (IndoBERT)
-  → Taxonomy Adapter + Slot Extractor → Rolling Window 60s
-  → [Trend Lane]    → Action Engine → Structured Fact Retrieval → LLM (Gemini) → Validator → Coach Card
-  → [Priority Lane] → Priority Alert
-```
-
-### Komponen AI
-
-| Komponen | Model / Teknik | Fungsi |
-|----------|----------------|--------|
-| **NLP** | IndoBERT fine-tuned | Klasifikasi intent komentar (8 kelas) |
-| **LLM** | Gemini API (`gemini-2.5-flash`) | Generate seller script — tanpa GPU |
-| **Validator** | Rule-based | Verifikasi JSON, grounding, keselarasan action/slot, dan fallback |
-| **Action Engine** | Deterministic dominance + hysteresis | Ranking unique users/support/confidence; business priority hanya tie-break terakhir |
-
-### Arsitektur Docker
-
-```
-┌──────────────────────────────────────────────────────────────────────┐
-│                      Docker Compose Network (livecoach)              │
-│                                                                      │
-│  ┌──────────────┐    ┌───────────────┐    ┌────────────────────┐    │
-│  │   Frontend    │    │    Backend    │    │    NLP Service      │    │
-│  │  (Nginx:80)  │───▶│  (FastAPI:    │───▶│  (IndoBERT: 8010)  │    │
-│  │  :3000→:80   │    │   8000)       │    └────────────────────┘    │
-│  └──────────────┘    │               │                               │
-│                      │  LLM Client   │──▶  ☁️ Gemini API             │
-│                      └───────────────┘                               │
-│                                                                      │
-│  Volumes:                                                            │
-│    hf-cache-nlp → /root/.cache/huggingface (NLP model cache)        │
-└──────────────────────────────────────────────────────────────────────┘
+```text
+Comment
+  → Preprocessing
+  → Spam / duplicate filter
+  → IndoBERT intent classification
+  → Taxonomy Adapter + Slot Extractor
+  ├─ Trend Lane
+  │    → Rolling Window 60s
+  │    → Action Engine
+  │    → Structured Fact Retrieval
+  │    → Gemini Generator
+  │    → Validator
+  │    → Coach Card
+  └─ Priority Lane
+       → Purchase Intent Alert
 ```
 
----
+### Service Docker
 
-## 📌 Prasyarat
+| Service | Teknologi | Port host | Tanggung jawab |
+|---|---|---:|---|
+| `frontend` | React + TypeScript + Vite, disajikan Nginx | `3000` | Replay UI, audience snapshot, Priority Alert, dan Coach Card |
+| `backend` | FastAPI + Uvicorn | `8000` | Session, orchestration, Action Engine, retrieval, Gemini, dan validator |
+| `nlp` | IndoBERT + FastAPI | `8010` | Intent inference |
 
-| Kebutuhan | Minimum |
-|-----------|---------|
-| **Docker & Docker Compose** | Docker v24+, Compose v2.0+ |
-| **RAM** | 8 GB |
-| **Disk Space** | ~5 GB (image + model IndoBERT) |
-| **Internet** | Koneksi untuk download model pertama kali (~500 MB, sekali saja) |
+Nginx meneruskan request `/api/*` dan `/health` dari frontend ke backend. Backend mengakses NLP melalui network internal Compose pada `http://nlp:8010`.
 
-> [!NOTE]
-> **GPU tidak diperlukan.** Sistem menggunakan **Gemini API** (cloud) untuk LLM generation dan IndoBERT untuk NLP classification.
+## Cara sistem mengambil keputusan
 
-### Khusus Windows
+### Mapping post-NLP
 
-| Kebutuhan | Keterangan |
-|-----------|-----------|
-| **OS** | Windows 10 (Build 19041+) atau Windows 11 |
-| **WSL 2** | Wajib aktif — jalankan `wsl --install` di PowerShell Admin lalu restart |
-| **Docker Desktop** | Download dari [docker.com/products/docker-desktop](https://www.docker.com/products/docker-desktop/), pastikan opsi **"Use WSL 2"** tercentang |
-| **Git** | [git-scm.com/download/win](https://git-scm.com/download/win) |
+| Raw intent | Normalized signal | Audience state | Action |
+|---|---|---|---|
+| `size_inquiry` | `SIZE_AVAILABILITY` | `SIZE_INFORMATION_GAP` | `SHOW_SIZE_OPTIONS` |
+| `size_recommendation` | `SIZE_RECOMMENDATION` | `SIZE_FRICTION` | `SHOW_SIZE_GUIDE` |
+| `color_inquiry` | `COLOR_AVAILABILITY` | `COLOR_INFORMATION_GAP` | `SHOW_COLOR_OPTIONS` |
+| `stock_availability` | `STOCK_AVAILABILITY` | `STOCK_FRICTION` | `CONFIRM_STOCK` |
+| `price_inquiry` | `PRICE_PROMO` | `PRICE_FRICTION` | `EXPLAIN_PRICE_PROMO` |
+| `product_inquiry` | `PRODUCT_DETAIL` | `PRODUCT_INFO_GAP` | `EXPLAIN_PRODUCT_DETAIL` |
+| `purchase_intent` | `PURCHASE_INTENT` | Priority Lane | Priority Alert |
+| `not_relevant` / `other` | `IRRELEVANT` | Tidak masuk Trend Lane | `NO_ACTION` |
 
-> [!TIP]
-> **Alokasi resource yang disarankan** (Docker Desktop → Settings → Resources): RAM 8 GB+, Disk 50 GB+, lalu klik *Apply & Restart*.
+### Ranking dan stabilitas
 
----
+Action Engine hanya memilih state yang memenuhi seluruh threshold berikut:
 
-## 🚀 Quick Start
+- minimal dua komentar pendukung dalam 60 detik;
+- minimal dua pengguna unik;
+- confidence agregat minimal `0.70`.
 
-Langkah yang sama untuk **Linux, macOS, dan Windows** (di Git Bash/WSL):
+Jika beberapa signal eligible, ranking dilakukan dengan urutan:
 
-```bash
+1. `unique_user_count` terbesar;
+2. `support_count` terbesar;
+3. `state_confidence` terbesar;
+4. business `priority_rank` sebagai tie-break terakhir.
+
+Ranking tidak dilakukan ulang di frontend. Hysteresis mempertahankan signal aktif selama masih eligible; challenger harus memiliki sedikitnya dua pengguna unik lebih banyak untuk menggantikannya.
+
+### Structured fact retrieval
+
+Action Engine menghasilkan query seperti berikut:
+
+```json
+{
+  "product_id": "TSHIRT-01",
+  "fact_type": "SIZE_GUIDE",
+  "topic": "size_recommendation",
+  "filters": {
+    "body_weight": 55,
+    "body_height": 160
+  }
+}
+```
+
+Retrieval bersifat konservatif dan mengirim maksimal lima fakta kepada Gemini. Slot dari pengguna berbeda tidak digabung menjadi satu profil. Jika fakta yang cukup tidak tersedia, sistem memilih respons aman tanpa membuat klaim baru.
+
+### Gemini, validator, dan fallback
+
+Gemini bertugas menyusun bahasa, bukan menentukan action. Input Gemini berisi selected action, selected signal, evidence comments, representative slots, fact query, dan fakta produk terpilih.
+
+Output kemudian diperiksa oleh Validator. Pemeriksaan meliputi:
+
+- schema JSON;
+- fact ID dan claim grounding;
+- angka harga, ukuran, berat, tinggi, dan satuan;
+- batas panjang respons;
+- keselarasan dengan selected action;
+- konsistensi requested color dan requested size;
+- konsistensi stok ready atau habis.
+
+Jika Gemini tidak tersedia atau output tetap gagal setelah satu retry, sistem menggunakan template aman. UI membedakan provenance secara eksplisit:
+
+| Kondisi | Provider | Pipeline status | `fallback_used` |
+|---|---|---|---|
+| Gemini berhasil dan valid | `GEMINI` | `CARD_READY` | `false` |
+| Template atau validator fallback | `TEMPLATE` | `FALLBACK` | `true` |
+
+## Prasyarat
+
+### Docker workflow yang direkomendasikan
+
+| Kebutuhan | Rekomendasi |
+|---|---|
+| Docker Engine / Docker Desktop | Docker 24+ dengan Compose v2 |
+| RAM | 8 GB atau lebih |
+| Disk kosong | Minimal 5 GB; 10 GB disarankan |
+| Internet | Diperlukan saat build pertama dan untuk Gemini API |
+| GPU | Tidak diperlukan |
+
+### Windows
+
+- Windows 10 dengan WSL 2 atau Windows 11;
+- Docker Desktop menggunakan WSL 2 engine;
+- Git untuk Windows;
+- Git Bash jika ingin menjalankan smoke test shell.
+
+Clone project di filesystem Windows seperti `E:\Programs\livecoachhub` diperbolehkan dan sudah digunakan untuk validasi Docker Desktop.
+
+## Quick start dengan Docker
+
+### 1. Clone
+
+```powershell
 git clone https://github.com/HafizhHabiibi/livecoachhub.git
-cd livecoachhub
-docker compose up --build
+Set-Location livecoachhub
 ```
 
-Tunggu hingga semua service ready. **Pertama kali** memakan waktu ~5-10 menit karena download model (~500 MB). Selanjutnya akan lebih cepat karena model di-cache ke Docker volume.
+### 2. Build dan jalankan
 
-Setelah semua siap, buka browser:
+```powershell
+docker compose up --build -d
+```
 
-| Service | URL |
-|---------|-----|
-| **Frontend** | http://localhost:3000 |
-| **Backend API** | http://localhost:8000 |
-| **NLP Service** | http://localhost:8010 |
+Build pertama mengunduh model IndoBERT dari Hugging Face. Tunggu sampai NLP dan backend sehat:
+
+```powershell
+docker compose ps
+```
+
+Target:
+
+```text
+backend   Up ... (healthy)
+nlp       Up ... (healthy)
+frontend  Up ...
+```
+
+Status `health: starting` selama startup awal adalah normal. Pantau bila dibutuhkan:
+
+```powershell
+docker compose logs -f nlp backend
+```
+
+### 3. Buka aplikasi
+
+| Komponen | URL |
+|---|---|
+| Frontend | http://localhost:3000 |
+| Backend health | http://localhost:8000/health |
+| Backend API | http://localhost:8000 |
+| NLP health | http://localhost:8010/health |
 
 > [!IMPORTANT]
-> **API key Gemini sudah terkonfigurasi** di dalam image — tidak perlu setup apapun. Sistem langsung aktif menggunakan Gemini API.
+> **File demo yang harus diunggah ke frontend:**
+> `data/replay/comments-demo.jsonl`
+>
+> Pada Windows, pilih file dari folder hasil clone:
+> `livecoachhub\data\replay\comments-demo.jsonl`
+>
+> Buka http://localhost:3000, klik area upload, pilih file tersebut, lalu tekan **Start**.
 
----
+### 4. Hentikan service
 
-## 🎬 Skenario Demo
+```powershell
+docker compose down
+```
 
-Tersedia dua file demo:
+Jangan gunakan `docker compose down -v` kecuali memang ingin menghapus cache model dan mengunduhnya kembali pada build berikutnya.
 
-- `data/replay/comments-demo.jsonl` — **mixed-natural demo**, 30 komentar dari 19 user selama ~90 detik.
-- `data/replay/comments-demo-showcase.jsonl` — **deterministic showcase**, disusun untuk memperlihatkan transisi Price → Product Detail → Stock → Size → Purchase Intent.
+## Menjalankan demo
 
-### Cara Menjalankan Demo
+Repository menyediakan satu replay utama:
 
-1. Buka **http://localhost:3000**
-2. **Drag & drop** file `comments-demo.jsonl` ke area upload
-3. Klik tombol **▶ Start**
-4. Amati dashboard:
-   - **Kiri**: Progress replay dan komentar masuk
-   - **Kanan atas**: Stream komentar real-time dengan intent classification
-   - **Kanan tengah**: Audience snapshot (agregasi 60 detik)
-   - **Kanan bawah**: Seller script yang di-generate AI
+```text
+data/replay/comments-demo.jsonl
+```
 
-| Tombol | Fungsi |
-|--------|--------|
-| ▶ **Start** | Mulai replay |
-| ⏸ **Pause** | Jeda replay |
-| ▶ **Resume** | Lanjutkan dari jeda |
-| ↺ **Reset** | Reset dan mulai ulang |
+Dataset berisi 30 komentar dengan identitas pengguna dan timestamp berurutan. Format setiap baris:
 
-### Cakupan Intent
+```json
+{"comment_id":"CMT-001","user_id":"USR-001","timestamp_ms":0,"text":"halo kak, lagi live ya"}
+```
 
-| Intent | Contoh Komentar | Aksi Pipeline |
-|--------|----------------|---------------|
-| `size_inquiry` | "bb 55 ambil m atau l kak?" | `SHOW_SIZE_GUIDE` |
-| `size_recommendation` | "aku TB 170 BB 65 cocok L atau XL?" | `SHOW_SIZE_GUIDE` |
-| `product_inquiry` | "bahannya apa kak? adem gak?" | `EXPLAIN_PRODUCT_DETAIL` |
-| `color_inquiry` | "warnanya ada apa aja kak?" | `CONFIRM_STOCK` |
-| `price_inquiry` | "harganya berapa kak?" | `EXPLAIN_PRICE_PROMO` |
-| `stock_availability` | "yang hitam masih ready gak?" | `CONFIRM_STOCK` |
-| `purchase_intent` | "ok fix order navy L ya kak" | Priority Alert |
-| `not_relevant` | "semangat kak jualan nya" | `NO_ACTION` |
+Langkah demo:
 
-> [!TIP]
-> Juri juga bisa membuat file `.jsonl` sendiri. Format setiap baris: `{"comment_id": "...", "user_id": "...", "timestamp_ms": ..., "text": "..."}`
+1. buka http://localhost:3000;
+2. upload `data/replay/comments-demo.jsonl`;
+3. tekan **Start**;
+4. amati klasifikasi komentar dan Audience Snapshot;
+5. buka **Detail keputusan** untuk melihat raw intent, normalized signal, slots, dominant signal, jumlah pengguna unik, dan fact query;
+6. perhatikan Priority Alert ketika purchase intent terdeteksi;
+7. periksa label provenance pada Coach Card.
 
----
+Kontrol replay mendukung Start, Pause, Resume, dan Reset. File JSONL buatan sendiri harus memiliki `comment_id` unik, `user_id` tidak kosong, timestamp yang tidak menurun, dan teks komentar.
 
-## ✅ Verifikasi & Smoke Test
+## Health check dan smoke test
+
+### Health lifecycle
+
+Sebelum generation Gemini pertama, kondisi berikut masih valid:
+
+```json
+{
+  "status": "DEGRADED",
+  "services": {
+    "api": "READY",
+    "nlp_model": "READY",
+    "llm_model": "UNKNOWN"
+  }
+}
+```
+
+Endpoint health sengaja tidak memanggil Gemini agar tidak menghabiskan quota. Setelah Coach Card Gemini berhasil dibuat, targetnya:
+
+```json
+{
+  "schema_version": "health.v1",
+  "status": "READY",
+  "services": {
+    "api": "READY",
+    "nlp_model": "READY",
+    "llm_model": "READY"
+  },
+  "provider": {
+    "nlp": "IndoBERT",
+    "llm": "Gemini API"
+  }
+}
+```
+
+Periksa melalui PowerShell:
+
+```powershell
+Invoke-RestMethod http://localhost:8000/health | ConvertTo-Json -Depth 5
+```
+
+### Smoke test otomatis
+
+Jalankan dari Git Bash setelah container sehat:
 
 ```bash
-# Health check — LLM dapat UNKNOWN sebelum generation Gemini pertama
-curl http://localhost:8000/health
-
-# Smoke test full AI otomatis (Linux/macOS/Git Bash)
 bash scripts/smoke_test.sh
+```
 
-# Izinkan degraded/template mode (tetap memverifikasi provenance)
+Default smoke test mewajibkan Gemini. Untuk menguji graceful fallback secara sengaja:
+
+```bash
 REQUIRE_FULL_AI=0 bash scripts/smoke_test.sh
 ```
 
-<details>
-<summary><strong>Smoke Test Manual — PowerShell (Windows)</strong></summary>
+Smoke test memeriksa health, demo config, session, dua pengguna unik, action selection, idempotency, Coach Card, provenance, reset, dan frontend.
+
+### Pemeriksaan log
 
 ```powershell
-# Health check
-Invoke-RestMethod -Uri "http://localhost:8000/health"
-
-# Start session
-$session = Invoke-RestMethod -Method Post -Uri "http://localhost:8000/api/v1/session/start" `
-    -ContentType "application/json" `
-    -Body '{"product_id":"TSHIRT-01"}'
-$session.session_id
-
-# Analyze comment
-Invoke-RestMethod -Method Post -Uri "http://localhost:8000/api/v1/comments/analyze" `
-    -ContentType "application/json" `
-    -Body "{`"session_id`":`"$($session.session_id)`",`"comment_id`":`"CMT-01`",`"user_id`":`"USR-01`",`"timestamp_ms`":1000,`"text`":`"bb 55 ambil size apa kak`"}"
-
-# Reset session
-Invoke-RestMethod -Method Post -Uri "http://localhost:8000/api/v1/session/reset" `
-    -ContentType "application/json" `
-    -Body "{`"session_id`":`"$($session.session_id)`"}"
+docker compose logs --tail=300 backend |
+    Select-String -Pattern "ERROR|Traceback|500|429|quota|fallback|Gemini"
 ```
 
-</details>
+Generation normal memiliki pola:
 
----
+```text
+HTTP Request: POST ...generateContent "HTTP/1.1 200 OK"
+Gemini generation berhasil dengan key 1/N
+LLM async selesai ... status=CARD_READY
+```
 
-## 🔧 Development Lokal (Tanpa Docker)
+## Konfigurasi Gemini
 
-<details>
-<summary><strong>Backend (FastAPI)</strong></summary>
+### Konfigurasi kompetisi
+
+Checkout kompetisi menyertakan `backend/.env.enc`. Saat backend container mulai, `backend/entrypoint.sh` mendekripsinya menjadi `/app/.env`. Karena itu juri cukup menjalankan:
+
+```powershell
+docker compose up --build -d
+```
+
+Key tersebut merupakan accepted temporary risk untuk kemudahan penjurian dan harus direvoke setelah kompetisi.
+
+### Menggunakan konfigurasi sendiri
+
+Salin template di root project:
+
+```powershell
+Copy-Item .env.example .env
+```
+
+Isi minimal:
+
+```dotenv
+LLM_PROVIDER=gemini
+GEMINI_API_KEYS=key_pertama,key_kedua,key_ketiga
+GEMINI_MODEL=nama_model_gemini
+NLP_SERVICE_URL=http://localhost:8010
+```
+
+Jumlah key dinamis. Penambahan menjadi lima atau enam key cukup dilakukan pada `GEMINI_API_KEYS`; kode tidak perlu diubah.
+
+Untuk Docker, generate ulang file terenkripsi dari Git Bash:
 
 ```bash
-cd backend
-python -m venv venv && source venv/bin/activate
-pip install -r requirements.txt
-uvicorn app.main:app --reload --port 8000
+openssl enc -aes-256-cbc -salt -pbkdf2 \
+  -in .env \
+  -out backend/.env.enc \
+  -pass pass:livecoachhub2026
 ```
 
-</details>
+Kemudian rebuild backend:
 
-<details>
-<summary><strong>Frontend (Vite + React)</strong></summary>
+```powershell
+docker compose build --no-cache backend
+docker compose up -d
+```
+
+Jangan memasukkan `.env` plaintext ke Git. Log aplikasi hanya menampilkan nomor slot key, bukan isi key.
+
+## Development lokal tanpa Docker
+
+Docker Compose adalah jalur utama. Setup lokal memerlukan tiga terminal dan Python 3.11.
+
+### 1. Environment
+
+```bash
+cp .env.example .env
+```
+
+Isi `GEMINI_API_KEYS` dan model yang ingin digunakan.
+
+### 2. NLP service
+
+```bash
+python -m venv .venv-nlp
+source .venv-nlp/bin/activate
+pip install -r AI/NLP/fine-tuned-indobert/requirements-inference.txt
+python scripts/download_models.py --nlp
+cd AI/NLP/fine-tuned-indobert
+python serve.py --host 0.0.0.0 --port 8010
+```
+
+Pada PowerShell, aktivasi virtual environment menggunakan:
+
+```powershell
+.\.venv-nlp\Scripts\Activate.ps1
+```
+
+### 3. Backend
+
+```bash
+python -m venv .venv-backend
+source .venv-backend/bin/activate
+pip install -r backend/requirements.txt
+cd backend
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+```
+
+### 4. Frontend
 
 ```bash
 cd frontend
-npm install && npm run dev
+npm install
+npm run dev
 ```
 
-</details>
+Vite meneruskan `/api` dan `/health` ke backend pada port `8000`.
 
-<details>
-<summary><strong>NLP Service (IndoBERT)</strong></summary>
+## API
 
-```bash
-python scripts/download_models.py --nlp
+| Method | Endpoint | Fungsi |
+|---|---|---|
+| `GET` | `/health` | Health API, NLP, dan status Gemini yang sudah diverifikasi |
+| `GET` | `/api/v1/demo-config` | Product, replay, dan model metadata |
+| `POST` | `/api/v1/session/start` | Membuat replay session |
+| `POST` | `/api/v1/comments/analyze` | Menjalankan pipeline untuk satu komentar |
+| `GET` | `/api/v1/session/card?session_id=...` | Polling hasil generation async |
+| `POST` | `/api/v1/session/reset` | Membersihkan state session |
 
-cd AI/NLP/fine-tuned-indobert
-pip install -r requirements-inference.txt
-python serve.py --port 8010
+Request analyze minimum:
+
+```json
+{
+  "session_id": "LIVE-XXXXXXXX",
+  "comment_id": "CMT-001",
+  "user_id": "USR-001",
+  "timestamp_ms": 1000,
+  "text": "bb 55 tb 160 cocok size apa kak?"
+}
 ```
 
-</details>
+`user_id` wajib dan harus konsisten untuk pengguna yang sama. `comment_id` bersifat idempotency key per session.
 
----
+## Struktur repository
 
-## 📁 Struktur Repository
-
-```
-LiveCoachHub/
-├── frontend/                      # React + TypeScript + Vite
-│   ├── Dockerfile
-│   ├── nginx.conf
-│   └── src/
-├── backend/                       # FastAPI pipeline
-│   ├── Dockerfile
-│   ├── entrypoint.sh              # Auto-decrypt .env.enc saat start
-│   ├── .env.enc                   # API key terenkripsi (AES-256)
-│   ├── app/main.py                # Entry point (6 endpoints)
-│   ├── llm_client.py              # Gemini API client + auto-rotation key
-│   ├── config.py                  # Konfigurasi global
-│   ├── orchestrator.py
-│   ├── preprocessing/
-│   ├── spam_filter/
-│   ├── rolling_window/
-│   ├── priority_detector/
-│   ├── taxonomy_adapter/
-│   ├── action_engine/
-│   ├── knowledge/
-│   ├── validator/
-│   └── replay/
+```text
+livecoachhub/
 ├── AI/
-│   ├── NLP/fine-tuned-indobert/   # IndoBERT inference service (:8010)
-│   └── LLM/grounded_llm/         # Action Engine, Knowledge Base, Validator
+│   ├── NLP/fine-tuned-indobert/          # IndoBERT inference service
+│   └── LLM/grounded_llm/
+│       ├── Action Engine/                # rules, ranking, hysteresis
+│       ├── Knowledge Base/               # product facts + structured retrieval
+│       └── Validator/                    # grounding and consistency checks
+├── backend/
+│   ├── app/main.py                       # FastAPI endpoints
+│   ├── orchestrator.py                   # end-to-end pipeline
+│   ├── taxonomy_adapter/                 # raw intent → semantic signal
+│   ├── slot_extractor/                   # deterministic slot extraction
+│   ├── rolling_window/                   # 60-second aggregation
+│   ├── priority_detector/                # Priority Lane
+│   ├── action_engine/                    # integration bridge
+│   ├── knowledge/                        # retrieval bridge
+│   ├── validator/                        # validator bridge
+│   └── .env.enc                          # encrypted competition configuration
+├── frontend/
+│   ├── src/components/                   # dashboard and Priority Alert
+│   ├── src/contracts/                    # TypeScript + Zod contracts
+│   └── nginx.conf                        # SPA and API proxy
 ├── data/
-│   ├── replay/                    # File replay demo (.jsonl)
-│   └── product_facts/             # Fakta produk (mock catalog)
+│   ├── replay/comments-demo.jsonl        # replay utama
+│   └── product_facts/                    # synchronized KB copy
 ├── scripts/
 │   ├── download_models.py
 │   └── smoke_test.sh
-├── docs/                          # Dokumentasi tambahan
+├── tests/test_core_regressions.py
 ├── docker-compose.yml
 └── README.md
 ```
 
----
+## Pengujian
 
-## 📡 API Endpoints
-
-| Method | Path | Deskripsi |
-|--------|------|-----------|
-| `GET` | `/health` | Health check + provenance (AI vs fallback) |
-| `GET` | `/api/v1/demo-config` | Konfigurasi demo |
-| `POST` | `/api/v1/session/start` | Buat session replay baru |
-| `POST` | `/api/v1/comments/analyze` | **Core** — jalankan pipeline per komentar |
-| `POST` | `/api/v1/session/reset` | Reset session |
-| `GET` | `/api/v1/session/card` | Polling Coach Card hasil generation async |
-
----
-
-## 📝 Docker Commands Reference
+### Backend dan invariant pipeline
 
 ```bash
-# Start (foreground)
-docker compose up --build
+python3 -m unittest -v tests/test_core_regressions.py
+python3 -m compileall -q backend AI/LLM/grounded_llm
+```
 
-# Start (background)
-docker compose up --build -d
+Regression suite melindungi provenance, key rotation, generation deduplication, unique-user threshold, signal mapping, slot isolation, ranking, hysteresis, structured retrieval, stock validation, frontend contracts, dan replay contract.
 
-# Stop
-docker compose down
+### Frontend
 
-# Stop + hapus volume cache (akan download ulang model!)
-docker compose down -v
+```bash
+npm run type-check --prefix frontend
+npm run lint --prefix frontend
+npm run build --prefix frontend
+```
 
-# Lihat log
-docker compose logs -f
-docker compose logs -f backend
+Project menggunakan TypeScript `5.5.4`, sesuai rentang toolchain ESLint yang digunakan.
 
-# Status container
+## Troubleshooting
+
+### Container masih `health: starting`
+
+IndoBERT membutuhkan waktu untuk memuat model. Tunggu dan periksa:
+
+```powershell
 docker compose ps
-
-# Resource usage
-docker stats
-
-# Restart satu service
-docker compose restart backend
-
-# Masuk ke container
-docker compose exec backend bash
-
-# Force rebuild tanpa cache
-docker compose build --no-cache && docker compose up
+docker compose logs --tail=200 nlp backend
 ```
 
----
+### Health `DEGRADED` dan LLM `UNKNOWN`
 
-## 🔥 Troubleshooting
+Normal sebelum generation Gemini pertama. Jalankan replay sampai Coach Card terbentuk, lalu periksa `/health` kembali.
 
-<details>
-<summary><strong>❌ <code>docker compose</code> tidak dikenali</strong></summary>
+### Health tetap `DEGRADED` setelah generation
 
-Docker Desktop belum running atau PATH belum ter-set.
-
-1. Buka Docker Desktop dan pastikan statusnya **running**
-2. Restart terminal
-3. Jika masih gagal, coba `docker-compose` (dengan tanda hubung — versi lama)
-
-</details>
-
-<details>
-<summary><strong>❌ Port sudah dipakai (port already in use)</strong></summary>
-
-**Linux/macOS:**
-```bash
-lsof -i :8000
-kill -9 <PID>
+```powershell
+docker compose logs --tail=300 backend |
+    Select-String -Pattern "Gemini|429|quota|401|403|fallback|ERROR"
 ```
 
-**Windows:**
+- `429` atau `quota`: seluruh key yang tersedia dapat sedang terkena limit;
+- `401/403`: key atau permission tidak valid;
+- provider `TEMPLATE`: sistem berada pada safe fallback mode.
+
+### Port sudah dipakai
+
 ```powershell
 netstat -ano | findstr :8000
 taskkill /PID <PID> /F
 ```
 
-Atau ubah port di `docker-compose.yml`: `"9000:8000"` (ganti 8000 host ke 9000).
+Periksa juga port `3000` dan `8010`.
 
-</details>
+### Model download lambat atau gagal
 
-<details>
-<summary><strong>❌ Build gagal — out of memory</strong></summary>
+Pastikan internet tersedia, lalu rebuild NLP:
 
-Docker tidak punya cukup RAM.
-
-- **Windows**: Docker Desktop → Settings → Resources → Naikkan **Memory** ke minimum 8 GB
-- **Linux**: Tambah swap atau tutup aplikasi lain
-
-</details>
-
-<details>
-<summary><strong>❌ Model download lambat / timeout</strong></summary>
-
-Model di-cache di Docker volume, jadi hanya perlu download sekali. Jika timeout saat pertama:
-
-```bash
-docker compose restart nlp
+```powershell
+docker compose build --no-cache nlp
+docker compose up -d nlp
+docker compose logs -f nlp
 ```
 
-</details>
+### Masalah line ending Windows
 
-<details>
-<summary><strong>❌ Line ending issue — CRLF vs LF (Windows)</strong></summary>
+Entrypoint Docker menormalisasi CRLF secara otomatis. Jika file shell lain bermasalah, clone ulang dengan:
 
 ```powershell
 git config --global core.autocrlf input
-git clone https://github.com/HafizhHabiibi/livecoachhub.git
 ```
 
-</details>
+### Reset seluruh stack
 
----
+```powershell
+docker compose down
+docker compose up --build -d
+```
 
-## ⚠️ Limitations
+Tambahkan `-v` hanya jika cache model memang ingin dihapus.
 
-- **Replay mode only** — bukan real-time stream (fitur final jika lolos)
-- **Satu produk mock** — Essential Cotton T-Shirt
-- **Membutuhkan internet** — untuk Gemini API dan download model pertama kali
-- **Belum ada auth/login** — sesuai batas MVP preliminary
+## Batasan MVP
 
----
+- input masih berupa replay JSONL, belum live connector TikTok atau platform commerce;
+- Knowledge Base masih single-product mock catalog untuk `TSHIRT-01`;
+- session disimpan in-memory dan ditujukan untuk satu backend worker;
+- belum ada authentication, rate limiting, Redis, atau persistent database;
+- shipping dan objection belum memiliki signal khusus karena label NLP saat ini belum membedakannya secara andal;
+- Gemini membutuhkan internet dan quota API;
+- task Gemini yang sudah berjalan tidak dapat dihentikan paksa oleh thread executor; stale result tidak dipakai, tetapi request dapat tetap menghabiskan quota;
+- secret kompetisi harus direvoke setelah penjurian selesai.
 
-## 📚 Referensi
+## Status validasi terakhir
 
-| Resource | Link |
-|----------|------|
-| Docker Desktop | [docs.docker.com/desktop](https://docs.docker.com/desktop/install/windows-install/) |
-| WSL 2 Installation | [learn.microsoft.com/windows/wsl/install](https://learn.microsoft.com/en-us/windows/wsl/install) |
-| Docker Compose Docs | [docs.docker.com/compose](https://docs.docker.com/compose/) |
-| Dokumentasi Teknis | [`docs/README.md`](docs/README.md) |
-| Desain Sistem | [`PROJECT.md`](PROJECT.md) |
-| Audit Checklist | [`AUDIT.md`](AUDIT.md) |
+Validasi Windows + Docker Desktop telah menghasilkan:
+
+```text
+System health: READY
+API: READY
+IndoBERT: READY
+Gemini API: READY
+Coach Card: CARD_READY
+```
+
+Seluruh request analyze, polling, health, dan reset pada pengujian tersebut mengembalikan HTTP `200` tanpa traceback atau internal server error.

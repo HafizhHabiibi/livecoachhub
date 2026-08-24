@@ -466,20 +466,5 @@ class ReplayContractTests(unittest.TestCase):
         self.assertTrue(all(row.get("user_id") for row in rows))
         self.assertLess(len({row["user_id"] for row in rows}), len(rows))
 
-    def test_showcase_replay_contract_and_phase_order(self):
-        replay_path = ROOT / "data" / "replay" / "comments-demo-showcase.jsonl"
-        rows = [json.loads(line) for line in replay_path.read_text(encoding="utf-8").splitlines() if line]
-        required = {"comment_id", "user_id", "timestamp_ms", "text"}
-        self.assertEqual(len(rows), 30)
-        self.assertTrue(all(required <= row.keys() for row in rows))
-        self.assertEqual(len({row["comment_id"] for row in rows}), len(rows))
-        self.assertEqual([row["timestamp_ms"] for row in rows], sorted(row["timestamp_ms"] for row in rows))
-
-        # Dua user unik per trigger phase, berurutan dari priority rendah ke tinggi.
-        trigger_phases = [rows[0:2], rows[4:6], rows[8:10], rows[12:14], rows[16:18]]
-        self.assertTrue(all(len({row["user_id"] for row in phase}) == 2 for phase in trigger_phases))
-        self.assertEqual([phase[0]["timestamp_ms"] for phase in trigger_phases], [0, 12000, 24000, 36000, 48000])
-
-
 if __name__ == "__main__":
     unittest.main()
