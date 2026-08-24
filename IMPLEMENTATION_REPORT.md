@@ -17,7 +17,7 @@ Paket prioritas kompetisi telah diimplementasikan. Perubahan utama:
 7. Smoke test tidak lagi berhenti pada check pertama dan sekarang memeriksa provenance.
 8. Health frontend sekarang pulih setelah Gemini terverifikasi dan provenance card tampil eksplisit.
 9. Polling, retry, dan validasi file replay diperketat.
-10. Delapan belas regression test berjalan dan seluruhnya lulus.
+10. Dua puluh enam regression test berjalan dan seluruhnya lulus.
 
 ## 2. Status Prioritas
 
@@ -28,7 +28,7 @@ Paket prioritas kompetisi telah diimplementasikan. Perubahan utama:
 | Unique-user Action Engine | SELESAI | Minimum 2 user unik sebelum action |
 | QA-01 — Smoke test | SELESAI | Counter aman terhadap `set -e`; flow tidak berhenti dini |
 | Frontend reliability | SELESAI | Health refresh, typed polling, retry, generation state, input guard |
-| Regression tests | SELESAI | 18/18 test lulus |
+| Regression tests | SELESAI | 26/26 test lulus |
 | COR-04 — Evidence text | SELESAI | Window menyimpan dan mengambil teks evidence |
 | Retry idempotency | SELESAI | Hasil per `comment_id` di-cache per session |
 | Session concurrency minimum | SELESAI | Analyze dan polling memakai lock per session |
@@ -145,6 +145,14 @@ Test yang lulus:
 16. Retry hanya ditawarkan untuk error retryable dan transisi `ERROR` dapat pulih.
 17. Polling tidak memakai async interval dan berhenti setelah hasil final tersedia.
 18. Parser menolak timestamp menurun tanpa mengurutkan input secara diam-diam.
+19. Tiga key dicoba tepat sekali dari setiap posisi awal.
+20. Jumlah key dinamis 1, 2, 5, dan 6 tidak menyebabkan key dilewati atau diulang.
+21. Konfigurasi tanpa key menghasilkan urutan percobaan kosong.
+22. LLM client memakai snapshot urutan dan tidak lagi menghitung dari cursor yang dimutasi.
+23. Context generation valid yang identik menggunakan kembali Coach Card.
+24. Perubahan evidence material menghasilkan fingerprint baru.
+25. Fallback untuk action yang sama digunakan ulang selama cooldown dan boleh dicoba kembali setelah 30 detik.
+26. Perubahan evidence kecil tidak menembus cooldown fallback untuk action yang sama.
 
 Perintah:
 
@@ -152,13 +160,13 @@ Perintah:
 python3 -m unittest -v tests/test_core_regressions.py
 ```
 
-Hasil: **18 passed, 0 failed**.
+Hasil: **26 passed, 0 failed**.
 
 ## 5. Hasil Verifikasi
 
 | Pemeriksaan | Hasil |
 |---|---|
-| Regression test | PASS — 18/18 |
+| Regression test | PASS — 26/26 |
 | Python compileall | PASS |
 | Action rules JSON parse | PASS |
 | Frontend TypeScript type-check | PASS |
@@ -285,7 +293,30 @@ Verifikasi update frontend:
 | TypeScript type-check | PASS |
 | ESLint | PASS; warning kompatibilitas versi existing tetap non-blocking |
 | Vite production build | PASS |
-| Regression tests | PASS — 18/18 |
+| Regression tests | PASS — 26/26 |
 | `git diff --check` | PASS |
 
 Full visual/runtime re-validation tetap perlu dilakukan dari clone Windows karena Docker Desktop tidak terhubung ke workspace WSL ini.
+
+## 11. Update Rotasi Key dan Penghematan Quota
+
+Analisis log Docker menemukan pola rotasi lama `1 → 3 → 3`. Penyebabnya adalah cursor key dimutasi di dalam loop dan langsung dipakai lagi untuk menghitung iterasi selanjutnya.
+
+Perbaikan yang diterapkan:
+
+1. Urutan key dihitung sekali melalui helper murni `key_attempt_order` sebelum request pertama dilakukan.
+2. Setiap slot dicoba tepat satu kali, mulai dari cursor aktif. Contoh tiga key: `1 → 2 → 3`, `2 → 3 → 1`, atau `3 → 1 → 2`.
+3. Jumlah key tetap dinamis; penambahan menjadi lima atau enam cukup melalui `GEMINI_API_KEYS`.
+4. Log keberhasilan mencatat nomor slot key tanpa menampilkan secret.
+5. Context generation memiliki fingerprint dari action, audience state, evidence IDs, dan required fact types.
+6. Coach Card valid digunakan ulang selama fingerprint tidak berubah.
+7. Template fallback untuk action yang sama digunakan ulang selama 30 detik walau evidence bertambah, lalu diizinkan mencoba Gemini kembali agar layanan dapat pulih.
+
+Dampak yang diharapkan:
+
+- Tidak ada key yang dilewati atau dicoba dua kali dalam satu putaran failover.
+- Repeated `SHOW_SIZE_GUIDE` dengan evidence sama tidak lagi membuat request Gemini baru.
+- Penambahan API key tidak memerlukan perubahan kode.
+- Pesan `All N Gemini API keys exhausted` baru terjadi setelah seluruh slot benar-benar dicoba.
+
+Pekerjaan lanjutan P1 yang belum termasuk paket ini: cooldown per-key berdasarkan metadata `retryDelay`, klasifikasi `401/403`, dan perbaikan lifecycle task yang sudah berjalan ketika action berubah.

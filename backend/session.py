@@ -48,6 +48,9 @@ class SessionState:
     pending_llm_future: Optional[Future] = field(default=None, repr=False)
     # Context dari action yang trigger LLM (untuk logging/debug)
     pending_llm_action: Optional[str] = None
+    # Fingerprint dan event time dari context yang sedang di-generate.
+    pending_generation_fingerprint: Optional[str] = None
+    pending_generation_event_ms: Optional[int] = None
     # Coach card yang sudah selesai di-generate, siap dikirim ke frontend
     ready_coach_card: Optional[Any] = field(default=None, repr=False)
     # Kartu terakhir yang aktif di sesi (tidak di-reset saat ready_coach_card diambil)
@@ -55,6 +58,9 @@ class SessionState:
     # Status yang melekat pada latest_coach_card; FALLBACK harus tetap persisten
     # pada polling berikutnya dan tidak boleh berubah menjadi CARD_READY.
     latest_pipeline_status: Optional[str] = None
+    # Context kartu terakhir, untuk mencegah generation identik berulang.
+    latest_generation_fingerprint: Optional[str] = None
+    latest_generation_event_ms: Optional[int] = None
     # Pipeline status untuk ready_coach_card ("CARD_READY" atau "FALLBACK")
     ready_pipeline_status: Optional[str] = None
     # Latency dari LLM generation

@@ -26,6 +26,14 @@ provenance = load_module(
     "generation_provenance_test",
     ROOT / "backend" / "generation_provenance.py",
 )
+key_rotation = load_module(
+    "key_rotation_test",
+    ROOT / "backend" / "key_rotation.py",
+)
+generation_dedup = load_module(
+    "generation_dedup_test",
+    ROOT / "backend" / "generation_dedup.py",
+)
 action_engine = load_module(
     "action_engine_test",
     ROOT / "AI" / "LLM" / "grounded_llm" / "Action Engine" / "action_engine.py",
@@ -59,6 +67,84 @@ class GenerationProvenanceTests(unittest.TestCase):
         self.assertEqual(outcome.provider, "TEMPLATE")
         self.assertTrue(outcome.fallback_used)
         self.assertEqual(outcome.pipeline_status, "FALLBACK")
+
+
+class KeyRotationTests(unittest.TestCase):
+    def test_three_keys_are_attempted_once_from_every_start(self):
+        expected = {
+            0: (0, 1, 2),
+            1: (1, 2, 0),
+            2: (2, 0, 1),
+        }
+        for start, order in expected.items():
+            with self.subTest(start=start):
+                self.assertEqual(key_rotation.key_attempt_order(3, start), order)
+
+    def test_dynamic_key_counts_never_skip_or_repeat(self):
+        for key_count in (1, 2, 5, 6):
+            for start in range(key_count):
+                with self.subTest(key_count=key_count, start=start):
+                    order = key_rotation.key_attempt_order(key_count, start)
+                    self.assertEqual(len(order), key_count)
+                    self.assertEqual(set(order), set(range(key_count)))
+
+    def test_empty_key_list_has_no_attempts(self):
+        self.assertEqual(key_rotation.key_attempt_order(0, 0), ())
+
+    def test_llm_client_uses_snapshot_attempt_order(self):
+        source = (ROOT / "backend" / "llm_client.py").read_text(encoding="utf-8")
+        self.assertIn("key_attempt_order(len(keys), _gemini_key_index)", source)
+        self.assertNotIn("(_gemini_key_index + attempt) % len(keys)", source)
+
+
+class GenerationDedupTests(unittest.TestCase):
+    def make_fingerprint(self, evidence=("CMT-1", "CMT-2")):
+        return generation_dedup.build_generation_fingerprint(
+            "SHOW_SIZE_GUIDE",
+            "SIZE_FRICTION",
+            evidence,
+            ("SIZE_GUIDE",),
+        )
+
+    def test_same_valid_context_is_reused(self):
+        fingerprint = self.make_fingerprint()
+        self.assertTrue(generation_dedup.should_reuse_generation(
+            "SHOW_SIZE_GUIDE", "SHOW_SIZE_GUIDE",
+            fingerprint, fingerprint, "CARD_READY", 60_000, 1_000, 30_000,
+        ))
+
+    def test_material_evidence_change_requires_generation(self):
+        self.assertFalse(generation_dedup.should_reuse_generation(
+            "SHOW_SIZE_GUIDE", "SHOW_SIZE_GUIDE",
+            self.make_fingerprint(("CMT-2", "CMT-3")),
+            self.make_fingerprint(),
+            "CARD_READY",
+            5_000,
+            1_000,
+            30_000,
+        ))
+
+    def test_fallback_is_reused_only_during_cooldown(self):
+        fingerprint = self.make_fingerprint()
+        self.assertTrue(generation_dedup.should_reuse_generation(
+            "SHOW_SIZE_GUIDE", "SHOW_SIZE_GUIDE",
+            fingerprint, fingerprint, "FALLBACK", 29_999, 0, 30_000,
+        ))
+        self.assertFalse(generation_dedup.should_reuse_generation(
+            "SHOW_SIZE_GUIDE", "SHOW_SIZE_GUIDE",
+            fingerprint, fingerprint, "FALLBACK", 30_000, 0, 30_000,
+        ))
+
+    def test_fallback_cooldown_ignores_minor_evidence_change(self):
+        self.assertTrue(generation_dedup.should_reuse_generation(
+            "SHOW_SIZE_GUIDE", "SHOW_SIZE_GUIDE",
+            self.make_fingerprint(("CMT-2", "CMT-3")),
+            self.make_fingerprint(),
+            "FALLBACK",
+            10_000,
+            0,
+            30_000,
+        ))
 
 
 class UniqueUserThresholdTests(unittest.TestCase):

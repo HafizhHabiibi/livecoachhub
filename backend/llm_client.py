@@ -24,6 +24,7 @@ from google import genai
 from google.genai import types as genai_types
 
 import config
+from key_rotation import key_attempt_order
 from config import (
     MAX_WORDS,
     DEFAULT_TONE,
@@ -153,8 +154,12 @@ def generate_with_metadata(
 
     # Coba setiap key mulai dari key yang sedang aktif
     keys = config.GEMINI_API_KEYS
-    for attempt in range(len(keys)):
-        key_idx = (_gemini_key_index + attempt) % len(keys)
+    # Snapshot urutan sebelum loop. Mutasi cursor saat failover tidak boleh
+    # mengubah key yang masih harus dicoba pada generation yang sama.
+    attempt_order = key_attempt_order(len(keys), _gemini_key_index)
+    attempted_count = 0
+    for key_idx in attempt_order:
+        attempted_count += 1
         current_key = keys[key_idx]
 
         try:
@@ -172,6 +177,10 @@ def generate_with_metadata(
             if raw_output:
                 _llm_available = True
                 _gemini_key_index = key_idx  # Ingat key yang berhasil
+                logger.info(
+                    "Gemini generation berhasil dengan key %d/%d",
+                    key_idx + 1, len(keys),
+                )
                 return GenerationResult(raw_output=raw_output, provider="GEMINI")
         except Exception as e:
             error_str = str(e).lower()
@@ -187,8 +196,13 @@ def generate_with_metadata(
                 logger.warning("Gemini API error: %s", e)
                 break  # Error lain, langsung fallback
 
-    # Semua key gagal
-    logger.warning("All %d Gemini API keys exhausted, using template fallback", len(keys))
+    if attempted_count == len(keys):
+        logger.warning("All %d Gemini API keys exhausted, using template fallback", len(keys))
+    else:
+        logger.warning(
+            "Gemini generation berhenti setelah %d/%d key, menggunakan template fallback",
+            attempted_count, len(keys),
+        )
     _llm_available = False
     return GenerationResult(
         raw_output=_generate_template_fallback(input_payload),

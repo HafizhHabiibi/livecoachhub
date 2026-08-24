@@ -55,12 +55,14 @@ from action_engine.bridge import evaluate as action_evaluate
 from knowledge.retrieval import get_facts
 import llm_client
 from generation_provenance import resolve_generation_outcome
+from generation_dedup import build_generation_fingerprint, should_reuse_generation
 from validator.bridge import validate_output, run_with_retry, get_fallback_template
 
 logger = logging.getLogger(__name__)
 
 # Thread pool untuk async LLM — 1 worker cukup karena LLM service singlethreaded
 _llm_executor = ThreadPoolExecutor(max_workers=1, thread_name_prefix="llm-async")
+FALLBACK_RETRY_COOLDOWN_MS = 30_000
 
 
 # ---------------------------------------------------------------------------
@@ -203,6 +205,8 @@ def _check_and_collect_llm_result(session: SessionState) -> None:
         session.latest_coach_card = result["coach_card"]
         session.ready_pipeline_status = result["pipeline_status"]
         session.latest_pipeline_status = result["pipeline_status"]
+        session.latest_generation_fingerprint = session.pending_generation_fingerprint
+        session.latest_generation_event_ms = session.pending_generation_event_ms
         session.ready_gen_latency = result["gen_latency"]
         logger.info(
             "Coach card ready untuk session=%s action=%s",
@@ -218,6 +222,8 @@ def _check_and_collect_llm_result(session: SessionState) -> None:
     # Clear pending state
     session.pending_llm_future = None
     session.pending_llm_action = None
+    session.pending_generation_fingerprint = None
+    session.pending_generation_event_ms = None
 
 
 def _cancel_pending_llm(session: SessionState) -> None:
@@ -230,6 +236,8 @@ def _cancel_pending_llm(session: SessionState) -> None:
         )
         session.pending_llm_future = None
         session.pending_llm_action = None
+        session.pending_generation_fingerprint = None
+        session.pending_generation_event_ms = None
 
 
 def get_session_card(session_id: str) -> dict:
@@ -408,6 +416,13 @@ def run_pipeline(
 
     # ===== TAHAP 10: JIKA ADA ACTION → KICK OFF ASYNC LLM =====
     if decision_out.selected_action != "NO_ACTION":
+        generation_fingerprint = build_generation_fingerprint(
+            decision_out.selected_action,
+            snapshot_out.audience_state,
+            snapshot_out.evidence_comment_ids,
+            decision_out.required_fact_types,
+        )
+
         # Jika LLM sedang jalan untuk action yang SAMA, biarkan selesai (jangan cancel & jangan restart)
         is_same_running = (
             session.pending_llm_future is not None
@@ -415,10 +430,30 @@ def run_pipeline(
             and session.pending_llm_action == decision_out.selected_action
         )
 
+        reuse_latest = should_reuse_generation(
+            current_action=decision_out.selected_action,
+            latest_action=(
+                session.latest_coach_card.selected_action
+                if session.latest_coach_card is not None
+                else None
+            ),
+            current_fingerprint=generation_fingerprint,
+            latest_fingerprint=session.latest_generation_fingerprint,
+            latest_pipeline_status=session.latest_pipeline_status,
+            current_event_ms=timestamp_ms,
+            latest_event_ms=session.latest_generation_event_ms,
+            fallback_retry_cooldown_ms=FALLBACK_RETRY_COOLDOWN_MS,
+        )
+
         if is_same_running:
             logger.info(
                 "LLM async untuk session=%s action=%s sedang berjalan, melanjutkan task yang ada",
                 session_id, decision_out.selected_action,
+            )
+        elif reuse_latest:
+            logger.info(
+                "Reuse Coach Card untuk session=%s action=%s fingerprint=%s",
+                session_id, decision_out.selected_action, generation_fingerprint[:12],
             )
         else:
             # Cancel LLM sebelumnya jika aksi berubah
@@ -445,6 +480,8 @@ def run_pipeline(
             )
             session.pending_llm_future = future
             session.pending_llm_action = decision_out.selected_action
+            session.pending_generation_fingerprint = generation_fingerprint
+            session.pending_generation_event_ms = timestamp_ms
 
             logger.info(
                 "LLM async dimulai untuk session=%s action=%s",
