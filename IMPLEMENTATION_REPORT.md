@@ -15,7 +15,7 @@ Paket prioritas kompetisi telah diimplementasikan. Perubahan utama:
 5. Retry `comment_id` yang sama tidak lagi menggandakan state.
 6. Polling mempertahankan status `FALLBACK`; status tidak berubah menjadi `CARD_READY` pada polling berikutnya.
 7. Smoke test tidak lagi berhenti pada check pertama dan sekarang memeriksa provenance.
-8. Sebelas regression test baru ditambahkan dan seluruhnya lulus.
+8. Dua belas regression test baru ditambahkan dan seluruhnya lulus.
 
 ## 2. Status Prioritas
 
@@ -25,7 +25,7 @@ Paket prioritas kompetisi telah diimplementasikan. Perubahan utama:
 | COR-01 — `user_id` end-to-end | SELESAI | Field wajib di type, Zod, request, backend replay |
 | Unique-user Action Engine | SELESAI | Minimum 2 user unik sebelum action |
 | QA-01 — Smoke test | SELESAI | Counter aman terhadap `set -e`; flow tidak berhenti dini |
-| Regression tests | SELESAI | 11/11 test lulus |
+| Regression tests | SELESAI | 12/12 test lulus |
 | COR-04 — Evidence text | SELESAI | Window menyimpan dan mengambil teks evidence |
 | Retry idempotency | SELESAI | Hasil per `comment_id` di-cache per session |
 | Session concurrency minimum | SELESAI | Analyze dan polling memakai lock per session |
@@ -135,6 +135,7 @@ Test yang lulus:
 9. Dua user dapat menciptakan tren.
 10. Frontend tidak mempromosikan fallback lama menjadi `CARD_READY` saat komentar baru belum membawa card.
 11. Showcase replay memiliki contract valid dan urutan trigger phase yang benar.
+12. Polling Coach Card tidak mengakses `comment_id`; lookup idempotensi hanya berada di pipeline komentar.
 
 Perintah:
 
@@ -142,13 +143,13 @@ Perintah:
 python3 -m unittest -v tests/test_core_regressions.py
 ```
 
-Hasil: **11 passed, 0 failed**.
+Hasil: **12 passed, 0 failed**.
 
 ## 5. Hasil Verifikasi
 
 | Pemeriksaan | Hasil |
 |---|---|
-| Regression test | PASS — 11/11 |
+| Regression test | PASS — 12/12 |
 | Python compileall | PASS |
 | Action rules JSON parse | PASS |
 | Frontend TypeScript type-check | PASS |

@@ -238,11 +238,6 @@ def get_session_card(session_id: str) -> dict:
     if session is None:
         raise ValueError(f"Session not found: {session_id}")
 
-    # Retry idempotent: comment_id yang sama tidak memutasi state dua kali.
-    cached_result = session.processed_results.get(comment_id)
-    if cached_result is not None:
-        return cached_result.model_copy(deep=True)
-
     # Check dan kumpulkan hasil jika background task sudah selesai
     _check_and_collect_llm_result(session)
 
@@ -307,6 +302,11 @@ def run_pipeline(
     session = session_manager.get(session_id)
     if session is None:
         raise ValueError(f"Session not found: {session_id}")
+
+    # Retry idempotent: comment_id yang sama tidak memutasi state dua kali.
+    cached_result = session.processed_results.get(comment_id)
+    if cached_result is not None:
+        return cached_result.model_copy(deep=True)
 
     # Increment processed count
     processed_count = session_manager.increment_count(session_id)

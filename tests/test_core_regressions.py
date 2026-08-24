@@ -117,6 +117,16 @@ class FrontendContractTests(unittest.TestCase):
         self.assertIn("prev?.pipeline_status ?? result.pipeline_status", controller)
 
 
+class OrchestratorRegressionTests(unittest.TestCase):
+    def test_comment_id_cache_is_only_checked_in_comment_pipeline(self):
+        source = (ROOT / "backend" / "orchestrator.py").read_text(encoding="utf-8")
+        polling_source = source.split("def get_session_card", 1)[1].split("def run_pipeline", 1)[0]
+        pipeline_source = source.split("def run_pipeline", 1)[1]
+
+        self.assertNotIn("processed_results.get(comment_id)", polling_source)
+        self.assertIn("processed_results.get(comment_id)", pipeline_source)
+
+
 class ReplayContractTests(unittest.TestCase):
     def test_demo_rows_have_user_identity(self):
         replay_path = ROOT / "data" / "replay" / "comments-demo.jsonl"
