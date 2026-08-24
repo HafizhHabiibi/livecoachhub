@@ -35,10 +35,6 @@ from config import (
 
 logger = logging.getLogger(__name__)
 
-# Tambahkan path QLoRA untuk mengimpor system prompt resmi
-_qlora_dir_str = str(QLORA_DIR)
-if _qlora_dir_str not in sys.path:
-    sys.path.insert(0, _qlora_dir_str)
 from system_prompt import SYSTEM_PROMPT
 
 # ---------------------------------------------------------------------------
