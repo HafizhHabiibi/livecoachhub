@@ -2,7 +2,7 @@ LIVECOACHHUB
 
 Integrated System Design
 
-Ringkasan Subproyek NLP + Action/Knowledge/QLoRA LLM, Pipeline Preliminary, serta Opsi Pengembangan Final
+Ringkasan Subproyek NLP + Action/Knowledge/Gemini LLM, Pipeline Preliminary, serta Opsi Pengembangan Final
 
 Catatan: isi repository dapat berubah setelah dokumen ini dibuat. Temuan teknis di sini merefleksikan struktur repository yang telah diaudit dalam proyek ini.
 
@@ -20,7 +20,7 @@ Prinsip desain preliminary: satu pipeline end-to-end yang benar-benar bekerja le
 
 2. Subproyek Teman 1 — Fashion Intent NLP
 
-3. Subproyek Teman 2 — Action Engine, Knowledge Base, QLoRA LLM, Validator
+3. Subproyek Teman 2 — Action Engine, Knowledge Base, Grounded LLM, Validator
 
 4. Gap Integrasi Dua Repository
 
@@ -86,7 +86,7 @@ Untuk integrasi, setiap event komentar perlu membawa comment_id, user_id anonim,
 
 Repository: https://github.com/fauzovsky/M3-SCR-3
 
-Subproyek kedua bukan sekadar “LLM”. Ia lebih tepat dipahami sebagai rangkaian decision-and-response layer yang terdiri dari Action Engine, Knowledge Base, response dataset, QLoRA fine-tuned LLM, dan Validator. Dengan kata lain: komponen ini menentukan apa yang perlu dilakukan host, memilih fakta yang boleh disebut, lalu menyusun kalimat yang natural dan memeriksanya kembali.
+Subproyek kedua bukan sekadar "LLM". Ia lebih tepat dipahami sebagai rangkaian decision-and-response layer yang terdiri dari Action Engine, Knowledge Base, response dataset, Grounded LLM, dan Validator. Dengan kata lain: komponen ini menentukan apa yang perlu dilakukan host, memilih fakta yang boleh disebut, lalu menyusun kalimat yang natural dan memeriksanya kembali.
 
 ## 3.1 Action Engine — memilih tindakan, bukan menulis kalimat
 
@@ -104,25 +104,25 @@ Ketika Action Engine memilih SHOW_SIZE_GUIDE, backend tidak mengirim seluruh kno
 
 Catatan metodologis: beberapa nilai size chart dalam repository ditandai sebagai working value untuk demonstrasi dan belum seluruhnya diverifikasi sebagai standar resmi. Karena itu proposal/demo sebaiknya menyebutnya sebagai mock product catalog untuk uji grounding, bukan fakta brand nyata atau klaim standar resmi.
 
-## 3.3 Response Dataset + QLoRA LLM — mengubah action menjadi bahasa host
+## 3.3 Response Dataset + Grounded LLM — mengubah action menjadi bahasa host
 
-Model bahasa yang digunakan adalah Qwen2.5-1.5B-Instruct yang diadaptasi dengan QLoRA. QLoRA adalah teknik fine-tuning hemat memori: model dasar dikompresi/quantized dan hanya sejumlah kecil parameter adapter LoRA yang dilatih. Hasilnya, tim dapat menyesuaikan gaya dan format respons tanpa harus melatih seluruh model besar dari awal.
+LLM yang digunakan adalah **Gemini API** (`gemini-2.5-flash`) yang di-ground pada fakta produk melalui system prompt yang ketat. LLM menerima konteks berupa selected_action, audience_state, evidence comments, product_facts, tone, dan batas kata, lalu menghasilkan seller script yang grounded.
 
-Response dataset berisi contoh pasangan input-output terstruktur. Input menjelaskan selected_action, audience_state, evidence comments, product_facts, tone, dan batas kata. Output berisi seller script, daftar fact_id yang dipakai, claims yang mengaitkan kalimat dengan fakta, serta needs_fallback.
+Response dataset berisi contoh pasangan input-output terstruktur yang menjadi referensi format output. Input menjelaskan selected_action, audience_state, evidence comments, product_facts, tone, dan batas kata. Output berisi seller script, daftar fact_id yang dipakai, claims yang mengaitkan kalimat dengan fakta, serta needs_fallback.
 
-Pemisahan fungsi ini penting: Action Engine menentukan “WHAT to say/do”, sedangkan LLM menentukan “HOW to say it”. Dengan desain ini, LLM tidak dibiarkan bebas menentukan strategi bisnis sendiri.
+Pemisahan fungsi ini penting: Action Engine menentukan "WHAT to say/do", sedangkan LLM menentukan "HOW to say it". Dengan desain ini, LLM tidak dibiarkan bebas menentukan strategi bisnis sendiri.
 
 ## 3.4 Validator — pagar keamanan output LLM
 
 Validator memeriksa apakah output LLM mengikuti struktur JSON, tidak memasukkan fakta/angka yang tidak didukung, menggunakan fact_id yang benar, mematuhi batas kata, dan menandai fallback bila data tidak cukup. Jika gagal, sistem dapat melakukan retry satu kali; jika masih gagal, gunakan safe fallback. Strategi ini penting untuk latency live-commerce dan untuk bonus governance/responsible AI.
 
-Catatan audit penting: laporan “60/60 passed” pada repository tidak boleh dipresentasikan sebagai accuracy LLM. Laporan tersebut memvalidasi response dataset/ideal output terhadap policy validator. Untuk mengklaim performa LLM, model harus benar-benar dijalankan pada test prompt baru, lalu output aktualnya dinilai: valid JSON rate, grounded claim rate, hallucination rate, dan fallback correctness.
+Catatan audit penting: untuk mengklaim performa LLM, model harus benar-benar dijalankan pada test prompt baru, lalu output aktualnya dinilai: valid JSON rate, grounded claim rate, hallucination rate, dan fallback correctness.
 
 # 4. Gap Integrasi Dua Repository
 
 Secara konsep kedua repo cocok, tetapi saat ini belum otomatis koheren. Gap terbesar adalah kontrak data: intent keluaran IndoBERT berbeda dengan signal label yang diharapkan Action Engine.
 
-Selain taxonomy mismatch, ada isu implementasi yang perlu dibereskan: path Action Engine mengharapkan action_rules.json sedangkan file yang diaudit bernama “action_rules (1).json”. Nama file harus distandardisasi agar engine dapat diinstansiasi tanpa error. QLoRA juga perlu benar-benar dilatih dan diuji end-to-end, lalu adapter dan hasil evaluasi aktual disimpan/didokumentasikan.
+Selain taxonomy mismatch, ada isu implementasi yang perlu dibereskan: path Action Engine mengharapkan action_rules.json sedangkan file yang diaudit bernama “action_rules (1).json”. Nama file harus distandardisasi agar engine dapat diinstansiasi tanpa error.
 
 # 5. Rancangan LiveCoachHub Preliminary — Satu Pipeline Linear
 
@@ -158,9 +158,9 @@ Engine memilih satu main audience state dan satu next-best-action dari Trend Lan
 
 required_fact_types dari main action atau priority response digunakan untuk mengambil hanya fakta produk yang relevan dari Knowledge Base.
 
-### Tahap 8 — QLoRA LLM
+### Tahap 8 — LLM (Gemini API)
 
-Action/state, evidence comments, product facts, tone, dan max_words dikirim ke LLM. Model menghasilkan seller script yang grounded. LLM dipanggil ketika main action berubah atau ketika priority event membutuhkan suggested response, bukan untuk setiap komentar.
+Action/state, evidence comments, product facts, tone, dan max_words dikirim ke Gemini API. Model menghasilkan seller script yang grounded. LLM dipanggil ketika main action berubah atau ketika priority event membutuhkan suggested response, bukan untuk setiap komentar.
 
 ### Tahap 9 — Validator
 
@@ -238,7 +238,7 @@ Detect Priority Event secara paralel dan select satu main recommended action.
 
 Retrieve fakta produk sesuai required_fact_types.
 
-Generate grounded seller script dengan QLoRA LLM.
+Generate grounded seller script dengan Gemini API.
 
 Validate output; retry/fallback bila perlu.
 
@@ -270,7 +270,7 @@ Guidebook utama: [AIC] AI Innovation Challenge (5).pdf — khususnya halaman tek
 | Apakah pola ini cukup kuat untuk dianggap penting? | Rolling-window aggregator | Menghitung berapa kali sinyal muncul dalam 60 detik. |
 | Host sebaiknya melakukan apa? | Action Engine | Memilih satu tindakan berdasarkan aturan dan prioritas. |
 | Fakta apa yang boleh disebut? | Knowledge Base | Menyediakan fakta produk yang sudah ditentukan. |
-| Bagaimana host mengucapkannya dengan natural? | QLoRA LLM | Mengubah action + fakta menjadi kalimat singkat. |
+| Bagaimana host mengucapkannya dengan natural? | Gemini API | Mengubah action + fakta menjadi kalimat singkat. |
 | Apakah kalimat aman dan grounded? | Validator | Mengecek struktur, fakta, angka, dan fallback. |
 | Apakah komentar berulang berasal dari spam? | Spam/Duplicate Filter | Mencegah satu akun mengubah tren hanya dengan mengirim komentar yang sama berulang kali. |
 | Apakah ada satu komentar penting walau tidak dominan? | Priority Detector | Mengangkat high-value comment seperti purchase intent tanpa menunggu intent menjadi mayoritas. |
@@ -361,8 +361,8 @@ Guidebook utama: [AIC] AI Innovation Challenge (5).pdf — khususnya halaman tek
 | --- | --- |
 | Frontend hanya alur inti | Satu halaman replay → trend state → main action → script/evidence + priority comment. |
 | Backend sinkron | Replay, spam filter, rolling aggregation, priority detection, action, retrieval, LLM, dan validator berjalan sinkron; tanpa infra produksi. |
-| AI fokus core inference | IndoBERT inference + deterministic Trend/Priority logic + Action Engine + QLoRA generation + validator. |
-| Pre-trained/API boleh, model wajib disesuaikan | IndoBERT di-fine-tune untuk commerce intent; Qwen diadaptasi dengan QLoRA. |
+| AI fokus core inference | IndoBERT inference + deterministic Trend/Priority logic + Action Engine + Gemini API generation + validator. |
+| Pre-trained/API boleh, model wajib disesuaikan | IndoBERT di-fine-tune untuk commerce intent; Gemini API digunakan dengan grounded system prompt. |
 | Reproducible lokal | Gunakan replay data dan Docker Compose; jangan bergantung live TikTok saat cross-check. |
 | README jelas | Jelaskan setup, model artifacts, input format, run replay, endpoint, dan limitation. |
 | MVP tidak overbuilt | Tidak ada login, history dashboard, LSTM, multi-platform, payment, atau infra produksi. |
@@ -383,12 +383,12 @@ Guidebook utama: [AIC] AI Innovation Challenge (5).pdf — khususnya halaman tek
 | P0 | Bekukan taxonomy adapter | Semua label NLP yang dipakai Action Engine memiliki mapping jelas. |
 | P0 | Perbaiki action_rules path/name | ActionEngine() dapat start tanpa file-not-found. |
 | P0 | Run evaluasi IndoBERT aktual | Macro-F1, per-class metrics, confusion matrix terdokumentasi. |
-| P0 | Run QLoRA training + inference aktual | Adapter terbentuk dan inference test terhadap prompt baru terdokumentasi. |
+| P0 | Verifikasi Gemini API integration | Gemini API menghasilkan grounded response yang lolos validator. |
 | P0 | Bangun orchestrator backend | Comment → NLP → window → action → facts → LLM → validator berjalan otomatis. |
 | P0 | Docker Compose | Fresh clone dapat menjalankan aplikasi sesuai README. |
 | P1 | Frontend satu halaman | Komentar, state, action, script, evidence terlihat jelas. |
 | P1 | Replay scenario dengan story arc | Empat use case muncul secara terkontrol dalam demo. |
-| P1 | Evaluation LLM yang benar | Ukur JSON validity, grounded claim rate, hallucination/fallback correctness. |
+| P1 | Evaluation LLM yang benar | Ukur JSON validity, grounded claim rate, hallucination/fallback correctness dari Gemini API output. |
 | P2 | UI polish dan animasi ringan | Dilakukan setelah P0/P1 stabil. |
 | P0 | Bangun replay event-time + spam filter | JSON diputar sesuai virtual timestamp; duplicate/user spam tidak mendominasi agregasi. |
 | P0 | Bangun Trend Lane + Priority Lane | Main audience state dan priority comment dapat muncul bersamaan secara konsisten. |
@@ -404,7 +404,7 @@ Guidebook utama: [AIC] AI Innovation Challenge (5).pdf — khususnya halaman tek
 | Action Engine | Logika yang mengubah sinyal audience menjadi satu tindakan seller. |
 | Knowledge Base | Kumpulan fakta produk terstruktur yang menjadi sumber kebenaran bagi LLM. |
 | LLM | Large Language Model; model bahasa yang dapat menghasilkan teks natural. |
-| QLoRA | Teknik fine-tuning LLM yang hemat memori dengan quantization + LoRA adapters. |
+| Gemini API | Cloud-based Large Language Model dari Google, digunakan untuk generate seller script. |
 | Grounding | Membatasi output LLM agar hanya menggunakan fakta yang tersedia. |
 | Validator | Komponen yang memeriksa apakah output memenuhi struktur dan aturan. |
 | Fallback | Jawaban aman/cadangan ketika sistem tidak punya fakta cukup atau output gagal validasi. |

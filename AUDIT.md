@@ -24,7 +24,7 @@ Menutup **seluruh gap repository** sebelum submission. Fokus utama bukan menamba
 |----|--------|--------|
 | **C-01** | Root `docker-compose.yml` mereferensikan `backend/Dockerfile` yang **tidak ada** | `docker compose build` gagal di backend |
 | **C-02** | Dockerfile NLP di `AI/NLP/fine-tuned-indobert/` **tidak ada** | NLP service tidak bisa di-build |
-| **C-03** | LLM service belum menjadi bagian aktif dari official Compose stack | Full-AI stack tidak bisa start sebagai satu sistem |
+| **C-03** | ~~LLM service belum menjadi bagian aktif dari official Compose stack~~ | ✅ Resolved — menggunakan Gemini API (cloud), tidak perlu LLM container |
 | **C-04** | NLP `serve.py` bind ke `127.0.0.1` bukan `0.0.0.0` | Backend container **gagal akses** NLP container |
 | **C-05** | README root mengandung **path/struktur lama** yang tidak sesuai repo sekarang | Juri mengikuti instruksi yang salah |
 
@@ -68,15 +68,11 @@ Hentikan semua fitur baru. Setiap perubahan harus menjawab: *apakah membantu bui
 ### FASE 1 — Docker Stack (P0)
 - Buat `backend/Dockerfile` (khusus runtime FastAPI)
 - Buat `AI/NLP/fine-tuned-indobert/Dockerfile` (inference NLP)
-- Buat `AI/LLM/Dockerfile` (inference Qwen + QLoRA)
-- Aktifkan `llm:` pada root `docker-compose.yml`
 - Ubah NLP host dari `127.0.0.1` → `0.0.0.0`
 - Sinkronkan env vars, ports, dan service names
 
 ### FASE 2 — Model Download & Cache
 - Model NLP otomatis download dari HF saat first-run
-- Qwen base model auto-download
-- QLoRA adapter dari lokasi canonical
 - Persist cache dengan Docker volume
 - Perbaiki error handling downloader
 
@@ -86,8 +82,8 @@ Hentikan semua fitur baru. Setiap perubahan harus menjawab: *apakah membantu bui
 - Uji spam filter & unique user count
 
 ### FASE 4 — AI Visibility & Provenance
-- Health status terpisah per service (backend, NLP, LLM)
-- Provenance output: `IndoBERT` vs `Heuristic Fallback`, `QLoRA` vs `Template Fallback`
+- Health status terpisah per service (backend, NLP)
+- Provenance output: `IndoBERT` vs `Heuristic Fallback`, `Gemini API` vs `Template Fallback`
 - `DEGRADED` tidak boleh terlihat sebagai `READY`
 
 ### FASE 5 — Fresh-Clone Test
@@ -112,13 +108,13 @@ Hentikan semua fitur baru. Setiap perubahan harus menjawab: *apakah membantu bui
 
 | ID | Risiko | Level |
 |----|--------|-------|
-| R-01 | Reviewer tidak punya NVIDIA GPU | 🔴 Tinggi |
+| ~~R-01~~ | ~~Reviewer tidak punya NVIDIA GPU~~ | ✅ Resolved — Gemini API, tidak perlu GPU |
 | R-02 | Download HF lambat/gagal | 🔴 Tinggi |
 | R-04 | Fallback aktif diam-diam | 🔴 Tinggi |
 | R-05 | Dependency Linux tidak cocok | 🔴 Tinggi |
 | R-06 | Hidden local file dependency | 🔴 Tinggi |
 | R-07 | Port/service networking salah | 🔴 Tinggi |
-| R-08 | RAM/VRAM tidak cukup → OOM | 🔴 Tinggi |
+| ~~R-08~~ | ~~RAM/VRAM tidak cukup → OOM~~ | ✅ Resolved — tidak ada local LLM, RAM cukup 8GB |
 | R-03 | Model di-download ulang setiap restart | 🟡 Sedang |
 | R-09 | Synthetic augmentation leakage | 🟡 Sedang |
 | R-10 | Nondeterministic LLM output | 🟡 Sedang |
@@ -133,7 +129,7 @@ Hentikan semua fitur baru. Setiap perubahan harus menjawab: *apakah membantu bui
 | AC-02 | Single-command startup (Docker Compose) | ✅ Wajib |
 | AC-03 | Model bootstrap otomatis | ✅ Wajib |
 | AC-04 | Service health terverifikasi | ✅ Wajib |
-| AC-05 | Real AI (IndoBERT + QLoRA, bukan fallback) | ✅ Wajib |
+| AC-05 | Real AI (IndoBERT + Gemini API, bukan fallback) | ✅ Wajib |
 | AC-06 | Correct user identity (`user_id` konsisten) | ✅ Wajib |
 | AC-07 | No hidden setup | ✅ Wajib |
 | AC-08 | README accuracy | ✅ Wajib |
@@ -158,6 +154,6 @@ Hentikan semua fitur baru. Setiap perubahan harus menjawab: *apakah membantu bui
 
 ## 🔑 Prioritas Absolut
 
-> **1)** Docker official stack → **2)** model bootstrap/cache → **3)** networking → **4)** user_id correctness → **5)** provenance/health → **6)** fresh clone → **7)** README → **8)** smoke test → **9)** docs cleanup → **10)** Proof of Work
+> **1)** Docker official stack → **2)** NLP model bootstrap/cache → **3)** networking → **4)** user_id correctness → **5)** provenance/health → **6)** fresh clone → **7)** README → **8)** smoke test → **9)** docs cleanup → **10)** Proof of Work
 >
 > **Jangan membalik urutan ini dengan menambah fitur baru.**

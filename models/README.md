@@ -1,17 +1,17 @@
 # Model Artifacts
 
-Folder ini menyimpan model artifacts (checkpoint, adapter) yang dihasilkan
+Folder ini menyimpan model artifacts (checkpoint) yang dihasilkan
 dari training. Untuk preliminary:
 
 ## IndoBERT Intent Classifier
-- Checkpoint tersimpan di: `ai/intent_classifier/outputs/models/`
-- Dijalankan sebagai service terpisah via `ai/intent_classifier/ml/serve.py`
+- Checkpoint tersimpan di: `AI/NLP/fine-tuned-indobert/outputs/models/`
+- Dijalankan sebagai service terpisah via `AI/NLP/fine-tuned-indobert/serve.py`
 
-## QLoRA LLM Adapter
-- Adapter tersimpan di: `ai/grounded_llm/LLM dengan QLoRA/livecoach-qlora-adapter/`
-- Dijalankan sebagai service terpisah (jika tersedia)
+## LLM (Gemini API)
+- Menggunakan Gemini API (`gemini-2.5-flash`) — tidak memerlukan model lokal
+- Konfigurasi API key di `.env` atau `.env.enc`
 
 ## Catatan
-- Jika model tidak tersedia, backend otomatis menggunakan fallback:
+- Jika model/API tidak tersedia, backend otomatis menggunakan fallback:
   - NLP: keyword-based heuristic
   - LLM: template-based response

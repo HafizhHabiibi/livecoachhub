@@ -39,8 +39,6 @@ PRODUCT_FACTS_PATH = KNOWLEDGE_BASE_DIR / "product_facts_v2.json"
 # Validator
 VALIDATOR_DIR = GROUNDED_LLM_DIR / "Validator"
 
-# QLoRA LLM
-QLORA_DIR = GROUNDED_LLM_DIR / "LLM dengan QLoRA"
 
 # Data
 DATA_DIR = PROJECT_ROOT / "data"
@@ -51,10 +49,9 @@ REPLAY_DIR = DATA_DIR / "replay"
 # ---------------------------------------------------------------------------
 
 NLP_SERVICE_URL = os.getenv("NLP_SERVICE_URL", "http://localhost:8010")
-LLM_SERVICE_URL = os.getenv("LLM_SERVICE_URL", "http://localhost:8020")
 
-# LLM configuration (gemini | qlora)
-LLM_PROVIDER = os.getenv("LLM_PROVIDER", "gemini").lower()
+# LLM configuration — Gemini API only
+LLM_PROVIDER = "gemini"
 GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
 
 # Support multi-key rotation: GEMINI_API_KEYS (comma-separated) atau GEMINI_API_KEY (single)

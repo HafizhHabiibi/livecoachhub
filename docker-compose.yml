@@ -7,7 +7,6 @@
 # Frontend:  http://localhost:3000
 # Backend:   http://localhost:8000
 # NLP:       http://localhost:8010
-# LLM:       http://localhost:8020
 # ============================================================
 
 services:
@@ -23,7 +22,6 @@ services:
       - ./data:/app/data:ro                # Mount replay & product data
     environment:
       - NLP_SERVICE_URL=http://nlp:8010
-      - LLM_SERVICE_URL=http://llm:8020
     depends_on:
       - nlp
     networks:
@@ -58,27 +56,8 @@ services:
       - livecoach
     restart: unless-stopped
 
-  # ---- LLM Service (Qwen2.5 + QLoRA) — Opsional ----
-  # Hanya dijalankan jika LLM_PROVIDER=qlora (butuh GPU NVIDIA)
-  # Aktifkan dengan: docker compose --profile qlora up --build
-  # Default (tanpa --profile): menggunakan Gemini API, service ini TIDAK jalan
-  llm:
-    profiles: ["qlora"]
-    build:
-      context: ./AI/LLM
-      dockerfile: Dockerfile
-    ports:
-      - "8020:8020"
-    volumes:
-      - hf-cache-llm:/root/.cache/huggingface   # Persist base model cache
-    command: python serve_llm.py --host 0.0.0.0 --port 8020
-    networks:
-      - livecoach
-    restart: unless-stopped
-
 volumes:
   hf-cache-nlp:        # Cache NLP model agar tidak download ulang setiap restart
-  hf-cache-llm:        # Cache Qwen base model (~3 GB)
 
 networks:
   livecoach:

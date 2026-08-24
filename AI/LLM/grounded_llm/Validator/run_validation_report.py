@@ -1,16 +1,14 @@
 """
 Menjalankan Validator (validator.py) ke setiap baris response_dataset.jsonl
 (sekarang di folder "Response Dataset", lihat DATASET_PATH) dan menyimpan
-hasilnya sebagai file laporan -- bukti bahwa dataset training yang dipakai
-untuk QLoRA (step 4) sudah lolos aturan Validator (step 5) sebelum dipakai.
+hasilnya sebagai file laporan -- bukti bahwa dataset response yang dipakai
+sebagai referensi format sudah lolos aturan Validator sebelum dipakai.
 
 PENTING: laporan ini memvalidasi DATASET BUATAN TANGAN (kurasi manual tim),
-bukan output model LLM hasil QLoRA yang sesungguhnya -- QLoRA belum pernah
-dijalankan end-to-end karena sandbox pengembangan tidak punya GPU (lihat
-README di folder "LLM dengan QLoRA"). Pass rate 100% di sini artinya "dataset
-training sudah konsisten dengan aturan Validator", BUKAN "model sudah teruji
-tidak berhalusinasi" -- itu baru bisa dibuktikan lewat qlora_inference_test.py
-setelah training beneran jalan di Colab.
+bukan output model LLM yang sesungguhnya. Pass rate 100% di sini artinya
+"dataset sudah konsisten dengan aturan Validator", BUKAN "model sudah teruji
+tidak berhalusinasi" -- performa LLM aktual (Gemini API) diuji secara
+terpisah melalui pipeline end-to-end.
 """
 
 import json
@@ -21,7 +19,6 @@ from validator import validate
 DATASET_PATH = Path(__file__).parent.parent / "Response Dataset" / "response_dataset.jsonl"
 REPORT_JSON_PATH = Path(__file__).parent / "validation_report.json"
 REPORT_MD_PATH = Path(__file__).parent / "validation_report.md"
-
 
 def main():
     with open(DATASET_PATH, "r", encoding="utf-8") as f:

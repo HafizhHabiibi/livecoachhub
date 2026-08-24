@@ -49,7 +49,7 @@ ACTION_FALLBACK_TEMPLATES = {
 
 `HANDLE_OBJECTION`, `EXPLAIN_SHIPPING`, `GUIDE_CHECKOUT` belum ada template
 fallback-nya karena action-nya sendiri belum diaktifkan di Action Engine
-(lihat `../DECISIONS_LOG.md`) — kalau lupa ditambah nanti, `.get(...,
+— kalau lupa ditambah nanti, `.get(...,
 ACTION_FALLBACK_TEMPLATES["NO_ACTION"])` di `validator.py` akan jadi
 fallback darurat, tapi sebaiknya ditambah template yang sesuai action-nya.
 
@@ -77,9 +77,8 @@ baris, menulis ulang `validation_report.json` dan `.md`. Hasil saat ini:
 **60/60 PASSED (100%)**.
 
 **Penting soal makna laporan ini:** laporan ini memvalidasi *dataset buatan
-tangan* (kurasi manual tim), bukan output model LLM hasil QLoRA yang
-sesungguhnya. Pass rate 100% artinya "dataset training sudah konsisten
-dengan aturan Validator sendiri" — bukti bahwa data yang dipakai untuk
-training bersih — **bukan** "model sudah teruji tidak berhalusinasi". Itu
-baru bisa dibuktikan lewat `../LLM dengan QLoRA/qlora_inference_test.py`
-setelah training beneran dijalankan di Colab.
+tangan* (kurasi manual tim), bukan output model LLM yang sesungguhnya.
+Pass rate 100% artinya "dataset training sudah konsisten dengan aturan
+Validator sendiri" — bukti bahwa data yang dipakai bersih — **bukan**
+"model sudah teruji tidak berhalusinasi". Performa LLM aktual (Gemini API)
+diuji secara terpisah melalui pipeline end-to-end.

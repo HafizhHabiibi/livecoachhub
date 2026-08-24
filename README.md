@@ -9,7 +9,7 @@
 [![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
 [![React](https://img.shields.io/badge/React-Frontend-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
 
-Sistem real-time yang membaca komentar audiens, mengidentifikasi pola/intent menggunakan **IndoBERT fine-tuned**, lalu memberikan **recommended action** dan **suggested seller script** melalui **LLM dual-mode** (Gemini API / Qwen2.5 + QLoRA) yang di-ground pada fakta produk.
+Sistem real-time yang membaca komentar audiens, mengidentifikasi pola/intent menggunakan **IndoBERT fine-tuned**, lalu memberikan **recommended action** dan **suggested seller script** melalui **Gemini API** yang di-ground pada fakta produk.
 
 </div>
 
@@ -21,7 +21,6 @@ Sistem real-time yang membaca komentar audiens, mengidentifikasi pola/intent men
 - [Arsitektur Pipeline](#-arsitektur-pipeline)
 - [Prasyarat](#-prasyarat)
 - [Quick Start](#-quick-start)
-- [Mode LLM](#-mode-llm)
 - [Skenario Demo](#-skenario-demo)
 - [Verifikasi & Smoke Test](#-verifikasi--smoke-test)
 - [Development Lokal](#-development-lokal-tanpa-docker)
@@ -39,7 +38,7 @@ Sistem real-time yang membaca komentar audiens, mengidentifikasi pola/intent men
 | Fitur | Deskripsi |
 |-------|-----------|
 | 🧠 **NLP Intent Classification** | IndoBERT fine-tuned mengklasifikasikan intent komentar ke 8 kelas |
-| 🤖 **Dual-Mode LLM Generation** | **Gemini API** (cloud, default) atau **Qwen2.5 + QLoRA** (local GPU) menghasilkan seller script yang di-ground pada fakta produk |
+| 🤖 **Gemini API LLM Generation** | **Gemini API** menghasilkan seller script yang di-ground pada fakta produk |
 | 🔄 **Auto-Rotation API Key** | Rotasi otomatis antar multi Gemini API key saat rate limit — demo tanpa gangguan |
 | 📊 **Rolling Window Analytics** | Agregasi sinyal audiens per 60 detik untuk mendeteksi tren |
 | 🚨 **Priority Alert System** | Deteksi komentar high-value (purchase intent, complaint) secara real-time |
@@ -54,7 +53,7 @@ Sistem real-time yang membaca komentar audiens, mengidentifikasi pola/intent men
 ```
 Comment → Preprocessing → Spam Filter → NLP (IndoBERT)
   → Taxonomy Adapter → Rolling Window 60s
-  → [Trend Lane]    → Action Engine → Fact Retrieval → LLM → Validator → Coach Card
+  → [Trend Lane]    → Action Engine → Fact Retrieval → LLM (Gemini) → Validator → Coach Card
   → [Priority Lane] → Priority Alert
 ```
 
@@ -63,8 +62,7 @@ Comment → Preprocessing → Spam Filter → NLP (IndoBERT)
 | Komponen | Model / Teknik | Fungsi |
 |----------|----------------|--------|
 | **NLP** | IndoBERT fine-tuned | Klasifikasi intent komentar (8 kelas) |
-| **LLM (Cloud)** | Gemini API (`gemini-2.0-flash`) | Generate seller script — default, tanpa GPU |
-| **LLM (Local)** | Qwen2.5-1.5B + QLoRA | Generate seller script — opsional, butuh GPU |
+| **LLM** | Gemini API (`gemini-2.5-flash`) | Generate seller script — tanpa GPU |
 | **Validator** | Rule-based | Verifikasi JSON, grounding, fallback |
 | **Action Engine** | Threshold + priority | Pilih tindakan berdasarkan audience state |
 
@@ -79,15 +77,11 @@ Comment → Preprocessing → Spam Filter → NLP (IndoBERT)
 │  │  (Nginx:80)  │───▶│  (FastAPI:    │───▶│  (IndoBERT: 8010)  │    │
 │  │  :3000→:80   │    │   8000)       │    └────────────────────┘    │
 │  └──────────────┘    │               │                               │
-│                      │  LLM Client   │──▶  ☁️ Gemini API (default)  │
-│                      │  (dual-mode)  │                               │
-│                      └───────────────┘    ┌────────────────────┐    │
-│                                           │  🤖 QLoRA Service   │    │
-│                          (opsional) ◀─────│ (Qwen2.5: 8020)    │    │
-│                                           │ [profile: qlora]   │    │
-│  Volumes:                                 └────────────────────┘    │
+│                      │  LLM Client   │──▶  ☁️ Gemini API             │
+│                      └───────────────┘                               │
+│                                                                      │
+│  Volumes:                                                            │
 │    hf-cache-nlp → /root/.cache/huggingface (NLP model cache)        │
-│    hf-cache-llm → /root/.cache/huggingface (LLM model cache)        │
 └──────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -98,13 +92,12 @@ Comment → Preprocessing → Spam Filter → NLP (IndoBERT)
 | Kebutuhan | Minimum |
 |-----------|---------|
 | **Docker & Docker Compose** | Docker v24+, Compose v2.0+ |
-| **RAM** | 8 GB (16 GB jika mode QLoRA) |
+| **RAM** | 8 GB |
 | **Disk Space** | ~5 GB (image + model IndoBERT) |
 | **Internet** | Koneksi untuk download model pertama kali (~500 MB, sekali saja) |
-| **GPU** *(opsional)* | NVIDIA dengan CUDA — hanya untuk mode QLoRA |
 
 > [!NOTE]
-> **Tanpa GPU**: Sistem tetap berjalan penuh menggunakan **Gemini API** (default). GPU hanya diperlukan jika ingin menggunakan mode **QLoRA local**.
+> **GPU tidak diperlukan.** Sistem menggunakan **Gemini API** (cloud) untuk LLM generation dan IndoBERT untuk NLP classification.
 
 ### Khusus Windows
 
@@ -142,48 +135,6 @@ Setelah semua siap, buka browser:
 
 > [!IMPORTANT]
 > **API key Gemini sudah terkonfigurasi** di dalam image — tidak perlu setup apapun. Sistem langsung aktif menggunakan Gemini API.
-
----
-
-## 💻 Mode LLM
-
-### Mode 1: Gemini API (Default — tanpa GPU)
-
-Mode default. Tidak perlu konfigurasi tambahan, langsung jalan dengan `docker compose up`.
-
-### Mode 2: QLoRA Local (Butuh GPU NVIDIA)
-
-Untuk menjalankan Qwen2.5 + QLoRA secara lokal, aktifkan Docker profile `qlora`:
-
-```bash
-docker compose --profile qlora -f docker-compose.yml -f docker-compose.gpu.yml up --build
-```
-
-**Prasyarat GPU:**
-1. NVIDIA GPU (GTX 1060+ / RTX, VRAM minimum 4 GB)
-2. NVIDIA Driver terbaru — [nvidia.com/drivers](https://www.nvidia.com/drivers)
-3. NVIDIA Container Toolkit — [panduan resmi](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
-
-Verifikasi GPU sebelum menjalankan:
-```bash
-# Linux
-nvidia-smi
-docker run --rm --gpus all nvidia/cuda:12.2.0-base-ubuntu22.04 nvidia-smi
-
-# Windows (PowerShell)
-wsl -- nvidia-smi
-```
-
-### Perbandingan Mode
-
-| | Gemini API (Default) | QLoRA (Opsional) | Template Fallback |
-|---|---|---|---|
-| **LLM Provider** | ☁️ Google Gemini | 🤖 Qwen2.5 + QLoRA | 📝 Template bawaan |
-| **Kebutuhan** | Internet | GPU NVIDIA (4GB+ VRAM) | Tidak ada |
-| **Kecepatan** | ~1-3 detik | ~5-15 detik | Instan |
-| **Kualitas Output** | Tinggi | Menengah | Dasar |
-| **Docker Profile** | Default | `--profile qlora` | Otomatis jika LLM gagal |
-| **Health Status** | `READY` | `READY` | `DEGRADED` |
 
 ---
 
@@ -302,17 +253,6 @@ python serve.py --port 8010
 
 </details>
 
-<details>
-<summary><strong>LLM Service (Qwen2.5 + QLoRA) — Butuh GPU</strong></summary>
-
-```bash
-cd AI/LLM
-pip install -r grounded_llm/LLM\ dengan\ QLoRA/requirements_qlora.txt
-python serve_llm.py --port 8020
-```
-
-</details>
-
 ---
 
 ## 📁 Struktur Repository
@@ -328,7 +268,7 @@ LiveCoachHub/
 │   ├── entrypoint.sh              # Auto-decrypt .env.enc saat start
 │   ├── .env.enc                   # API key terenkripsi (AES-256)
 │   ├── app/main.py                # Entry point (5 endpoints)
-│   ├── llm_client.py              # Dual-mode LLM + auto-rotation key
+│   ├── llm_client.py              # Gemini API client + auto-rotation key
 │   ├── config.py                  # Konfigurasi global
 │   ├── orchestrator.py
 │   ├── preprocessing/
@@ -342,9 +282,7 @@ LiveCoachHub/
 │   └── replay/
 ├── AI/
 │   ├── NLP/fine-tuned-indobert/   # IndoBERT inference service (:8010)
-│   └── LLM/                       # Qwen2.5 + QLoRA inference service (:8020)
-│       ├── grounded_llm/          # Action Engine, KB, Validator, dataset
-│       └── livecoach-qlora-adapter/
+│   └── LLM/grounded_llm/         # Action Engine, Knowledge Base, Validator
 ├── data/
 │   ├── replay/                    # File replay demo (.jsonl)
 │   └── product_facts/             # Fakta produk (mock catalog)
@@ -353,7 +291,7 @@ LiveCoachHub/
 │   └── smoke_test.sh
 ├── docs/                          # Dokumentasi tambahan
 ├── docker-compose.yml
-└── docker-compose.gpu.yml         # Override untuk mode GPU + QLoRA
+└── README.md
 ```
 
 ---
@@ -476,8 +414,7 @@ git clone https://github.com/HafizhHabiibi/livecoachhub.git
 
 - **Replay mode only** — bukan real-time stream (fitur final jika lolos)
 - **Satu produk mock** — Essential Cotton T-Shirt
-- **QLoRA membutuhkan GPU** — tanpa GPU, gunakan mode Gemini API (default)
-- **Model download** — perlu koneksi internet saat pertama kali (~500 MB untuk NLP)
+- **Membutuhkan internet** — untuk Gemini API dan download model pertama kali
 - **Belum ada auth/login** — sesuai batas MVP preliminary
 
 ---
@@ -488,7 +425,6 @@ git clone https://github.com/HafizhHabiibi/livecoachhub.git
 |----------|------|
 | Docker Desktop | [docs.docker.com/desktop](https://docs.docker.com/desktop/install/windows-install/) |
 | WSL 2 Installation | [learn.microsoft.com/windows/wsl/install](https://learn.microsoft.com/en-us/windows/wsl/install) |
-| NVIDIA Container Toolkit | [docs.nvidia.com/container-toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) |
 | Docker Compose Docs | [docs.docker.com/compose](https://docs.docker.com/compose/) |
 | Dokumentasi Teknis | [`docs/README.md`](docs/README.md) |
 | Desain Sistem | [`PROJECT.md`](PROJECT.md) |

@@ -7,7 +7,7 @@ Lihat [PROJECT.md](../PROJECT.md) untuk desain sistem terintegrasi.
 ```
 Comment → Preprocessing → Spam Filter → NLP (IndoBERT)
   → Taxonomy Adapter → Rolling Window 60s
-  → [Trend Lane] → Action Engine → Fact Retrieval → LLM → Validator
+  → [Trend Lane] → Action Engine → Fact Retrieval → LLM (Gemini API) → Validator
   → [Priority Lane] → Priority Alert
   → PipelineResult → Frontend
 ```
@@ -20,9 +20,7 @@ Comment → Preprocessing → Spam Filter → NLP (IndoBERT)
 - **Action rules**: `AI/LLM/grounded_llm/Action Engine/action_rules.json`
 - **Product facts**: `AI/LLM/grounded_llm/Knowledge Base/product_facts_v2.json`
 - **NLP Intent Classifier**: `AI/NLP/fine-tuned-indobert/serve.py` (port 8010)
-- **LLM Service**: `AI/LLM/serve_llm.py` (port 8020)
 - **NLP Model**: `AI/NLP/fine-tuned-indobert/outputs/models/indobert-intent/run1/best/`
 - **NLP Pipeline**: `AI/NLP/fine-tuned-indobert/pipeline.py`
-- **QLoRA Adapter**: `AI/LLM/livecoach-qlora-adapter/`
 - **Replay Data**: `data/replay/comments-demo.jsonl`
 - **Product Facts (copy)**: `data/product_facts/product_facts_v2.json`
