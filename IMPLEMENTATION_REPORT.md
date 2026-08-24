@@ -17,7 +17,7 @@ Paket prioritas kompetisi telah diimplementasikan. Perubahan utama:
 7. Smoke test tidak lagi berhenti pada check pertama dan sekarang memeriksa provenance.
 8. Health frontend sekarang pulih setelah Gemini terverifikasi dan provenance card tampil eksplisit.
 9. Polling, retry, dan validasi file replay diperketat.
-10. Dua puluh enam regression test berjalan dan seluruhnya lulus.
+10. Dua puluh tujuh regression test berjalan dan seluruhnya lulus.
 
 ## 2. Status Prioritas
 
@@ -28,7 +28,7 @@ Paket prioritas kompetisi telah diimplementasikan. Perubahan utama:
 | Unique-user Action Engine | SELESAI | Minimum 2 user unik sebelum action |
 | QA-01 — Smoke test | SELESAI | Counter aman terhadap `set -e`; flow tidak berhenti dini |
 | Frontend reliability | SELESAI | Health refresh, typed polling, retry, generation state, input guard |
-| Regression tests | SELESAI | 26/26 test lulus |
+| Regression tests | SELESAI | 27/27 test lulus |
 | COR-04 — Evidence text | SELESAI | Window menyimpan dan mengambil teks evidence |
 | Retry idempotency | SELESAI | Hasil per `comment_id` di-cache per session |
 | Session concurrency minimum | SELESAI | Analyze dan polling memakai lock per session |
@@ -153,6 +153,7 @@ Test yang lulus:
 24. Perubahan evidence material menghasilkan fingerprint baru.
 25. Fallback untuk action yang sama digunakan ulang selama cooldown dan boleh dicoba kembali setelah 30 detik.
 26. Perubahan evidence kecil tidak menembus cooldown fallback untuk action yang sama.
+27. Versi TypeScript terkunci pada versi yang didukung toolchain ESLint.
 
 Perintah:
 
@@ -160,18 +161,18 @@ Perintah:
 python3 -m unittest -v tests/test_core_regressions.py
 ```
 
-Hasil: **26 passed, 0 failed**.
+Hasil: **27 passed, 0 failed**.
 
 ## 5. Hasil Verifikasi
 
 | Pemeriksaan | Hasil |
 |---|---|
-| Regression test | PASS — 26/26 |
+| Regression test | PASS — 27/27 |
 | Python compileall | PASS |
 | Action rules JSON parse | PASS |
 | Frontend TypeScript type-check | PASS |
 | Frontend production build | PASS |
-| ESLint | PASS dengan warning kompatibilitas TypeScript existing |
+| ESLint | PASS tanpa warning kompatibilitas TypeScript |
 | Shell syntax | PASS |
 | Smoke test control-flow pada service offline | PASS — seluruh tahap dijalankan dan summary benar |
 | Full Docker E2E | BELUM DIJALANKAN dalam workspace audit |
@@ -293,7 +294,7 @@ Verifikasi update frontend:
 | TypeScript type-check | PASS |
 | ESLint | PASS; warning kompatibilitas versi existing tetap non-blocking |
 | Vite production build | PASS |
-| Regression tests | PASS — 26/26 |
+| Regression tests | PASS — 27/27 |
 | `git diff --check` | PASS |
 
 Full visual/runtime re-validation tetap perlu dilakukan dari clone Windows karena Docker Desktop tidak terhubung ke workspace WSL ini.

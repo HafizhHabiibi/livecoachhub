@@ -74,9 +74,14 @@ export default function DecisionDetails({ result }: DecisionDetailsProps) {
 
               {result.coach_card && (
                 <DetailBlock title="Coach card">
-                  <Row label="Validasi" value={result.coach_card.validation_status} />
-                  <Row label="Provider" value={result.coach_card.generation_provider === 'GEMINI' ? 'Gemini API' : 'Template fallback'} />
-                  <Row label="Fallback" value={result.coach_card.fallback_used ? 'Ya' : 'Tidak'} />
+                  <Row
+                    label="Validasi"
+                    value={result.coach_card.validation_status === 'PASSED' ? 'Sesuai Knowledge Base' : 'Perlu ditinjau'}
+                  />
+                  <Row
+                    label="Sumber"
+                    value={result.coach_card.generation_provider === 'GEMINI' ? 'Gemini API' : 'Template Knowledge Base'}
+                  />
                   <Row label="Evidence" value={result.coach_card.evidence_comment_ids.join(', ')} mono />
                   {result.coach_card.used_fact_ids.length > 0 && <Row label="Used facts" value={result.coach_card.used_fact_ids.join(', ')} mono />}
                 </DetailBlock>

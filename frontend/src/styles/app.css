@@ -225,7 +225,6 @@
 .coach-updating { margin-bottom: var(--space-3); padding: 7px 9px; color: var(--color-live-strong); background: var(--color-live-soft); border-radius: var(--radius-sm); font-size: 10px; font-weight: var(--weight-medium); }
 .coach-confidence { gap: 6px; color: var(--color-muted); font-family: var(--font-mono); font-size: 10px; }
 .priority-label { color: var(--coach-accent); font-family: var(--font-sans); font-weight: var(--weight-semibold); }
-.fallback-label { color: var(--color-warning); font-family: var(--font-sans); font-weight: var(--weight-semibold); }
 .coach-body { padding: var(--space-5); }
 .coach-situation { font-size: var(--text-lg); font-weight: var(--weight-semibold); letter-spacing: -0.02em; line-height: 1.35; }
 .coach-reason { max-width: 620px; margin-top: var(--space-2); color: var(--color-muted); font-size: var(--text-xs); line-height: 1.55; }

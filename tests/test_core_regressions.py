@@ -210,18 +210,27 @@ class FrontendContractTests(unittest.TestCase):
         self.assertIn("parseOrThrow(SessionCardResponseSchema", api)
         self.assertNotIn("pipeline_status as any", controller)
 
-    def test_health_has_honest_unknown_and_fallback_labels(self):
+    def test_health_uses_clean_operator_facing_labels(self):
         presentation = (ROOT / "frontend" / "src" / "features" / "replay" / "systemHealth.ts").read_text(encoding="utf-8")
         controller = (ROOT / "frontend" / "src" / "features" / "replay" / "useReplayController.ts").read_text(encoding="utf-8")
-        self.assertIn("Gemini belum diverifikasi", presentation)
-        self.assertIn("Mode fallback", presentation)
+        self.assertIn("label: 'Sistem siap'", presentation)
+        self.assertIn("label: 'Mode aman'", presentation)
+        self.assertIn("Gemini akan diverifikasi saat rekomendasi pertama dibuat.", presentation)
+        self.assertNotIn("label: 'Mode fallback'", presentation)
         self.assertIn("void refreshHealth()", controller)
 
     def test_coach_card_distinguishes_gemini_and_template_provenance(self):
         card = (ROOT / "frontend" / "src" / "components" / "CoachCard.tsx").read_text(encoding="utf-8")
-        self.assertIn("Gemini · Lolos validasi KB", card)
-        self.assertIn("Template aman · Berbasis KB", card)
-        self.assertIn("Fallback aman · Output Gemini ditolak", card)
+        self.assertIn("Gemini · Sesuai Knowledge Base", card)
+        self.assertIn("Template · Berbasis Knowledge Base", card)
+        self.assertNotIn("fallback-label", card)
+
+    def test_typescript_version_is_pinned_for_eslint_compatibility(self):
+        package = json.loads((ROOT / "frontend" / "package.json").read_text(encoding="utf-8"))
+        lock = json.loads((ROOT / "frontend" / "package-lock.json").read_text(encoding="utf-8"))
+        self.assertEqual("5.5.4", package["devDependencies"]["typescript"])
+        self.assertEqual("5.5.4", lock["packages"][""]["devDependencies"]["typescript"])
+        self.assertEqual("5.5.4", lock["packages"]["node_modules/typescript"]["version"])
 
     def test_retry_transition_and_retryable_flag_are_connected(self):
         state = (ROOT / "frontend" / "src" / "features" / "replay" / "replayState.ts").read_text(encoding="utf-8")

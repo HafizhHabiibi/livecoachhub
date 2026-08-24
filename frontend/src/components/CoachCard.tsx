@@ -52,11 +52,11 @@ export default function CoachCard({ result, isGenerating = false, pendingAction 
   const card = result.coach_card;
   const provenanceLabel = card.generation_provider === 'GEMINI'
     ? card.validation_status === 'PASSED'
-      ? 'Gemini · Lolos validasi KB'
-      : 'Gemini · Validasi belum lulus'
+      ? 'Gemini · Sesuai Knowledge Base'
+      : 'Gemini · Perlu ditinjau'
     : card.validation_status === 'PASSED'
-      ? 'Template aman · Berbasis KB'
-      : 'Fallback aman · Output Gemini ditolak';
+      ? 'Template · Berbasis Knowledge Base'
+      : 'Template · Perlu ditinjau';
 
   return (
     <section
@@ -73,7 +73,6 @@ export default function CoachCard({ result, isGenerating = false, pendingAction 
           <p className="coach-action-label">{SELECTED_ACTION_LABELS[card.selected_action]}</p>
         </div>
         <div className="coach-confidence">
-          {card.fallback_used && <span className="fallback-label">Fallback</span>}
           <span className="priority-label">{URGENCY_LABELS[card.priority]}</span>
           <span aria-label={`Confidence ${formatConfidence(card.confidence)}`}>{formatConfidence(card.confidence)}</span>
         </div>

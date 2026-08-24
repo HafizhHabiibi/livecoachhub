@@ -34,27 +34,27 @@ export function describeHealth(health: HealthResponse | null): HealthPresentatio
     };
   }
 
-  if (health.services.llm_model === 'UNKNOWN') {
-    return {
-      label: 'Gemini belum diverifikasi',
-      detail: 'Gemini akan diverifikasi saat rekomendasi pertama dibuat.',
-      tone: 'neutral',
-    };
-  }
-
   if (health.services.llm_model === 'DEGRADED' || health.provider.llm === 'Template Fallback') {
     return {
-      label: 'Mode fallback',
-      detail: 'Rekomendasi aman tetap tersedia melalui template berbasis Knowledge Base.',
+      label: 'Mode aman',
+      detail: 'Respons tetap tersedia melalui template berbasis Knowledge Base.',
       tone: 'warning',
     };
   }
 
   if (health.services.nlp_model === 'DEGRADED') {
     return {
-      label: 'Mode NLP terbatas',
+      label: 'Analisis terbatas',
       detail: 'Analisis berjalan menggunakan heuristic fallback.',
       tone: 'warning',
+    };
+  }
+
+  if (health.services.llm_model === 'UNKNOWN') {
+    return {
+      label: 'Sistem siap',
+      detail: 'Gemini akan diverifikasi saat rekomendasi pertama dibuat.',
+      tone: 'success',
     };
   }
 
@@ -64,4 +64,3 @@ export function describeHealth(health: HealthResponse | null): HealthPresentatio
     tone: 'success',
   };
 }
-
