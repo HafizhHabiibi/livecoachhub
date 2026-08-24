@@ -38,7 +38,9 @@ export type GenerationProvider = 'GEMINI' | 'TEMPLATE';
  */
 export type AudienceState =
   | 'PRICE_FRICTION'    // Banyak pertanyaan harga/promo
+  | 'SIZE_INFORMATION_GAP' // Banyak pertanyaan pilihan ukuran
   | 'SIZE_FRICTION'     // Banyak pertanyaan ukuran/varian
+  | 'COLOR_INFORMATION_GAP' // Banyak pertanyaan pilihan warna
   | 'STOCK_FRICTION'    // Pertanyaan ketersediaan stok
   | 'PRODUCT_INFO_GAP'  // Pertanyaan detail produk
   | 'SHIPPING_FRICTION' // Pertanyaan pengiriman
@@ -52,7 +54,9 @@ export type AudienceState =
  */
 export type SelectedAction =
   | 'EXPLAIN_PRICE_PROMO'    // Jelaskan harga/promo
+  | 'SHOW_SIZE_OPTIONS'      // Tampilkan pilihan ukuran
   | 'SHOW_SIZE_GUIDE'        // Tampilkan panduan ukuran
+  | 'SHOW_COLOR_OPTIONS'     // Tampilkan pilihan warna
   | 'CONFIRM_STOCK'          // Konfirmasi ketersediaan stok
   | 'EXPLAIN_PRODUCT_DETAIL' // Jelaskan detail produk
   | 'EXPLAIN_SHIPPING'       // Jelaskan pengiriman
@@ -66,13 +70,28 @@ export type SelectedAction =
  */
 export type CommentIntent =
   | 'PRICE_PROMO'
-  | 'SIZE_VARIANT'
+  | 'SIZE_AVAILABILITY'
+  | 'SIZE_RECOMMENDATION'
+  | 'COLOR_AVAILABILITY'
   | 'STOCK_AVAILABILITY'
   | 'PRODUCT_DETAIL'
   | 'SHIPPING'
   | 'PURCHASE_INTENT'
   | 'OBJECTION_COMPLAINT'
-  | 'IRRELEVANT_SPAM';
+  | 'IRRELEVANT';
+
+export type RawNlpIntent =
+  | 'product_inquiry'
+  | 'size_inquiry'
+  | 'size_recommendation'
+  | 'color_inquiry'
+  | 'price_inquiry'
+  | 'stock_availability'
+  | 'purchase_intent'
+  | 'not_relevant'
+  | 'other';
+
+export type SemanticSlots = Record<string, string | number>;
 
 // ============================================================
 // UI STATE — Spesifikasi Bagian 8.1 (ReplayUiState)
@@ -223,6 +242,9 @@ export interface NlpPrediction {
   schema_version: 'nlp_prediction.v1';
   model_version: string;
   comment_id: string;
+  raw_intent: RawNlpIntent;
+  normalized_signal: CommentIntent;
+  slots: SemanticSlots;
   intents: IntentScore[];          // Multi-label; tampilkan 2-3 tertinggi
   readiness: Readiness;
   urgency: Urgency;
@@ -240,8 +262,12 @@ export interface AudienceSnapshot {
   schema_version: 'audience_snapshot.v1';
   session_id: string;
   audience_state: AudienceState;
+  dominant_signal: CommentIntent;
   window_seconds: number;          // Selalu 60 pada MVP
   support_count: number;           // Jumlah komentar mendukung state
+  unique_user_count: number;       // Pengguna unik yang mendukung state
+  latest_timestamp_ms: number;     // Sinyal terbaru pada state dominan
+  slots_summary: SemanticSlots;    // Slot eksplisit terbaru untuk retrieval
   high_readiness_count: number;
   priority_count: number;          // Komentar PRIORITY atau CRITICAL
   evidence_comment_ids: string[];  // IDs yang dipakai sebagai bukti
@@ -252,9 +278,26 @@ export interface AudienceSnapshot {
 export interface ActionDecision {
   schema_version: 'action_decision.v1';
   selected_action: SelectedAction;
+  selected_signal: CommentIntent;
   audience_state: AudienceState;
   action_score: number;            // 0-1; tampilkan di DecisionDetails
   required_fact_types: string[];   // Contoh: ['SIZE_GUIDE']
+  required_fact_query: {
+    fact_type?: string;
+    topic?: string;
+    product_id?: string;
+    filters?: SemanticSlots;
+  };
+}
+
+export interface PriorityEvent {
+  comment_id: string;
+  user_id: string;
+  signal: 'PURCHASE_INTENT';
+  confidence: number;
+  priority_level: 'MEDIUM' | 'HIGH';
+  text: string;
+  slots: SemanticSlots;
 }
 
 /** Output Coach Card — Spesifikasi Bagian 7.5 */
@@ -285,6 +328,7 @@ export interface PipelineResult {
   nlp_prediction: NlpPrediction;
   audience_snapshot: AudienceSnapshot;
   action_decision: ActionDecision;
+  priority_event: PriorityEvent | null;
   coach_card: CoachCard | null;   // null ketika WAITING_SIGNAL atau ERROR
   latency_ms?: {
     nlp?: number;

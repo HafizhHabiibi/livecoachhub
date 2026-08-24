@@ -43,6 +43,11 @@ export default function DecisionDetails({ result }: DecisionDetailsProps) {
               <DetailBlock title="Prediksi NLP">
                 <Row label="Comment ID" value={result.nlp_prediction.comment_id} mono />
                 <Row label="Model" value={result.nlp_prediction.model_version} mono />
+                <Row label="Raw intent" value={result.nlp_prediction.raw_intent} mono />
+                <Row label="Signal" value={INTENT_LABELS[result.nlp_prediction.normalized_signal]} />
+                {Object.keys(result.nlp_prediction.slots).length > 0 && (
+                  <Row label="Slots" value={JSON.stringify(result.nlp_prediction.slots)} mono />
+                )}
                 <Row label="Confidence" value={formatConfidence(result.nlp_prediction.overall_confidence)} />
                 <Row label="Readiness" value={result.nlp_prediction.readiness} />
                 <Row label="Urgency" value={result.nlp_prediction.urgency} />
@@ -57,18 +62,30 @@ export default function DecisionDetails({ result }: DecisionDetailsProps) {
 
               <DetailBlock title="Snapshot audiens">
                 <Row label="Pola" value={AUDIENCE_STATE_LABELS[result.audience_snapshot.audience_state]} />
+                <Row label="Signal" value={INTENT_LABELS[result.audience_snapshot.dominant_signal]} />
                 <Row label="Confidence" value={formatConfidence(result.audience_snapshot.state_confidence)} />
                 <Row label="Window" value={`${result.audience_snapshot.window_seconds} detik`} />
                 <Row label="Support" value={String(result.audience_snapshot.support_count)} />
+                <Row label="Pengguna unik" value={String(result.audience_snapshot.unique_user_count)} />
+                {result.audience_snapshot.latest_timestamp_ms > 0 && (
+                  <Row label="Event time" value={`${result.audience_snapshot.latest_timestamp_ms} ms`} mono />
+                )}
+                {Object.keys(result.audience_snapshot.slots_summary).length > 0 && (
+                  <Row label="Slot agregat" value={JSON.stringify(result.audience_snapshot.slots_summary)} mono />
+                )}
                 <Row label="Siap beli" value={String(result.audience_snapshot.high_readiness_count)} />
                 <Row label="Prioritas" value={String(result.audience_snapshot.priority_count)} />
               </DetailBlock>
 
               <DetailBlock title="Keputusan aksi">
                 <Row label="Aksi" value={SELECTED_ACTION_LABELS[result.action_decision.selected_action]} />
+                <Row label="Signal" value={INTENT_LABELS[result.action_decision.selected_signal]} />
                 <Row label="Score" value={formatConfidence(result.action_decision.action_score)} />
                 {result.action_decision.required_fact_types.length > 0 && (
                   <Row label="Fakta" value={result.action_decision.required_fact_types.join(', ')} mono />
+                )}
+                {Object.keys(result.action_decision.required_fact_query).length > 0 && (
+                  <Row label="Fact query" value={JSON.stringify(result.action_decision.required_fact_query)} mono />
                 )}
               </DetailBlock>
 

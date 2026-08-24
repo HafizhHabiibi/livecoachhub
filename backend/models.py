@@ -10,7 +10,7 @@ Referensi: Spesifikasi Bagian 10 (API Payloads) dan Bagian 11 (Core Contract).
 
 from __future__ import annotations
 
-from typing import List, Literal, Optional
+from typing import Any, Dict, List, Literal, Optional
 
 from pydantic import BaseModel, Field
 
@@ -26,21 +26,30 @@ ValidationStatus = Literal["PASSED", "FAILED", "NOT_RUN"]
 GenerationProvider = Literal["GEMINI", "TEMPLATE"]
 
 AudienceState = Literal[
-    "PRICE_FRICTION", "SIZE_FRICTION", "STOCK_FRICTION",
+    "PRICE_FRICTION", "SIZE_INFORMATION_GAP", "SIZE_FRICTION",
+    "COLOR_INFORMATION_GAP", "STOCK_FRICTION",
     "PRODUCT_INFO_GAP", "SHIPPING_FRICTION", "OBJECTION_SPIKE",
     "PURCHASE_MOMENT", "NO_CLEAR_SIGNAL",
 ]
 
 SelectedAction = Literal[
-    "EXPLAIN_PRICE_PROMO", "SHOW_SIZE_GUIDE", "CONFIRM_STOCK",
+    "EXPLAIN_PRICE_PROMO", "SHOW_SIZE_OPTIONS", "SHOW_SIZE_GUIDE",
+    "SHOW_COLOR_OPTIONS", "CONFIRM_STOCK",
     "EXPLAIN_PRODUCT_DETAIL", "EXPLAIN_SHIPPING", "HANDLE_OBJECTION",
     "GUIDE_CHECKOUT", "NO_ACTION",
 ]
 
 CommentIntent = Literal[
-    "PRICE_PROMO", "SIZE_VARIANT", "STOCK_AVAILABILITY",
+    "PRICE_PROMO", "SIZE_AVAILABILITY", "SIZE_RECOMMENDATION",
+    "COLOR_AVAILABILITY", "STOCK_AVAILABILITY",
     "PRODUCT_DETAIL", "SHIPPING", "PURCHASE_INTENT",
-    "OBJECTION_COMPLAINT", "IRRELEVANT_SPAM",
+    "OBJECTION_COMPLAINT", "IRRELEVANT",
+]
+
+RawNlpIntent = Literal[
+    "product_inquiry", "size_inquiry", "size_recommendation",
+    "color_inquiry", "price_inquiry", "stock_availability",
+    "purchase_intent", "not_relevant", "other",
 ]
 
 ApiErrorCode = Literal[
@@ -60,7 +69,7 @@ class SessionStartRequest(BaseModel):
 class CommentAnalyzeRequest(BaseModel):
     session_id: str
     comment_id: str
-    user_id: str = ""
+    user_id: str = Field(min_length=1)
     timestamp_ms: int
     text: str
 
@@ -117,6 +126,9 @@ class NlpPrediction(BaseModel):
     schema_version: str = "nlp_prediction.v1"
     model_version: str
     comment_id: str
+    raw_intent: RawNlpIntent
+    normalized_signal: CommentIntent
+    slots: Dict[str, Any]
     intents: List[IntentScore]
     readiness: Readiness
     urgency: Urgency
@@ -130,8 +142,12 @@ class AudienceSnapshotOut(BaseModel):
     schema_version: str = "audience_snapshot.v1"
     session_id: str
     audience_state: AudienceState
+    dominant_signal: CommentIntent
     window_seconds: int
     support_count: int = Field(ge=0)
+    unique_user_count: int = Field(ge=0)
+    latest_timestamp_ms: int = Field(ge=0)
+    slots_summary: Dict[str, Any]
     high_readiness_count: int = Field(ge=0)
     priority_count: int = Field(ge=0)
     evidence_comment_ids: List[str]
@@ -141,9 +157,21 @@ class AudienceSnapshotOut(BaseModel):
 class ActionDecisionOut(BaseModel):
     schema_version: str = "action_decision.v1"
     selected_action: SelectedAction
+    selected_signal: CommentIntent
     audience_state: AudienceState
     action_score: float = Field(ge=0, le=1)
     required_fact_types: List[str]
+    required_fact_query: Dict[str, Any]
+
+
+class PriorityEventOut(BaseModel):
+    comment_id: str
+    user_id: str
+    signal: Literal["PURCHASE_INTENT"] = "PURCHASE_INTENT"
+    confidence: float = Field(ge=0, le=1)
+    priority_level: Literal["MEDIUM", "HIGH"]
+    text: str
+    slots: Dict[str, Any]
 
 
 class CoachCard(BaseModel):
@@ -176,5 +204,6 @@ class PipelineResult(BaseModel):
     nlp_prediction: NlpPrediction
     audience_snapshot: AudienceSnapshotOut
     action_decision: ActionDecisionOut
+    priority_event: Optional[PriorityEventOut] = None
     coach_card: Optional[CoachCard] = None
     latency_ms: Optional[LatencyMs] = None

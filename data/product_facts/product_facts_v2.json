@@ -5,6 +5,23 @@
   "generated_note": "Static knowledge base, bukan vector database. Size guide anak mengikuti pendekatan tinggi-badan EN 13402 / ISO 8559-1:2020 (standar Eropa/internasional yang jadi de-facto standar pakaian anak). Size guide dewasa memakai letter-size internasional (S-XXXL) yang lazim dipakai brand global, dengan catatan konversi ke kebiasaan ukuran lokal Indonesia (acuan konsep SNI 2161:2010 - Ukuran Pakaian Kaos Pria Dewasa). Angka cm pada size guide dewasa adalah nilai kerja tim untuk demo dan BELUM diverifikasi satu-per-satu terhadap tabel resmi SNI 2161:2010 -- jika dibutuhkan untuk kepatuhan produksi nyata, cek dokumen SNI aslinya di BSN. [v3] Ditambahkan field 'fact_type' per fact, memakai nilai resmi dari kontrak dokumen Section 4.2/10.4 (PRICE_PROMO, SIZE_GUIDE, STOCK, PRODUCT_DETAIL, SHIPPING, FAQ_PLAYBOOK, CHECKOUT_GUIDE). Field 'category' lama TETAP dipertahankan sebagai sub-tag internal yang lebih granular (mis. SIZE_GUIDE_ANAK) untuk kebutuhan organisasi/QA tim; yang dipakai untuk mencocokkan required_fact_types dari Action Engine adalah 'fact_type', BUKAN 'category'. Fact dengan category=STANDARD_REFERENCE ditandai internal_only=true dan tidak dikeluarkan fact_type publik karena isinya catatan referensi teknis internal, bukan untuk dikutip langsung ke penonton.",
   "facts": [
     {
+      "fact_id": "FACT-TS01-SIZE-OPTIONS-001",
+      "category": "SIZE_OPTIONS",
+      "topic": "size_options",
+      "product_id": "TSHIRT-01",
+      "attributes": {
+        "kids": "92-128",
+        "teen": "134-164",
+        "adult": "XS-XXXL"
+      },
+      "question_trigger": [
+        "size apa saja",
+        "ukuran yang tersedia"
+      ],
+      "value": "Pilihan ukuran tersedia untuk anak 92-128, remaja 134-164, dan dewasa XS-XXXL.",
+      "fact_type": "SIZE_GUIDE"
+    },
+    {
       "fact_id": "FACT-TS01-DESC-001",
       "category": "PRODUCT_DESCRIPTION",
       "question_trigger": [

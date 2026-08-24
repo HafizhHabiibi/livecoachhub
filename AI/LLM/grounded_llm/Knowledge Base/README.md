@@ -9,8 +9,8 @@ demo aktif: `TSHIRT-01` (Essential Cotton T-Shirt, anak–remaja–dewasa).
 
 | File | Isi |
 |---|---|
-| `product_facts_v2.json` | 61 fact (60 publik + 1 internal-only), schema `product_facts.v3` |
-| `knowledge_base.py` | Loader + fungsi retrieval `get_facts(fact_types)` |
+| `product_facts_v2.json` | 62 fact (61 publik + 1 internal-only), schema `product_facts.v3` |
+| `knowledge_base.py` | Loader + retrieval kompatibel `get_facts(...)` dan terstruktur `get_facts_by_query(...)` |
 
 ## Struktur satu fact
 
@@ -27,7 +27,7 @@ demo aktif: `TSHIRT-01` (Essential Cotton T-Shirt, anak–remaja–dewasa).
 - **`fact_type`** — nilai RESMI sesuai kontrak dokumen (Section 4.2/10.4):
   `PRICE_PROMO`, `SIZE_GUIDE`, `STOCK`, `PRODUCT_DETAIL`, `SHIPPING`,
   `FAQ_PLAYBOOK`, `CHECKOUT_GUIDE`. **Ini yang dipakai untuk mencocokkan
-  `required_fact_types` dari Action Engine.**
+  `required_fact_types` dan `required_fact_query` dari Action Engine.**
 - **`category`** — sub-tag granular internal (mis. `SIZE_GUIDE_ANAK` vs
   `SIZE_GUIDE_DEWASA_LOKAL`), dipertahankan untuk kebutuhan organisasi/QA tim,
   **bukan** untuk logic pencocokan kontrak.
@@ -43,7 +43,7 @@ demo aktif: `TSHIRT-01` (Essential Cotton T-Shirt, anak–remaja–dewasa).
 
 | fact_type | Jumlah fact | Siap dipakai action resmi? |
 |---|---|---|
-| `SIZE_GUIDE` | 35 | Ya — `SHOW_SIZE_GUIDE` aktif |
+| `SIZE_GUIDE` | 36 | Ya — `SHOW_SIZE_OPTIONS` dan `SHOW_SIZE_GUIDE` aktif |
 | `PRODUCT_DETAIL` | 11 | Ya — `EXPLAIN_PRODUCT_DETAIL` aktif |
 | `STOCK` | 6 | Ya — `CONFIRM_STOCK` aktif |
 | `FAQ_PLAYBOOK` | 3 | Fact siap, `HANDLE_OBJECTION` **belum diaktifkan** |
@@ -58,6 +58,12 @@ from knowledge_base import KnowledgeBase
 
 kb = KnowledgeBase()
 facts = kb.get_facts(["SIZE_GUIDE"])            # sesuai required_fact_types dari Action Engine
+filtered = kb.get_facts_by_query({               # jalur runtime utama
+    "product_id": "TSHIRT-01",
+    "fact_type": "SIZE_GUIDE",
+    "topic": "size_recommendation",
+    "filters": {"body_weight": 55, "body_height": 160},
+})
 one_fact = kb.get_by_id("FACT-TS01-SIZE-M")      # dipakai Validator utk cek used_fact_ids
 ```
 

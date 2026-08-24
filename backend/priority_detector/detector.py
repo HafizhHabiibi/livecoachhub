@@ -15,7 +15,7 @@ Sesuai PROJECT.MD Bagian 5 Tahap 4 (Dual Signal Layer — Priority Lane):
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Optional
+from typing import Any, Dict, Optional
 
 from config import PRIORITY_CONFIDENCE_THRESHOLD
 from session import SessionState
@@ -30,6 +30,7 @@ class PriorityEvent:
     confidence: float
     priority_level: str  # "HIGH" atau "MEDIUM"
     text: str
+    slots: Dict[str, Any]
 
 
 def check_priority(
@@ -39,6 +40,7 @@ def check_priority(
     canonical_signal: str,
     confidence: float,
     text: str,
+    slots: Dict[str, Any] | None = None,
 ) -> Optional[PriorityEvent]:
     """Cek apakah komentar ini termasuk Priority Event.
 
@@ -76,6 +78,7 @@ def check_priority(
         confidence=confidence,
         priority_level=priority_level,
         text=text,
+        slots=slots or {},
     )
 
     # Tambah ke session buffer

@@ -62,9 +62,17 @@ def _get_gemini_client(api_key: str) -> genai.Client:
 # ---------------------------------------------------------------------------
 
 _FALLBACK_TEMPLATES = {
+    "SHOW_SIZE_OPTIONS": (
+        "Pilihan ukuran tersedia pada panduan produk. Cek kelompok anak, "
+        "remaja, atau dewasa sebelum memilih ya kak."
+    ),
     "SHOW_SIZE_GUIDE": (
         "Untuk memastikan ukuran yang pas, boleh cek size chart lengkap "
         "di halaman produk ya kak, atau tanya admin biar gak salah pilih."
+    ),
+    "SHOW_COLOR_OPTIONS": (
+        "Pilihan warna tersedia pada detail produk. Cek varian yang aktif "
+        "sebelum checkout ya kak."
     ),
     "CONFIRM_STOCK": (
         "Untuk stok/warna spesifik itu, admin akan konfirmasi ya kak, "
@@ -106,6 +114,9 @@ def build_llm_input(
     audience_state: str,
     evidence_comments: List[str],
     product_facts: List[dict],
+    selected_signal: Optional[str] = None,
+    slots: Optional[dict] = None,
+    required_fact_query: Optional[dict] = None,
     tone: str = DEFAULT_TONE,
     max_words: int = MAX_WORDS,
 ) -> dict:
@@ -116,7 +127,10 @@ def build_llm_input(
     return {
         "selected_action": selected_action,
         "audience_state": audience_state,
+        "selected_signal": selected_signal,
         "evidence_comments": evidence_comments,
+        "slots": slots or {},
+        "required_fact_query": required_fact_query or {},
         "product_facts": product_facts,
         "tone": tone,
         "max_words": max_words,

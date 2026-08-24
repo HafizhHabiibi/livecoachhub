@@ -6,6 +6,7 @@ import CommentStream from '@/components/CommentStream';
 import DecisionDetails from '@/components/DecisionDetails';
 import ReplayInputPanel from '@/components/ReplayInputPanel';
 import StatusBanner from '@/components/StatusBanner';
+import PriorityAlert from '@/components/PriorityAlert';
 
 const SESSION_LABELS = {
   EMPTY: 'Siapkan sumber replay',
@@ -73,6 +74,8 @@ export default function DemoPage() {
           </div>
 
           <AudienceSnapshot snapshot={controller.latestResult?.audience_snapshot ?? null} />
+
+          <PriorityAlert event={controller.latestResult?.priority_event ?? null} />
 
           <div className="operations-grid">
             <CommentStream comments={controller.processedComments} />

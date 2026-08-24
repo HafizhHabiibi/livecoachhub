@@ -29,7 +29,9 @@ export const GenerationProviderSchema = z.enum(['GEMINI', 'TEMPLATE']);
 
 export const AudienceStateSchema = z.enum([
   'PRICE_FRICTION',
+  'SIZE_INFORMATION_GAP',
   'SIZE_FRICTION',
+  'COLOR_INFORMATION_GAP',
   'STOCK_FRICTION',
   'PRODUCT_INFO_GAP',
   'SHIPPING_FRICTION',
@@ -40,7 +42,9 @@ export const AudienceStateSchema = z.enum([
 
 export const SelectedActionSchema = z.enum([
   'EXPLAIN_PRICE_PROMO',
+  'SHOW_SIZE_OPTIONS',
   'SHOW_SIZE_GUIDE',
+  'SHOW_COLOR_OPTIONS',
   'CONFIRM_STOCK',
   'EXPLAIN_PRODUCT_DETAIL',
   'EXPLAIN_SHIPPING',
@@ -51,14 +55,30 @@ export const SelectedActionSchema = z.enum([
 
 export const CommentIntentSchema = z.enum([
   'PRICE_PROMO',
-  'SIZE_VARIANT',
+  'SIZE_AVAILABILITY',
+  'SIZE_RECOMMENDATION',
+  'COLOR_AVAILABILITY',
   'STOCK_AVAILABILITY',
   'PRODUCT_DETAIL',
   'SHIPPING',
   'PURCHASE_INTENT',
   'OBJECTION_COMPLAINT',
-  'IRRELEVANT_SPAM',
+  'IRRELEVANT',
 ]);
+
+export const RawNlpIntentSchema = z.enum([
+  'product_inquiry',
+  'size_inquiry',
+  'size_recommendation',
+  'color_inquiry',
+  'price_inquiry',
+  'stock_availability',
+  'purchase_intent',
+  'not_relevant',
+  'other',
+]);
+
+export const SemanticSlotsSchema = z.record(z.union([z.string(), z.number()]));
 
 // ============================================================
 // API RESPONSE SCHEMAS
@@ -135,6 +155,9 @@ export const NlpPredictionSchema = z.object({
   schema_version: z.literal('nlp_prediction.v1'),
   model_version: z.string().min(1),
   comment_id: z.string().min(1),
+  raw_intent: RawNlpIntentSchema,
+  normalized_signal: CommentIntentSchema,
+  slots: SemanticSlotsSchema,
   intents: z.array(IntentScoreSchema),
   readiness: ReadinessSchema,
   urgency: UrgencySchema,
@@ -146,8 +169,12 @@ export const AudienceSnapshotSchema = z.object({
   schema_version: z.literal('audience_snapshot.v1'),
   session_id: z.string().min(1),
   audience_state: AudienceStateSchema,
+  dominant_signal: CommentIntentSchema,
   window_seconds: z.number().positive(),
   support_count: z.number().int().nonnegative(),
+  unique_user_count: z.number().int().nonnegative(),
+  latest_timestamp_ms: z.number().int().nonnegative(),
+  slots_summary: SemanticSlotsSchema,
   high_readiness_count: z.number().int().nonnegative(),
   priority_count: z.number().int().nonnegative(),
   evidence_comment_ids: z.array(z.string()),
@@ -157,9 +184,26 @@ export const AudienceSnapshotSchema = z.object({
 export const ActionDecisionSchema = z.object({
   schema_version: z.literal('action_decision.v1'),
   selected_action: SelectedActionSchema,
+  selected_signal: CommentIntentSchema,
   audience_state: AudienceStateSchema,
   action_score: z.number().min(0).max(1),
   required_fact_types: z.array(z.string()),
+  required_fact_query: z.object({
+    fact_type: z.string().optional(),
+    topic: z.string().optional(),
+    product_id: z.string().optional(),
+    filters: SemanticSlotsSchema.optional(),
+  }),
+});
+
+export const PriorityEventSchema = z.object({
+  comment_id: z.string().min(1),
+  user_id: z.string().min(1),
+  signal: z.literal('PURCHASE_INTENT'),
+  confidence: z.number().min(0).max(1),
+  priority_level: z.enum(['MEDIUM', 'HIGH']),
+  text: z.string().min(1),
+  slots: SemanticSlotsSchema,
 });
 
 export const CoachCardSchema = z.object({
@@ -202,6 +246,7 @@ export const PipelineResultSchema = z.object({
   nlp_prediction: NlpPredictionSchema,
   audience_snapshot: AudienceSnapshotSchema,
   action_decision: ActionDecisionSchema,
+  priority_event: PriorityEventSchema.nullable(),
   coach_card: CoachCardSchema.nullable(),
   latency_ms: z
     .object({

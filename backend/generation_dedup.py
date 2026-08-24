@@ -12,6 +12,7 @@ def build_generation_fingerprint(
     audience_state: str,
     evidence_comment_ids: Sequence[str],
     required_fact_types: Sequence[str],
+    required_fact_query: dict | None = None,
 ) -> str:
     """Build a stable fingerprint for the material generation context."""
     payload = {
@@ -19,6 +20,7 @@ def build_generation_fingerprint(
         "audience_state": audience_state,
         "evidence_comment_ids": list(evidence_comment_ids),
         "required_fact_types": list(required_fact_types),
+        "required_fact_query": required_fact_query or {},
     }
     encoded = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
     return hashlib.sha256(encoded.encode("utf-8")).hexdigest()

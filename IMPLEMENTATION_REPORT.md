@@ -1,7 +1,7 @@
 # Report Implementasi Prioritas LiveCoachHub
 
 **Tanggal:** 24 Agustus 2026  
-**Scope:** provenance/fallback LLM, user identity, unique-user trend, evidence LLM, idempotency, frontend reliability, smoke test, dan regression test
+**Scope:** provenance/fallback LLM, user identity, post-NLP semantic signals, slot extraction, ranking/hysteresis, structured retrieval, Priority Lane, frontend reliability, smoke test, dan regression test
 **Status:** **IMPLEMENTED — menunggu re-validasi full Docker E2E pada Windows + Docker Desktop**
 
 ## 1. Ringkasan Hasil
@@ -17,7 +17,9 @@ Paket prioritas kompetisi telah diimplementasikan. Perubahan utama:
 7. Smoke test tidak lagi berhenti pada check pertama dan sekarang memeriksa provenance.
 8. Health frontend sekarang pulih setelah Gemini terverifikasi dan provenance card tampil eksplisit.
 9. Polling, retry, dan validasi file replay diperketat.
-10. Dua puluh tujuh regression test berjalan dan seluruhnya lulus.
+10. Empat puluh regression test berjalan dan seluruhnya lulus.
+11. Intent size/color/stock tidak lagi digabung menjadi sinyal generik.
+12. Fact retrieval memakai query dan slot terstruktur; ranking dominan tetap dipertahankan dengan hysteresis.
 
 ## 2. Status Prioritas
 
@@ -28,7 +30,7 @@ Paket prioritas kompetisi telah diimplementasikan. Perubahan utama:
 | Unique-user Action Engine | SELESAI | Minimum 2 user unik sebelum action |
 | QA-01 — Smoke test | SELESAI | Counter aman terhadap `set -e`; flow tidak berhenti dini |
 | Frontend reliability | SELESAI | Health refresh, typed polling, retry, generation state, input guard |
-| Regression tests | SELESAI | 27/27 test lulus |
+| Regression tests | SELESAI | 40/40 test lulus |
 | COR-04 — Evidence text | SELESAI | Window menyimpan dan mengambil teks evidence |
 | Retry idempotency | SELESAI | Hasil per `comment_id` di-cache per session |
 | Session concurrency minimum | SELESAI | Analyze dan polling memakai lock per session |
@@ -85,7 +87,7 @@ Action rules mendapat `min_unique_users_60s: 2`. Bridge meneruskan `unique_user_
 Rolling-window entry sekarang menyimpan:
 
 ```text
-(timestamp, comment_id, user_id, signal, confidence, cleaned_text)
+(timestamp, comment_id, user_id, signal, confidence, cleaned_text, slots)
 ```
 
 Saat membuat prompt, orchestrator mengambil teks berdasarkan evidence IDs dengan urutan yang sama. Gemini sekarang menerima komentar aktual seperti `bb 55 ambil size apa`, bukan string `CMT-001`.
@@ -154,6 +156,19 @@ Test yang lulus:
 25. Fallback untuk action yang sama digunakan ulang selama cooldown dan boleh dicoba kembali setelah 30 detik.
 26. Perubahan evidence kecil tidak menembus cooldown fallback untuk action yang sama.
 27. Versi TypeScript terkunci pada versi yang didukung toolchain ESLint.
+28. Raw intent size, color, dan stock tidak digabung menjadi sinyal generik.
+29. Slot extractor mempertahankan BB, TB, size, dan warna eksplisit.
+30. Dominance audiens mengalahkan static business priority.
+31. Hysteresis membutuhkan margin dua pengguna unik untuk berganti sinyal.
+32. Snapshot mengekspos jumlah pengguna unik dan context retrieval.
+33. Size recommendation retrieval memfilter fakta memakai BB/TB.
+34. Size options retrieval mengambil fakta single-purpose.
+35. Validator menolak respons yang tidak selaras dengan action.
+36. Validator menolak warna yang bertentangan dengan requested slot.
+37. Validator membedakan size ready dan habis secara spesifik.
+38. Priority Event tervalidasi runtime dan terlihat di frontend.
+39. Slot dari pengguna berbeda tidak digabung menjadi profil fiktif.
+40. Validator menolak klaim stock putih XXL berdasarkan fakta KB aktual.
 
 Perintah:
 
@@ -161,13 +176,13 @@ Perintah:
 python3 -m unittest -v tests/test_core_regressions.py
 ```
 
-Hasil: **27 passed, 0 failed**.
+Hasil: **40 passed, 0 failed**.
 
 ## 5. Hasil Verifikasi
 
 | Pemeriksaan | Hasil |
 |---|---|
-| Regression test | PASS — 27/27 |
+| Regression test | PASS — 40/40 |
 | Python compileall | PASS |
 | Action rules JSON parse | PASS |
 | Frontend TypeScript type-check | PASS |
@@ -203,7 +218,7 @@ Acceptance criteria:
 
 Yang belum dikerjakan karena berada setelah prioritas kompetisi:
 
-- Lock dependency Python dan perbaikan warning TypeScript/ESLint.
+- Lock dependency Python.
 - Pecah `useReplayController` menjadi hook kecil dan migrasikan state utama ke reducer.
 - Tambahkan Vitest/React Testing Library setelah dependency tooling diselaraskan; invariant kritis saat ini dilindungi dependency-light regression tests.
 - TTL dan cleanup session.
@@ -292,9 +307,9 @@ Verifikasi update frontend:
 | Pemeriksaan | Hasil |
 |---|---|
 | TypeScript type-check | PASS |
-| ESLint | PASS; warning kompatibilitas versi existing tetap non-blocking |
+| ESLint | PASS tanpa warning kompatibilitas TypeScript |
 | Vite production build | PASS |
-| Regression tests | PASS — 27/27 |
+| Regression tests | PASS — 40/40 |
 | `git diff --check` | PASS |
 
 Full visual/runtime re-validation tetap perlu dilakukan dari clone Windows karena Docker Desktop tidak terhubung ke workspace WSL ini.

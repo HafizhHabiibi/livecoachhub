@@ -28,6 +28,7 @@ export default function AudienceSnapshot({ snapshot }: AudienceSnapshotProps) {
             </div>
           </div>
           <SignalStat value={snapshot.support_count} label="Komentar relevan" />
+          <SignalStat value={snapshot.unique_user_count} label="Pengguna unik" />
           <SignalStat value={snapshot.high_readiness_count} label="Siap membeli" tone="positive" />
           <SignalStat value={snapshot.priority_count} label="Perlu perhatian" tone="attention" />
         </div>

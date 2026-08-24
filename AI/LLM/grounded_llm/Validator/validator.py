@@ -48,12 +48,26 @@ ACTION_FALLBACK_TEMPLATES = {
     # [19 Agt 2026] Key disamakan ke selected_action RESMI (Section 4.2 dokumen) --
     # lihat DECISIONS_LOG.md di root. HANDLE_OBJECTION, EXPLAIN_SHIPPING, GUIDE_CHECKOUT
     # belum ditambahkan di sini karena action_rules.json belum mengaktifkan state-nya.
+    "SHOW_SIZE_OPTIONS": "Pilihan ukuran tersedia pada panduan produk. Silakan cocokkan kelompok anak, remaja, atau dewasa sebelum memilih ya kak.",
     "SHOW_SIZE_GUIDE": "Untuk memastikan ukuran yang pas, boleh cek size chart lengkap di halaman produk ya kak, atau tanya admin biar gak salah pilih.",
+    "SHOW_COLOR_OPTIONS": "Pilihan warna tersedia pada detail produk. Silakan cek varian yang aktif sebelum checkout ya kak.",
     "CONFIRM_STOCK": "Untuk stok/warna spesifik itu, admin akan konfirmasi ya kak, biar datanya pasti.",
     "EXPLAIN_PRODUCT_DETAIL": "Untuk detail produk lebih spesifik, boleh cek deskripsi produk lengkap atau tanya admin ya kak.",
     "EXPLAIN_PRICE_PROMO": "Untuk info harga/promo paling update, boleh cek langsung di halaman checkout ya kak.",
     "NO_ACTION": "Terima kasih sudah nonton, kalau ada pertanyaan produk boleh tulis di kolom komentar ya!",
 }
+
+ACTION_KEYWORDS = {
+    "SHOW_SIZE_OPTIONS": ("size", "ukuran"),
+    "SHOW_SIZE_GUIDE": ("size", "ukuran", "bb", "tb"),
+    "SHOW_COLOR_OPTIONS": ("warna", "hitam", "putih", "navy", "maroon"),
+    "CONFIRM_STOCK": ("stok", "ready", "tersedia", "habis"),
+    "EXPLAIN_PRICE_PROMO": ("harga", "promo", "diskon", "voucher", "rp"),
+    "EXPLAIN_PRODUCT_DETAIL": ("produk", "bahan", "kain", "model", "perawatan", "cutting"),
+}
+
+COLOR_TERMS = {"hitam", "putih", "navy", "maroon", "abu misty", "sage", "army", "pink", "cream", "coklat"}
+SIZE_TOKEN_PATTERN = re.compile(r"(?<![a-z0-9])(xxxl|xxl|xl|xs|s|m|l)(?![a-z0-9])", re.IGNORECASE)
 
 # Pola angka "utama" yang wajib dicek ketat -- angka+satuan ukuran/berat/harga,
 # BUKAN kode ukuran (S/M/L/XL dst) karena itu cuma label yang diulang dari
@@ -185,11 +199,79 @@ def check_length(parsed: dict, max_words: int) -> Optional[str]:
     return None
 
 
+def check_action_alignment(parsed: dict, selected_action: Optional[str]) -> Optional[str]:
+    if not selected_action or selected_action not in ACTION_KEYWORDS:
+        return None
+    response = parsed["response_text"].lower()
+    if not any(keyword in response for keyword in ACTION_KEYWORDS[selected_action]):
+        return f"response_text tidak selaras dengan selected_action {selected_action}"
+    return None
+
+
+def check_slot_consistency(
+    parsed: dict,
+    selected_action: Optional[str],
+    slots: Optional[dict],
+) -> Optional[str]:
+    if not slots:
+        return None
+    response = parsed["response_text"].lower()
+    requested_color = slots.get("requested_color")
+    mentioned_colors = {color for color in COLOR_TERMS if color in response}
+    if requested_color and mentioned_colors and requested_color not in mentioned_colors:
+        return f"warna pada respons tidak konsisten dengan requested_color={requested_color}"
+
+    if selected_action == "CONFIRM_STOCK" and slots.get("requested_size"):
+        requested_size = str(slots["requested_size"]).upper()
+        mentioned_sizes = {match.group(1).upper() for match in SIZE_TOKEN_PATTERN.finditer(response)}
+        if mentioned_sizes and requested_size not in mentioned_sizes:
+            return f"size pada respons tidak konsisten dengan requested_size={requested_size}"
+    return None
+
+
+def check_availability_consistency(
+    parsed: dict,
+    selected_action: Optional[str],
+    input_product_facts: List[dict],
+    slots: Optional[dict],
+) -> Optional[str]:
+    if selected_action != "CONFIRM_STOCK":
+        return None
+    fact_text = " ".join(fact.get("value", "") for fact in input_product_facts).lower()
+    response = parsed["response_text"].lower()
+    requested_size = str((slots or {}).get("requested_size", "")).lower()
+    unavailable_sizes = set()
+    for segment in re.split(r"[.;,]|\b(?:sedangkan|tetapi|namun)\b", fact_text):
+        if not re.search(r"\b(?:habis|tidak tersedia)\b", segment):
+            continue
+        # A generic rule such as "kecuali disebutkan habis pada fact warna"
+        # is a condition, not evidence that every size in the sentence is out.
+        if "disebutkan habis" in segment:
+            continue
+        unavailable_sizes.update(
+            match.group(1).lower() for match in SIZE_TOKEN_PATTERN.finditer(segment)
+        )
+    has_generic_unavailability = "tidak tersedia" in fact_text and not unavailable_sizes
+    says_unavailable = has_generic_unavailability
+    if requested_size:
+        says_unavailable = has_generic_unavailability or requested_size in unavailable_sizes
+    claims_available = any(term in response for term in ("masih ready", "masih tersedia", "stok tersedia"))
+    if says_unavailable and claims_available:
+        return "respons menyatakan tersedia saat fakta input menyebut stok habis/tidak tersedia"
+    return None
+
+
 # ---------------------------------------------------------------------------
 # Validator utama
 # ---------------------------------------------------------------------------
 
-def validate(raw_output: str, input_product_facts: List[dict], max_words: int) -> ValidationResult:
+def validate(
+    raw_output: str,
+    input_product_facts: List[dict],
+    max_words: int,
+    selected_action: Optional[str] = None,
+    slots: Optional[dict] = None,
+) -> ValidationResult:
     try:
         parsed = json.loads(raw_output)
     except json.JSONDecodeError:
@@ -208,6 +290,9 @@ def validate(raw_output: str, input_product_facts: List[dict], max_words: int) -
         check_claims_grounded(parsed),
         check_primary_numbers(parsed, input_product_facts),
         check_length(parsed, max_words),
+        check_action_alignment(parsed, selected_action),
+        check_slot_consistency(parsed, selected_action, slots),
+        check_availability_consistency(parsed, selected_action, input_product_facts, slots),
     ]
     failed = [c for c in checks if c is not None]
 
@@ -235,25 +320,35 @@ def run_with_validation(
 
     # Percobaan 1
     raw = generate_fn(input_payload, None)
-    result = validate(raw, input_facts, max_words)
+    slots = input_payload.get("slots", {})
+    result = validate(raw, input_facts, max_words, selected_action, slots)
     if result.validation_status == "PASSED":
         return result
 
     # Percobaan 2 (retry dengan koreksi)
     correction_note = "Perbaiki masalah berikut dari jawaban sebelumnya: " + "; ".join(result.failed_checks)
     raw_retry = generate_fn(input_payload, correction_note)
-    result_retry = validate(raw_retry, input_facts, max_words)
+    result_retry = validate(raw_retry, input_facts, max_words, selected_action, slots)
     if result_retry.validation_status == "PASSED":
         return result_retry
 
     # Masih gagal -> fallback template (bukan output LLM lagi, demi keamanan)
-    fallback_text = ACTION_FALLBACK_TEMPLATES.get(
-        selected_action, ACTION_FALLBACK_TEMPLATES["NO_ACTION"]
-    )
+    fallback_text = ACTION_FALLBACK_TEMPLATES.get(selected_action, ACTION_FALLBACK_TEMPLATES["NO_ACTION"])
+    used_fact_ids = []
+    claims = []
+    if input_facts:
+        first_fact = input_facts[0]
+        fact_id = first_fact.get("fact_id")
+        fact_value = first_fact.get("value", "")
+        if fact_id and fact_value:
+            grounded_excerpt = " ".join(fact_value.split()[:24])
+            fallback_text = f"{grounded_excerpt}. Cek detail lengkap di halaman produk ya kak!"
+            used_fact_ids = [fact_id]
+            claims = [{"fact_id": fact_id, "claim_text": grounded_excerpt}]
     fallback_response = {
         "response_text": fallback_text,
-        "used_fact_ids": [],
-        "claims": [],
+        "used_fact_ids": used_fact_ids,
+        "claims": claims,
         "needs_fallback": True,
     }
     return ValidationResult(

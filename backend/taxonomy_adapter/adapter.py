@@ -22,42 +22,44 @@ from typing import Optional
 # Value = canonical signal yang dimengerti Action Engine (UPPERCASE, sesuai action_rules.json)
 
 NLP_TO_CANONICAL = {
-    # Size-related intents → SIZE_VARIANT
-    "size_inquiry": "SIZE_VARIANT",
-    "size_recommendation": "SIZE_VARIANT",
+    # Preserve the distinction already learned by IndoBERT.
+    "size_inquiry": "SIZE_AVAILABILITY",
+    "size_recommendation": "SIZE_RECOMMENDATION",
 
-    # Stock & color → STOCK_AVAILABILITY
-    "color_inquiry": "STOCK_AVAILABILITY",
+    # Color options and stock-by-variant require different actions/facts.
+    "color_inquiry": "COLOR_AVAILABILITY",
     "stock_availability": "STOCK_AVAILABILITY",
 
     # Price/promo → PRICE_PROMO
     "price_inquiry": "PRICE_PROMO",
 
-    # Purchase intent → PURCHASE_INTENT (dipakai Priority Lane + buying signal di Trend Lane)
+    # Purchase intent → PURCHASE_INTENT (khusus Priority Lane)
     "purchase_intent": "PURCHASE_INTENT",
 
     # Product inquiry → PRODUCT_DETAIL (termasuk pertanyaan material)
     "product_inquiry": "PRODUCT_DETAIL",
 
-    # Not relevant → IRRELEVANT_SPAM
-    "not_relevant": "IRRELEVANT_SPAM",
+    # Not relevant → IRRELEVANT
+    "not_relevant": "IRRELEVANT",
 
     # Fallback: jika label 'other' muncul (confidence di bawah threshold)
-    "other": "IRRELEVANT_SPAM",
+    "other": "IRRELEVANT",
 }
 
-# Sinyal yang TIDAK boleh masuk ke Action Engine (diabaikan dari agregasi)
-NON_ACTIONABLE_SIGNALS = {"IRRELEVANT_SPAM"}
+# Signal excluded from Trend Lane. Purchase intent has its own Priority Lane.
+NON_ACTIONABLE_SIGNALS = {"IRRELEVANT", "PURCHASE_INTENT"}
 
 # Mapping canonical signal → CommentIntent enum frontend
 # Dipakai untuk membangun NlpPrediction.intents yang sesuai kontrak frontend
 CANONICAL_TO_FRONTEND_INTENT = {
-    "SIZE_VARIANT": "SIZE_VARIANT",
+    "SIZE_AVAILABILITY": "SIZE_AVAILABILITY",
+    "SIZE_RECOMMENDATION": "SIZE_RECOMMENDATION",
+    "COLOR_AVAILABILITY": "COLOR_AVAILABILITY",
     "STOCK_AVAILABILITY": "STOCK_AVAILABILITY",
     "PRICE_PROMO": "PRICE_PROMO",
     "PURCHASE_INTENT": "PURCHASE_INTENT",
     "PRODUCT_DETAIL": "PRODUCT_DETAIL",
-    "IRRELEVANT_SPAM": "IRRELEVANT_SPAM",
+    "IRRELEVANT": "IRRELEVANT",
 }
 
 
@@ -69,9 +71,9 @@ def adapt(nlp_intent: str) -> str:
 
     Returns:
         Canonical signal (UPPERCASE) yang dimengerti Action Engine.
-        Jika label tidak dikenali, return 'IRRELEVANT_SPAM'.
+        Jika label tidak dikenali, return 'IRRELEVANT'.
     """
-    return NLP_TO_CANONICAL.get(nlp_intent, "IRRELEVANT_SPAM")
+    return NLP_TO_CANONICAL.get(nlp_intent, "IRRELEVANT")
 
 
 def to_frontend_intent(canonical_signal: str) -> str:
@@ -83,12 +85,12 @@ def to_frontend_intent(canonical_signal: str) -> str:
     Returns:
         CommentIntent string sesuai Zod schema frontend.
     """
-    return CANONICAL_TO_FRONTEND_INTENT.get(canonical_signal, "IRRELEVANT_SPAM")
+    return CANONICAL_TO_FRONTEND_INTENT.get(canonical_signal, "IRRELEVANT")
 
 
 def is_actionable(canonical_signal: str) -> bool:
     """Cek apakah sinyal ini layak dihitung di rolling window.
 
-    IRRELEVANT_SPAM tidak masuk Action Engine.
+    IRRELEVANT tidak masuk Trend Lane; PURCHASE_INTENT masuk Priority Lane.
     """
     return canonical_signal not in NON_ACTIONABLE_SIGNALS

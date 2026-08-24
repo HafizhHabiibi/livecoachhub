@@ -139,7 +139,9 @@ import type {
 
 export const AUDIENCE_STATE_LABELS: Record<AudienceState, string> = {
   PRICE_FRICTION: 'Pertanyaan Harga & Promo',
-  SIZE_FRICTION: 'Pertanyaan Ukuran & Varian',
+  SIZE_INFORMATION_GAP: 'Pertanyaan Pilihan Ukuran',
+  SIZE_FRICTION: 'Rekomendasi Ukuran',
+  COLOR_INFORMATION_GAP: 'Pertanyaan Pilihan Warna',
   STOCK_FRICTION: 'Pertanyaan Ketersediaan Stok',
   PRODUCT_INFO_GAP: 'Pertanyaan Detail Produk',
   SHIPPING_FRICTION: 'Pertanyaan Pengiriman',
@@ -150,7 +152,9 @@ export const AUDIENCE_STATE_LABELS: Record<AudienceState, string> = {
 
 export const SELECTED_ACTION_LABELS: Record<SelectedAction, string> = {
   EXPLAIN_PRICE_PROMO: 'Jelaskan Harga & Promo',
+  SHOW_SIZE_OPTIONS: 'Tampilkan Pilihan Ukuran',
   SHOW_SIZE_GUIDE: 'Tampilkan Panduan Ukuran',
+  SHOW_COLOR_OPTIONS: 'Tampilkan Pilihan Warna',
   CONFIRM_STOCK: 'Konfirmasi Ketersediaan Stok',
   EXPLAIN_PRODUCT_DETAIL: 'Jelaskan Detail Produk',
   EXPLAIN_SHIPPING: 'Jelaskan Pengiriman',
@@ -161,13 +165,15 @@ export const SELECTED_ACTION_LABELS: Record<SelectedAction, string> = {
 
 export const INTENT_LABELS: Record<CommentIntent, string> = {
   PRICE_PROMO: 'Harga/Promo',
-  SIZE_VARIANT: 'Ukuran/Varian',
+  SIZE_AVAILABILITY: 'Pilihan Ukuran',
+  SIZE_RECOMMENDATION: 'Rekomendasi Ukuran',
+  COLOR_AVAILABILITY: 'Pilihan Warna',
   STOCK_AVAILABILITY: 'Stok',
   PRODUCT_DETAIL: 'Detail Produk',
   SHIPPING: 'Pengiriman',
   PURCHASE_INTENT: 'Minat Beli',
   OBJECTION_COMPLAINT: 'Keberatan',
-  IRRELEVANT_SPAM: 'Tidak Relevan',
+  IRRELEVANT: 'Tidak Relevan',
 };
 
 export const READINESS_LABELS: Record<Readiness, string> = {

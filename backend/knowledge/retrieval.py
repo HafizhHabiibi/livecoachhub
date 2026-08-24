@@ -49,6 +49,11 @@ def get_facts(required_fact_types: List[str]) -> List[dict]:
     return _kb.get_facts(required_fact_types)
 
 
+def get_facts_for_query(required_fact_query: dict) -> List[dict]:
+    """Retrieve a small grounded context using product, topic, and slots."""
+    return _kb.get_facts_by_query(required_fact_query)
+
+
 def get_fact_by_id(fact_id: str) -> Optional[dict]:
     """Lookup satu fact berdasarkan ID. Dipakai Validator."""
     return _kb.get_by_id(fact_id)

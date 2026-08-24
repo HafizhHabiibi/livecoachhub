@@ -1,6 +1,6 @@
 {
-  "schema_version": "action_rules.v2",
-  "note": "Konfigurasi deterministik untuk Action Engine LiveCoach AI. Diedit oleh M3/SCR-3. [v2] Ditulis ulang supaya audience_state, selected_action, dan required_fact_types PERSIS memakai enum resmi di dokumen spesifikasi Section 4.2 dan 11 (sebelumnya v1 memakai taxonomy custom sendiri -- lihat DECISIONS_LOG.md di root folder Lomba untuk detail perubahan dan alasannya). source_intents sekarang memakai Intent enum resmi Section 4.1 (PRICE_PROMO, SIZE_VARIANT, STOCK_AVAILABILITY, PRODUCT_DETAIL, SHIPPING, PURCHASE_INTENT, OBJECTION_COMPLAINT, IRRELEVANT_SPAM) -- TETAP perlu dikonfirmasi ke M2/SCR-2 karena itu output asli model IndoBERTweet milik mereka, bukan diverifikasi langsung ke kode M2.",
+  "schema_version": "action_rules.v3",
+  "note": "Aturan deterministik pasca-NLP. Intent spesifik IndoBERT dipertahankan sebagai normalized semantic signal; dominance audiens menjadi ranking utama dan business priority hanya tie-break terakhir.",
 
   "threshold_policy": {
     "description": "Sinyal minimal sebelum Action Engine berani memilih action selain NO_ACTION.",
@@ -11,48 +11,74 @@
   },
 
   "tie_break_policy": {
-    "description": "Kalau lebih dari satu audience_state melewati threshold di window yang sama, urutkan berdasarkan priority_rank (angka kecil = didahulukan). Kalau priority_rank sama, menang yang state_confidence lebih tinggi.",
-    "primary": "priority_rank_asc",
-    "secondary": "state_confidence_desc"
+    "description": "Urutkan signal eligible berdasarkan unique users, support, confidence, lalu business priority.",
+    "order": ["unique_user_count_desc", "support_count_desc", "state_confidence_desc", "priority_rank_asc"]
+  },
+
+  "stability_policy": {
+    "description": "Pertahankan main signal selama masih eligible kecuali challenger memiliki setidaknya dua unique user lebih banyak.",
+    "switch_unique_user_margin": 2
   },
 
   "audience_states": [
     {
-      "state": "SIZE_FRICTION",
+      "state": "SIZE_INFORMATION_GAP",
       "priority_rank": 1,
-      "source_intents": ["SIZE_VARIANT"],
+      "source_intents": ["SIZE_AVAILABILITY"],
+      "selected_action": "SHOW_SIZE_OPTIONS",
+      "required_fact_types": ["SIZE_GUIDE"],
+      "required_fact_query": {"fact_type": "SIZE_GUIDE", "topic": "size_options"},
+      "reason_template": "{support_count} pertanyaan pilihan ukuran muncul dalam 60 detik terakhir."
+    },
+    {
+      "state": "SIZE_FRICTION",
+      "priority_rank": 2,
+      "source_intents": ["SIZE_RECOMMENDATION"],
       "selected_action": "SHOW_SIZE_GUIDE",
       "required_fact_types": ["SIZE_GUIDE"],
-      "reason_template": "{support_count} pertanyaan ukuran muncul dalam 60 detik terakhir."
+      "required_fact_query": {"fact_type": "SIZE_GUIDE", "topic": "size_recommendation"},
+      "reason_template": "{support_count} permintaan rekomendasi ukuran muncul dalam 60 detik terakhir."
+    },
+    {
+      "state": "COLOR_INFORMATION_GAP",
+      "priority_rank": 3,
+      "source_intents": ["COLOR_AVAILABILITY"],
+      "selected_action": "SHOW_COLOR_OPTIONS",
+      "required_fact_types": ["PRODUCT_DETAIL"],
+      "required_fact_query": {"fact_type": "PRODUCT_DETAIL", "topic": "color_options"},
+      "reason_template": "{support_count} pertanyaan pilihan warna muncul dalam 60 detik terakhir."
     },
     {
       "state": "STOCK_FRICTION",
-      "priority_rank": 2,
+      "priority_rank": 4,
       "source_intents": ["STOCK_AVAILABILITY"],
       "selected_action": "CONFIRM_STOCK",
       "required_fact_types": ["STOCK"],
-      "reason_template": "{support_count} pertanyaan stok/warna muncul dalam 60 detik terakhir."
+      "required_fact_query": {"fact_type": "STOCK", "topic": "stock_availability"},
+      "reason_template": "{support_count} pertanyaan stok varian muncul dalam 60 detik terakhir."
     },
     {
       "state": "PRODUCT_INFO_GAP",
-      "priority_rank": 3,
+      "priority_rank": 5,
       "source_intents": ["PRODUCT_DETAIL"],
       "selected_action": "EXPLAIN_PRODUCT_DETAIL",
       "required_fact_types": ["PRODUCT_DETAIL"],
+      "required_fact_query": {"fact_type": "PRODUCT_DETAIL", "topic": "product_detail"},
       "reason_template": "{support_count} pertanyaan detail produk (bahan/deskripsi/perawatan) muncul dalam 60 detik terakhir."
     },
     {
       "state": "PRICE_FRICTION",
-      "priority_rank": 4,
+      "priority_rank": 6,
       "source_intents": ["PRICE_PROMO"],
       "selected_action": "EXPLAIN_PRICE_PROMO",
       "required_fact_types": ["PRICE_PROMO"],
+      "required_fact_query": {"fact_type": "PRICE_PROMO", "topic": "price_promo"},
       "reason_template": "{support_count} pertanyaan harga/promo muncul dalam 60 detik terakhir."
     }
   ],
 
   "not_yet_implemented": {
-    "note": "3 audience_state resmi berikut SENGAJA belum diaktifkan (bukan lupa) -- ditunda sesuai keputusan tim tanggal 19 Agustus 2026, diaktifkan menyusul setelah action di atas stabil. Knowledge Base SUDAH ditag siap pakai untuk SHIPPING_FRICTION (fact_type SHIPPING, 2 fact) dan OBJECTION_SPIKE (fact_type FAQ_PLAYBOOK, 3 fact dari kategori RETURN_POLICY/WARRANTY) -- tinggal ditambah rule di bawah + dataset training. PURCHASE_MOMENT (fact_type CHECKOUT_GUIDE) belum ada fact SAMA SEKALI di Knowledge Base, perlu dibuat dari nol dulu. Lihat DECISIONS_LOG.md di root untuk detail.",
+    "note": "Shipping dan objection menunggu label/router yang dapat membedakan keduanya secara andal. Purchase intent ditangani Priority Lane, bukan main trend.",
     "pending_states": [
       {"state": "SHIPPING_FRICTION", "selected_action": "EXPLAIN_SHIPPING", "required_fact_types": ["SHIPPING"], "source_intents": ["SHIPPING"], "kb_ready": true},
       {"state": "OBJECTION_SPIKE", "selected_action": "HANDLE_OBJECTION", "required_fact_types": ["FAQ_PLAYBOOK"], "source_intents": ["OBJECTION_COMPLAINT"], "kb_ready": true},
@@ -64,6 +90,7 @@
     "state": "NO_CLEAR_SIGNAL",
     "selected_action": "NO_ACTION",
     "required_fact_types": [],
+    "required_fact_query": {},
     "ui_label": "Belum ada pola kuat"
   }
 }

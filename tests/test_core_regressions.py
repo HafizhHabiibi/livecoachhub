@@ -38,6 +38,22 @@ action_engine = load_module(
     "action_engine_test",
     ROOT / "AI" / "LLM" / "grounded_llm" / "Action Engine" / "action_engine.py",
 )
+taxonomy_adapter = load_module(
+    "taxonomy_adapter_test",
+    ROOT / "backend" / "taxonomy_adapter" / "adapter.py",
+)
+slot_extractor = load_module(
+    "slot_extractor_test",
+    ROOT / "backend" / "slot_extractor" / "extractor.py",
+)
+knowledge_base = load_module(
+    "knowledge_base_test",
+    ROOT / "AI" / "LLM" / "grounded_llm" / "Knowledge Base" / "knowledge_base.py",
+)
+validator = load_module(
+    "validator_test",
+    ROOT / "AI" / "LLM" / "grounded_llm" / "Validator" / "validator.py",
+)
 
 config_stub = types.ModuleType("config")
 config_stub.WINDOW_SECONDS = 60
@@ -155,7 +171,7 @@ class UniqueUserThresholdTests(unittest.TestCase):
 
     def make_signal(self, support: int, unique_users: int):
         return action_engine.WindowIntentSignal(
-            intent="SIZE_VARIANT",
+            intent="SIZE_RECOMMENDATION",
             support_count=support,
             avg_confidence=0.9,
             unique_user_count=unique_users,
@@ -176,23 +192,197 @@ class UniqueUserThresholdTests(unittest.TestCase):
 class RollingWindowIdentityTests(unittest.TestCase):
     def test_unique_users_and_evidence_text_are_preserved(self):
         session = session_module.SessionState(session_id="TEST", product_id="TSHIRT-01")
-        window_module.add_signal(session, 1000, "CMT-1", "USR-1", "SIZE_VARIANT", 0.9, "size apa")
-        window_module.add_signal(session, 2000, "CMT-2", "USR-1", "SIZE_VARIANT", 0.8, "bb 55")
-        window_module.add_signal(session, 3000, "CMT-3", "USR-2", "SIZE_VARIANT", 0.85, "pilih m atau l")
+        window_module.add_signal(session, 1000, "CMT-1", "USR-1", "SIZE_RECOMMENDATION", 0.9, "size apa")
+        window_module.add_signal(session, 2000, "CMT-2", "USR-1", "SIZE_RECOMMENDATION", 0.8, "bb 55", {"body_weight": 55})
+        window_module.add_signal(session, 3000, "CMT-3", "USR-2", "SIZE_RECOMMENDATION", 0.85, "pilih m atau l", {"requested_size": "M"})
 
         signals = window_module.get_window_signals(session, 3000)
 
         self.assertEqual(signals[0].support_count, 3)
         self.assertEqual(signals[0].unique_user_count, 2)
-        self.assertEqual(session.window_entries[0][-1], "size apa")
+        self.assertEqual(session.window_entries[0][-2], "size apa")
+        self.assertEqual(signals[0].evidence_comments, ["size apa", "bb 55", "pilih m atau l"])
+        self.assertEqual(signals[0].slots_summary["requested_size"], "M")
+        self.assertNotIn("body_weight", signals[0].slots_summary)
+
+    def test_slots_from_different_users_are_not_combined(self):
+        session = session_module.SessionState(session_id="TEST", product_id="TSHIRT-01")
+        window_module.add_signal(
+            session, 1000, "CMT-1", "USR-1", "SIZE_RECOMMENDATION", 0.9,
+            "bb 55", {"body_weight": 55},
+        )
+        window_module.add_signal(
+            session, 2000, "CMT-2", "USR-2", "SIZE_RECOMMENDATION", 0.9,
+            "tb 170", {"body_height": 170},
+        )
+
+        slots = window_module.get_window_signals(session, 2000)[0].slots_summary
+        self.assertEqual(slots, {"body_height": 170})
+
+
+class PostNlpRedesignTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        rules = ROOT / "AI" / "LLM" / "grounded_llm" / "Action Engine" / "action_rules.json"
+        cls.engine = action_engine.ActionEngine(rules_path=rules)
+        facts = ROOT / "AI" / "LLM" / "grounded_llm" / "Knowledge Base" / "product_facts_v2.json"
+        cls.kb = knowledge_base.KnowledgeBase(facts_path=facts)
+
+    @staticmethod
+    def signal(intent, support, users, confidence=0.9, slots=None):
+        return action_engine.WindowIntentSignal(
+            intent=intent,
+            support_count=support,
+            avg_confidence=confidence,
+            unique_user_count=users,
+            evidence_comment_ids=[f"{intent}-1", f"{intent}-2"],
+            slots_summary=slots or {},
+        )
+
+    def test_specific_intents_are_not_collapsed(self):
+        self.assertEqual(taxonomy_adapter.adapt("size_inquiry"), "SIZE_AVAILABILITY")
+        self.assertEqual(taxonomy_adapter.adapt("size_recommendation"), "SIZE_RECOMMENDATION")
+        self.assertEqual(taxonomy_adapter.adapt("color_inquiry"), "COLOR_AVAILABILITY")
+        self.assertEqual(taxonomy_adapter.adapt("stock_availability"), "STOCK_AVAILABILITY")
+        self.assertFalse(taxonomy_adapter.is_actionable("PURCHASE_INTENT"))
+
+    def test_slot_extractor_preserves_explicit_entities(self):
+        slots = slot_extractor.extract_slots("BB 55 TB 160, hitam size XL masih ready?")
+        self.assertEqual(slots["body_weight"], 55)
+        self.assertEqual(slots["body_height"], 160)
+        self.assertEqual(slots["requested_color"], "hitam")
+        self.assertEqual(slots["requested_size"], "XL")
+
+    def test_dominant_signal_beats_fixed_business_rank(self):
+        snapshot, decision = self.engine.evaluate([
+            self.signal("SIZE_AVAILABILITY", 2, 2, 0.94),
+            self.signal("PRICE_PROMO", 8, 6, 0.90),
+        ])
+        self.assertEqual(snapshot.state, "PRICE_FRICTION")
+        self.assertEqual(decision.selected_action, "EXPLAIN_PRICE_PROMO")
+
+    def test_hysteresis_requires_two_more_unique_users(self):
+        _, stable = self.engine.evaluate([
+            self.signal("SIZE_RECOMMENDATION", 3, 3),
+            self.signal("PRICE_PROMO", 6, 4),
+        ], current_signal="SIZE_RECOMMENDATION")
+        self.assertEqual(stable.selected_signal, "SIZE_RECOMMENDATION")
+
+        _, switched = self.engine.evaluate([
+            self.signal("SIZE_RECOMMENDATION", 3, 3),
+            self.signal("PRICE_PROMO", 7, 5),
+        ], current_signal="SIZE_RECOMMENDATION")
+        self.assertEqual(switched.selected_signal, "PRICE_PROMO")
+
+    def test_snapshot_exposes_ranking_and_retrieval_context(self):
+        snapshot, _ = self.engine.evaluate([
+            self.signal(
+                "SIZE_RECOMMENDATION",
+                3,
+                2,
+                slots={"body_weight": 55, "body_height": 160},
+            ),
+        ])
+        self.assertEqual(snapshot.signals["unique_user_count"], 2)
+        self.assertEqual(snapshot.signals["slots_summary"]["body_weight"], 55)
+
+    def test_size_retrieval_uses_body_slots(self):
+        facts = self.kb.get_facts_by_query({
+            "product_id": "TSHIRT-01",
+            "fact_type": "SIZE_GUIDE",
+            "topic": "size_recommendation",
+            "filters": {"body_weight": 55, "body_height": 160},
+        })
+        self.assertTrue(facts)
+        self.assertEqual(facts[0]["fact_id"], "FACT-TS01-SIZE-M")
+        self.assertLessEqual(len(facts), 5)
+
+    def test_size_options_retrieval_is_single_purpose(self):
+        facts = self.kb.get_facts_by_query({
+            "product_id": "TSHIRT-01",
+            "fact_type": "SIZE_GUIDE",
+            "topic": "size_options",
+            "filters": {},
+        })
+        self.assertEqual([fact["fact_id"] for fact in facts], ["FACT-TS01-SIZE-OPTIONS-001"])
+
+    def test_validator_rejects_action_misalignment(self):
+        raw = json.dumps({
+            "response_text": "Size M tersedia untuk pilihan ukuran.",
+            "used_fact_ids": [],
+            "claims": [],
+            "needs_fallback": True,
+        })
+        result = validator.validate(raw, [], 35, "EXPLAIN_PRICE_PROMO", {})
+        self.assertEqual(result.validation_status, "FALLBACK")
+        self.assertTrue(any("selected_action" in reason for reason in result.failed_checks))
+
+    def test_validator_rejects_conflicting_color_slot(self):
+        raw = json.dumps({
+            "response_text": "Warna putih masih tersedia ya kak.",
+            "used_fact_ids": [],
+            "claims": [],
+            "needs_fallback": True,
+        })
+        result = validator.validate(
+            raw, [], 35, "SHOW_COLOR_OPTIONS", {"requested_color": "hitam"},
+        )
+        self.assertEqual(result.validation_status, "FALLBACK")
+        self.assertTrue(any("requested_color" in reason for reason in result.failed_checks))
+
+    def test_validator_checks_unavailable_requested_size_only(self):
+        stock_fact = {
+            "fact_id": "FACT-TS01-STOCK-ADULT",
+            "value": "Stok dewasa S sampai XL ready, sedangkan XXL habis.",
+        }
+        ready_m = json.dumps({
+            "response_text": "Stok size M masih ready ya kak.",
+            "used_fact_ids": [stock_fact["fact_id"]],
+            "claims": [{"fact_id": stock_fact["fact_id"], "claim_text": "M ready"}],
+            "needs_fallback": False,
+        })
+        result_m = validator.validate(
+            ready_m, [stock_fact], 35, "CONFIRM_STOCK", {"requested_size": "M"},
+        )
+        self.assertEqual(result_m.validation_status, "PASSED")
+
+        ready_xxl = ready_m.replace("size M", "size XXL")
+        result_xxl = validator.validate(
+            ready_xxl, [stock_fact], 35, "CONFIRM_STOCK", {"requested_size": "XXL"},
+        )
+        self.assertEqual(result_xxl.validation_status, "FALLBACK")
+
+    def test_validator_understands_real_white_xxl_stock_fact(self):
+        facts = self.kb.get_facts_by_query({
+            "product_id": "TSHIRT-01",
+            "fact_type": "STOCK",
+            "topic": "stock_availability",
+            "filters": {"requested_color": "putih", "requested_size": "XXL"},
+        })
+        raw = json.dumps({
+            "response_text": "Stok putih size XXL masih ready ya kak.",
+            "used_fact_ids": [fact["fact_id"] for fact in facts],
+            "claims": [
+                {"fact_id": facts[0]["fact_id"], "claim_text": "Putih XXL ready"},
+            ],
+            "needs_fallback": False,
+        })
+        result = validator.validate(
+            raw, facts, 35, "CONFIRM_STOCK",
+            {"requested_color": "putih", "requested_size": "XXL"},
+        )
+        self.assertEqual(result.validation_status, "FALLBACK")
+        self.assertTrue(any("habis" in reason for reason in result.failed_checks))
 
 
 class FrontendContractTests(unittest.TestCase):
     def test_user_id_is_required_and_forwarded(self):
         schema = (ROOT / "frontend" / "src" / "contracts" / "livecoachSchemas.ts").read_text(encoding="utf-8")
         controller = (ROOT / "frontend" / "src" / "features" / "replay" / "useReplayController.ts").read_text(encoding="utf-8")
+        backend_models = (ROOT / "backend" / "models.py").read_text(encoding="utf-8")
         self.assertIn("user_id: z.string().min(1", schema)
         self.assertIn("user_id: comment.user_id", controller)
+        self.assertIn("user_id: str = Field(min_length=1)", backend_models)
 
     def test_generation_provider_is_runtime_validated(self):
         schema = (ROOT / "frontend" / "src" / "contracts" / "livecoachSchemas.ts").read_text(encoding="utf-8")
@@ -224,6 +414,14 @@ class FrontendContractTests(unittest.TestCase):
         self.assertIn("Gemini · Sesuai Knowledge Base", card)
         self.assertIn("Template · Berbasis Knowledge Base", card)
         self.assertNotIn("fallback-label", card)
+
+    def test_priority_event_is_visible_and_runtime_validated(self):
+        schema = (ROOT / "frontend" / "src" / "contracts" / "livecoachSchemas.ts").read_text(encoding="utf-8")
+        page = (ROOT / "frontend" / "src" / "pages" / "DemoPage.tsx").read_text(encoding="utf-8")
+        alert = (ROOT / "frontend" / "src" / "components" / "PriorityAlert.tsx").read_text(encoding="utf-8")
+        self.assertIn("PriorityEventSchema.nullable()", schema)
+        self.assertIn("<PriorityAlert event={controller.latestResult?.priority_event", page)
+        self.assertIn("event.text", alert)
 
     def test_typescript_version_is_pinned_for_eslint_compatibility(self):
         package = json.loads((ROOT / "frontend" / "package.json").read_text(encoding="utf-8"))

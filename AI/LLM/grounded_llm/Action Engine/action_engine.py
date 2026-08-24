@@ -11,23 +11,20 @@ tanggung jawab Grounded LLM (langkah 3-4). Action Engine hanya memutuskan
 
 Kontrak output selaras dengan bagian 10.4 dan 11 dokumen spesifikasi:
 - AudienceSnapshot: state, window_seconds, state_confidence, signals, evidence_comment_ids
-- ActionDecision: selected_action, action_score, required_fact_types
+- ActionDecision: selected_action, selected_signal, action_score,
+  required_fact_types, required_fact_query
 
-CATATAN INTEGRASI (perlu dikonfirmasi ke M2/SCR-2):
-`source_intents` di action_rules.json sekarang memakai Intent enum RESMI dari
-dokumen Section 4.1 (PRICE_PROMO, SIZE_VARIANT, STOCK_AVAILABILITY,
-PRODUCT_DETAIL, dst) -- tetap perlu dikonfirmasi ke M2/SCR-2 karena itu output
-asli model IndoBERTweet milik mereka, kode M3 belum pernah melihat kode M2
-secara langsung.
+`source_intents` memakai normalized semantic signal hasil Taxonomy Adapter,
+bukan raw label model. Mapping raw intent dan kontrak frontend diuji melalui
+regression test di root repository.
 
 RIWAYAT PERBAIKAN (lihat DECISIONS_LOG.md di root folder Lomba untuk detail):
 action_rules.json sebelumnya (v1) memakai audience_state/selected_action
 custom (mis. STOCK_COLOR_CONCERN, MATERIAL_SAFETY_CONCERN, SHOW_PROMO_INFO)
 yang TIDAK cocok dengan enum resmi di Section 4.2 & 11 dokumen spesifikasi.
-Per 19 Agustus 2026 ditulis ulang (v2) supaya persis memakai 8 enum resmi;
-4 dari 8 pasang audience_state/selected_action sudah aktif (SIZE_FRICTION,
-STOCK_FRICTION, PRODUCT_INFO_GAP, PRICE_FRICTION), 3 sisanya sengaja ditunda
-(lihat key "not_yet_implemented" di action_rules.json).
+Per 24 Agustus 2026 rule v3 mempertahankan signal spesifik, menerapkan
+dominance-first ranking dan hysteresis, serta menghasilkan structured fact
+query. State shipping dan objection tetap ditunda sampai label NLP memadai.
 """
 
 from __future__ import annotations
@@ -35,7 +32,7 @@ from __future__ import annotations
 import json
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Any, Dict, List, Optional
 
 
 RULES_PATH = Path(__file__).parent / "action_rules.json"
@@ -50,15 +47,17 @@ class AudienceSnapshot:
     state: str
     window_seconds: int
     state_confidence: float
-    signals: Dict[str, int]
+    signals: Dict[str, Any]
     evidence_comment_ids: List[str]
 
 
 @dataclass
 class ActionDecision:
     selected_action: str
+    selected_signal: str
     action_score: float
     required_fact_types: List[str]
+    required_fact_query: Dict[str, Any]
     reason: str
 
 
@@ -72,6 +71,9 @@ class WindowIntentSignal:
     avg_confidence: float
     unique_user_count: int
     evidence_comment_ids: List[str] = field(default_factory=list)
+    evidence_comments: List[str] = field(default_factory=list)
+    latest_timestamp_ms: int = 0
+    slots_summary: Dict[str, Any] = field(default_factory=dict)
 
 
 # ---------------------------------------------------------------------------
@@ -85,6 +87,7 @@ class ActionEngine:
 
         self.threshold = self.rules["threshold_policy"]
         self.tie_break = self.rules["tie_break_policy"]
+        self.stability = self.rules.get("stability_policy", {})
         self.states = {s["state"]: s for s in self.rules["audience_states"]}
         self.fallback = self.rules["fallback_state"]
 
@@ -112,6 +115,7 @@ class ActionEngine:
         self,
         window_signals: List[WindowIntentSignal],
         window_seconds: int = 60,
+        current_signal: Optional[str] = None,
     ) -> tuple[AudienceSnapshot, ActionDecision]:
         """Titik masuk utama. Dipanggil backend setiap kali rolling window
         60 detik diperbarui (bagian 3.2 dokumen: "Backend memperbarui
@@ -141,6 +145,7 @@ class ActionEngine:
                 continue
 
             evidence_ids = [cid for s in relevant for cid in s.evidence_comment_ids][:3]
+            latest_signal = max(relevant, key=lambda signal: signal.latest_timestamp_ms)
 
             candidates.append(
                 {
@@ -150,6 +155,8 @@ class ActionEngine:
                     "unique_user_count": unique_user_count,
                     "confidence": confidence,
                     "evidence_comment_ids": evidence_ids,
+                    "latest_timestamp_ms": latest_signal.latest_timestamp_ms,
+                    "slots_summary": latest_signal.slots_summary,
                 }
             )
 
@@ -159,41 +166,89 @@ class ActionEngine:
                 state=self.fallback["state"],
                 window_seconds=window_seconds,
                 state_confidence=0.0,
-                signals={"support_count": 0},
+                signals={
+                    "support_count": 0,
+                    "unique_user_count": 0,
+                    "latest_timestamp_ms": 0,
+                    "slots_summary": {},
+                },
                 evidence_comment_ids=[],
             )
             decision = ActionDecision(
                 selected_action=self.fallback["selected_action"],
+                selected_signal="IRRELEVANT",
                 action_score=0.0,
                 required_fact_types=self.fallback["required_fact_types"],
+                required_fact_query=self.fallback.get("required_fact_query", {}),
                 reason="Belum ada pola kuat dalam 60 detik terakhir.",
             )
             return snapshot, decision
 
-        # 3. Tie-break: priority_rank ASC, lalu confidence DESC
+        # 3. Dominance first; business priority is only the final tie-break.
         candidates.sort(
-            key=lambda c: (c["rule"]["priority_rank"], -c["confidence"])
+            key=lambda c: (
+                -c["unique_user_count"],
+                -c["support_count"],
+                -c["confidence"],
+                c["rule"]["priority_rank"],
+            )
         )
         winner = candidates[0]
+
+        # Hysteresis: keep the current eligible signal unless the challenger
+        # has a material unique-user advantage.
+        if current_signal and winner["rule"]["source_intents"][0] != current_signal:
+            current = next(
+                (
+                    candidate
+                    for candidate in candidates
+                    if current_signal in candidate["rule"]["source_intents"]
+                ),
+                None,
+            )
+            margin = int(self.stability.get("switch_unique_user_margin", 2))
+            if current and winner["unique_user_count"] < current["unique_user_count"] + margin:
+                winner = current
+
         rule = winner["rule"]
+        selected_signal = rule["source_intents"][0]
 
         snapshot = AudienceSnapshot(
             state=winner["state"],
             window_seconds=window_seconds,
             state_confidence=winner["confidence"],
-            signals={"support_count": winner["support_count"]},
+            signals={
+                "support_count": winner["support_count"],
+                "unique_user_count": winner["unique_user_count"],
+                "latest_timestamp_ms": winner["latest_timestamp_ms"],
+                "slots_summary": winner["slots_summary"],
+            },
             evidence_comment_ids=winner["evidence_comment_ids"],
         )
 
-        # action_score sengaja dibuat sedikit berbeda dari state_confidence
-        # (NLP confidence vs kepastian keputusan Action Engine sendiri) --
-        # kebijakan MVP: margin tetap 3%, angka final dibatasi 0-1.
-        action_score = round(min(1.0, winner["confidence"] * 0.97), 4)
+        # Explainable confidence of the selected signal. Dominance itself is
+        # represented by support and unique-user counts, not hidden weights.
+        action_score = winner["confidence"]
+
+        fact_query = dict(rule.get("required_fact_query", {}))
+        fact_query["filters"] = dict(winner["rule"].get("fact_filters", {}))
+        fact_query["filters"].update(
+            next(
+                (
+                    signal.slots_summary
+                    for signal in window_signals
+                    if signal.intent == selected_signal
+                ),
+                {},
+            )
+        )
 
         decision = ActionDecision(
             selected_action=rule["selected_action"],
+            selected_signal=selected_signal,
             action_score=action_score,
             required_fact_types=rule["required_fact_types"],
+            required_fact_query=fact_query,
             reason=rule["reason_template"].format(support_count=winner["support_count"]),
         )
 
@@ -207,10 +262,10 @@ class ActionEngine:
 if __name__ == "__main__":
     engine = ActionEngine()
 
-    # Simulasi window 60 detik: 4 komentar soal ukuran, 1 soal harga
+    # Simulasi window 60 detik: tren harga lebih dominan daripada size.
     window = [
         WindowIntentSignal(
-            intent="SIZE_VARIANT",
+            intent="SIZE_RECOMMENDATION",
             support_count=4,
             avg_confidence=0.91,
             unique_user_count=4,
@@ -218,10 +273,10 @@ if __name__ == "__main__":
         ),
         WindowIntentSignal(
             intent="PRICE_PROMO",
-            support_count=1,
-            avg_confidence=0.6,
-            unique_user_count=1,
-            evidence_comment_ids=["CMT-020"],
+            support_count=6,
+            avg_confidence=0.9,
+            unique_user_count=5,
+            evidence_comment_ids=["CMT-020", "CMT-021"],
         ),
     ]
 

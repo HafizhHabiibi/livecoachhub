@@ -40,8 +40,8 @@ Sistem real-time yang membaca komentar audiens, mengidentifikasi pola/intent men
 | 🧠 **NLP Intent Classification** | IndoBERT fine-tuned mengklasifikasikan intent komentar ke 8 kelas |
 | 🤖 **Gemini API LLM Generation** | **Gemini API** menghasilkan seller script yang di-ground pada fakta produk |
 | 🔄 **Auto-Rotation API Key** | Rotasi otomatis antar multi Gemini API key saat rate limit — demo tanpa gangguan |
-| 📊 **Rolling Window Analytics** | Agregasi sinyal audiens per 60 detik dengan minimum dua user unik |
-| 🚨 **Priority Alert System** | Deteksi komentar high-value (purchase intent, complaint) secara real-time |
+| 📊 **Rolling Window Analytics** | Agregasi semantic signal per 60 detik dengan slot, evidence, dan minimum dua user unik |
+| 🚨 **Priority Alert System** | Deteksi purchase intent high-value secara terpisah dari tren utama |
 | 🛡️ **Spam Filter** | Filtrasi spam dan duplikat sebelum diproses NLP |
 | ✅ **Output Validator** | Verifikasi JSON, grounding, dan fallback otomatis |
 | 📦 **Dockerized Full Stack** | Satu command untuk menjalankan seluruh pipeline |
@@ -52,8 +52,8 @@ Sistem real-time yang membaca komentar audiens, mengidentifikasi pola/intent men
 
 ```
 Comment → Preprocessing → Spam Filter → NLP (IndoBERT)
-  → Taxonomy Adapter → Rolling Window 60s
-  → [Trend Lane]    → Action Engine → Fact Retrieval → LLM (Gemini) → Validator → Coach Card
+  → Taxonomy Adapter + Slot Extractor → Rolling Window 60s
+  → [Trend Lane]    → Action Engine → Structured Fact Retrieval → LLM (Gemini) → Validator → Coach Card
   → [Priority Lane] → Priority Alert
 ```
 
@@ -63,8 +63,8 @@ Comment → Preprocessing → Spam Filter → NLP (IndoBERT)
 |----------|----------------|--------|
 | **NLP** | IndoBERT fine-tuned | Klasifikasi intent komentar (8 kelas) |
 | **LLM** | Gemini API (`gemini-2.5-flash`) | Generate seller script — tanpa GPU |
-| **Validator** | Rule-based | Verifikasi JSON, grounding, fallback |
-| **Action Engine** | Threshold + priority | Pilih tindakan berdasarkan audience state |
+| **Validator** | Rule-based | Verifikasi JSON, grounding, keselarasan action/slot, dan fallback |
+| **Action Engine** | Deterministic dominance + hysteresis | Ranking unique users/support/confidence; business priority hanya tie-break terakhir |
 
 ### Arsitektur Docker
 

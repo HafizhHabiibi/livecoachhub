@@ -46,6 +46,8 @@ def validate_output(
     raw_json: str,
     product_facts: List[dict],
     max_words: int,
+    selected_action: Optional[str] = None,
+    slots: Optional[dict] = None,
 ) -> ValidationResult:
     """Validasi output LLM terhadap policy.
 
@@ -57,7 +59,7 @@ def validate_output(
     Returns:
         ValidationResult dengan validation_status "PASSED" atau "FALLBACK".
     """
-    return _validate(raw_json, product_facts, max_words)
+    return _validate(raw_json, product_facts, max_words, selected_action, slots)
 
 
 def run_with_retry(

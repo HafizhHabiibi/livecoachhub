@@ -17,7 +17,7 @@ from __future__ import annotations
 
 from collections import defaultdict
 from dataclasses import dataclass, field
-from typing import Dict, List, Set, Tuple
+from typing import Any, Dict, List
 
 from config import WINDOW_SECONDS
 from session import SessionState
@@ -32,6 +32,9 @@ class WindowIntentSignal:
     avg_confidence: float
     unique_user_count: int = 0
     evidence_comment_ids: List[str] = field(default_factory=list)
+    evidence_comments: List[str] = field(default_factory=list)
+    latest_timestamp_ms: int = 0
+    slots_summary: Dict[str, Any] = field(default_factory=dict)
 
 
 def add_signal(
@@ -42,6 +45,7 @@ def add_signal(
     canonical_signal: str,
     confidence: float,
     text: str,
+    slots: Dict[str, Any] | None = None,
 ) -> None:
     """Tambahkan sinyal baru ke rolling window session.
 
@@ -54,7 +58,7 @@ def add_signal(
         confidence: Confidence NLP (0-1).
     """
     session.window_entries.append(
-        (timestamp_ms, comment_id, user_id, canonical_signal, confidence, text)
+        (timestamp_ms, comment_id, user_id, canonical_signal, confidence, text, slots or {})
     )
 
 
@@ -80,9 +84,9 @@ def get_window_signals(
 
     # Filter entries yang masuk window
     active_entries = [
-        (ts, cid, uid, signal, conf, text)
-        for ts, cid, uid, signal, conf, text in session.window_entries
-        if ts >= cutoff
+        (ts, cid, uid, signal, conf, text, slots)
+        for ts, cid, uid, signal, conf, text, slots in session.window_entries
+        if cutoff <= ts <= current_time_ms
     ]
 
     # Bersihkan entries lama dari session (opsional, hemat memori)
@@ -96,16 +100,30 @@ def get_window_signals(
         "unique_users": set(),
         "confidences": [],
         "evidence_comment_ids": [],
+        "evidence_comments": [],
+        "latest_timestamp_ms": 0,
+        "slots_summary": {},
+        "slots_timestamp_ms": 0,
     })
 
-    for ts, cid, uid, signal, conf, text in active_entries:
+    for ts, cid, uid, signal, conf, text, slots in active_entries:
         agg = aggregation[signal]
         agg["support_count"] += 1
         agg["unique_users"].add(uid)
         agg["confidences"].append(conf)
-        # Simpan max 3 evidence terbaru
-        if len(agg["evidence_comment_ids"]) < 3:
-            agg["evidence_comment_ids"].append(cid)
+        # Keep the three most recent evidence rows. Slots must remain a coherent
+        # set from one comment; merging fields across users can invent a body
+        # profile that nobody submitted.
+        agg["evidence_comment_ids"] = (agg["evidence_comment_ids"] + [cid])[-3:]
+        agg["evidence_comments"] = (agg["evidence_comments"] + [text])[-3:]
+        agg["latest_timestamp_ms"] = max(agg["latest_timestamp_ms"], ts)
+        current_slots = agg["slots_summary"]
+        if slots and (
+            len(slots) > len(current_slots)
+            or (len(slots) == len(current_slots) and ts >= agg["slots_timestamp_ms"])
+        ):
+            agg["slots_summary"] = dict(slots)
+            agg["slots_timestamp_ms"] = ts
 
     # Build output
     results = []
@@ -121,6 +139,9 @@ def get_window_signals(
             avg_confidence=round(avg_conf, 4),
             unique_user_count=len(agg["unique_users"]),
             evidence_comment_ids=agg["evidence_comment_ids"],
+            evidence_comments=agg["evidence_comments"],
+            latest_timestamp_ms=agg["latest_timestamp_ms"],
+            slots_summary=agg["slots_summary"],
         ))
 
     # Urutkan berdasarkan support_count terbanyak

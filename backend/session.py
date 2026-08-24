@@ -24,8 +24,8 @@ class SessionState:
     product_id: str
     processed_count: int = 0
 
-    # Rolling window: (timestamp_ms, comment_id, user_id, canonical_signal, confidence, text)
-    window_entries: List[Tuple[int, str, str, str, float, str]] = field(default_factory=list)
+    # Rolling window: timestamp, comment, user, semantic signal, confidence, text, slots.
+    window_entries: List[Tuple[int, str, str, str, float, str, Dict[str, Any]]] = field(default_factory=list)
 
     # Spam tracking: {user_id: [(timestamp_ms, text_hash), ...]}
     spam_history: Dict[str, List[Tuple[int, int]]] = field(default_factory=dict)
@@ -39,8 +39,9 @@ class SessionState:
     # Track priority comments
     priority_count: int = 0
 
-    # Last action (untuk cooldown di masa depan)
+    # Current stable main action/signal for hysteresis.
     last_action: Optional[str] = None
+    last_signal: Optional[str] = None
     last_action_time: Optional[int] = None
 
     # --- Async LLM state ---

@@ -39,6 +39,7 @@ from models import (
     IntentScore,
     AudienceSnapshotOut,
     ActionDecisionOut,
+    PriorityEventOut,
     CoachCard,
     LatencyMs,
 )
@@ -48,11 +49,12 @@ from session import SessionState, session_manager
 from preprocessing.normalizer import normalize
 from spam_filter.filter import should_count_in_window
 from taxonomy_adapter.adapter import adapt, to_frontend_intent, is_actionable
+from slot_extractor import extract_slots
 import nlp_client
 from rolling_window.window import add_signal, get_window_signals
 from priority_detector.detector import check_priority
 from action_engine.bridge import evaluate as action_evaluate
-from knowledge.retrieval import get_facts
+from knowledge.retrieval import get_facts_for_query
 import llm_client
 from generation_provenance import resolve_generation_outcome
 from generation_dedup import build_generation_fingerprint, should_reuse_generation
@@ -70,8 +72,10 @@ FALLBACK_RETRY_COOLDOWN_MS = 30_000
 # ---------------------------------------------------------------------------
 
 _SITUATION_TEMPLATES = {
+    "SIZE_INFORMATION_GAP": "{count} komentar menanyakan pilihan ukuran dalam {window} detik terakhir",
     "SIZE_FRICTION": "{count} komentar menanyakan ukuran dalam {window} detik terakhir",
-    "STOCK_FRICTION": "{count} komentar menanyakan stok/warna dalam {window} detik terakhir",
+    "COLOR_INFORMATION_GAP": "{count} komentar menanyakan pilihan warna dalam {window} detik terakhir",
+    "STOCK_FRICTION": "{count} komentar menanyakan stok varian dalam {window} detik terakhir",
     "PRODUCT_INFO_GAP": "{count} komentar menanyakan detail produk dalam {window} detik terakhir",
     "PRICE_FRICTION": "{count} komentar menanyakan harga/promo dalam {window} detik terakhir",
     "NO_CLEAR_SIGNAL": "Belum ada pola dominan dari audiens",
@@ -111,7 +115,10 @@ def _determine_urgency(canonical_signal: str, confidence: float) -> str:
 
 def _run_llm_background(
     selected_action: str,
+    selected_signal: str,
     audience_state: str,
+    slots: dict,
+    required_fact_query: dict,
     evidence_texts: List[str],
     product_facts: List[dict],
     urgency: str,
@@ -130,8 +137,11 @@ def _run_llm_background(
 
     llm_input = llm_client.build_llm_input(
         selected_action=selected_action,
+        selected_signal=selected_signal,
         audience_state=audience_state,
         evidence_comments=evidence_texts,
+        slots=slots,
+        required_fact_query=required_fact_query,
         product_facts=product_facts,
         tone=DEFAULT_TONE,
         max_words=MAX_WORDS,
@@ -326,8 +336,6 @@ def run_pipeline(
     cleaned_text = normalize(text)
 
     # ===== TAHAP 2: SPAM/DUPLICATE FILTER =====
-    if not user_id:
-        user_id = f"USR-{comment_id}"
     count_in_window = should_count_in_window(session, user_id, cleaned_text, timestamp_ms)
 
     # ===== TAHAP 3: NLP INTENT CLASSIFICATION =====
@@ -340,6 +348,7 @@ def run_pipeline(
     canonical_signal = adapt(nlp_intent)
     frontend_intent = to_frontend_intent(canonical_signal)
     actionable = is_actionable(canonical_signal)
+    slots = extract_slots(cleaned_text)
 
     # Determine readiness & urgency
     readiness = _determine_readiness(canonical_signal, nlp_confidence)
@@ -350,6 +359,13 @@ def run_pipeline(
     nlp_prediction = NlpPrediction(
         model_version=NLP_MODEL_VERSION,
         comment_id=comment_id,
+        raw_intent=nlp_intent if nlp_intent in {
+            "product_inquiry", "size_inquiry", "size_recommendation",
+            "color_inquiry", "price_inquiry", "stock_availability",
+            "purchase_intent", "not_relevant", "other",
+        } else "other",
+        normalized_signal=frontend_intent,
+        slots=slots,
         intents=[IntentScore(intent=frontend_intent, score=round(nlp_confidence, 4))],
         readiness=readiness,
         urgency=urgency,
@@ -367,6 +383,7 @@ def run_pipeline(
             canonical_signal,
             nlp_confidence,
             cleaned_text,
+            slots,
         )
 
     # Track readiness
@@ -374,15 +391,34 @@ def run_pipeline(
         session.high_readiness_count += 1
 
     # ===== TAHAP 6: PRIORITY DETECTOR =====
-    priority_event = check_priority(
-        session, comment_id, user_id, canonical_signal, nlp_confidence, text,
+    check_priority(
+        session, comment_id, user_id, canonical_signal, nlp_confidence, text, slots,
     )
+    latest_priority = session.priority_events[-1] if session.priority_events else None
+    priority_event_out = PriorityEventOut(
+        comment_id=latest_priority.comment_id,
+        user_id=latest_priority.user_id,
+        confidence=latest_priority.confidence,
+        priority_level=latest_priority.priority_level,
+        text=latest_priority.text,
+        slots=latest_priority.slots,
+    ) if latest_priority is not None else None
 
     # ===== TAHAP 7: GET WINDOW SIGNALS (Trend Lane) =====
     window_signals = get_window_signals(session, timestamp_ms)
 
     # ===== TAHAP 8: ACTION ENGINE =====
-    snapshot_out, decision_out = action_evaluate(session_id, window_signals)
+    snapshot_out, decision_out = action_evaluate(
+        session_id,
+        window_signals,
+        product_id=session.product_id,
+        current_signal=session.last_signal,
+    )
+
+    if decision_out.selected_action != "NO_ACTION":
+        session.last_action = decision_out.selected_action
+        session.last_signal = decision_out.selected_signal
+        session.last_action_time = timestamp_ms
 
     # Update counts dari session
     snapshot_out.high_readiness_count = session.high_readiness_count
@@ -408,6 +444,7 @@ def run_pipeline(
             nlp_prediction=nlp_prediction,
             audience_snapshot=snapshot_out,
             action_decision=decision_out,
+            priority_event=priority_event_out,
             coach_card=coach_card,
             latency_ms=LatencyMs(nlp=nlp_latency, generation=gen_latency, total=total_latency),
         )
@@ -421,6 +458,7 @@ def run_pipeline(
             snapshot_out.audience_state,
             snapshot_out.evidence_comment_ids,
             decision_out.required_fact_types,
+            decision_out.required_fact_query,
         )
 
         # Jika LLM sedang jalan untuk action yang SAMA, biarkan selesai (jangan cancel & jangan restart)
@@ -460,7 +498,7 @@ def run_pipeline(
             _cancel_pending_llm(session)
 
             # Siapkan context untuk LLM
-            product_facts = get_facts(decision_out.required_fact_types)
+            product_facts = get_facts_for_query(decision_out.required_fact_query)
             evidence_texts = _get_evidence_texts(session, snapshot_out.evidence_comment_ids)
             situation = _build_situation(snapshot_out.audience_state, snapshot_out.support_count)
 
@@ -468,7 +506,10 @@ def run_pipeline(
             future = _llm_executor.submit(
                 _run_llm_background,
                 selected_action=decision_out.selected_action,
+                selected_signal=decision_out.selected_signal,
                 audience_state=snapshot_out.audience_state,
+                slots=decision_out.required_fact_query.get("filters", {}),
+                required_fact_query=decision_out.required_fact_query,
                 evidence_texts=evidence_texts,
                 product_facts=product_facts,
                 urgency=urgency,
@@ -498,6 +539,7 @@ def run_pipeline(
         nlp_prediction=nlp_prediction,
         audience_snapshot=snapshot_out,
         action_decision=decision_out,
+        priority_event=priority_event_out,
         coach_card=None,
         latency_ms=LatencyMs(nlp=nlp_latency, total=total_latency),
     )
@@ -514,7 +556,7 @@ def _get_evidence_texts(session: SessionState, evidence_ids: List[str]) -> List[
     evidence_set = set(evidence_ids)
     text_by_id = {
         comment_id: text
-        for _, comment_id, _, _, _, text in session.window_entries
+        for _, comment_id, _, _, _, text, _ in session.window_entries
         if comment_id in evidence_set
     }
     return [text_by_id[cid] for cid in evidence_ids if cid in text_by_id]
