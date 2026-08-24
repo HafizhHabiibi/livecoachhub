@@ -28,6 +28,7 @@ export const mockHealth: HealthResponse = {
     nlp_model: 'READY',
     llm_model: 'READY',
   },
+  provider: { nlp: 'IndoBERT', llm: 'Gemini API' },
 };
 
 export const mockHealthDegraded: HealthResponse = {
@@ -38,6 +39,7 @@ export const mockHealthDegraded: HealthResponse = {
     nlp_model: 'READY',
     llm_model: 'DEGRADED',
   },
+  provider: { nlp: 'IndoBERT', llm: 'Template Fallback' },
 };
 
 export const mockDemoConfig: DemoConfig = {
@@ -155,6 +157,7 @@ export const mockResultCardReady: PipelineResult = {
       'Untuk BB 55 kg, pilih M agar pas; pilih L agar longgar.',
     confidence: 0.91,
     validation_status: 'PASSED',
+    generation_provider: 'GEMINI',
     fallback_used: false,
     used_fact_ids: ['FACT-TS01-SIZE-M', 'FACT-TS01-SIZE-L'],
   },
@@ -210,6 +213,7 @@ export const mockResultFallback: PipelineResult = {
       'Stok masih tersedia, silakan langsung checkout sekarang.',
     confidence: 0.75,
     validation_status: 'FAILED',
+    generation_provider: 'TEMPLATE',
     fallback_used: true,   // Badge FALLBACK harus terlihat jelas
     used_fact_ids: ['FACT-TS01-STOCK'],
   },
@@ -242,26 +246,26 @@ export const mockParsedFile: ParsedReplayFile = {
   durationMs: 52000,
   errors: [],
   comments: [
-    { comment_id: 'CMT-001', timestamp_ms: 0,     text: 'halo kak' },
-    { comment_id: 'CMT-002', timestamp_ms: 5000,  text: 'bahannya apa?' },
-    { comment_id: 'CMT-003', timestamp_ms: 12000, text: 'bb 55 ambil m atau l?' },
-    { comment_id: 'CMT-004', timestamp_ms: 18000, text: 'aku 160 cm pilih size apa kak' },
-    { comment_id: 'CMT-005', timestamp_ms: 24000, text: 'M buat BB berapa?' },
-    { comment_id: 'CMT-006', timestamp_ms: 30000, text: 'jawab size dong mau checkout' },
-    { comment_id: 'CMT-007', timestamp_ms: 42000, text: 'yang hitam L masih ada?' },
-    { comment_id: 'CMT-008', timestamp_ms: 52000, text: 'kalau ada langsung checkout' },
+    { comment_id: 'CMT-001', user_id: 'USR-001', timestamp_ms: 0,     text: 'halo kak' },
+    { comment_id: 'CMT-002', user_id: 'USR-002', timestamp_ms: 5000,  text: 'bahannya apa?' },
+    { comment_id: 'CMT-003', user_id: 'USR-003', timestamp_ms: 12000, text: 'bb 55 ambil m atau l?' },
+    { comment_id: 'CMT-004', user_id: 'USR-004', timestamp_ms: 18000, text: 'aku 160 cm pilih size apa kak' },
+    { comment_id: 'CMT-005', user_id: 'USR-005', timestamp_ms: 24000, text: 'M buat BB berapa?' },
+    { comment_id: 'CMT-006', user_id: 'USR-006', timestamp_ms: 30000, text: 'jawab size dong mau checkout' },
+    { comment_id: 'CMT-007', user_id: 'USR-007', timestamp_ms: 42000, text: 'yang hitam L masih ada?' },
+    { comment_id: 'CMT-008', user_id: 'USR-008', timestamp_ms: 52000, text: 'kalau ada langsung checkout' },
   ],
 };
 
 /** File .jsonl demo sebagai string — untuk download/export */
-export const mockJsonlContent = `{"comment_id":"CMT-001","timestamp_ms":0,"text":"halo kak"}
-{"comment_id":"CMT-002","timestamp_ms":5000,"text":"bahannya apa?"}
-{"comment_id":"CMT-003","timestamp_ms":12000,"text":"bb 55 ambil m atau l?"}
-{"comment_id":"CMT-004","timestamp_ms":18000,"text":"aku 160 cm pilih size apa kak"}
-{"comment_id":"CMT-005","timestamp_ms":24000,"text":"M buat BB berapa?"}
-{"comment_id":"CMT-006","timestamp_ms":30000,"text":"jawab size dong mau checkout"}
-{"comment_id":"CMT-007","timestamp_ms":42000,"text":"yang hitam L masih ada?"}
-{"comment_id":"CMT-008","timestamp_ms":52000,"text":"kalau ada langsung checkout"}`;
+export const mockJsonlContent = `{"comment_id":"CMT-001","user_id":"USR-001","timestamp_ms":0,"text":"halo kak"}
+{"comment_id":"CMT-002","user_id":"USR-002","timestamp_ms":5000,"text":"bahannya apa?"}
+{"comment_id":"CMT-003","user_id":"USR-003","timestamp_ms":12000,"text":"bb 55 ambil m atau l?"}
+{"comment_id":"CMT-004","user_id":"USR-004","timestamp_ms":18000,"text":"aku 160 cm pilih size apa kak"}
+{"comment_id":"CMT-005","user_id":"USR-005","timestamp_ms":24000,"text":"M buat BB berapa?"}
+{"comment_id":"CMT-006","user_id":"USR-006","timestamp_ms":30000,"text":"jawab size dong mau checkout"}
+{"comment_id":"CMT-007","user_id":"USR-007","timestamp_ms":42000,"text":"yang hitam L masih ada?"}
+{"comment_id":"CMT-008","user_id":"USR-008","timestamp_ms":52000,"text":"kalau ada langsung checkout"}`;
 
 // ============================================================
 // MOCK API — aktif hanya saat VITE_USE_MOCK=true

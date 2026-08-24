@@ -41,6 +41,7 @@ def add_signal(
     user_id: str,
     canonical_signal: str,
     confidence: float,
+    text: str,
 ) -> None:
     """Tambahkan sinyal baru ke rolling window session.
 
@@ -53,7 +54,7 @@ def add_signal(
         confidence: Confidence NLP (0-1).
     """
     session.window_entries.append(
-        (timestamp_ms, comment_id, user_id, canonical_signal, confidence)
+        (timestamp_ms, comment_id, user_id, canonical_signal, confidence, text)
     )
 
 
@@ -79,8 +80,8 @@ def get_window_signals(
 
     # Filter entries yang masuk window
     active_entries = [
-        (ts, cid, uid, signal, conf)
-        for ts, cid, uid, signal, conf in session.window_entries
+        (ts, cid, uid, signal, conf, text)
+        for ts, cid, uid, signal, conf, text in session.window_entries
         if ts >= cutoff
     ]
 
@@ -97,7 +98,7 @@ def get_window_signals(
         "evidence_comment_ids": [],
     })
 
-    for ts, cid, uid, signal, conf in active_entries:
+    for ts, cid, uid, signal, conf, text in active_entries:
         agg = aggregation[signal]
         agg["support_count"] += 1
         agg["unique_users"].add(uid)

@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import json
 import logging
+from dataclasses import dataclass
 from typing import List, Optional
 
 from google import genai
@@ -38,6 +39,14 @@ from system_prompt import SYSTEM_PROMPT
 _gemini_key_index: int = 0          # Index key yang sedang aktif
 _gemini_clients: dict = {}          # Cache Client per API key
 _llm_available: bool | None = None
+
+
+@dataclass(frozen=True)
+class GenerationResult:
+    """Raw generation plus provenance independent from validation status."""
+
+    raw_output: str
+    provider: str  # "GEMINI" atau "TEMPLATE"
 
 
 def _get_gemini_client(api_key: str) -> genai.Client:
@@ -76,10 +85,19 @@ _FALLBACK_TEMPLATES = {
 
 
 def is_llm_available() -> bool:
-    """Return status LLM (Gemini API). Ketersediaan tergantung adanya API key."""
-    global _llm_available
-    _llm_available = len(config.GEMINI_API_KEYS) > 0
-    return _llm_available
+    """True only after a real Gemini generation has succeeded."""
+    return _llm_available is True
+
+
+def get_llm_health() -> tuple[str, str]:
+    """Return honest service status and provider without making a paid call."""
+    if not config.GEMINI_API_KEYS:
+        return "DEGRADED", "Template Fallback"
+    if _llm_available is True:
+        return "READY", "Gemini API"
+    if _llm_available is False:
+        return "DEGRADED", "Template Fallback"
+    return "UNKNOWN", "Gemini API (unverified)"
 
 
 def build_llm_input(
@@ -104,7 +122,10 @@ def build_llm_input(
     }
 
 
-def generate(input_payload: dict, correction_note: Optional[str] = None) -> str:
+def generate_with_metadata(
+    input_payload: dict,
+    correction_note: Optional[str] = None,
+) -> GenerationResult:
     """Generate response dari Gemini API.
 
     Jika gagal, return template fallback sebagai valid JSON.
@@ -114,14 +135,17 @@ def generate(input_payload: dict, correction_note: Optional[str] = None) -> str:
         correction_note: Catatan koreksi dari Validator (untuk retry).
 
     Returns:
-        Raw JSON string — output LLM atau template fallback.
+        GenerationResult berisi raw JSON dan provider aktual.
     """
     global _llm_available, _gemini_key_index
 
     if not config.GEMINI_API_KEYS:
         logger.warning("GEMINI_API_KEYS belum disetel di .env, menggunakan template fallback")
         _llm_available = False
-        return _generate_template_fallback(input_payload)
+        return GenerationResult(
+            raw_output=_generate_template_fallback(input_payload),
+            provider="TEMPLATE",
+        )
 
     user_content = json.dumps(input_payload, ensure_ascii=False)
     if correction_note:
@@ -148,7 +172,7 @@ def generate(input_payload: dict, correction_note: Optional[str] = None) -> str:
             if raw_output:
                 _llm_available = True
                 _gemini_key_index = key_idx  # Ingat key yang berhasil
-                return raw_output
+                return GenerationResult(raw_output=raw_output, provider="GEMINI")
         except Exception as e:
             error_str = str(e).lower()
             # Rotate ke key berikutnya jika rate limit / quota exceeded
@@ -166,7 +190,15 @@ def generate(input_payload: dict, correction_note: Optional[str] = None) -> str:
     # Semua key gagal
     logger.warning("All %d Gemini API keys exhausted, using template fallback", len(keys))
     _llm_available = False
-    return _generate_template_fallback(input_payload)
+    return GenerationResult(
+        raw_output=_generate_template_fallback(input_payload),
+        provider="TEMPLATE",
+    )
+
+
+def generate(input_payload: dict, correction_note: Optional[str] = None) -> str:
+    """Backward-compatible raw output API used by standalone validator tools."""
+    return generate_with_metadata(input_payload, correction_note).raw_output
 
 
 def _generate_template_fallback(input_payload: dict) -> str:

@@ -25,6 +25,7 @@ export const ReadinessSchema = z.enum(['LOW', 'MEDIUM', 'HIGH']);
 export const UrgencySchema = z.enum(['NORMAL', 'PRIORITY', 'CRITICAL']);
 
 export const ValidationStatusSchema = z.enum(['PASSED', 'FAILED', 'NOT_RUN']);
+export const GenerationProviderSchema = z.enum(['GEMINI', 'TEMPLATE']);
 
 export const AudienceStateSchema = z.enum([
   'PRICE_FRICTION',
@@ -67,9 +68,13 @@ export const HealthResponseSchema = z.object({
   schema_version: z.literal('health.v1'),
   status: z.enum(['READY', 'DEGRADED', 'OFFLINE']),
   services: z.object({
-    api: z.enum(['READY', 'DEGRADED', 'OFFLINE']),
-    nlp_model: z.enum(['READY', 'DEGRADED', 'OFFLINE']),
-    llm_model: z.enum(['READY', 'DEGRADED', 'OFFLINE']),
+    api: z.enum(['READY', 'DEGRADED', 'OFFLINE', 'UNKNOWN']),
+    nlp_model: z.enum(['READY', 'DEGRADED', 'OFFLINE', 'UNKNOWN']),
+    llm_model: z.enum(['READY', 'DEGRADED', 'OFFLINE', 'UNKNOWN']),
+  }),
+  provider: z.object({
+    nlp: z.enum(['IndoBERT', 'Heuristic Fallback']),
+    llm: z.enum(['Gemini API', 'Gemini API (unverified)', 'Template Fallback']),
   }),
 });
 
@@ -167,6 +172,7 @@ export const CoachCardSchema = z.object({
   suggested_response: z.string().min(1),
   confidence: z.number().min(0).max(1),
   validation_status: ValidationStatusSchema,
+  generation_provider: GenerationProviderSchema,
   fallback_used: z.boolean(),
   used_fact_ids: z.array(z.string()),
 });
@@ -195,6 +201,7 @@ export const PipelineResultSchema = z.object({
 
 export const CommentEntrySchema = z.object({
   comment_id: z.string().min(1, 'comment_id tidak boleh kosong'),
+  user_id: z.string().min(1, 'user_id tidak boleh kosong'),
   timestamp_ms: z
     .number()
     .int('timestamp_ms harus integer')

@@ -10,6 +10,7 @@ set -euo pipefail
 
 BASE_URL="${BASE_URL:-http://localhost:8000}"
 FRONTEND_URL="${FRONTEND_URL:-http://localhost:3000}"
+REQUIRE_FULL_AI="${REQUIRE_FULL_AI:-1}"
 PASS=0
 FAIL=0
 
@@ -18,10 +19,10 @@ check() {
     local result="$2"
     if [ "$result" = "0" ]; then
         echo "  ✅ $desc"
-        ((PASS++))
+        PASS=$((PASS + 1))
     else
         echo "  ❌ $desc"
-        ((FAIL++))
+        FAIL=$((FAIL + 1))
     fi
 }
 
@@ -42,6 +43,7 @@ if [ "$HTTP_CODE" = "200" ]; then
     check "Health body contains 'status'" "$(echo "$HEALTH_BODY" | grep -q '"status"' && echo 0 || echo 1)"
     check "Health body contains 'services'" "$(echo "$HEALTH_BODY" | grep -q '"services"' && echo 0 || echo 1)"
     check "Health body contains 'provider'" "$(echo "$HEALTH_BODY" | grep -q '"provider"' && echo 0 || echo 1)"
+    check "NLP model reports READY" "$(echo "$HEALTH_BODY" | grep -q '"nlp_model":"READY"' && echo 0 || echo 1)"
 
     # Tampilkan status service
     echo ""
@@ -67,15 +69,41 @@ if [ -n "$SESSION_ID" ]; then
 fi
 
 # ---- 4. Pipeline end-to-end ----
-echo "4️⃣  Pipeline E2E (single comment)"
+echo "4️⃣  Pipeline E2E (trend + Coach Card provenance)"
 if [ -n "$SESSION_ID" ]; then
-    ANALYZE_RESP=$(curl -s -X POST "$BASE_URL/api/v1/comments/analyze" \
+    ANALYZE_RESP_1=$(curl -s -X POST "$BASE_URL/api/v1/comments/analyze" \
         -H "Content-Type: application/json" \
-        -d "{\"session_id\":\"$SESSION_ID\",\"comment_id\":\"CMT-SMOKE\",\"user_id\":\"USR-SMOKE\",\"timestamp_ms\":1000,\"text\":\"bb 55 ambil size apa kak\"}" 2>/dev/null || echo "{}")
-    check "Pipeline returns nlp_prediction" "$(echo "$ANALYZE_RESP" | grep -q 'nlp_prediction' && echo 0 || echo 1)"
-    check "Pipeline returns audience_snapshot" "$(echo "$ANALYZE_RESP" | grep -q 'audience_snapshot' && echo 0 || echo 1)"
-    check "Pipeline returns action_decision" "$(echo "$ANALYZE_RESP" | grep -q 'action_decision' && echo 0 || echo 1)"
-    check "Pipeline returns pipeline_status" "$(echo "$ANALYZE_RESP" | grep -q 'pipeline_status' && echo 0 || echo 1)"
+        -d "{\"session_id\":\"$SESSION_ID\",\"comment_id\":\"CMT-SMOKE-1\",\"user_id\":\"USR-SMOKE-1\",\"timestamp_ms\":1000,\"text\":\"bb 55 ambil size apa kak\"}" 2>/dev/null || echo "{}")
+    ANALYZE_RESP_2=$(curl -s -X POST "$BASE_URL/api/v1/comments/analyze" \
+        -H "Content-Type: application/json" \
+        -d "{\"session_id\":\"$SESSION_ID\",\"comment_id\":\"CMT-SMOKE-2\",\"user_id\":\"USR-SMOKE-2\",\"timestamp_ms\":2000,\"text\":\"ukuran untuk bb 60 pilih apa\"}" 2>/dev/null || echo "{}")
+    check "Pipeline returns nlp_prediction" "$(echo "$ANALYZE_RESP_2" | grep -q 'nlp_prediction' && echo 0 || echo 1)"
+    check "Pipeline returns audience_snapshot" "$(echo "$ANALYZE_RESP_2" | grep -q 'audience_snapshot' && echo 0 || echo 1)"
+    check "Pipeline selects an action from two unique users" "$(echo "$ANALYZE_RESP_2" | grep -q 'SHOW_SIZE_GUIDE' && echo 0 || echo 1)"
+
+    # Retry comment pertama harus mengembalikan hasil cache (processed_count tetap 1).
+    RETRY_RESP=$(curl -s -X POST "$BASE_URL/api/v1/comments/analyze" \
+        -H "Content-Type: application/json" \
+        -d "{\"session_id\":\"$SESSION_ID\",\"comment_id\":\"CMT-SMOKE-1\",\"user_id\":\"USR-SMOKE-1\",\"timestamp_ms\":1000,\"text\":\"bb 55 ambil size apa kak\"}" 2>/dev/null || echo "{}")
+    check "Retry is idempotent" "$(echo "$RETRY_RESP" | grep -q '"processed_count":1' && echo 0 || echo 1)"
+
+    CARD_RESP="{}"
+    for _ in $(seq 1 15); do
+        CARD_RESP=$(curl -s "$BASE_URL/api/v1/session/card?session_id=$SESSION_ID" 2>/dev/null || echo "{}")
+        if echo "$CARD_RESP" | grep -q 'generation_provider'; then
+            break
+        fi
+        sleep 1
+    done
+    check "Coach Card produced" "$(echo "$CARD_RESP" | grep -q 'generation_provider' && echo 0 || echo 1)"
+    if [ "$REQUIRE_FULL_AI" = "1" ]; then
+        check "Coach Card provider is Gemini" "$(echo "$CARD_RESP" | grep -q '"generation_provider":"GEMINI"' && echo 0 || echo 1)"
+        check "Coach Card is not fallback" "$(echo "$CARD_RESP" | grep -q '"fallback_used":false' && echo 0 || echo 1)"
+        POST_GENERATION_HEALTH=$(curl -s "$BASE_URL/health" 2>/dev/null || echo "{}")
+        check "Health reports Gemini READY after real generation" "$(echo "$POST_GENERATION_HEALTH" | grep -q '"llm_model":"READY"' && echo 0 || echo 1)"
+    else
+        check "Fallback provenance is explicit" "$(echo "$CARD_RESP" | grep -Eq '"generation_provider":"(GEMINI|TEMPLATE)"' && echo 0 || echo 1)"
+    fi
 else
     echo "  ⏭️  Skipped — no session ID"
 fi

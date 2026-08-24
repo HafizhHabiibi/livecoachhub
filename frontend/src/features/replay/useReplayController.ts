@@ -172,6 +172,10 @@ export function useReplayController(): ReplayController {
               nlp_model: 'OFFLINE',
               llm_model: 'OFFLINE',
             },
+            provider: {
+              nlp: 'Heuristic Fallback',
+              llm: 'Template Fallback',
+            },
           });
         }
       }
@@ -292,6 +296,7 @@ export function useReplayController(): ReplayController {
         result = await analyzeComment({
           session_id: activeSessionId,
           comment_id: comment.comment_id,
+          user_id: comment.user_id,
           timestamp_ms: comment.timestamp_ms,
           text: comment.text,
         });
@@ -336,7 +341,7 @@ export function useReplayController(): ReplayController {
           coach_card: effectiveCoachCard,
           pipeline_status: result.coach_card
             ? result.pipeline_status
-            : (effectiveCoachCard ? 'CARD_READY' : result.pipeline_status),
+            : (effectiveCoachCard ? (prev?.pipeline_status ?? result.pipeline_status) : result.pipeline_status),
         };
       });
       setProcessedComments((prev: ProcessedComment[]) => {

@@ -5,6 +5,7 @@
   "threshold_policy": {
     "description": "Sinyal minimal sebelum Action Engine berani memilih action selain NO_ACTION.",
     "min_supporting_comments_60s": 2,
+    "min_unique_users_60s": 2,
     "min_state_confidence": 0.7,
     "mode": "AND"
   },

@@ -1,12 +1,13 @@
 """
 LiveCoachHub Backend — FastAPI Entry Point
 
-5 endpoint sesuai kontrak frontend (livecoachApi.ts):
+6 endpoint sesuai kontrak frontend (livecoachApi.ts):
   GET  /health                    → HealthResponse
   GET  /api/v1/demo-config        → DemoConfig
   POST /api/v1/session/start      → SessionStartResponse
   POST /api/v1/comments/analyze   → PipelineResult
   POST /api/v1/session/reset      → SessionResetResponse
+  GET  /api/v1/session/card       → Coach Card async polling
 
 CORS diaktifkan untuk frontend di localhost:5173 (Vite dev server).
 """
@@ -141,10 +142,10 @@ def health_check():
     Menampilkan provenance per service: AI asli vs fallback.
     """
     nlp_ready = nlp_client.is_nlp_available()
-    llm_ready = llm_client.is_llm_available()
+    llm_status, llm_provider = llm_client.get_llm_health()
 
     # Status keseluruhan
-    if nlp_ready and llm_ready:
+    if nlp_ready and llm_status == "READY":
         overall = "READY"
     else:
         overall = "DEGRADED"
@@ -155,11 +156,11 @@ def health_check():
         "services": {
             "api": "READY",
             "nlp_model": "READY" if nlp_ready else "DEGRADED",
-            "llm_model": "READY" if llm_ready else "DEGRADED",
+            "llm_model": llm_status,
         },
         "provider": {
             "nlp": "IndoBERT" if nlp_ready else "Heuristic Fallback",
-            "llm": "Gemini API" if llm_ready else "Template Fallback",
+            "llm": llm_provider,
         },
     }
 
@@ -236,13 +237,14 @@ def analyze_comment(req: CommentAnalyzeRequest):
 
     try:
         # Jalankan pipeline
-        result = run_pipeline(
-            session_id=req.session_id,
-            comment_id=req.comment_id,
-            user_id=req.user_id,
-            timestamp_ms=req.timestamp_ms,
-            text=req.text,
-        )
+        with session.lock:
+            result = run_pipeline(
+                session_id=req.session_id,
+                comment_id=req.comment_id,
+                user_id=req.user_id,
+                timestamp_ms=req.timestamp_ms,
+                text=req.text,
+            )
 
         logger.info(
             "Analyzed %s: intent=%s, state=%s, action=%s (%.0fms)",
@@ -315,7 +317,8 @@ def get_session_card_endpoint(session_id: str):
             detail=f"Session tidak ditemukan: {session_id}",
         )
 
-    card_data = get_session_card(session_id)
+    with session.lock:
+        card_data = get_session_card(session_id)
     if card_data.get("coach_card") and hasattr(card_data["coach_card"], "model_dump"):
         card_data["coach_card"] = card_data["coach_card"].model_dump()
 

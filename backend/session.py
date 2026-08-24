@@ -14,6 +14,7 @@ import uuid
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional, Set, Tuple
 from concurrent.futures import Future
+from threading import RLock
 
 
 @dataclass
@@ -23,8 +24,8 @@ class SessionState:
     product_id: str
     processed_count: int = 0
 
-    # Rolling window: list of (timestamp_ms, comment_id, user_id, canonical_signal, confidence)
-    window_entries: List[Tuple[int, str, str, str, float]] = field(default_factory=list)
+    # Rolling window: (timestamp_ms, comment_id, user_id, canonical_signal, confidence, text)
+    window_entries: List[Tuple[int, str, str, str, float, str]] = field(default_factory=list)
 
     # Spam tracking: {user_id: [(timestamp_ms, text_hash), ...]}
     spam_history: Dict[str, List[Tuple[int, int]]] = field(default_factory=dict)
@@ -51,10 +52,19 @@ class SessionState:
     ready_coach_card: Optional[Any] = field(default=None, repr=False)
     # Kartu terakhir yang aktif di sesi (tidak di-reset saat ready_coach_card diambil)
     latest_coach_card: Optional[Any] = field(default=None, repr=False)
+    # Status yang melekat pada latest_coach_card; FALLBACK harus tetap persisten
+    # pada polling berikutnya dan tidak boleh berubah menjadi CARD_READY.
+    latest_pipeline_status: Optional[str] = None
     # Pipeline status untuk ready_coach_card ("CARD_READY" atau "FALLBACK")
     ready_pipeline_status: Optional[str] = None
     # Latency dari LLM generation
     ready_gen_latency: Optional[float] = None
+
+    # Idempotency cache: retry comment_id yang sama tidak memutasi agregasi dua kali.
+    processed_results: Dict[str, Any] = field(default_factory=dict, repr=False)
+
+    # Endpoint analyze dan card polling dapat berjalan di thread berbeda.
+    lock: Any = field(default_factory=RLock, repr=False)
 
 
 class SessionManager:
@@ -79,6 +89,9 @@ class SessionManager:
         old = self._sessions.pop(session_id, None)
         if old is None:
             return None
+        with old.lock:
+            if old.pending_llm_future is not None:
+                old.pending_llm_future.cancel()
         state = SessionState(session_id=session_id, product_id=old.product_id)
         self._sessions[session_id] = state
         return state

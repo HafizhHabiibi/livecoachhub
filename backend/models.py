@@ -23,6 +23,7 @@ PipelineStatus = Literal["WAITING_SIGNAL", "CARD_READY", "FALLBACK", "ERROR"]
 Readiness = Literal["LOW", "MEDIUM", "HIGH"]
 Urgency = Literal["NORMAL", "PRIORITY", "CRITICAL"]
 ValidationStatus = Literal["PASSED", "FAILED", "NOT_RUN"]
+GenerationProvider = Literal["GEMINI", "TEMPLATE"]
 
 AudienceState = Literal[
     "PRICE_FRICTION", "SIZE_FRICTION", "STOCK_FRICTION",
@@ -75,7 +76,8 @@ class SessionResetRequest(BaseModel):
 class HealthResponse(BaseModel):
     schema_version: str = "health.v1"
     status: Literal["READY", "DEGRADED", "OFFLINE"]
-    services: dict  # {api, nlp_model, llm_model}
+    services: dict  # {api, nlp_model, llm_model}; LLM dapat UNKNOWN sebelum call aktual
+    provider: dict  # {nlp, llm}
 
 
 class DemoConfig(BaseModel):
@@ -154,6 +156,7 @@ class CoachCard(BaseModel):
     suggested_response: str
     confidence: float = Field(ge=0, le=1)
     validation_status: ValidationStatus
+    generation_provider: GenerationProvider
     fallback_used: bool
     used_fact_ids: List[str]
 

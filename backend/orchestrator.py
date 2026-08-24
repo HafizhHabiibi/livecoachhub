@@ -54,6 +54,7 @@ from priority_detector.detector import check_priority
 from action_engine.bridge import evaluate as action_evaluate
 from knowledge.retrieval import get_facts
 import llm_client
+from generation_provenance import resolve_generation_outcome
 from validator.bridge import validate_output, run_with_retry, get_fallback_template
 
 logger = logging.getLogger(__name__)
@@ -134,9 +135,17 @@ def _run_llm_background(
         max_words=MAX_WORDS,
     )
 
-    # Generate → validate → retry → fallback
+    # Provider generation dicatat terpisah dari status validasi. Template
+    # fallback bisa aman/valid, tetapi tidak boleh dilabel sebagai Gemini.
+    generation_providers: List[str] = []
+
+    def generate_tracked(payload: dict, correction_note: Optional[str] = None) -> str:
+        generated = llm_client.generate_with_metadata(payload, correction_note)
+        generation_providers.append(generated.provider)
+        return generated.raw_output
+
     validation_result = run_with_retry(
-        generate_fn=llm_client.generate,
+        generate_fn=generate_tracked,
         input_payload=llm_input,
         selected_action=selected_action,
     )
@@ -146,8 +155,10 @@ def _run_llm_background(
 
     response_data = validation_result.response or {}
     is_passed = validation_result.validation_status == "PASSED"
-    is_fallback = not is_passed
-    pipeline_status = "CARD_READY" if is_passed else "FALLBACK"
+    outcome = resolve_generation_outcome(
+        validation_result.validation_status,
+        generation_providers,
+    )
     fe_validation_status = "PASSED" if is_passed else "FAILED"
 
     coach_card = CoachCard(
@@ -159,18 +170,19 @@ def _run_llm_background(
         suggested_response=response_data.get("response_text", get_fallback_template(selected_action)),
         confidence=state_confidence,
         validation_status=fe_validation_status,
-        fallback_used=is_fallback,
+        generation_provider=outcome.provider,
+        fallback_used=outcome.fallback_used,
         used_fact_ids=response_data.get("used_fact_ids", []),
     )
 
     logger.info(
         "LLM async selesai untuk session=%s action=%s status=%s (%.0fms)",
-        session_id, selected_action, pipeline_status, gen_latency,
+        session_id, selected_action, outcome.pipeline_status, gen_latency,
     )
 
     return {
         "coach_card": coach_card,
-        "pipeline_status": pipeline_status,
+        "pipeline_status": outcome.pipeline_status,
         "gen_latency": gen_latency,
     }
 
@@ -190,6 +202,7 @@ def _check_and_collect_llm_result(session: SessionState) -> None:
         session.ready_coach_card = result["coach_card"]
         session.latest_coach_card = result["coach_card"]
         session.ready_pipeline_status = result["pipeline_status"]
+        session.latest_pipeline_status = result["pipeline_status"]
         session.ready_gen_latency = result["gen_latency"]
         logger.info(
             "Coach card ready untuk session=%s action=%s",
@@ -225,6 +238,11 @@ def get_session_card(session_id: str) -> dict:
     if session is None:
         raise ValueError(f"Session not found: {session_id}")
 
+    # Retry idempotent: comment_id yang sama tidak memutasi state dua kali.
+    cached_result = session.processed_results.get(comment_id)
+    if cached_result is not None:
+        return cached_result.model_copy(deep=True)
+
     # Check dan kumpulkan hasil jika background task sudah selesai
     _check_and_collect_llm_result(session)
 
@@ -234,7 +252,11 @@ def get_session_card(session_id: str) -> dict:
     )
 
     card = session.ready_coach_card or session.latest_coach_card
-    status = session.ready_pipeline_status or ("CARD_READY" if card is not None else "WAITING_SIGNAL")
+    status = (
+        session.ready_pipeline_status
+        or session.latest_pipeline_status
+        or ("CARD_READY" if card is not None else "WAITING_SIGNAL")
+    )
     latency = session.ready_gen_latency
 
     # Clear ready flag setelah diambil
@@ -329,7 +351,15 @@ def run_pipeline(
 
     # ===== TAHAP 5: ROLLING WINDOW (jika layak) =====
     if count_in_window and actionable and usable:
-        add_signal(session, timestamp_ms, comment_id, user_id, canonical_signal, nlp_confidence)
+        add_signal(
+            session,
+            timestamp_ms,
+            comment_id,
+            user_id,
+            canonical_signal,
+            nlp_confidence,
+            cleaned_text,
+        )
 
     # Track readiness
     if readiness == "HIGH":
@@ -363,7 +393,7 @@ def run_pipeline(
         session.ready_gen_latency = None
 
         total_latency = round((time.time() - t_start) * 1000, 1)
-        return PipelineResult(
+        result = PipelineResult(
             session_id=session_id,
             pipeline_status=pipeline_status,
             processed_count=processed_count,
@@ -373,6 +403,8 @@ def run_pipeline(
             coach_card=coach_card,
             latency_ms=LatencyMs(nlp=nlp_latency, generation=gen_latency, total=total_latency),
         )
+        session.processed_results[comment_id] = result.model_copy(deep=True)
+        return result
 
     # ===== TAHAP 10: JIKA ADA ACTION → KICK OFF ASYNC LLM =====
     if decision_out.selected_action != "NO_ACTION":
@@ -422,7 +454,7 @@ def run_pipeline(
     # ===== RETURN FAST RESPONSE (tanpa menunggu LLM) =====
     total_latency = round((time.time() - t_start) * 1000, 1)
 
-    return PipelineResult(
+    result = PipelineResult(
         session_id=session_id,
         pipeline_status="WAITING_SIGNAL",
         processed_count=processed_count,
@@ -432,15 +464,20 @@ def run_pipeline(
         coach_card=None,
         latency_ms=LatencyMs(nlp=nlp_latency, total=total_latency),
     )
+    session.processed_results[comment_id] = result.model_copy(deep=True)
+    return result
 
 
 def _get_evidence_texts(session: SessionState, evidence_ids: List[str]) -> List[str]:
     """Ambil teks asli dari evidence comment IDs.
 
-    Untuk MVP, kita simpan teks di window_entries.
-    Karena window_entries tidak menyimpan teks, kita return IDs sebagai placeholder.
-    Di production, ini akan lookup dari database.
+    Teks disimpan bersama rolling-window entry agar prompt menerima evidence
+    aktual, bukan sekadar comment ID.
     """
-    # Untuk sekarang, return evidence_ids sebagai representasi
-    # Frontend menampilkan comment text dari CommentStream, bukan dari sini
-    return evidence_ids
+    evidence_set = set(evidence_ids)
+    text_by_id = {
+        comment_id: text
+        for _, comment_id, _, _, _, text in session.window_entries
+        if comment_id in evidence_set
+    }
+    return [text_by_id[cid] for cid in evidence_ids if cid in text_by_id]

@@ -63,6 +63,7 @@ def evaluate(
             intent=ws.intent,
             support_count=ws.support_count,
             avg_confidence=ws.avg_confidence,
+            unique_user_count=ws.unique_user_count,
             evidence_comment_ids=ws.evidence_comment_ids,
         )
         for ws in window_signals

@@ -40,7 +40,7 @@ Sistem real-time yang membaca komentar audiens, mengidentifikasi pola/intent men
 | 🧠 **NLP Intent Classification** | IndoBERT fine-tuned mengklasifikasikan intent komentar ke 8 kelas |
 | 🤖 **Gemini API LLM Generation** | **Gemini API** menghasilkan seller script yang di-ground pada fakta produk |
 | 🔄 **Auto-Rotation API Key** | Rotasi otomatis antar multi Gemini API key saat rate limit — demo tanpa gangguan |
-| 📊 **Rolling Window Analytics** | Agregasi sinyal audiens per 60 detik untuk mendeteksi tren |
+| 📊 **Rolling Window Analytics** | Agregasi sinyal audiens per 60 detik dengan minimum dua user unik |
 | 🚨 **Priority Alert System** | Deteksi komentar high-value (purchase intent, complaint) secara real-time |
 | 🛡️ **Spam Filter** | Filtrasi spam dan duplikat sebelum diproses NLP |
 | ✅ **Output Validator** | Verifikasi JSON, grounding, dan fallback otomatis |
@@ -140,7 +140,10 @@ Setelah semua siap, buka browser:
 
 ## 🎬 Skenario Demo
 
-File demo tersedia di `data/replay/comments-demo.jsonl` — berisi **30 komentar** dari **19 user** yang mensimulasikan sesi live selling **~90 detik**.
+Tersedia dua file demo:
+
+- `data/replay/comments-demo.jsonl` — **mixed-natural demo**, 30 komentar dari 19 user selama ~90 detik.
+- `data/replay/comments-demo-showcase.jsonl` — **deterministic showcase**, disusun untuk memperlihatkan transisi Price → Product Detail → Stock → Size → Purchase Intent.
 
 ### Cara Menjalankan Demo
 
@@ -181,11 +184,14 @@ File demo tersedia di `data/replay/comments-demo.jsonl` — berisi **30 komentar
 ## ✅ Verifikasi & Smoke Test
 
 ```bash
-# Health check — harus return status READY
+# Health check — LLM dapat UNKNOWN sebelum generation Gemini pertama
 curl http://localhost:8000/health
 
-# Smoke test otomatis (Linux/macOS/Git Bash)
+# Smoke test full AI otomatis (Linux/macOS/Git Bash)
 bash scripts/smoke_test.sh
+
+# Izinkan degraded/template mode (tetap memverifikasi provenance)
+REQUIRE_FULL_AI=0 bash scripts/smoke_test.sh
 ```
 
 <details>
@@ -267,7 +273,7 @@ LiveCoachHub/
 │   ├── Dockerfile
 │   ├── entrypoint.sh              # Auto-decrypt .env.enc saat start
 │   ├── .env.enc                   # API key terenkripsi (AES-256)
-│   ├── app/main.py                # Entry point (5 endpoints)
+│   ├── app/main.py                # Entry point (6 endpoints)
 │   ├── llm_client.py              # Gemini API client + auto-rotation key
 │   ├── config.py                  # Konfigurasi global
 │   ├── orchestrator.py
@@ -305,6 +311,7 @@ LiveCoachHub/
 | `POST` | `/api/v1/session/start` | Buat session replay baru |
 | `POST` | `/api/v1/comments/analyze` | **Core** — jalankan pipeline per komentar |
 | `POST` | `/api/v1/session/reset` | Reset session |
+| `GET` | `/api/v1/session/card` | Polling Coach Card hasil generation async |
 
 ---
 

@@ -7,7 +7,7 @@
  *
  * Aturan validasi:
  * 1. Setiap baris harus JSON valid
- * 2. Setiap baris harus punya comment_id, timestamp_ms, text
+ * 2. Setiap baris harus punya comment_id, user_id, timestamp_ms, text
  * 3. comment_id harus unik dalam satu file
  * 4. timestamp_ms harus integer >= 0
  * 5. File tidak boleh kosong
@@ -108,6 +108,8 @@ export function parseJsonlText(
       let message: string;
       if (firstIssue.path.includes('text')) {
         message = `Baris ${lineNumber} tidak memiliki text.`;
+      } else if (firstIssue.path.includes('user_id')) {
+        message = `Baris ${lineNumber} tidak memiliki user_id.`;
       } else if (firstIssue.path.includes('comment_id')) {
         message = `Baris ${lineNumber} tidak memiliki comment_id.`;
       } else if (firstIssue.path.includes('timestamp_ms')) {

@@ -29,6 +29,9 @@ export type Urgency = 'NORMAL' | 'PRIORITY' | 'CRITICAL';
 /** Status validasi respons LLM */
 export type ValidationStatus = 'PASSED' | 'FAILED' | 'NOT_RUN';
 
+/** Sumber aktual seller script, terpisah dari hasil validasi. */
+export type GenerationProvider = 'GEMINI' | 'TEMPLATE';
+
 /**
  * Ringkasan masalah/peluang dominan pada audiens (rolling 60 detik)
  * Spesifikasi Bagian 4.2
@@ -95,6 +98,7 @@ export type ReplayUiState =
 /** Satu baris dalam file replay .jsonl */
 export interface CommentEntry {
   comment_id: string;    // Unique per file; duplikat = error validasi
+  user_id: string;       // Identitas anonim; wajib konsisten antar komentar user yang sama
   timestamp_ms: number;  // Integer ms dari awal sesi; harus ascending
   text: string;          // Render sebagai plain text — JANGAN sebagai HTML
 }
@@ -122,9 +126,13 @@ export interface HealthResponse {
   schema_version: 'health.v1';
   status: 'READY' | 'DEGRADED' | 'OFFLINE';
   services: {
-    api: 'READY' | 'DEGRADED' | 'OFFLINE';
-    nlp_model: 'READY' | 'DEGRADED' | 'OFFLINE';
-    llm_model: 'READY' | 'DEGRADED' | 'OFFLINE';
+    api: 'READY' | 'DEGRADED' | 'OFFLINE' | 'UNKNOWN';
+    nlp_model: 'READY' | 'DEGRADED' | 'OFFLINE' | 'UNKNOWN';
+    llm_model: 'READY' | 'DEGRADED' | 'OFFLINE' | 'UNKNOWN';
+  };
+  provider: {
+    nlp: 'IndoBERT' | 'Heuristic Fallback';
+    llm: 'Gemini API' | 'Gemini API (unverified)' | 'Template Fallback';
   };
 }
 
@@ -161,6 +169,7 @@ export interface SessionStartResponse {
 export interface CommentAnalyzeRequest {
   session_id: string;
   comment_id: string;
+  user_id: string;
   timestamp_ms: number;
   text: string;
 }
@@ -249,6 +258,7 @@ export interface CoachCard {
   suggested_response: string;      // Hasil LLM atau safe fallback — SARAN, bukan auto-kirim
   confidence: number;              // 0-1
   validation_status: ValidationStatus;
+  generation_provider: GenerationProvider;
   fallback_used: boolean;          // Harus terlihat jelas di UI jika true
   used_fact_ids: string[];
 }

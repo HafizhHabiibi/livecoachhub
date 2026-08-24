@@ -70,6 +70,7 @@ class WindowIntentSignal:
     intent: str
     support_count: int
     avg_confidence: float
+    unique_user_count: int
     evidence_comment_ids: List[str] = field(default_factory=list)
 
 
@@ -87,12 +88,25 @@ class ActionEngine:
         self.states = {s["state"]: s for s in self.rules["audience_states"]}
         self.fallback = self.rules["fallback_state"]
 
-    def _passes_threshold(self, support_count: int, confidence: float) -> bool:
+    def _passes_threshold(
+        self,
+        support_count: int,
+        confidence: float,
+        unique_user_count: int,
+    ) -> bool:
         min_count = self.threshold["min_supporting_comments_60s"]
         min_conf = self.threshold["min_state_confidence"]
+        min_unique_users = self.threshold.get("min_unique_users_60s", 1)
         if self.threshold["mode"] == "AND":
-            return support_count >= min_count and confidence >= min_conf
-        return support_count >= min_count or confidence >= min_conf
+            return (
+                support_count >= min_count
+                and confidence >= min_conf
+                and unique_user_count >= min_unique_users
+            )
+        return (
+            support_count >= min_count
+            or confidence >= min_conf
+        ) and unique_user_count >= min_unique_users
 
     def evaluate(
         self,
@@ -116,11 +130,14 @@ class ActionEngine:
                 continue
 
             support_count = sum(s.support_count for s in relevant)
+            unique_user_count = sum(s.unique_user_count for s in relevant)
             # confidence gabungan: rata-rata tertimbang jumlah komentar
             total_conf = sum(s.avg_confidence * s.support_count for s in relevant)
             confidence = round(total_conf / support_count, 4) if support_count else 0.0
 
-            if not self._passes_threshold(support_count, confidence):
+            if not self._passes_threshold(
+                support_count, confidence, unique_user_count
+            ):
                 continue
 
             evidence_ids = [cid for s in relevant for cid in s.evidence_comment_ids][:3]
@@ -130,6 +147,7 @@ class ActionEngine:
                     "state": state_name,
                     "rule": rule,
                     "support_count": support_count,
+                    "unique_user_count": unique_user_count,
                     "confidence": confidence,
                     "evidence_comment_ids": evidence_ids,
                 }
@@ -195,12 +213,14 @@ if __name__ == "__main__":
             intent="SIZE_VARIANT",
             support_count=4,
             avg_confidence=0.91,
+            unique_user_count=4,
             evidence_comment_ids=["CMT-018", "CMT-014"],
         ),
         WindowIntentSignal(
             intent="PRICE_PROMO",
             support_count=1,
             avg_confidence=0.6,
+            unique_user_count=1,
             evidence_comment_ids=["CMT-020"],
         ),
     ]

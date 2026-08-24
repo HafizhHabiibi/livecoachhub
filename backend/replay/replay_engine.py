@@ -25,6 +25,7 @@ from config import REPLAY_DIR
 
 class CommentEntry(TypedDict):
     comment_id: str
+    user_id: str
     timestamp_ms: int
     text: str
 
@@ -52,6 +53,7 @@ def load_replay_file(filename: str = "comments-demo.jsonl") -> List[CommentEntry
                 entry = json.loads(line)
                 comments.append(CommentEntry(
                     comment_id=entry["comment_id"],
+                    user_id=entry["user_id"],
                     timestamp_ms=entry["timestamp_ms"],
                     text=entry["text"],
                 ))

@@ -81,7 +81,9 @@ export default function CoachCard({ result }: CoachCardProps) {
 
         <div className="script-label-row">
           <p className="script-label">Ucapkan ke audiens</p>
-          <span className="validation-label" data-status={card.validation_status}>{validationLabel}</span>
+          <span className="validation-label" data-status={card.validation_status}>
+            {card.generation_provider === 'GEMINI' ? 'Gemini' : 'Template'} · {validationLabel}
+          </span>
         </div>
         <div className="host-script">
           <p>{card.suggested_response}</p>
